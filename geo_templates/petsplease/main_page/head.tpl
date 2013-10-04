@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{module tag='module_title'}</title>
+
+	<title>Pets Please{if {module tag='module_title'} neq ""} - {module tag='module_title'}{/if}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 	<meta name="Keywords" content="KEYWORDS GO HERE" />
@@ -21,7 +22,7 @@
 	<link href="{external file='css/theme_styles.css'}" rel="stylesheet" type="text/css" />
 	<link href="{external file='css/primary_theme_styles.css'}" rel="stylesheet" type="text/css" />
 	<link href="{external file='css/secondary_theme_styles.css'}" rel="stylesheet" type="text/css" />
-	
+
 	<link href='http://fonts.googleapis.com/css?family=BenchNine' rel='stylesheet' type='text/css'>
 	<link href="{external file='css/master.css'}" rel="stylesheet" type="text/css" />
 	<link href="{external file='css/home.css'}" rel="stylesheet" type="text/css" />

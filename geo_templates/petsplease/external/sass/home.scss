@@ -1,10 +1,16 @@
 @import "partials/base";
 
 .content_shell.home {
+	font-family: $font_special;
 	background-color: $powderblue;
 	height: 450px;
 	overflow: auto;
+	margin-bottom: $st_seperator;
 	@include background-image(linear-gradient(bottom right, rgb(84, 197, 208) 30%, rgb(90, 140, 250) 95%));
+}
+.content_shell.home, .content_shell.home p {
+	font-family: $font_special;
+	color: white;	
 }
 
 #homewelcome {
@@ -14,11 +20,13 @@
 	padding: $st_seperator $st_seperator 0;
 	margin: $st_seperator $st_seperator * 3;
 	width: 363px;
-	font-family: $font_default;
 	font-size: 1.6em;
 
+	p {
+		font-size: 22px;
+	}
 	p.large {
-		font-size: 1.4em;
+		font-size: 26px;
 		font-weight: bold;
 	}
 }
@@ -42,7 +50,7 @@
 	width: 353px;
 	height: 354px;
 	float: left;
-	background-color: $navyblue;
+	background-color: $bluegreen;
 	margin: {
 		top: $st_seperator - 1;
 		left: $st_seperator * 1;
@@ -72,7 +80,7 @@
 	}
 	button {
 		font-size: 1.6em;
-		font-family: $font_default;
+		font-family: $font_special;
 		padding: 6px 12px;
 		background-color: $hotpink;
 		border: none;

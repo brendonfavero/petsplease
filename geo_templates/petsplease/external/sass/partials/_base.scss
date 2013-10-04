@@ -7,7 +7,8 @@ $bgwhite: #FBFBFB;
 
 $st_seperator: 24px;
 
-$font_default: 'BenchNine', Verdana, Sans-Serif;
+$font_special: 'BenchNine', Verdana, Sans-Serif;
+$font_default: Verdana, Sans-Serif;
 
 @import "modules/all";
 @import "compass";

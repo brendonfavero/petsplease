@@ -13,9 +13,9 @@
 			</ul>
 
 			<ul id="homewelcome-buttons" class="buttonset clearfix">
-				<li><a href="#">Register</a></li>
-				<li><a href="#">Login</a></li>
-				<li class="last"><a href="#">Create Your Ad</a></li>
+				<li><a href="?a=10">Register</a></li>
+				<li><a href="?a=10">Login</a></li>
+				<li class="last"><a href="?a=10">Create Your Ad</a></li>
 			</ul>
 		</div>
 

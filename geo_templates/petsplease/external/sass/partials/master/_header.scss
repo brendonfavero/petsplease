@@ -3,24 +3,32 @@
 header.page {
 	width: 100%;
 	height: 300px;
-	background: url(../images/all_pets.jpg) no-repeat 60% 33%;  
+	font-family: $font_special;
+	background: url(../images/all_pets.jpg) no-repeat 60% 42%;  
 }
 #logo {
 	display: block;
 	margin: 10px;
 	float: left;
 }
-#header-bytext {
-	font-size: 1.5em;
+#header-bytext, #header-bytext2 {
+	font-size: 2.1em;
 	float:right;
 	clear:right;   
 }
+#header-bytext {
+	color: $powderblue;
+	margin-top: 70px;
+}
+#header-bytext2 {
+	color: $navyblue;
+}
 #header-buttons {
-	font-size: 1.2em;
+	font-size: 1.3em;
 	float:right;
 
 	a, span {
-		padding: ($st_seperator / 4) ($st_seperator / 2);
+		padding: ($st_seperator / 4) 15px;
 	}
 	li.first {
 		margin: 0;
@@ -32,19 +40,55 @@ header.page {
 	a:hover, a:active {
 		text-decoration: underline;
 	}
+
+	a.icon-link {
+		padding: 4px 10px;
+
+		div {
+			width: 28px;
+			height: 28px;
+			background-repeat: no-repeat;
+			overflow: hidden;
+		}
+	}
+
+	a .icon-facebook {
+		background-image: url(../images/facebook_icon_grey.png);
+	}
+	a:hover .icon-facebook, a:active .icon-facebook {
+		background-image: url(../images/facebook_icon.png);
+	}
+
+	a .icon-instagram {
+		background-image: url(../images/instagram_icon_grey.png);
+	}
+	a:hover .icon-instagram, a:active .icon-instagram {
+		background-image: url(../images/instagram_icon.png);
+	}
+
+	.right-divider {
+		border-right: 1px solid black;
+	}
 }
 
 /** Main Listing Category Navigation **/ 
 #header-petnav {
 	clear: both;
-	@include buttonset-setwidth(1052px, $st_seperator, 2, 1, 5);
-	margin-bottom: 1px;
+
+	@include buttonset-setwidth(1052px - 2, $st_seperator, 0, 1, 5);
 
 	li {
 		background-color: white;
 		background-repeat: no-repeat;
 		background-position: 15px;
-		border: 1px solid black;
+		margin-right: 0;
+
+		border: 1px solid #777777;
+		border-style: solid none none solid;
+
+		&.last {
+			border-right-style: solid;
+		}
 
 		@each $item in dog, cat, bird, fish, other {
 			&.nav-#{$item} {
@@ -53,16 +97,25 @@ header.page {
 		}
 	}
 	a {
+		height: 83px;
 		background-color: rgba(255,255,255, 0.5);
-		padding: 50px ($st_seperator / 2) ($st_seperator / 4);
+		padding: 0 ($st_seperator / 2);
+		// padding: 50px ($st_seperator / 2) ($st_seperator / 4);
 		font-size: 1.5em;
-		text-align: right;
 		color: black;
+		position: relative;
 
 		@include transition(background-color .5s ease-out);
 
 		&:hover {
 			background-color: transparent;
+		}
+
+		span {
+			position: absolute;
+			bottom: ($st_seperator / 4);
+			right: 12px;
+			text-align:right;
 		}
 	}
 }
@@ -70,17 +123,22 @@ header.page {
 /** Main Page Navigation **/
 #header-nav {
 	font-size: 1.2em;
-	@include buttonset-setwidth(1052px, $st_seperator, 0, 1, 8);
+	@include buttonset-setwidth(1052px, $st_seperator, 0, 0, 8);
 
+	li {
+		margin-right: 0px;
+	}
 	a {
 		color: white;
 		line-height: 1;
 		padding: ($st_seperator / 4) ($st_seperator / 2);
-		background-color: $bluegreen;
-		@include background-image(linear-gradient(top right, rgb(31, 117, 124) 15%, rgb(28, 92, 97) 90%));
+		background-color: $navyblue;
+		// @include background-image(linear-gradient(top right, rgb(31, 117, 124) 15%, rgb(28, 92, 97) 90%));
+		@include background-image(linear-gradient(top right, rgb(46, 49, 146) 15%, rgb(76, 79, 176) 90%));
 
 		&:hover {
 			background-color: $navyblue;
+			background-image: none;
 		}
 	}
 }

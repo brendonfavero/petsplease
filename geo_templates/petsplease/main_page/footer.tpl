@@ -29,7 +29,8 @@
 		</div>
 	</nav>
 	<div class="disclaimer">
-		<h4>Copyright &copy;  {$smarty.now|date_format:"%Y"} YOUR COMPANY NAME.  All Rights Reserved.</h4>
+		<h4>Copyright &copy;  {$smarty.now|date_format:"%Y"} Pets Please.  All Rights Reserved.</h4>
+		<p>Pets Please is an Australian owned and managed business part of the Please Network.</p>
 		<p>Use of this Web site constitutes acceptance of the <a href="index.php?a=28&amp;b=140">User Agreement</a> and <a href="index.php?a=28&amp;b=145">Privacy Policy</a>.  Designated trademarks and brands are the property of their respective owners.</p>
 	</div>
 </footer>

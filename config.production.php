@@ -32,8 +32,8 @@ The information below is required to connect the software to your MySQL
 database.
 */
 
-$db_host = "localhost";//location of sql host - usually localhost
-$db_username = "root";//username used to connect to database
+$db_host = "petspleaseinstance.cwqvzzptf6gt.ap-southeast-2.rds.amazonaws.com:3306";//location of sql host - usually localhost
+$db_username = "awspp";//username used to connect to database
 $db_password = "richter13";//password used to connect to database
 $database = "petsplease";//name of database
 
