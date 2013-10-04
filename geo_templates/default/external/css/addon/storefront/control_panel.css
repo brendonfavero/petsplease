@@ -1,0 +1,123 @@
+/* 7.2.1-9-g2bc7e84 */
+
+/* stats page */
+
+.unique_visits {
+	margin: 2px;
+	border: 1px solid #a7c1dd;
+	background: #e2e4e9 url('../../../images/backgrounds/button.gif') repeat-x center left;
+	color: #666666;
+	font-weight: bold;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	float: left;
+}
+
+.total_visits {
+	border: 1px solid #a7c1dd;
+	background: #b7d5f2 url('../../../images/backgrounds/button_hover.gif') repeat-x center left;
+	color: #3c70ac;
+	font-weight: bold;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	float: left;
+}
+
+.legend {
+	width: 100px;
+	border: 1px solid #a7c1dd;
+}
+
+#storefront_stats strong {
+	display: block;
+	float: left;
+	padding-right: 20px;
+}
+
+#stats_controls {
+	margin: 10px 0px 0px 22px;
+}
+
+/* Categories and Pages lists */
+
+.sortable_list {
+	list-style: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.sortable_list div.item_name {
+	padding-top: 3px;
+}
+
+.sortable_item_controls {
+	float: right;
+	margin-top: 2px;
+	cursor: pointer;
+}
+
+.storefront_sort_item {
+	border: 5px solid #eaeaea;
+	padding: 4px 10px 6px 10px;
+	margin: 5px;
+	font-weight: bold;
+	font-size: 12px;
+	background: #f7f7f7;
+	color: #666666;
+	display: block;
+	cursor: pointer;
+	height: auto;
+}
+
+.storefront_sort_item:hover {
+	background: #ffffe1;
+	cursor: pointer;
+}
+
+.button_green {
+	background: url("../../../images/backgrounds/button.gif") repeat-x scroll left center #E2E4E9;
+    border: 1px solid #CACBCC;
+    color: #666666;
+    font-size: 12px;
+   font-weight: bold;
+    margin: 1px;
+    padding: 3px 5px 2px;
+    text-decoration: none;
+}
+
+.button_green:hover, .button_green:active {
+	border: 1px solid #7CA93A;
+	background: #EBF4DD url('../../../images/backgrounds/button_hover.gif') repeat-x center left;
+	color: #648D25;
+	text-decoration: none;
+}
+	
+.button_red {
+	background: url("../../../images/backgrounds/button.gif") repeat-x scroll left center #E2E4E9;
+    border: 1px solid #CACBCC;
+    color: #666666;
+    font-size: 12px;
+    font-weight: bold;
+ 	margin: 1px;
+    padding: 3px 5px 2px;
+    text-decoration: none;
+}
+
+.button_red:hover, .button_red:active {
+	border: 1px solid #e4a0a2;
+	background: #f0b5b7 url('../../../images/backgrounds/button_cancel.gif') repeat-x center left;
+	color: #9e4144;
+	text-decoration: none;
+}
+
+.subcat_input_container {
+	margin-left: 20px;	
+}
+
+.subcat_divider {
+	width: 90%;
+	margin: 7px auto;
+}

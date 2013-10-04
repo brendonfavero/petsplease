@@ -4,3 +4,7 @@ templates_c
 _geocache
 !_geocache/_cacheSettings.php
 !_geocache/_cacheSettings.php.EXPIRE
+
+# Don't allow generated CSS files in our template to be added
+geo_templates/petsplease/external/css
+.sass-cache

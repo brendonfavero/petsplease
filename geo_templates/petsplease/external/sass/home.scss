@@ -1,0 +1,83 @@
+@import "partials/base";
+
+.content_shell.home {
+	background-color: $powderblue;
+	height: 450px;
+	overflow: auto;
+	@include background-image(linear-gradient(bottom right, rgb(84, 197, 208) 30%, rgb(90, 140, 250) 95%));
+}
+
+#homewelcome {
+	float: left;
+	background-color: $hotpink;
+	color: white;
+	padding: $st_seperator $st_seperator 0;
+	margin: $st_seperator $st_seperator * 3;
+	width: 363px;
+	font-family: $font_default;
+	font-size: 1.6em;
+
+	p.large {
+		font-size: 1.4em;
+		font-weight: bold;
+	}
+}
+
+#homewelcome-buttons {
+	margin: $st_seperator (-$st_seperator) 0;
+	@include buttonset-setwidth(411px, $st_seperator, 0, 1, 3);
+
+	a {
+		color: white;
+		padding: ($st_seperator / 4) ($st_seperator / 2);
+		background-color: $navyblue;
+
+		&:hover {
+			background-color: $bluegreen;
+		}
+	}
+}
+
+#homesearch {
+	width: 353px;
+	height: 354px;
+	float: left;
+	background-color: $navyblue;
+	margin: {
+		top: $st_seperator - 1;
+		left: $st_seperator * 1;
+		bottom: $st_seperator - 1;
+		right: $st_seperator * 3;
+	}
+	padding: $st_seperator;
+	color: white;
+
+	h2 {
+		font-size: 2.5em;
+		margin-bottom: 24px;
+	}
+	label {
+		font-size: 1.5em;
+		display: block;
+		width: 150px;
+		float: left;
+		clear: left;
+	}
+	div {
+		margin-bottom: 20px;
+	}
+	select, input {
+		margin-top: 4px;
+		width: 353px - 150px - 6;
+	}
+	button {
+		font-size: 1.6em;
+		font-family: $font_default;
+		padding: 6px 12px;
+		background-color: $hotpink;
+		border: none;
+		cursor: pointer;
+		color: white;
+		width: 100%;
+	}
+}

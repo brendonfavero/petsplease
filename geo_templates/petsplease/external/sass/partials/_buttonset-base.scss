@@ -1,0 +1,20 @@
+.buttonset {
+	list-style: none;
+	display: block;
+
+	li {
+		float: left;
+		display: block;
+		margin-right: 1px;
+
+		&.last {
+			margin-right: 0;
+		}
+	}
+
+	a, span {
+		display: block;
+		text-decoration: none;
+		text-align: center;
+	}
+}

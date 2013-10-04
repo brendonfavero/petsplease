@@ -22,6 +22,10 @@
 	<link href="{external file='css/primary_theme_styles.css'}" rel="stylesheet" type="text/css" />
 	<link href="{external file='css/secondary_theme_styles.css'}" rel="stylesheet" type="text/css" />
 	
+	<link href='http://fonts.googleapis.com/css?family=BenchNine' rel='stylesheet' type='text/css'>
+	<link href="{external file='css/master.css'}" rel="stylesheet" type="text/css" />
+	<link href="{external file='css/home.css'}" rel="stylesheet" type="text/css" />
+
 	{* HTML5 compatibility for browsers before IE 9. *}
 	<!--[if lt IE 9]>
 		<script type="text/javascript" src="js/html5shiv.js"></script>

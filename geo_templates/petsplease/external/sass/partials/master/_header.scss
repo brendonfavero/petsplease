@@ -1,0 +1,86 @@
+@import "partials/base";
+
+header.page {
+	width: 100%;
+	height: 300px;
+	background: url(../images/all_pets.jpg) no-repeat 60% 33%;  
+}
+#logo {
+	display: block;
+	margin: 10px;
+	float: left;
+}
+#header-bytext {
+	font-size: 1.5em;
+	float:right;
+	clear:right;   
+}
+#header-buttons {
+	font-size: 1.2em;
+	float:right;
+
+	a, span {
+		padding: ($st_seperator / 4) ($st_seperator / 2);
+	}
+	li.first {
+		margin: 0;
+
+		span {
+			color: black;
+		}
+	}
+	a:hover, a:active {
+		text-decoration: underline;
+	}
+}
+
+/** Main Listing Category Navigation **/ 
+#header-petnav {
+	clear: both;
+	@include buttonset-setwidth(1052px, $st_seperator, 2, 1, 5);
+	margin-bottom: 1px;
+
+	li {
+		background-color: white;
+		background-repeat: no-repeat;
+		background-position: 15px;
+		border: 1px solid black;
+
+		@each $item in dog, cat, bird, fish, other {
+			&.nav-#{$item} {
+				background-image: url(../images/icon-#{$item}.jpg);
+			}
+		}
+	}
+	a {
+		background-color: rgba(255,255,255, 0.5);
+		padding: 50px ($st_seperator / 2) ($st_seperator / 4);
+		font-size: 1.5em;
+		text-align: right;
+		color: black;
+
+		@include transition(background-color .5s ease-out);
+
+		&:hover {
+			background-color: transparent;
+		}
+	}
+}
+
+/** Main Page Navigation **/
+#header-nav {
+	font-size: 1.2em;
+	@include buttonset-setwidth(1052px, $st_seperator, 0, 1, 8);
+
+	a {
+		color: white;
+		line-height: 1;
+		padding: ($st_seperator / 4) ($st_seperator / 2);
+		background-color: $bluegreen;
+		@include background-image(linear-gradient(top right, rgb(31, 117, 124) 15%, rgb(28, 92, 97) 90%));
+
+		&:hover {
+			background-color: $navyblue;
+		}
+	}
+}

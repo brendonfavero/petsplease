@@ -1,0 +1,18 @@
+/* Parms:
+	$setwidth: the width of the space the entire bar should fit into
+	$x_tot_padding: the total (horizontal) padding of each element
+	$x_tot_border: the total (horizontal) padding of each element
+	$x_side_margin: the right margin of li (no other horizontal margin must exist on li/a/span)
+*/
+@mixin buttonset-setwidth($setwidth, $x_tot_padding, $x_tot_border, $x_right_margin, $numitems) {
+	$total_content_width: $setwidth - $numitems * ($x_tot_padding + $x_tot_border + $x_right_margin) + $x_right_margin;
+	$cell_width: ceil($total_content_width / $numitems);
+
+	a, span {
+			width: $cell_width;
+	}
+
+	li.last a, li.last span {
+		width: $total_content_width - ($cell_width * ($numitems - 1));
+	}
+}

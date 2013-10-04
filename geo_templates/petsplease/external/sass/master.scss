@@ -1,0 +1,23 @@
+@import "partials/base";
+
+@import "partials/reset";
+@import "partials/util";
+@import "partials/buttonset-base";
+
+@import "partials/master/global.scss";
+@import "partials/master/header.scss";
+@import "partials/master/content.scss";
+@import "partials/master/footer.scss";
+
+/* Ad spots */
+.adspot728x90 {
+	width: 728px;
+	height: 90px;
+	background-color: green;
+ }
+
+.adspot160x600 {
+	width: 160px;
+	height: 600px;
+	background-color: red;
+}
