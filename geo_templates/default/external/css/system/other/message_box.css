@@ -1,0 +1,40 @@
+/* 6.0.7-3-gce41f93 */
+
+#messageBox {
+	/* The container for messages displayed */
+	position: absolute;
+	border: 1px dashed blue;
+	padding: 10px;
+	background-color: white;
+	left: 40%;
+	width: 350px;
+	z-index: 1001;
+	font-weight: bold;
+	text-align: center;
+}
+
+.closeMessage {
+	/* The edit and delete image icons, used to make it clear you can click on them */
+	cursor: pointer;
+}
+.moveMessage {
+	/* specific for message move thingy */
+	cursor: move;
+	
+	/* make it hidden, as ability to move message is mainly to make it not fade */
+	color: white;
+	margin-right: 5px;
+}
+.messageBoxButtons {
+	/* Box for the buttons to delete or edit an image */
+	float: right;
+	margin-top: -8px;
+	/* Works in FireFox only, to make it transparent until you hover over it */
+	opacity: 0.6;
+	
+	/* Here is the solution for IE but it makes the icon look all pixilated, IE is
+	bad at "filtering" PNG files, if you want to use it anyways, just un-comment it: */
+	/*
+	filter:alpha(opacity=60)
+	*/
+}

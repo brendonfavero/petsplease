@@ -1,0 +1,261 @@
+/* 6.0.7-3-gce41f93 */
+
+/*
+Customization tip:  if want to customize these styles, copy them to your 
+theme_styles.css file in your template set and customize there.
+*/
+
+.imageBox, .imageBoxEmpty {
+	/* Style for each of the image boxes, including the new image box */
+	
+	border: 5px solid #eaeaea;
+	background: #f7f7f7;
+	padding: 5px 5px 12px 5px;
+	margin: 10px;
+	float: left;
+	white-space: nowrap;
+	width: 295px;
+	height: 135px;
+	background-color: white;
+}
+
+.firstUploadSlot {
+	/* If you want to do special styling for first slot, this is where! */
+	
+	
+}
+
+#newImageBox {
+	/* Specific styles for the new image box. */
+	
+	/* position needs to be absolute for the fancy moving about of the box */
+	position: absolute;
+	background-color: white;
+}
+
+.imageBoxClear {
+	/* Empty div used to clear all the right floating boxes */
+	clear: right;
+	width: 0px;
+	height: 0px;
+	line-height: 0px;
+}
+
+.imageBoxEmpty {
+	/* Specific for empty boxes, make it kinda see-through looking */
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+#uploadBar {
+	/* This is the part of the progress bar with actual progress made. */
+	background-color: #cccccc;
+	overflow: hidden;
+	height: 8px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#plopDropImageHere {
+	/* 
+	 * this is the box that appears in the slot where an image will be moved
+	 * to.
+	 */
+	
+	/* position needs to be absolute in order to be in the correct location */
+	position: absolute;
+	padding: 5px;
+	margin: 0px;
+	white-space: nowrap;
+	width: 295px;
+	height: 75px;
+	border: 2px dashed gray;
+	background-color: #DFDFDF;
+	text-align: center;
+	padding-top: 60px;
+	font-weight: bold;
+}
+
+.imageBoxTitle,
+.imageBoxTitleEmpty,
+.imageBoxTitleNew
+{
+	/* The styles used for the title of each image box */
+	border: none;
+	background: #4174a6;
+	color: white;
+	padding: 4px 0px 0px 5px;
+	margin: -5px -5px 4px -5px;
+	
+	height: 24px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.imageBoxTitle {
+	background: #4174a6 url('../../../../images/backgrounds/c_bar_primary.gif');
+	/* These boxes can be moved, so give title a cursor for moving */
+	cursor: move;
+}
+
+
+.imageBoxTitleNew {
+	background: #7ca93a url('../../../../images/backgrounds/c_bar_secondary.gif');
+}
+
+.imageBoxTitleEmpty {
+	background: #eaeaea;
+	color: #737373;
+}
+
+.imageBoxTitleButtons {
+	/* Box for the buttons to delete or edit an image */
+	float: right;
+	margin-top: -8px;
+	/* Works in FireFox only, to make it transparent until you hover over it */
+	opacity: 0.6;
+	
+	/* Here is the solution for IE but it makes the icon look all pixilated, IE is
+	bad at "filtering" PNG files, if you want to use it anyways, just un-comment it: */
+	/*
+	filter:alpha(opacity=60)
+	*/
+}
+.imageBoxTitleButtons:HOVER {
+	/* Make hove effect to make it look like button being held down */
+	padding-top: 3px;
+	/* Works in Firefox only, to make it no longer transparent when you hover */
+	opacity: 1;
+	
+	/* Here is the solution for IE but it makes the icon look all pixilated, IE is
+	bad at "filtering" PNG files, if you want to use it anyways, just un-comment it: */
+	/*
+	filter:alpha(opacity=100)
+	*/
+}
+
+.progressContainer {
+	/* This is the box containing the progress bar, and the text underneith it */
+	width: 180px;
+	border: 1px solid gray;
+	float: right;
+	vertical-align: middle;
+	color: gray;
+	padding: 1px;
+	overflow: hidden;
+}
+
+#selectFileButtonBox {
+	/* box the select file is in, used to position it where we want */
+	float: right;
+	margin-top: 2px;
+	width: 96px;
+	height: 24px;
+}
+
+.imagePreview {
+	/* Image preview box for each of the image slots */
+	float: left;
+	width: 102px;
+	height: 108px;
+	border: 2px solid #eaeaea;
+	background: #f7f7f7;
+	margin-right: 3px;
+	margin-bottom: 3px;
+	padding: 1px;
+	text-align: center;
+	vertical-align: middle;
+}
+#imagePreview {
+	/* image preview box specific to image uploader box */
+	
+}
+
+.emptyPreview {
+	/* class applied when nothing is in the preview box, even applied to
+	image uploader box when nothing is in preview box */
+	padding-top: 35px;
+	
+	/* with that extra padding, need to adjust height */
+	/* normal height - EXTRA padding: 108 - 34 */
+	height: 74px; 
+}
+
+.magnifyingLink {
+	/* Link containing magnifying glass by default */
+	display: block;
+	position: absolute;
+	
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+	border: 1px solid black;
+	
+	/* Make it hover over the actual image in bottom corner, it will be cool! */
+	margin: 4px;
+	
+	/* make it a little see-through so it doesn't look so bad */
+	opacity: .8;
+	filter:alpha(opacity=80);
+	
+	background-color: white;
+}
+
+#standardUploadBox {
+	/* overall containter for "standard" image uploader (the fancy one) */
+	
+}
+
+.uploadButtonsContainer {
+	/* This is the container for upload/edit and cancel buttons in image
+	upload box */
+	text-align: right;
+}
+
+#loadingBox {
+	/* When the page is first loading, this is the style for the box saying
+	that the page is loading */
+	width: 300px;
+	height: 100px;
+	border: 2px dashed gray;
+	margin-left: 200px;
+	margin-top: 100px;
+	padding: 40px;
+}
+
+#loadingBox img {
+	/* Position the image in the loading box */
+	vertical-align: middle;
+	margin-right: 50px;
+}
+
+.editImage,
+.deleteImage {
+	/* The edit and delete image icons, used to make it clear you can click on them */
+	cursor: pointer;
+}
+
+.fileSlotLabel,
+.fileTitleLabel,
+.fileCostLabel {
+	font-weight: bold;
+}
+.fileTitleBox {
+	/* The box the title label and value are in */
+	white-space: normal;
+}
+
+.imagesCapturedBoxClear {
+	clear: both;
+}
+
+.normalUploaderShowLink {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#barAnimation {
+	vertical-align: top;
+} 
+
+

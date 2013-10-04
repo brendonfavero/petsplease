@@ -1,0 +1,78 @@
+/* 7.2beta1-11-g6639813 */
+
+/* The new navigation styles, mimic category navigation from 5.1 */
+
+div.geographic_navigation_column {
+	float: left;
+}
+div.geographic_navigation_column ul {
+	margin: 0;
+	padding: 5px;
+}
+
+div.geographic_navigation_column ul li.element {
+	list-style: none;
+	font-weight: bold;
+	padding: 5px 0;
+	margin: 0;
+}
+
+table.geographic_navigation_column {
+	width: 100%;
+}
+table.geographic_navigation_column td.element {
+	font-weight: bold;
+}
+
+.geographic_navigation_column ul.sub_regions li.element {
+	/* specific to sub-categories */
+	list-style: circle;
+	font-weight: normal;
+	padding: 0px;
+	margin: 0px 0px 0px 20px;
+}
+
+div#geoNavChangeBox {
+	/* Change box for changing geo navigation location */
+	border: 2px solid #666666;
+	background-color: white;
+	padding: 15px;
+	display: inline-block;
+	
+	z-index: 50;
+}
+
+div.narrowRegionLevel {
+	float: left;
+	padding: 10px;
+	border-right: 1px solid #a5a5a5;
+}
+
+.narrowRegionLink {
+	cursor: pointer;
+}
+.narrowRegionLink:hover {
+	text-decoration: underline;
+}
+
+.selectedRegion {
+	font-weight: bold;
+	color: #7CA93A;
+}
+
+ul.narrowRegionSelect {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.geographic_navigation_changeLink {
+	/* Change location link */
+	cursor: pointer;
+}
+
+div.category_navigation_box {
+	/*  Add a max-height to keep navigation from getting too long, and make it scroll */
+	max-height: 400px;
+	overflow: auto;
+}

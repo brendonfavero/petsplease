@@ -1,0 +1,136 @@
+/* 6.0.7-207-gdda0cc0 */
+
+/*
+Customization tip:  if want to customize these styles, copy them to your 
+theme_styles.css file in your template set and customize there.
+*/
+
+div.offsite_video_slot {
+	float: left;
+	width: 250px;
+	border: 5px solid #EAEAEA;
+	margin: 5px;
+	padding: 5px 5px 12px 5px;
+	background: white;
+}
+
+div.offsite_video_box_title,
+div.offsite_video_box_title_empty,
+div.offsite_video_box_title_editing {
+	/* The styles used for the title of each image box */
+	border: none;
+	background-color: #4174a6;
+	color: white;
+	padding: 4px 0px 0px 5px;
+	margin: -5px -5px 4px -5px;
+	
+	height: 24px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+div.offsite_video_box_title_empty {
+	background-color: #eaeaea;
+	color: #737373;
+}
+
+div.offsite_video_box_title {
+	background: #4174a6 url('../../../../images/backgrounds/c_bar_primary.gif');
+	/* These boxes can be moved, so give title a cursor for moving */
+	cursor: move;
+}
+
+div.offsite_video_box_title_editing {
+	background: #7ca93a url('../../../../images/backgrounds/c_bar_secondary.gif');
+}
+
+input.offsite_video_id_input {
+	width: 230px;
+}
+
+.offsite_video_box_title_buttons {
+	/* Box for the buttons to delete or edit an image */
+	float: right;
+	margin-top: -8px;
+	/* Works in FireFox only, to make it transparent until you hover over it */
+	opacity: 0.6;
+	
+	/* Here is the solution for IE but it makes the icon look all pixilated, IE is
+	bad at "filtering" PNG files, if you want to use it anyways, just un-comment it: */
+	/*
+	filter:alpha(opacity=60)
+	*/
+}
+.offsite_video_box_title_buttons:HOVER {
+	/* Make hove effect to make it look like button being held down */
+	padding-top: 3px;
+	/* Works in Firefox only, to make it no longer transparent when you hover */
+	opacity: 1;
+	
+	/* Here is the solution for IE but it makes the icon look all pixilated, IE is
+	bad at "filtering" PNG files, if you want to use it anyways, just un-comment it: */
+	/*
+	filter:alpha(opacity=100)
+	*/
+}
+
+.delete_offsite_video {
+	/* The edit and delete image icons, used to make it clear you can click on them */
+	cursor: pointer;
+}
+
+div.preview_offsite_video_box {
+	/* This is the box that embeded offsite_video videos are shoved in */
+	width: 240px;
+	height: 195px;
+	background-color: #f7f7f7;
+	border: 2px solid #eaeaea;
+	padding: 0px;
+}
+
+.offsite_video_slot_label,
+.offsite_video_cost_label,
+.offsite_video_id_label {
+	font-weight: bold;
+}
+
+.offsite_video_id_label.required {
+	color: #4987C5;
+}
+
+.offsite_video_slot_value,
+.offsite_video_cost_value {
+	/* Able to specify CSS for values if desired. */
+	
+}
+
+.offsite_video_action_buttons {
+	text-align: right;
+	height: 20px;
+	margin: 10px 0px 5px;
+}
+
+div.offsite_video_loading_container {
+	float: left;
+}
+
+div#plopDropVideoHere {
+	/* 
+	 * this is the box that appears in the slot where an image will be moved
+	 * to.
+	 */
+	
+	/* position needs to be absolute in order to be in the correct location */
+	position: absolute;
+	padding: 5px;
+	margin: 0px;
+	white-space: nowrap;
+	width: 245px;
+	height: 175px;
+	border: 2px dashed gray;
+	background-color: #DFDFDF;
+	text-align: center;
+	padding-top: 160px;
+	font-weight: bold;
+}
+

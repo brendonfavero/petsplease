@@ -1,0 +1,114 @@
+@CHARSET "UTF-8";
+
+/*header*/
+
+div#header p, div#header h1, div#header ul {
+	margin: 0;
+	padding: 0;
+}
+
+div#logo a {
+	display: block;	
+}
+
+div#header {
+	height: 85px;
+	border-bottom: 2px solid #FFF;  /*EDIT PER STYLESHEET*/
+}
+
+div#header-inside {
+	font-family: Arial, Helvetica;
+	padding: 0;
+}
+
+div#logo h1 a {
+	height: 85px;
+	width: 960px;
+	float: left;
+	color: white;
+	padding: 8px 0px 0px 105px;
+	text-decoration: none;
+	font-size: 24px;
+	opacity: 0.9;
+}
+div#logo h1 a span {
+	/* The smaller text under the main */
+	font-size: 14px;
+	vertical-align: top;
+}
+div.geoCoreLogo h1 a {
+	background: url('../admin_images/design/header_logo_geocore.png') no-repeat; /*EDIT PER STYLESHEET*/
+}
+
+
+p#geodesic {
+	float: right;
+	height: 31px;
+	width: 350px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	text-align: right;
+	color: #ECF9FF;
+	font-size: 12px;
+	font-family: Arial, Helvetica;
+	font-weight: bold; 
+}
+
+p#geodesic a {
+	color: #FFFFFF;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+p#geodesic span {
+	display: block;
+	color: #FFFFFF;
+	font-size: 12px;
+	text-decoration: none;
+	padding-top: 3px;
+}
+
+/*horizontal header menu*/
+
+ul.topAdminTabs {
+	clear: both;
+	
+	list-style: none;
+	position: absolute;
+	top: 58px;
+	right: 10px;
+}
+
+ul.topAdminTabs.leftTabs {
+	left: 10px;
+}
+
+ul.topAdminTabs li {
+	float: left;
+	margin-left: 2px;
+	line-height: 1.4;
+}
+
+ul.topAdminTabs li a {
+	color: #085DAD;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+	width: 100px;
+	height: 17px;
+	padding: 5px 0;
+	display: block;
+	background-image: url(../admin_images/design/tab.gif); /*EDIT PER STYLESHEET*/
+	background-repeat: no-repeat;
+	background-position: center left;
+	font-size: 12px;
+}
+
+ul.topAdminTabs li a:hover, ul#menu li a:active {
+	background-position: top left;
+}
+
+ul.topAdminTabs li a.selected {
+	background-position: bottom left;
+}

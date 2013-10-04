@@ -1,0 +1,24 @@
+/* 6.0.7-3-gce41f93 */
+
+/* CSS for module Category Browsing Options (#category_browsing_options) */
+
+/* Browsing Options Link Text */
+.browsing_options_links {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+}
+/* Other links in Category Browsing Options */
+.browsing_options_not_selected {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+}
+/* Selected link in Category Browsing Options */
+.browsing_options_selected {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+}

@@ -1,0 +1,36 @@
+/* 6.0.7-3-gce41f93 */
+
+/* Style information for my_account_links module */
+
+li.my_account_links_active { background-color: #eeeeee; }
+li.my_account_links_inactive { background-color: #ffffff; }
+
+.user_links { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 10pt;
+	font-style: normal; 
+	font-weight: bold; 
+	color: #666666;
+	text-align: left;
+}
+
+a.user_links {
+	text-decoration: underline; 
+}
+
+.icon_links_ie_fix {
+	/* otherwise IE tries to underline the icons... */
+	text-decoration: none;
+}
+
+.needs_attention {
+	color: #FF0000;
+}
+
+.cartIcon img {
+	/* This is the cart icon image */
+	
+	/* Negate the padding top of 5px so text will be aligned correctly */
+	margin-top: -5px;
+}
+

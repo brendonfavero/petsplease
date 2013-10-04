@@ -1,0 +1,123 @@
+/* 7.1beta5-45-gbad7dcf */
+
+
+/* Beta box controls */
+#demo_box {
+	/* Really it's fixed, we just do this for stupid IE6 to at least "function" */
+	position: absolute;
+	
+	left: 0px;
+	top: -200px;
+	width: 100%;
+	overflow: hidden;
+	padding: 20px;
+	border-bottom: 5px solid #7cb147;
+	background: #eaeaea;
+	z-index: 10000;
+	
+	font-size:12px;
+	text-align: center;
+	color: #333;
+	font-family: Arial, Helvetica, sans-serif; 
+}
+body>#demo_box {
+	/* For "normal" browsers */
+	position: fixed;
+}
+
+div#demo_box_label {
+	/* Really it's fixed, we just do this for stupid IE6 to at least "function" */
+	position: absolute;
+	
+	right: 45px;
+	top: -1px;
+	z-index: 10001;
+	
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	border-bottom: 5px solid #7cb147;
+	border-left: 5px solid #7cb147;
+	border-right: 5px solid #7cb147;
+	border-top: none;
+	background: #eaeaea;
+	/*background: #e2e4e9 url('../admin_images/design/blu_button_bg.gif') repeat-x center left; */
+	color: #666666; 
+	padding: 3px 10px 2px 10px; 
+	font-weight: bold; 
+	white-space: nowrap;
+	border-radius: 0 0 15px 15px;
+	transition-duration: 0.5s;
+}
+
+body>div#demo_box_label {
+	/* For "normal" browsers that know how to fix things */
+	position: fixed;
+}
+
+#demo_box_label .mini_button {
+	cursor: pointer;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+#demo_box_label a.mini_button {
+	height: 17px;
+}
+
+div#demo_box_label:hover {
+	background: white;
+}
+
+/*edition control box*/
+
+.edition_dropdown,
+.master_dropdown,
+.theme_dropdown
+{
+	border: 1px solid white; 
+	padding: 5px;
+	font-weight: bold;
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+	margin: 5px;
+}
+
+#demo_box p {
+	font-weight: normal;
+}
+
+.theme_dropdown select {
+	width: 115px;
+}
+
+.edition_dropdown_text,
+.master_dropdown_text,
+.theme_dropdown_text
+{
+	background-color: #efefef;
+	
+	font-size:12px;
+}
+
+/* Color boxes in tab thingy */
+.theme_color_box {
+	display: inline-block;
+	width: 12px;
+	height: 10px;
+	margin-top: 5px;
+	margin-right: 3px;
+	overflow: hidden;
+} 
+
+.text_green {
+	color: #7cb147;
+}
+
+#demo_box h1 {
+	color: #006699;
+	margin: 3px;
+	font-size: 14px;
+}
+
