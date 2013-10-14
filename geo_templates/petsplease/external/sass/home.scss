@@ -82,10 +82,14 @@
 		font-size: 1.6em;
 		font-family: $font_special;
 		padding: 6px 12px;
-		background-color: $hotpink;
+		background-color: $navyblue;
 		border: none;
 		cursor: pointer;
 		color: white;
 		width: 100%;
+
+		&:hover {
+			// background-color: $bluegreen;
+		}
 	}
 }

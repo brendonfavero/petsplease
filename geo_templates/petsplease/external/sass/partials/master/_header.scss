@@ -14,7 +14,8 @@ header.page {
 #header-bytext, #header-bytext2 {
 	font-size: 2.1em;
 	float:right;
-	clear:right;   
+	clear:right;
+	margin-right: 12px;   
 }
 #header-bytext {
 	color: $powderblue;
@@ -75,7 +76,7 @@ header.page {
 #header-petnav {
 	clear: both;
 
-	@include buttonset-setwidth(1052px - 2, $st_seperator, 0, 1, 5);
+	@include buttonset-setwidth(1052px - 2, $st_seperator, 0, 1, 6);
 
 	li {
 		background-color: white;
@@ -90,7 +91,7 @@ header.page {
 			border-right-style: solid;
 		}
 
-		@each $item in dog, cat, bird, fish, other {
+		@each $item in dog, cat, bird, fish, reptile, other {
 			&.nav-#{$item} {
 				background-image: url(../images/icon-#{$item}.jpg);
 			}
@@ -123,21 +124,18 @@ header.page {
 /** Main Page Navigation **/
 #header-nav {
 	font-size: 1.2em;
-	@include buttonset-setwidth(1052px, $st_seperator, 0, 0, 8);
+	@include buttonset-setwidth(1052px, $st_seperator, 0, 1, 8);
 
-	li {
-		margin-right: 0px;
-	}
 	a {
 		color: white;
 		line-height: 1;
 		padding: ($st_seperator / 4) ($st_seperator / 2);
 		background-color: $navyblue;
-		// @include background-image(linear-gradient(top right, rgb(31, 117, 124) 15%, rgb(28, 92, 97) 90%));
-		@include background-image(linear-gradient(top right, rgb(46, 49, 146) 15%, rgb(76, 79, 176) 90%));
+		// @include background-image(linear-gradient(top right, rgb(46, 49, 146) 15%, rgb(76, 79, 176) 90%));
+		@include background-image(linear-gradient(#3e7195, #3E4095 50%, #3e7195));
 
 		&:hover {
-			background-color: $navyblue;
+			background-color: $bluegreen;
 			background-image: none;
 		}
 	}

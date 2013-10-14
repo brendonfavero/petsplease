@@ -14,8 +14,8 @@
 			<li><a href="?a=4" class="right-divider">My PetsPlease</a></li>
 			<li><a href="?a=17" class="right-divider">Logout</a></li>
 		{/if}
-		<li><a href="http://facebook.com/" class="icon-link right-divider"><div class="icon-facebook" title="Facebook"></div></a></li>
-		<li class="last"><a href="http://instagram.com/" class="icon-link"><div class="icon-instagram" title="Instagram"></div></a></li>
+		<li><a href="http://facebook.com/Petsplease" target="_blank" class="icon-link right-divider"><div class="icon-facebook" title="Facebook"></div></a></li>
+		<li class="last"><a href="http://instagram.com/" target="_blank" class="icon-link"><div class="icon-instagram" title="Instagram"></div></a></li>
 	</ul>
 
 	<div id="header-bytext">
@@ -28,29 +28,33 @@
 
 	<ul id="header-petnav" class="buttonset clearfix">
 		<li class="nav-dog">
-			<a href="?a=5&b=304"><span>Dogs &amp;<br>Puppies</span></a>
+			<a href="?a=5&b=309"><span>Dogs &amp;<br>Puppies</span></a>
 		</li>
 
 		<li class="nav-cat">
-			<a href="?a=5&b=305"><span>Cats &amp;<br>Kittens</span></a>
+			<a href="?a=5&b=310"><span>Cats &amp;<br>Kittens</span></a>
 		</li>
 
 		<li class="nav-bird">
-			<a href="?a=5&b=306"><span>Birds</span></a>
+			<a href="?a=5&b=311"><span>Birds</span></a>
 		</li>
 
 		<li class="nav-fish">
-			<a href="?a=5&b=307"><span>Fish</span></a>
+			<a href="?a=5&b=312"><span>Fish</span></a>
+		</li>
+
+		<li class="nav-reptile">
+			<a href="?a=5&b=313"><span>Reptiles</span></a>
 		</li>
 
 		<li class="nav-other last">
-			<a href="?a=5&b="><span>Other Pets</span></a>
+			<a href="?a=5&b=314"><span>Other Pets</span></a>
 		</li>
 	</ul>
 
 	<ul id="header-nav" class="buttonset clearfix">
 		<li>
-			<a href="#">Products</a>
+			<a href="?a=5&b=315">Products</a>
 		</li>
 
 		<li>
