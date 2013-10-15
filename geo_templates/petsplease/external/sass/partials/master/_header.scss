@@ -123,16 +123,16 @@ header.page {
 
 /** Main Page Navigation **/
 #header-nav {
-	font-size: 1.2em;
-	@include buttonset-setwidth(1052px, $st_seperator, 0, 1, 8);
+	font-size: 1.3em;
+	@include buttonset-setwidth(1052px, $st_seperator / 2, 0, 1, 9);
 
 	a {
 		color: white;
 		line-height: 1;
-		padding: ($st_seperator / 4) ($st_seperator / 2);
+		padding: ($st_seperator / 4) ($st_seperator / 4);
 		background-color: $navyblue;
 		// @include background-image(linear-gradient(top right, rgb(46, 49, 146) 15%, rgb(76, 79, 176) 90%));
-		@include background-image(linear-gradient(#3e7195, #3E4095 50%, #3e7195));
+		@include background-image(linear-gradient(#3e7195, #3E4095));
 
 		&:hover {
 			background-color: $bluegreen;

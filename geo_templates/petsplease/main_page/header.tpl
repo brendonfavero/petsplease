@@ -54,6 +54,10 @@
 
 	<ul id="header-nav" class="buttonset clearfix">
 		<li>
+			<a href="/">Home</a>
+		</li>
+
+		<li>
 			<a href="?a=5&b=315">Products</a>
 		</li>
 
@@ -66,15 +70,15 @@
 		</li>
 
 		<li>
-			<a href="#">Breeders</a>
+			<a href="?a=5&b=316">Breeders</a>
 		</li>
 
 		<li>
-			<a href="#">Services</a>
+			<a href="?a=5&b=318">Services</a>
 		</li>
 
 		<li>
-			<a href="#">Clubs</a>
+			<a href="?a=5&b=319">Clubs</a>
 		</li>
 
 		<li>

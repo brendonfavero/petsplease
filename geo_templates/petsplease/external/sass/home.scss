@@ -6,7 +6,8 @@
 	height: 450px;
 	overflow: auto;
 	margin-bottom: $st_seperator;
-	@include background-image(linear-gradient(bottom right, rgb(84, 197, 208) 30%, rgb(90, 140, 250) 95%));
+	// @include background-image(linear-gradient(bottom right, rgb(84, 197, 208) 30%, rgb(90, 140, 250) 95%));
+	background-image: url(../images/backdrop.jpg);
 }
 .content_shell.home, .content_shell.home p {
 	font-family: $font_special;
@@ -16,6 +17,7 @@
 #homewelcome {
 	float: left;
 	background-color: $hotpink;
+	background-color: rgba(236,0,140,0.9);
 	color: white;
 	padding: $st_seperator $st_seperator 0;
 	margin: $st_seperator $st_seperator * 3;
@@ -39,6 +41,7 @@
 		color: white;
 		padding: ($st_seperator / 4) ($st_seperator / 2);
 		background-color: $navyblue;
+		@include background-image(linear-gradient(#3e7195, #3E4095));
 
 		&:hover {
 			background-color: $bluegreen;
@@ -51,6 +54,7 @@
 	height: 354px;
 	float: left;
 	background-color: $bluegreen;
+	background-color: rgba(31,117,124,0.9);
 	margin: {
 		top: $st_seperator - 1;
 		left: $st_seperator * 1;
@@ -83,6 +87,7 @@
 		font-family: $font_special;
 		padding: 6px 12px;
 		background-color: $navyblue;
+		@include background-image(linear-gradient(#3e7195, #3E4095));
 		border: none;
 		cursor: pointer;
 		color: white;
