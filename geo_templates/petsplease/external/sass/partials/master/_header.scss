@@ -73,10 +73,20 @@ header.page {
 }
 
 /** Main Listing Category Navigation **/ 
-#header-petnav {
-	clear: both;
+.petnav-header-icon {
+	width: 0;
+	height: 84px;
+	padding-left: 24px;
+	float: left;
+	clear: left;
+	overflow: hidden;
+	background-image: url(../images/pets-for-sale-icon.png);
+}
 
-	@include buttonset-setwidth(1052px - 2, $st_seperator, 0, 1, 6);
+#header-petnav {
+	clear: right;
+
+	@include buttonset-setwidth(1052px - 24 - 1, $st_seperator, 0, 1, 6);
 
 	li {
 		background-color: white;
@@ -85,11 +95,7 @@ header.page {
 		margin-right: 0;
 
 		border: 1px solid #777777;
-		border-style: solid none none solid;
-
-		&.last {
-			border-right-style: solid;
-		}
+		border-style: solid solid none none;
 
 		@each $item in dog, cat, bird, fish, reptile, other {
 			&.nav-#{$item} {

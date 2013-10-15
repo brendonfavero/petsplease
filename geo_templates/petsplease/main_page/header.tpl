@@ -26,6 +26,10 @@
 		Pets and Products for Sale
 	</div>
 
+	<div class="petnav-header-icon">
+		Pets for Sale
+	</div>
+
 	<ul id="header-petnav" class="buttonset clearfix">
 		<li class="nav-dog">
 			<a href="?a=5&b=309"><span>Dogs &amp;<br>Puppies</span></a>

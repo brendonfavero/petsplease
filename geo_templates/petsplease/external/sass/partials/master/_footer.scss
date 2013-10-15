@@ -1,4 +1,7 @@
 footer.page {
-	width: 1052px;
-	margin: $st_seperator auto;
+	width: 1052px - ($st_seperator);
+	margin: $st_seperator auto 0;
+	padding: $st_seperator / 2;
+	color: white;
+	@include background-image(linear-gradient(#3e7195, #3E4095));
 }
