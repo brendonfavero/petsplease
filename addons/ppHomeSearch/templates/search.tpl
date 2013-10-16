@@ -1,8 +1,14 @@
 <form action="#" onsubmit="alert('Searching!')">
 	<div>
-		<label>Pet Category</label>
-		<select>
+		<label>Category</label>
+		<select id="search_category">
 			<option>Pets for Sale</option>
+			<option>Products</option>
+			<option>Shops</option>
+			<option>Holiday with your Pet</option>
+			<option>Breeders</option>
+			<option>Services</option>
+			<option>Clubs</option>
 		</select>
 	</div>
 
@@ -13,24 +19,38 @@
 		</select>
 	</div>
 
-	<div>
+	<!-- <div>
 		<label>Pet Breed</label>
 		<select>
 		<option>Affenpinscher</option>
 		</select>
+	</div> -->
+
+	<div>
+		<label>Postcode</label>
+		<input type="text" />
 	</div>
 
 	<div>
-		<label>Location</label>
-		<input type="text" placeholder="State, Town or Postcode" />
-	</div>
-
-	<div>
-		<label>In order of</label>
+		<label>Within</label>
 		<select>
-		<option>Latest</option>
+			<option>20km</option>
+			<option>50km</option>
+			<option>100km</option>
+			<option>250km</option>
+			<option>500km</option>
 		</select>
 	</div>
 
-	<button>Find My Pet</button>
+	<button>Search</button>
 </form>
+
+<script>
+	$(function() {
+		$("#search_category").change(function() {
+			var cat = $("#search_category").val()
+
+			if (cat == "") {}
+		})
+	})
+</script>

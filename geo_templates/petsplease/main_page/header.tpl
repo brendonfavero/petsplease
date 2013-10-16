@@ -62,31 +62,31 @@
 		</li>
 
 		<li>
-			<a href="?a=5&b=315">Products</a>
+			<a href="?a=5&b=315">Pet Products</a>
 		</li>
 
 		<li>
-			<a href="#">Shops</a>
+			<a href="#">Pet Shops</a>
 		</li>
 
 		<li>
-			<a href="#">Holiday with your pet</a>
+			<a href="?a=5&b=411">Holiday with your pet</a>
 		</li>
 
 		<li>
-			<a href="?a=5&b=316">Breeders</a>
+			<a href="?a=5&b=316">Pet Breeders</a>
 		</li>
 
 		<li>
-			<a href="?a=5&b=318">Services</a>
+			<a href="?a=5&b=318">Pet Services</a>
 		</li>
 
 		<li>
-			<a href="?a=5&b=319">Clubs</a>
+			<a href="?a=5&b=319">Pet Clubs</a>
 		</li>
 
 		<li>
-			<a href="#">News and Advice</a>
+			<a href="#">Pet News and Advice</a>
 		</li>
 
 		<li class="last">

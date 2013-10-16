@@ -1,3 +1,29 @@
 .content_shell {
 	font-family: Verdana;
+	margin-top: $st_seperator;
+}
+
+.col_left {
+	width: 300px;
+	float: left;
+}
+
+.col_right {
+	width: 728px;
+	float: left;
+	margin-left: $st_seperator;
+}
+
+#browsing_search {
+	padding: 12px;
+	color: white;
+	background-color: $bluegreen;
+	margin-bottom: $st_seperator;
+}
+
+h2.title {
+	color: $navyblue;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 4px 0px 0px 5px;
 }

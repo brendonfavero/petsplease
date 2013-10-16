@@ -5,7 +5,7 @@
 	background-color: $powderblue;
 	height: 450px;
 	overflow: auto;
-	margin-bottom: $st_seperator;
+	margin: 0 0 $st_seperator;
 	// @include background-image(linear-gradient(bottom right, rgb(84, 197, 208) 30%, rgb(90, 140, 250) 95%));
 	background-image: url(../images/backdrop.jpg);
 }
