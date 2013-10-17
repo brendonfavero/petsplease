@@ -9,6 +9,10 @@
 			<option>Breeders</option>
 			<option>Services</option>
 			<option>Clubs</option>
+
+			{foreach from=$categories item=category}
+				<option value="{$category.id}">{$category.name}</option>
+			{/foreach}
 		</select>
 	</div>
 
