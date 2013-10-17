@@ -2,16 +2,8 @@
 	<div>
 		<label>Category</label>
 		<select id="search_category">
-			<option>Pets for Sale</option>
-			<option>Products</option>
-			<option>Shops</option>
-			<option>Holiday with your Pet</option>
-			<option>Breeders</option>
-			<option>Services</option>
-			<option>Clubs</option>
-
 			{foreach from=$categories item=category}
-				<option value="{$category.id}">{$category.name}</option>
+				<option value="{$category.category_id}">{$category.category_name}</option>
 			{/foreach}
 		</select>
 	</div>
@@ -20,6 +12,12 @@
 		<label>Pet Type</label>
 		<select>
 		<option>All Pets</option>
+
+		{foreach from=$categories item=category}
+			{foreach from=$category.subcategories item=subcategory}
+				<option value="{$subcategory.category_id}">{$subcategory.category_name}</option>
+			{/foreach}
+		{/foreach}
 		</select>
 	</div>
 
