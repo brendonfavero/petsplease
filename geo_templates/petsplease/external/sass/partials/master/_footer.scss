@@ -4,4 +4,30 @@ footer.page {
 	padding: $st_seperator / 2;
 	color: white;
 	@include background-image(linear-gradient(#3e7195, #3E4095));
+
+	nav {
+		float: left;
+		width: 600px;
+		margin-right: 24px;
+	}
+
+	nav ul {
+		list-style-type: none;
+
+		li {
+			display: inline-block;
+			float: left;
+			margin-right: 12px;
+		}
+	}
+
+	.disclaimer {
+		float: left;
+		width: 400px;
+
+	}
+
+	a:link, a:visited {
+		color: white;
+	}
 }
