@@ -17,10 +17,12 @@ class addon_ppListingDisplay_util extends addon_ppListingDisplay_info
 
 		$listing = geoListing::getListing($vars['id']);
 		$categories = geoCategory::getTree($listing->category);
-		$resetcats = reset($categories);
-		$topcat = $resetcats['category_id']; 
+		$firstcat = reset($categories);
+		$secondcat = next($categories);
 
-		$view->topcategory = $topcat;
+		$view->topcategory = $firstcat['category_id'];
+		$view->nextcategory = $secondcat['category_id'];
+
 
 		// if ($topcat == 308) { // Pets for Sale
 		// 	$view->categorytpl = "pets_for_sale.tpl";

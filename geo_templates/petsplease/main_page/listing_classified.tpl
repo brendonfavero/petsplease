@@ -1,5 +1,11 @@
 {if $topcategory eq 308} {* Pets for Sale *}
-	{include file="petsplease_category_templates/pets_for_sale.tpl"}
+	{if $nextcategory eq 309} {* Dogs for Sale *}
+		Need custom template for Dogs for Sale
+	{elseif $nextcategory eq 310} {* Cats for Sale *}
+		Need custom template for Cats for Sale
+	{else}
+		{include file="petsplease_category_templates/pets_for_sale.tpl"}
+	{/if}
 {elseif $topcategory eq 315} {* Pet Products *}
 	Need custom template for Pets Products
 {elseif $topcategory eq 316} {* Breeders *}
