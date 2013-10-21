@@ -262,7 +262,6 @@ div.page_instructions {
 
 .price {
 	font-weight: bold;
-	text-shadow: 1px 1px 0 #FFFFFF, 2px 2px 0 #CCCCCC;
 }
 
 .success_text {
@@ -998,116 +997,6 @@ header.page.compact div.expanded_search {
 	list-style: none;
 	text-align: left;
 }
-
-/* ######### FOOTER STYLES ######### */
-// footer.page {
-// 	clear: both;
-// 	padding-top: 0px;
-// 	font-size: 11px;
-// 	font-weight: bold;
-// 	margin: 15px auto;
-// 	width: 968px;
-// }
-
-// footer.page nav.footer {
-// 	border: 5px solid #eaeaea;
-// 	border-radius: 10px;
-// 	padding: 1px;
-// 	color: white;
-// 	max-height: 120px;
-// }
-
-// nav.footer .footer_inner {
-// 	border-radius: 5px;
-// 	text-align: left;
-// 	padding: 20px 15px 20px;
-// }
-
-// nav.footer ul {
-// 	margin: 0px 10px;
-// 	padding: 0;
-// }
-
-// nav.footer ul li {
-// 	list-style: none;
-// 	padding: 6px 0;
-// 	display: block;
-// 	float: left;
-// 	width: 120px;
-// }
-
-// nav.footer a {
-// 	color: white;
-// }
-
-// nav.footer ul li a:link,
-// nav.footer ul li a:visited,
-// nav.footer .blurb a:hover,
-// nav.footer .blurb a:active {
-// 	text-decoration: none;
-// }
-
-// nav.footer ul li a:hover,
-// nav.footer ul li a:active {
-// 	text-decoration: underline;
-// }
-
-// nav.footer div.blurb {
-// 	float: right;
-// 	width: 340px;
-// 	padding: 0px 0px 0px 20px;
-// 	border-left: 1px solid white;
-// }
-
-// footer.page h3 {
-// 	margin: 0px;
-// 	padding: 0px 0px 5px 0px;
-// 	font-size: 14px;
-// 	font-weight: bold;
-// }
-
-// footer.page h5 {
-// 	margin: 0px;
-// 	padding: 0px 0px 5px 0px;
-// 	color: #666666;
-// 	font-size: 11px;
-// 	font-weight: bold;
-// 	float: right;
-// }
-
-// footer.page p {
-// 	line-height: 18px;
-// 	margin: 0px;
-// 	padding: 0px;
-// 	clear: both;
-// }
-
-// footer.page div.disclaimer {
-// 	clear: both;
-// 	width: 968px;
-// 	text-align: center;
-// 	margin: 0 auto;
-// 	padding-top: 0px;
-// 	line-height: 16px;
-// 	font-size: 11px;
-// 	font-weight: bold;
-// }
-
-// footer.page div.disclaimer a {
-// 	text-decoration: none;
-// }
-
-// footer.page div.disclaimer a:hover {
-// 	text-decoration: underline;
-// }
-
-// .footer_divider {
-// 	display: block;
-// 	float: right;
-// 	width: 2px;
-// 	height: 80px;
-// 	background: url('../themeimages/backgrounds/footer_divider.gif') no-repeat;
-// }
 
 /* ######### ERROR AND SUCCESS STYLES ######### */
 .success_box {

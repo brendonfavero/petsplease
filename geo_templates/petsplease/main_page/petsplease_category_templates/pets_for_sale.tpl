@@ -179,29 +179,6 @@
 		</div>
 	{/if}
 	<!-- FIND SIMILAR END -->
-	
-	<!-- FEATURED LISTINGS BEGIN -->						
-	<h2 class="title rounded_top">
-		{$additional_text_2}
-	</h2>
-	<div class="content_box_1">
-		{* 
-			NOTE: In order to show featured listings in a single column, the {module} tag
-			below includes a number of parameters that over-write the
-			module settings set in the admin.  You must change those
-			settings "in-line" below to change them.
-			
-			Or, you can remove the parameter(s) from the {module}
-			tag completely, and it will use the module settings
-			as set in the admin panel.
-			
-			See the user manual entry for the {module} tag for
-			a list of all parameters that can be over-written in
-			this way.
-		 *}
-		{module tag='module_featured_pic_2' gallery_columns=1 module_thumb_width=168 module_thumb_height=200}
-	</div>
-	<!-- FEATURED LISTINGS END -->
 </div>
 
 <!-- END LEFT COLUMN -->
