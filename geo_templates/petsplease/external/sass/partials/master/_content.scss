@@ -22,6 +22,14 @@
 	margin-bottom: $st_seperator;
 }
 
+h1.title {
+	background-color: $bluegreen;
+	color: white;
+	font-family: $font_special;
+	font-size: 18px;
+	padding: 5px 12px;
+}
+
 h2.title {
 	color: $navyblue;
 	font-size: 16px;

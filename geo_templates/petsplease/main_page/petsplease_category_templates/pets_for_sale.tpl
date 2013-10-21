@@ -1,14 +1,3 @@
-<div style="float:right;">
-	{listing tag='previous_ad_link'}
-	{listing tag='next_ad_link'}
-</div>
-
-<div class="icon_link_img">
-	<img alt="Print Friendly" src="{external file='images/icons/printer.png'}" title="Print Friendly" />
-</div>
-<div class="icon_link">
-	{listing tag='print_friendly_link'}
-</div>
 <div class="icon_link_img">
 	<img alt="Tell-a-Friend" src="{external file='images/icons/friend.png'}" title="Tell-a-Friend" />
 </div>
@@ -31,34 +20,15 @@
 {/if}
 <div class="clr"></div>
 
-<ul id="breadcrumb">
-	<li class="element highlight">{$additional_text_1}</li>
-	<li class="element">{listing tag='category_tree'}</li>
-</ul>
-
-<h1 class="listing_title" style="display: inline;">
-	{$title}
-	{if $price}&nbsp;-&nbsp;<span class="value price">{$price}</span>{/if}
-	<span class="id">{$classified_id_label} {$classified_id}</span>
-</h1>
-
-<div class="action_buttons" style="display: inline;">
-	{if $can_edit}
-		<a href="{$classifieds_file_name}?a=cart&amp;action=new&amp;main_type=listing_edit&amp;listing_id={$classified_id}"><img src="{external file='images/buttons/listing_edit.gif'}" alt="" /></a>
-	{/if}
-	{if $can_delete}
-		<a onclick="if (!confirm('Are you sure you want to delete this?')) return false;" href="{$classifieds_file_name}?a=99&amp;b={$classified_id}"><img src="{external file='images/buttons/listing_delete.gif'}" alt="" /></a>
-	{/if}
-	{listing tag='listing_action_buttons' addon='core'}
+<div class="nav_breadcrumb">
+	{listing tag='category_tree'}
 </div>
-<div class="clr"></div>
-<br />
 
 
 <!-- # START LEFT COLUMN -->
 <div class="listing_leftcol">
 	<!-- SELLER INFO BEGIN -->						
-	<h2 class="title">{$seller_label}</h2>
+	<h1 class="title">{$seller_label}</h1>
 	<div class="content_box_2">
 		<h1 class="seller_username">{listing tag='seller'}</h1>
 		<p class="content_section">
@@ -179,6 +149,14 @@
 		</div>
 	{/if}
 	<!-- FIND SIMILAR END -->
+
+	<!-- Aditional listing info BEGIN -->
+	<div>
+		<strong>{$date_started_label}</strong> {$date_started}<br>
+		<strong>{$viewed_count_label}</strong> {$viewed_count}<br>
+		<strong>{$classified_id_label}</strong> {$classified_id}
+	</div> 
+	<!-- END -->
 </div>
 
 <!-- END LEFT COLUMN -->
@@ -186,7 +164,20 @@
 <!-- # START CENTER COLUMN -->
 
 <div class="listing_maincol">
-	<h2 class="title" style="margin-bottom: 5px;">{$additional_text_1} {$additional_text_13}</h2>
+	<div class="action_buttons" style="float: right">
+		{if $can_edit}
+			<a href="{$classifieds_file_name}?a=cart&amp;action=new&amp;main_type=listing_edit&amp;listing_id={$classified_id}"><img src="{external file='images/buttons/listing_edit.gif'}" alt="" /></a>
+		{/if}
+		{if $can_delete}
+			<a onclick="if (!confirm('Are you sure you want to delete this?')) return false;" href="{$classifieds_file_name}?a=99&amp;b={$classified_id}"><img src="{external file='images/buttons/listing_delete.gif'}" alt="" /></a>
+		{/if}
+		{listing tag='listing_action_buttons' addon='core'}
+	</div>
+
+	<h1 class="listing_title" style="display: inline;">
+		{$title}<br>
+		{if $price}<span class="value price">{$price}</span>{/if}
+	</h1>
 	
 	{* Assign social buttons to $social so we can check if there are any before
 		showing the section *}
@@ -198,22 +189,18 @@
 		</div>
 	{/if}
 	
-	<div class="content_box_3">
-		<div style="width:95%; margin: 0 auto; padding: 3px 0;">
-			<div style="float:left; width:50%; text-align: left;"><strong>{$date_started_label}</strong> {$date_started}</div>
-			<div style="float:left; width:50%; text-align: right;"><strong>{$viewed_count_label}</strong> {$viewed_count}</div>
-		</div>
-		
+	<div class="content_box_1">
 		{listing tag='image_block'}
-		
-		{listing tag='offsite_videos_block' assign='offsite_videos_block'}
-		{if $offsite_videos_block}
-			<div class="clr"></div>
-			<h1 class="title">{$offsite_videos_title}</h1>
+	</div>
+
+	{listing tag='offsite_videos_block' assign='offsite_videos_block'}
+	{if $offsite_videos_block}
+		<h1 class="title">{$offsite_videos_title}</h1>
+		<div class="content_box_1">		
 			{$offsite_videos_block}
 			<div class="clr"><br /></div>
-		{/if}
-	</div>
+		</div>
+	{/if}
 	
 	{* START OPTIONAL FIELDS *}
 	{if $optional_field_1 or $optional_field_2 or $optional_field_3 or $optional_field_4
@@ -410,8 +397,6 @@
 		{/if}
 	</div>
 	
-	<br />
-	
 	{* END DESCRIPTION *}			
 
 	{* START GOOGLE MAPS *}
@@ -424,14 +409,8 @@
 			<div class="clr"></div>
 		</div>
 	{/if}
-	<br />
 	
 	{* END GOOGLE MAPS *}
 </div>
 
 <!-- END CENTER COLUMN -->
-
-<div class="center">
-	{listing tag='previous_ad_link'}
-	{listing tag='next_ad_link'}
-</div>

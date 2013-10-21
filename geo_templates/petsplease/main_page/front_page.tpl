@@ -48,6 +48,8 @@
 			{module tag='module_featured_pic_1' gallery_columns=4 module_thumb_width=120}
 		</div>
 		<!-- FEATURED CAROUSEL END -->
+
+		<div class="adspot728x90"></div>
 	</div>
 </div>
 {include file='footer.tpl'}

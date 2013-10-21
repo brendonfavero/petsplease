@@ -39,49 +39,49 @@
 }
 
 /* ######### HEADER STYLES - SET YOUR LOGO HERE ######### */
-header.page {
-	border: none;
-	padding: 0px;
-	margin: 0px;
-}
+// header.page {
+// 	border: none;
+// 	padding: 0px;
+// 	margin: 0px;
+// }
 
-header.page .logo_box  {
-	/* This is the logo link, make it float to the left */
-	float: left;
-	border: none;
-	background: transparent url('../themeimages/logo_bg.png') no-repeat top right;
-	min-width: 350px;
-	min-height: 97px;
-}
+// header.page .logo_box  {
+// 	/* This is the logo link, make it float to the left */
+// 	float: left;
+// 	border: none;
+// 	background: transparent url('../themeimages/logo_bg.png') no-repeat top right;
+// 	min-width: 350px;
+// 	min-height: 97px;
+// }
 
-header.page .logo_box .logo {
-	line-height: 48px;
-	font-size: 38px;
-	text-shadow: 1px 1px 0 #EEE, 2px 2px 0 #CCC;
-	color: #7E7E7E; 
-	font-style: italic;
-}
-header.page .logo_box .logo img {
-	/* The actual logo image */
-	vertical-align: middle;
-	border: none;
-	padding: 0px;
-	margin: 0px;
-}
+// header.page .logo_box .logo {
+// 	line-height: 48px;
+// 	font-size: 38px;
+// 	text-shadow: 1px 1px 0 #EEE, 2px 2px 0 #CCC;
+// 	color: #7E7E7E; 
+// 	font-style: italic;
+// }
+// header.page .logo_box .logo img {
+// 	/* The actual logo image */
+// 	vertical-align: middle;
+// 	border: none;
+// 	padding: 0px;
+// 	margin: 0px;
+// }
 
-header.page .logo_box .slogan {
-	padding-left: 40px;
-	line-height: 14px;
-	font-size: 14px;
-	text-shadow: 1px 1px 0 #DDD;
-	color: #7E7E7E;
-	font-style: italic;
-	display: block;
-}
+// header.page .logo_box .slogan {
+// 	padding-left: 40px;
+// 	line-height: 14px;
+// 	font-size: 14px;
+// 	text-shadow: 1px 1px 0 #DDD;
+// 	color: #7E7E7E;
+// 	font-style: italic;
+// 	display: block;
+// }
 
-#top_banner {
-	float: right;
-}
+// #top_banner {
+// 	float: right;
+// }
 
 
 
@@ -204,9 +204,9 @@ h2.title a:active {
 	margin: 2px 0px;
 }
 
-.content_box {
-	padding: 1px;
-}
+// .content_box {
+// 	padding: 1px;
+// }
 
 .search_content_box {
 	/* Do not use border on search page */
@@ -275,34 +275,34 @@ div.page_instructions {
 }
 
 /* ######### BREADCRUMB STYLES ######### */
-#breadcrumb {
-	margin: 5px 0 10px 0;
-	padding: 0;
-	height: 30px;
-	border: 5px solid #eaeaea;
-	padding: 1px;
-}
+// #breadcrumb {
+// 	margin: 5px 0 10px 0;
+// 	padding: 0;
+// 	height: 30px;
+// 	border: 5px solid #eaeaea;
+// 	padding: 1px;
+// }
 
-#breadcrumb li.element {
-	background: url('../themeimages/backgrounds/cart_step.gif') no-repeat center right;
-	font-size: 12px;
-	font-weight: bold;
-	color: #666666;
-}
+// #breadcrumb li.element {
+// 	background: url('../themeimages/backgrounds/cart_step.gif') no-repeat center right;
+// 	font-size: 12px;
+// 	font-weight: bold;
+// 	color: #666666;
+// }
 
-#breadcrumb li.highlight {
-	font-size: 14px;
-}
+// #breadcrumb li.highlight {
+// 	font-size: 14px;
+// }
 
-#breadcrumb li {
-	display: block;
-	float: left;
-	height: 22px;
-	padding: 7px 40px 0 10px;
-	font-size: 12px;
-	padding: 7px 40px 0 10px;
-	background: none;
-}
+// #breadcrumb li {
+// 	display: block;
+// 	float: left;
+// 	height: 22px;
+// 	padding: 7px 40px 0 10px;
+// 	font-size: 12px;
+// 	padding: 7px 40px 0 10px;
+// 	background: none;
+// }
 
 /* ######### TABLE STYLES ######### */
 
@@ -1805,7 +1805,6 @@ h1.listing_title span.price {
 
 .content_box_2 {
 	/* Content box used on listing details, light background */
-	background-color: #F9FAFB;
 	border-color: #D5DCE1; 
 	padding: 0 12px;
 }
