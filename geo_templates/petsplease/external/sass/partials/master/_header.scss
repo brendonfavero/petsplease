@@ -105,24 +105,25 @@ header.page {
 	}
 	a {
 		height: 83px;
-		background-color: rgba(255,255,255, 0.5);
 		padding: 0 ($st_seperator / 2);
-		// padding: 50px ($st_seperator / 2) ($st_seperator / 4);
 		font-size: 1.5em;
 		color: black;
 		position: relative;
 
 		@include transition(background-color .5s ease-out);
-
-		&:hover {
-			background-color: transparent;
-		}
-
+		
 		span {
 			position: absolute;
 			bottom: ($st_seperator / 4);
 			right: 12px;
 			text-align:right;
+		}
+	}
+	&.hovering a {
+		background-color: rgba(255,255,255, 0.5);
+		
+		&:hover {
+			background-color: transparent;
 		}
 	}
 }

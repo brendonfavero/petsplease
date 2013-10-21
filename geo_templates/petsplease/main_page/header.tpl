@@ -94,3 +94,10 @@
 		</li>	
 	</ul>
 </header>
+
+<script>
+jQuery(function() {
+	jQuery("#header-petnav").hover(function() 
+		{ jQuery("#header-petnav").toggleClass("hovering") })
+}) 
+</script>
