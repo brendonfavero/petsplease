@@ -54,13 +54,6 @@
 <div class="clr"></div>
 <br />
 
-<div class="listing_rightcol">
-	<h3 class="title rounded_top">{$additional_text_3}</h3>
-	<div class="content_box_3 cntr">
-		<a href="#"><img src="{external file='../images/banners/banner1_160w.jpg'}" alt="" /></a>
-	</div>
-</div>
-<!-- # END BANNER AD COLUMN -->
 
 <!-- # START LEFT COLUMN -->
 <div class="listing_leftcol">
@@ -171,33 +164,6 @@
 		</div>
 		<!-- SELLER NOTES END -->
 	{/if}
-
-	<!-- LISTING POPULARITY BEGIN -->
-	<h2 class="title rounded_top">
-		{$additional_text_6}
-	</h2>
-	<div class="content_box_2">
-		{* Assign vote total to $vote_total so can use it to determine whether
-			to show the current vote info section *}
-		{listing tag='voteSummary_total' assign='vote_total'}
-		{if $vote_total gt 0}
-			{* only show if there are already votes on the listing *}
-			<div class="cntr" style="font-size: 12px;">
-				Out of <span style="color: #4076B1; font-size: 18px; font-weight: bold;">{$vote_total}</span>  Vote(s) <span style="color: #4076B1; font-size: 18px; font-weight: bold;">{listing tag='voteSummary_percent'}%</span>  of Customers Say:
-			</div>
-			<div class="cntr">{listing tag='voteSummary_text'}</div>
-		{/if}
-		<div class="cntr">
-			<!-- Space the links apart -->
-			<div style="display: inline-block; padding: 8px;">
-				{listing tag='vote_on_ad_link'}
-			</div>
-			<div style="display: inline-block; padding: 8px;">
-				{listing tag='show_ad_vote_comments_link'}
-			</div>
-		</div>
-	</div>
-	<!-- LISTING POPULARITY END -->
 	
 	<!-- FIND SIMILAR BEGIN -->
 	{if $listing_tags_array}
@@ -469,40 +435,7 @@
 	
 	<br />
 	
-	{* END DESCRIPTION *}	
-
-	{addon author='geo_addons' addon='twitter_feed' tag='show_feed'}
-	<br />
-		
-	{* START PUBLIC QUESTIONS *}
-	<h1 class="title rounded_top">
-		{$publicQuestionsLabel}{if $logged_in} - <a href="{$classifieds_file_name}?a=13&amp;b={$classified_id}">{$askAQuestionText}</a>{/if}
-	</h1>
-	<div class="content_box_1">
-		{if $publicQuestions}
-			{foreach from=$publicQuestions key='question_id' item='q'}
-				{if $q.answer !== false}
-					<div class="publicQuestions {cycle values='row_odd,row_even'}">
-						<div class="question">
-							<span class="public_question_asker_username"><a href="{$classifieds_file_name}?a=6&amp;b={$q.asker_id}">{$q.asker}</a></span> 
-							<span class="public_question_asker_timestamp">({$q.time})</span>
-							{if $can_delete}<a onclick="if (!confirm('Are you sure you want to remove this question and its answer?')) return false;" href="{$classifieds_file_name}?a=4&amp;b=8&amp;c=2&amp;d={$question_id}&amp;public=1"><img src="{external file='images/buttons/listing_delete.gif'}" alt="" /></a> {/if}
-							<br /> 
-							{$q.question}
-						</div>
-						<div class="answer">
-							{$q.answer}
-						</div>
-					</div>
-				{/if}
-			{/foreach}
-		{else}
-			<div class="box_pad">{$noPublicQuestions}</div>
-		{/if}
-	</div>
-	<br />
-	
-	{* END PUBLIC QUESTIONS *}
+	{* END DESCRIPTION *}			
 
 	{* START GOOGLE MAPS *}
 	{addon author='geo_addons' addon='google_maps' tag='listing_map' assign='map'}
