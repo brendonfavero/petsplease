@@ -85,6 +85,7 @@ header.page {
 
 #header-petnav {
 	clear: right;
+	float: left;
 
 	@include buttonset-setwidth(1052px - 24 - 1, $st_seperator, 0, 1, 6);
 
