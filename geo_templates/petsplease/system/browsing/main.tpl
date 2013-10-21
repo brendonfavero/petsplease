@@ -43,7 +43,9 @@
 		</form>
 	</div>
 
-	<div class="adspot160x600"></div>
+	<div class="adspot160x600">
+		<img src="{external file='images/ad_example_160x600.jpg'}" width="160" height="600" style="display:block;" />
+	</div>
 </div>
 
 <div class="col_right">

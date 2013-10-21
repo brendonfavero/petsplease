@@ -11,5 +11,5 @@
 {elseif $topcategory eq 411} {* Accomodation *}
 	Need custom template for Pet Accomodation
 {else}
-
+	No template specified for toplevel category ({$topcategory})
 {/if}
