@@ -20,8 +20,6 @@
 	{* Load the theme_styles.css files last, so it can over-write any page/module 
 		specific CSS files if desired. *}
 	<link href="{external file='css/theme_styles.css'}" rel="stylesheet" type="text/css" />
-	<link href="{external file='css/primary_theme_styles.css'}" rel="stylesheet" type="text/css" />
-	<link href="{external file='css/secondary_theme_styles.css'}" rel="stylesheet" type="text/css" />
 
 	<link href='http://fonts.googleapis.com/css?family=BenchNine:400,700' rel='stylesheet' type='text/css'>
 	<link href="{external file='css/master.css'}" rel="stylesheet" type="text/css" />

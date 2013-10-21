@@ -58,7 +58,7 @@
 <!-- # START LEFT COLUMN -->
 <div class="listing_leftcol">
 	<!-- SELLER INFO BEGIN -->						
-	<h2 class="title rounded_top">{$seller_label}</h2>
+	<h2 class="title">{$seller_label}</h2>
 	<div class="content_box_2">
 		<h1 class="seller_username">{listing tag='seller'}</h1>
 		<p class="content_section">
@@ -139,7 +139,7 @@
 		{* Only show section if there is payment_options, or if either optional
 			field 14 or 15 is turned on *}
 		<!-- SELLER NOTES BEGIN -->
-		<h2 class="title rounded_top">
+		<h2 class="title">
 			{$additional_text_19}
 		</h2>
 		<div class="content_box_2">
@@ -168,7 +168,7 @@
 	<!-- FIND SIMILAR BEGIN -->
 	{if $listing_tags_array}
 		{* only show section if there are listing tags on this listing *}
-		<h2 class="title rounded_top">
+		<h2 class="title">
 			{$additional_text_20}
 		</h2>
 		<div class="content_box_2">
@@ -193,7 +193,7 @@
 	{listing tag='listing_social_buttons' addon='core' assign='social'}
 	{if $social}
 		{* There are social buttons to display, use a rounded top box *}
-		<div class="rounded_top">
+		<div>
 			{$social}
 		</div>
 	{/if}
@@ -223,7 +223,7 @@
 		or $optional_field_19 or $optional_field_20}
 		{* Only show section if at least one optional field 1-20 is used,
 			skipping 14 and 15 as they are already displayed further up in template. *}
-		<h1 class="title rounded_top">
+		<h1 class="title">
 			{$additional_text_11}
 		</h1>
 		<div class="content_box_1" style="padding: 4px;">
@@ -373,7 +373,7 @@
 
 	{* START DESCRIPTION *}
 		
-	<h1 class="title rounded_top">{$description_label}</h1>
+	<h1 class="title">{$description_label}</h1>
 	<div class="content_box_1">
 		{listing tag='extra_checkbox_name' assign='extra_checkbox_name'}
 		{if $extra_checkbox_name}
@@ -417,7 +417,7 @@
 	{* START GOOGLE MAPS *}
 	{addon author='geo_addons' addon='google_maps' tag='listing_map' assign='map'}
 	{if $map}
-		<h1 class="title rounded_top">{$additional_text_18}</h1>
+		<h1 class="title">{$additional_text_18}</h1>
 		<div class="content_box_1 cntr">
 			{* Make sure map is centered in the box *}
 			<div style="display: inline-block;">{$map}</div>
