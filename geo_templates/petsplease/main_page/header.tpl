@@ -8,11 +8,11 @@
 	<ul id="header-buttons" class="buttonset">
 		<li class="first"><span class="right-divider">Welcome to Pets Please</span></li>
 		{if not $logged_in}
-			<li><a href="?a=10" class="right-divider">Register</a></li>
-			<li><a href="?a=10" class="right-divider">Login</a></li>
+			<li><a href="/?a=10" class="right-divider">Register</a></li>
+			<li><a href="/?a=10" class="right-divider">Login</a></li>
 		{else}
-			<li><a href="?a=4" class="right-divider">My PetsPlease</a></li>
-			<li><a href="?a=17" class="right-divider">Logout</a></li>
+			<li><a href="/?a=4" class="right-divider">My PetsPlease</a></li>
+			<li><a href="/?a=17" class="right-divider">Logout</a></li>
 		{/if}
 		<li><a href="http://facebook.com/Petsplease" target="_blank" class="icon-link right-divider"><div class="icon-facebook" title="Facebook"></div></a></li>
 		<li class="last"><a href="http://instagram.com/" target="_blank" class="icon-link"><div class="icon-instagram" title="Instagram"></div></a></li>
@@ -32,27 +32,27 @@
 
 	<ul id="header-petnav" class="buttonset clearfix">
 		<li class="nav-dog">
-			<a href="?a=5&b=309"><span>Dogs &amp;<br>Puppies</span></a>
+			<a href="/?a=5&b=309"><span>Dogs &amp;<br>Puppies</span></a>
 		</li>
 
 		<li class="nav-cat">
-			<a href="?a=5&b=310"><span>Cats &amp;<br>Kittens</span></a>
+			<a href="/?a=5&b=310"><span>Cats &amp;<br>Kittens</span></a>
 		</li>
 
 		<li class="nav-bird">
-			<a href="?a=5&b=311"><span>Birds</span></a>
+			<a href="/?a=5&b=311"><span>Birds</span></a>
 		</li>
 
 		<li class="nav-fish">
-			<a href="?a=5&b=312"><span>Fish</span></a>
+			<a href="/?a=5&b=312"><span>Fish</span></a>
 		</li>
 
 		<li class="nav-reptile">
-			<a href="?a=5&b=313"><span>Reptiles</span></a>
+			<a href="/?a=5&b=313"><span>Reptiles</span></a>
 		</li>
 
 		<li class="nav-other last">
-			<a href="?a=5&b=314"><span>Other Pets</span></a>
+			<a href="/?a=5&b=314"><span>Other Pets</span></a>
 		</li>
 	</ul>
 
@@ -62,7 +62,7 @@
 		</li>
 
 		<li>
-			<a href="?a=5&b=315">Pet Products</a>
+			<a href="/?a=5&b=315">Pet Products</a>
 		</li>
 
 		<li>
@@ -70,19 +70,19 @@
 		</li>
 
 		<li>
-			<a href="?a=5&b=411">Holiday with your pet</a>
+			<a href="/?a=5&b=411">Holiday with your pet</a>
 		</li>
 
 		<li>
-			<a href="?a=5&b=316">Pet Breeders</a>
+			<a href="/?a=5&b=316">Pet Breeders</a>
 		</li>
 
 		<li>
-			<a href="?a=5&b=318">Pet Services</a>
+			<a href="/?a=5&b=318">Pet Services</a>
 		</li>
 
 		<li>
-			<a href="?a=5&b=319">Pet Clubs</a>
+			<a href="/?a=5&b=319">Pet Clubs</a>
 		</li>
 
 		<li>

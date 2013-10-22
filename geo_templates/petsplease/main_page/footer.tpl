@@ -4,13 +4,13 @@
 		<nav class="footer">
 			<div class="footer_inner">
 				<ul>
-					<li><a href="index.php">Home</a></li>
-					<li><a href="index.php?a=19">Search</a></li>
+					<li><a href="/">Home</a></li>
+					<li><a href="/?a=19">Search</a></li>
 					<li><a href="#">Contact Us</a></li>
 					<li><a href="#">About Us</a></li>
 					<li><a href="#">Register</a></li>
 					<li><a href="#">Login</a></li>
-					<li><a href="index.php?a=1">Create Your Ad</a></li>
+					<li><a href="/?a=1">Create Your Ad</a></li>
 					<li><a href="#">Terms of Use</a></li>				
 				</ul>
 				<div class="clear"></div>
