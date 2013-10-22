@@ -373,7 +373,7 @@
 			<br />
 		{/if}
 		<h3>{$additional_text_7}</h3>
-		<p>{$description}</p>
+		<p>{$description|regex_replace:"/[\r]?[\n]/":'<br>'}</p>
 		{listing tag='multi_level_field_ul' assign='multi_level'}
 		{listing tag='extra_question_value' assign='extra_question_value'}
 		{if $extra_question_value or $multi_level}
