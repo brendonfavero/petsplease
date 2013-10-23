@@ -7,83 +7,12 @@
  * to page or module-specific styles.
  */
 
-/* ######### BODY STYLES ######### */
-// body {
-// 	margin: 10px 0 20px 0;
-// 	padding: 0;
-// 	font-family: Geneva, Arial, Helvetica, sans-serif;
-// 	color: #666666;
-// }
-
 /* ######### SHELL STYLES ######### */
-// .outer_shell {
-// 	width: 968px;
-// 	min-width: 968px;
-// 	text-align: left;
-// 	position: relative;
-// 	margin: 0 auto;
-// 	padding: 0;
-// 	z-index: 1;
-// }
-
-// .content_shell {
-// 	clear: both;
-// 	width: 100%;
-// 	font-size: 12px;
-// }
-
 .login_shell {
 	clear: both;
 	width: 650px;
 	margin: 20px auto;
 }
-
-/* ######### HEADER STYLES - SET YOUR LOGO HERE ######### */
-// header.page {
-// 	border: none;
-// 	padding: 0px;
-// 	margin: 0px;
-// }
-
-// header.page .logo_box  {
-// 	/* This is the logo link, make it float to the left */
-// 	float: left;
-// 	border: none;
-// 	background: transparent url('../themeimages/logo_bg.png') no-repeat top right;
-// 	min-width: 350px;
-// 	min-height: 97px;
-// }
-
-// header.page .logo_box .logo {
-// 	line-height: 48px;
-// 	font-size: 38px;
-// 	text-shadow: 1px 1px 0 #EEE, 2px 2px 0 #CCC;
-// 	color: #7E7E7E; 
-// 	font-style: italic;
-// }
-// header.page .logo_box .logo img {
-// 	/* The actual logo image */
-// 	vertical-align: middle;
-// 	border: none;
-// 	padding: 0px;
-// 	margin: 0px;
-// }
-
-// header.page .logo_box .slogan {
-// 	padding-left: 40px;
-// 	line-height: 14px;
-// 	font-size: 14px;
-// 	text-shadow: 1px 1px 0 #DDD;
-// 	color: #7E7E7E;
-// 	font-style: italic;
-// 	display: block;
-// }
-
-// #top_banner {
-// 	float: right;
-// }
-
-
 
 /* ######### MISC STYLES ######### */
 .clear,
@@ -204,10 +133,6 @@ h2.title a:active {
 	margin: 2px 0px;
 }
 
-// .content_box {
-// 	padding: 1px;
-// }
-
 .search_content_box {
 	/* Do not use border on search page */
 	border: none;
@@ -273,36 +198,6 @@ div.page_instructions {
 .bold {
 	font-weight: bold;
 }
-
-/* ######### BREADCRUMB STYLES ######### */
-// #breadcrumb {
-// 	margin: 5px 0 10px 0;
-// 	padding: 0;
-// 	height: 30px;
-// 	border: 5px solid #eaeaea;
-// 	padding: 1px;
-// }
-
-// #breadcrumb li.element {
-// 	background: url('../themeimages/backgrounds/cart_step.gif') no-repeat center right;
-// 	font-size: 12px;
-// 	font-weight: bold;
-// 	color: #666666;
-// }
-
-// #breadcrumb li.highlight {
-// 	font-size: 14px;
-// }
-
-// #breadcrumb li {
-// 	display: block;
-// 	float: left;
-// 	height: 22px;
-// 	padding: 7px 40px 0 10px;
-// 	font-size: 12px;
-// 	padding: 7px 40px 0 10px;
-// 	background: none;
-// }
 
 /* ######### TABLE STYLES ######### */
 
@@ -1776,11 +1671,6 @@ h1.listing_title span.price {
 	float: none;
 	font-size: 0.8em;
 }
-
-// .listing_leftcol {
-// 	float: left;
-// 	width: 200px;
-// }
 
 .listing_rightcol {
 	float: right;
