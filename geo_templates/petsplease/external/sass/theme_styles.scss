@@ -1445,20 +1445,6 @@ span.gallery_carousel_dot {
 }
 
 /* ######### LISTING DETAILS STYLES ######### */
-h1.listing_title {
-	padding: 0;
-	margin: 20px 0;
-	font-size: 20px;
-	font-weight: bold;
-}
-
-h1.listing_title span {
-	color: #4174a6;
-	float: right;
-	font-size: 14px;
-	padding: 4px 0 0 0;
-}
-
 h1.seller_username {
 	margin: 5px 2px;
 	padding: 0;
@@ -1493,11 +1479,6 @@ h1.seller_username a:visited {
 
 #lead_photo_column div {
 	text-align: left;
-}
-
-.listing_maincol {
-	overflow: hidden;
-	padding: 0 10px;
 }
 
 .listing_maincol ul.info {
@@ -1667,11 +1648,6 @@ ul.optional_fields li label {
 	margin: 5px 1px 5px 0;
 }
 
-h1.listing_title span.price {
-	float: none;
-	font-size: 0.8em;
-}
-
 .listing_rightcol {
 	float: right;
 	width: 170px;
@@ -1681,7 +1657,7 @@ h1.listing_title span.price {
 .content_box_2,
 .content_box_3 {
 	/* Common styles for content boxes used on listing details */
-	margin-bottom: 10px;
+	margin-bottom: 24px;
 	border-style: solid;
 	border-width: 1px;
 	min-height: 20px;
@@ -1743,11 +1719,6 @@ p.content_section {
 	border: 1px solid #DDD;
 	padding: 0;
 	background-color: inherit;
-}
-
-.listing_maincol .content_box_1 {
-	/* The content box gets more padding in the main column */
-	padding: 5px 12px;
 }
 
 .listing_maincol .content_box_3 {

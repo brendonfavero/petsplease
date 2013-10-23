@@ -2,7 +2,47 @@
 	float: left;
 	width: 300px;
 }
+.listing_maincol {
+	overflow: hidden;
+	padding-left: 24px;
+}
 
 .nav_breadcrumb {
 	margin: 10px;
+}
+
+.listing_maincol .content_box_1 {
+	padding: 15px;
+}
+
+.listing_heading {
+	padding: 0 15px 15px;
+}
+.listing_heading h1 {
+	margin: 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+.listing_heading span {
+	font-size: 16px;
+	font-weight: bold;
+	color: #4174a6;
+	display: block;
+}
+.listing_heading span.breed {
+	float: right;
+}
+
+.field_set {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.field_name {
+	display: block;
+	float: left;
+	color: #444444;
+}
+.field_value {
+	display: block;
+	margin-left: 160px;
 }

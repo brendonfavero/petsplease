@@ -1,7 +1,7 @@
 {if $topcategory eq 308} {* Pets for Sale *}
-	{if $nextcategory eq 309} {* Dogs for Sale *}
+	{if $subcategory eq 309} {* Dogs for Sale *}
 		{include file="petsplease_category_templates/pets_for_sale.tpl"}
-	{elseif $nextcategory eq 310} {* Cats for Sale *}
+	{elseif $subcategory eq 310} {* Cats for Sale *}
 		{include file="petsplease_category_templates/pets_for_sale.tpl"}
 	{else}
 		{include file="petsplease_category_templates/pets_for_sale.tpl"}

@@ -9,6 +9,12 @@ class addon_ppListingDisplay_info
 	public $description = 'Custom listing template overrides';
 	public $auth_tag = 'pp_addons';
 
+	public $listing_tags = array (
+		'extraQuestionValue', 
+		'extraCheckboxValue',
+		'extraLeveledValue'
+	);
+
 	public $core_events = array ('notify_Display_ad_display_classified_after_vars_set');
 }
 ?>

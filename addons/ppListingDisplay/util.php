@@ -21,7 +21,7 @@ class addon_ppListingDisplay_util extends addon_ppListingDisplay_info
 		$secondcat = next($categories);
 
 		$view->topcategory = $firstcat['category_id'];
-		$view->nextcategory = $secondcat['category_id'];
+		$view->subcategory = $secondcat['category_id'];
 
 
 		// if ($topcat == 308) { // Pets for Sale

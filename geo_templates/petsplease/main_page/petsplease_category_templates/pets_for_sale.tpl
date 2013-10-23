@@ -30,6 +30,27 @@
 	<!-- SELLER INFO BEGIN -->						
 	<h1 class="title">{$seller_label}</h1>
 	<div class="content_box_2">
+		Username<br>
+		Contact phone<br>
+		Member since<br>
+		Location of Pet<br>
+		Postcode<br>
+		City<br>
+		State<br>
+		Country<br>
+		Ask seller a question<br>
+		Breeder profile page<br>
+		<br>
+		Skype<br>
+		Watch<br>
+		Share with a friend<br>
+		Print<br>
+		GMail<br>
+		Facebook<br>
+
+		<br><br>
+
+
 		<h1 class="seller_username">{listing tag='seller'}</h1>
 		<p class="content_section">
 			<strong>{$additional_text_17}</strong><br />
@@ -164,228 +185,152 @@
 <!-- # START CENTER COLUMN -->
 
 <div class="listing_maincol">
-	<div class="action_buttons" style="float: right">
-		{if $can_edit}
-			<a href="{$classifieds_file_name}?a=cart&amp;action=new&amp;main_type=listing_edit&amp;listing_id={$classified_id}"><img src="{external file='images/buttons/listing_edit.gif'}" alt="" /></a>
-		{/if}
-		{if $can_delete}
-			<a onclick="if (!confirm('Are you sure you want to delete this?')) return false;" href="{$classifieds_file_name}?a=99&amp;b={$classified_id}"><img src="{external file='images/buttons/listing_delete.gif'}" alt="" /></a>
-		{/if}
-		{listing tag='listing_action_buttons' addon='core'}
-	</div>
-
-	<h1 class="listing_title" style="display: inline;">
-		{$title}<br>
-		{if $price}<span class="value price">{$price}</span>{/if}
-	</h1>
-	
-	{* Assign social buttons to $social so we can check if there are any before
-		showing the section *}
-	{listing tag='listing_social_buttons' addon='core' assign='social'}
-	{if $social}
-		{* There are social buttons to display, use a rounded top box *}
-		<div>
-			{$social}
-		</div>
+	{if $subcategory eq 309} {* Dogs for Sale *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_size' qid=168} {* Dog,Size = 168 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_breed' qid=171} {* Dog,Breed = 171 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_secondbreed' qid=172} {* Dog,SecondBreed = 172 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_males' qid=173 default=0} {* Dog,Males = 173 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_females' qid=174 default=0} {* Dog,Females = 174 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_dateofbirth' qid=169} {* Dog,Date of Birth = 169 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_dateavailable' qid=170} {* Dog,Date Available = 170 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_microchip' qid=182} {* Dog,Microchip = 182 *}
+	{elseif $subcategory eq 310} {* Cats for Sale *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_size' qid=175} {* Cat,Size = 175 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_breed' qid=178} {* Cat,Breed = 178 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_secondbreed' qid=179} {* Cat,SecondBreed = 179 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_males' qid=180 default=0} {* Cat,Males = 180 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_females' qid=181 default=0} {* Cat,Females = 181 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_dateofbirth' qid=176} {* Cat,Date of Birth = 176 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_dateavailable' qid=177} {* Cat,Date Available = 177 *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_microchip' qid=183} {* Cat,Microchip = 183 *}	
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_hairlength' qid=184} {* Cat,Hair Length = 184 *}
+	{elseif $subcategory eq 311} {* Birds for Sale *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_breed' qid=185} {* Bird,Breed = 185 *}
+		{listing tag='extraCheckboxValue' addon='ppListingDisplay' assign='ex_handraised' qid=186} {* Bird,HandRaised = 186 *}
+		{listing tag='extraCheckboxValue' addon='ppListingDisplay' assign='ex_suitedtobreeding' qid=187} {* Bird,SuitedToBreeding = 187 *}
+		{* Gender *}
+	{elseif $subcategory eq 312} {* Fish for Sale *}
+		{listing tag='extraLeveledValue' addon='ppListingDisplay' assign='ex_breed' qid=5 level=2} {* Fish,Breed = Multi:5 *}
+		{listing tag='extraLeveledValue' addon='ppListingDisplay' assign='ex_breedfirstlevel' qid=5 level=1} {* Fish,Breed = Multi:5 1st level *}
+	{elseif $subcategory eq 313} {* Reptiles for Sale *}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_breed' qid=188} {* Reptile,Breed = 188 *}
+	{else}
+		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_breed' qid=189} {* Other,Breed = 189 *}
 	{/if}
+
+	<div class="listing_heading">
+		<div class="action_buttons" style="float: right">
+			{if $can_edit}
+				<a href="{$classifieds_file_name}?a=cart&amp;action=new&amp;main_type=listing_edit&amp;listing_id={$classified_id}"><img src="{external file='images/buttons/listing_edit.gif'}" alt="" /></a>
+			{/if}
+			{if $can_delete}
+				<a onclick="if (!confirm('Are you sure you want to delete this?')) return false;" href="{$classifieds_file_name}?a=99&amp;b={$classified_id}"><img src="{external file='images/buttons/listing_delete.gif'}" alt="" /></a>
+			{/if}
+			{listing tag='listing_action_buttons' addon='core'}
+		</div>
+
+		<h1>{$title}</h1>
+
+		{if $ex_breed}
+			<span class="breed">{$ex_breed}</span>
+		{/if}
+
+		{if $price}
+			<span>{$price}</span>
+		{/if}
+	</div>
 	
 	<div class="content_box_1">
 		{listing tag='image_block'}
 	</div>
-	
-	{* START OPTIONAL FIELDS *}
-	{if $optional_field_1 or $optional_field_2 or $optional_field_3 or $optional_field_4
-		or $optional_field_5 or $optional_field_6 or $optional_field_7 or $optional_field_8
-		or $optional_field_9 or $optional_field_10 or $optional_field_11 or $optional_field_12
-		or $optional_field_13 or $optional_field_16 or $optional_field_17 or $optional_field_18
-		or $optional_field_19 or $optional_field_20}
-		{* Only show section if at least one optional field 1-20 is used,
-			skipping 14 and 15 as they are already displayed further up in template. *}
-		<h1 class="title">
-			{$additional_text_11}
-		</h1>
-		<div class="content_box_1" style="padding: 4px;">
-			<ul class="optional_fields">
-				{* Keep track of how many fields are actually displayed. *}
-				{$optional_list_count=0}
-				{if $optional_field_1}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_1_label}</label>
-						{$optional_field_1}
-					</li>
-				{/if}
-				{if $optional_field_2}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_2_label}</label>
-						{$optional_field_2}
-					</li>
-				{/if}
-				{if $optional_field_3}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_3_label}</label>
-						{$optional_field_3}
-					</li>
-				{/if}
-				{if $optional_field_4}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_4_label}</label>
-						{$optional_field_4}
-					</li>
-				{/if}
-				{if $optional_field_5}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_5_label}</label>
-						{$optional_field_5}
-					</li>
-				{/if}
-				{if $optional_field_6}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_6_label}</label>
-						{$optional_field_6}
-					</li>
-				{/if}
-				{if $optional_field_7}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_7_label}</label>
-						{$optional_field_7}
-					</li>
-				{/if}
-				{if $optional_field_8}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_8_label}</label>
-						{$optional_field_8}
-					</li>
-				{/if}
-				{if $optional_field_9}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_9_label}</label>
-						{$optional_field_9}
-					</li>
-				{/if}
-				{if $optional_field_10}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_10_label}</label>
-						{$optional_field_10}
-					</li>
-				{/if}
-				{if $optional_field_11}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_11_label}</label>
-						{$optional_field_11}
-					</li>
-				{/if}
-				{if $optional_field_12}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_12_label}</label>
-						{$optional_field_12}
-					</li>
-				{/if}
-				{if $optional_field_13}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_13_label}</label>
-						{$optional_field_13}
-					</li>
-				{/if}
-				{* NOTE: optional fields 14 and 15 already displayed in seller
-					note section.  If you add them here, be sure to update
-					the {if ...} to include it. *}
-				
-				{if $optional_field_16}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_16_label}</label>
-						{$optional_field_16}
-					</li>
-				{/if}
-				{if $optional_field_17}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_17_label}</label>
-						{$optional_field_17}
-					</li>
-				{/if}
-				{if $optional_field_18}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_18_label}</label>
-						{$optional_field_18}
-					</li>
-				{/if}
-				{if $optional_field_19}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_19_label}</label>
-						{$optional_field_19}
-					</li>
-				{/if}
-				{if $optional_field_20}
-					{$optional_list_count=$optional_list_count+1}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}">
-						<label>{$optional_field_20_label}</label>
-						{$optional_field_20}
-					</li>
-				{/if}
-				{if $optional_list_count is odd by 1}
-					{* If an odd number is displayed, insert a blank value to show on left side *}
-					<li class="{cycle values='row_odd,row_even,row_even,row_odd'}"><label></label></li>
-				{/if}
-			</ul>
-			<div class="clr"></div>
-		</div>
-	{/if}
-	
-	{* END OPTIONAL FIELDS *}
 
 	{* START DESCRIPTION *}
 		
-	<h1 class="title">{$description_label}</h1>
+	<h1 class="title">Details</h1>
 	<div class="content_box_1">
-		{listing tag='extra_checkbox_name' assign='extra_checkbox_name'}
-		{if $extra_checkbox_name}
-			<br />
-			<h3>{$additional_text_11}</h3>
-			<div id="checkbox" style="margin:5px;">
-				{$extra_checkbox_name}
+		{if $ex_size}
+			<div class="field_set">
+				<span class="field_name">Size:</span> 
+				<span class="field_value">{$ex_size}</span>
+			</div> 
+		{/if}
+
+		<!--{if $ex_breed}
+			<div class="field_set">
+				<span class="field_name">Breed:</span> 
+				<span class="field_value">
+					{$ex_breed}
+					{if $ex_secondbreed}
+						x {$ex_secondbreed}
+					{/if}
+					{if $ex_breedfirstlevel}
+						<span style="color: grey">({$ex_breedfirstlevel})</span>
+					{/if}
+				</span>
 			</div>
-			<div class="clr"></div>
-			<br />
+		{/if}-->
+
+		{if $ex_hairlength}
+			<div class="field_set">
+				<span class="field_name">Hair Length:</span>
+				<span class="field_value">{$ex_hairlength}</span>
+			</div>
 		{/if}
-		<h3>{$additional_text_7}</h3>
-		<p>{$description|regex_replace:"/[\r]?[\n]/":'<br>'}</p>
-		{listing tag='multi_level_field_ul' assign='multi_level'}
-		{listing tag='extra_question_value' assign='extra_question_value'}
-		{if $extra_question_value or $multi_level}
-			<br />
-			<h3>{$additional_text_5}</h3>
-			{if $extra_question_value}
-				<div id="extra_questions">
-					<div class="label">
-						{listing tag='extra_question_name'}
-					</div>
-					<div class="data">
-						{$extra_question_value}
-					</div>
-				</div>
-				<br />
-			{/if}
-			{if $multi_level}
-				{$multi_level}
-				<div class="clr"></div>
-			{/if}
+
+		{if $ex_males or $ex_females}
+			<div class="field_set">
+				<span class="field_name">Gender:</span>
+				<span class="field_value"> 
+					{if $ex_males eq 1 and !$ex_females}
+						Male
+					{elseif $ex_females eq 1 and !$ex_males}
+						Female
+					{else}
+						{$ex_males} males, {$ex_females} females
+					{/if}
+				</span>
+			</div>
 		{/if}
+
+		{if $ex_dateofbirth}
+			<div class="field_set">
+				<span class="field_name">Date of Birth:</span>
+				<span class="field_value">{$ex_dateofbirth}</span>
+			</div>
+		{/if}
+
+		{if $ex_dateavailable}
+			<div class="field_set">
+				<span class="field_name">Date Available:</span>
+				<span class="field_value">{$ex_dateavailable}</span>
+			</div>
+		{/if}
+
+		{if $ex_handraised}
+			<div class="field_set">
+				<span class="field_name">Hand Raised:</span>
+				<span class="field_value">{$ex_handraised}</span>
+			</div>
+		{/if}
+
+		{if $ex_suitedtobreeding}
+			<div class="field_set">
+				<span class="field_name">Suited to Breeding:</span>
+				<span class="field_value">{$ex_suitedtobreeding}</span>
+			</div>
+		{/if}
+
+		{if $ex_microchip}
+			<div class="field_set">
+				<span class="field_name">Microchip Numbers:</span>
+				<span class="field_value">{$ex_microchip|regex_replace:"/\r\n?|\n/":'<br>'}</span>
+			</div>
+		{/if}
+
+		<div class="field_set">
+			<span class="field_name">Description:</span>
+			<span class="field_value">{$description|regex_replace:"/\r\n?|\n/":'<br>'}</span>
+		</div>
 	</div>
 	
 	{* END DESCRIPTION *}			
