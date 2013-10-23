@@ -192,15 +192,6 @@
 	<div class="content_box_1">
 		{listing tag='image_block'}
 	</div>
-
-	{listing tag='offsite_videos_block' assign='offsite_videos_block'}
-	{if $offsite_videos_block}
-		<h1 class="title">{$offsite_videos_title}</h1>
-		<div class="content_box_1">		
-			{$offsite_videos_block}
-			<div class="clr"><br /></div>
-		</div>
-	{/if}
 	
 	{* START OPTIONAL FIELDS *}
 	{if $optional_field_1 or $optional_field_2 or $optional_field_3 or $optional_field_4
@@ -398,6 +389,15 @@
 	</div>
 	
 	{* END DESCRIPTION *}			
+
+	{listing tag='offsite_videos_block' assign='offsite_videos_block'}
+	{if $offsite_videos_block}
+		<h1 class="title">{$offsite_videos_title}</h1>
+		<div class="content_box_1">		
+			{$offsite_videos_block}
+			<div class="clr"><br /></div>
+		</div>
+	{/if}
 
 	{* START GOOGLE MAPS *}
 	{addon author='geo_addons' addon='google_maps' tag='listing_map' assign='map'}
