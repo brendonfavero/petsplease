@@ -11,7 +11,7 @@
 {elseif $topcategory eq 316} {* Breeders *}
 	Need custom template for Pet Breeders
 {elseif $topcategory eq 318} {* Services *}
-	Need custom template for Pet Services
+	{include file="petsplease_category_templates/services.tpl"}
 {elseif $topcategory eq 319} {* Clubs *}
 	Need custom template for Pet Clubs
 {elseif $topcategory eq 411} {* Accomodation *}
