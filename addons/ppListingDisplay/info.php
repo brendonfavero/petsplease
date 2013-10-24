@@ -10,6 +10,7 @@ class addon_ppListingDisplay_info
 	public $auth_tag = 'pp_addons';
 
 	public $tags = array (
+		'extraMultiCheckboxDisplay',
 		'extraMultiCheckboxSelect'
 	);
 

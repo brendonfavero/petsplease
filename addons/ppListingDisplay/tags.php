@@ -56,6 +56,17 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		}
 	}
 
+	public function extraMultiCheckboxDisplay($params, Smarty_Internal_Template $smarty)
+	{		
+		$joined = $params['joined'];
+		$values = explode(";", $joined);
+
+		$tpl_vars = array('values' => $values);
+
+		return geoTemplate::loadInternalTemplate($params, $smarty, 'multicheckDisplay.tpl',
+				geoTemplate::ADDON, $this->name, $tpl_vars);
+	}
+
 	public function extraMultiCheckboxSelect($params, Smarty_Internal_Template $smarty)
 	{		
 		$db = true;

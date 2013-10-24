@@ -18,7 +18,6 @@
 		{if $fax_data}
 			{$fax_label} {$fax_data}<br />
 		{/if}
-		<br>
 		{if $city_data}
 			{$city_data},
 		{/if}
@@ -317,6 +316,15 @@
 			<div class="field_set">
 				<span class="field_name">Microchip Numbers:</span>
 				<span class="field_value">{$ex_microchip|regex_replace:"/\r\n?|\n/":'<br>'}</span>
+			</div>
+		{/if}
+
+		{if $topcategory eq 318 and $optional_field_1 neq ""} {* Services *}
+			<div class="field_set">
+				<span class="field_name">Services:</span>
+				<span class="field_value">
+					{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_1}
+				</span>
 			</div>
 		{/if}
 	</div>
