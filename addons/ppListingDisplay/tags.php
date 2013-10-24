@@ -55,4 +55,28 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 			return $extra_level['name'];
 		}
 	}
+
+	public function extraMultiCheckboxSelect($params, Smarty_Internal_Template $smarty)
+	{		
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
+
+		$type = $params['typeid'];
+		$value = $params['value'];
+		$values = explode(";", $value);
+
+		$sql = "SELECT * FROM ".geoTables::sell_choices_table." WHERE `type_id` = ".$type." ORDER BY `display_order`,`value`";
+		$services = $db->GetAll($sql);
+
+		foreach ($services as &$service) {
+			if (in_array($service['value'], $values)) {
+				$service['checked'] = true;
+			}
+		}
+
+		$tpl_vars = array('services' => $services);
+
+		return geoTemplate::loadInternalTemplate($params, $smarty, 'serviceOptions.tpl',
+				geoTemplate::ADDON, $this->name, $tpl_vars);
+	}
 }

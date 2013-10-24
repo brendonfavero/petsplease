@@ -565,6 +565,29 @@
 	</div>
 	<br />
 
+
+	{* Ardex Custom Services Stuff *}
+	{if $category_tree[0]['category_id'] eq 318}
+		<h2 class="title">Services Offered</h2>
+		<div class="content_box">
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=40 value=$opt_field_info[1].value}
+			<input type="hidden" name="b[optional_field_1]" value="{$opt_field_info[1].value}" />
+
+			<script>
+				jQuery(function() {
+					jQuery("input[name='servicetype_check']").on('click', function() {
+						var combined = jQuery("input[name='servicetype_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_1]']").val(combined)
+					})
+				})
+			</script>
+		</div>
+		<br />
+	{/if}
+	{* End Ardex Custom Services Stuff *}
+
+
 {* capture this next bit into a smarty variable, so that it can be not shown if there's nothing to show *}
 	{capture assign=additionalInfo}
 		{if $fields->url_link_1->is_enabled}
@@ -627,7 +650,10 @@
 		
 		{if $is_ent}
 			{foreach from=$opt_field_info item=opt_info key=i}
-				{if $opt_info.field->field_type=='cost'}
+				{if $category_tree[0]['category_id'] eq 318 and $i eq 1}
+					{* If service type, just ignore *}
+
+				{elseif $opt_info.field->field_type=='cost'}
 					{if !$add_cost_at_top && ($sell_type != 2 || $editAuctionPrices)}
 						{* Adds cost, and does not have set to display cost 
 							optional fields at "top" of page (below normal price fields)

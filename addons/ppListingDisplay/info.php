@@ -9,6 +9,10 @@ class addon_ppListingDisplay_info
 	public $description = 'Custom listing template overrides';
 	public $auth_tag = 'pp_addons';
 
+	public $tags = array (
+		'extraMultiCheckboxSelect'
+	);
+
 	public $listing_tags = array (
 		'extraQuestionValue', 
 		'extraCheckboxValue',
