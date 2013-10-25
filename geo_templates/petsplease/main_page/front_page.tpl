@@ -29,7 +29,7 @@
 	<div class="content_shell">
 		<!-- FEATURED CAROUSEL BEGIN -->
 		<div class="content_box gj_simple_carousel">
-			<h1 class="title">More Featured Listings</h1>
+			<h1 class="title">Featured Pets and Products</h1>
 			{* 
 				NOTE: In order to show the module in a way that will fit in
 				the layout for this page, the {module} tag
