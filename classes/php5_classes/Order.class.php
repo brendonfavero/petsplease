@@ -16,7 +16,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.1.0-41-gfede8aa
+## 
+##    7.1.0-41-gfede8aa
 ## 
 ##################################
 

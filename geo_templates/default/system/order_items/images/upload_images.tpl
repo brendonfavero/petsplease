@@ -33,7 +33,7 @@
 		{$messages.500707}<span class="normalUploaderShowLink" onclick="$('loadingBox').hide(); $('legacyUploadContainer').show(); $('image_upload_instructions_legacy').show(); return false;">{$messages.500708}</span>{$messages.500709}
 	</div>
 	
-	<div id="standardUploadBox" style="display: none;">
+	<div id="standardUploadBox" style="display: none; position:relative;">
 		{* This is the "drop the image here" box that will show up while moving images around,
 			the in-line styles need to stay in-line for the JS to work *}
 		<div id="plopDropImageHere" style="display: none;">

@@ -17,12 +17,19 @@ see license attached to distribution
 
 require_once CLASSES_DIR . PHP5_DIR . 'OrderItem.class.php';
 
-class imagesOrderItem extends geoOrderItem {
-	var $defaultProcessOrder = 30;
-	protected $type = 'images';
-	const type = 'images';
+class adimagesOrderItem extends geoOrderItem {
+	var $defaultProcessOrder = 40;
+	protected $type = 'adimages';
+	const type = 'adimages';
 	const renewal = 1; //easier way to access what is renew/upgrade
 	const upgrade = 2;
+
+	const max_banners = 3; // Number of banners they can upload
+	private static $allowedCategories = array(318, 319, 316); // Categories that are can have banner ads
+	const extraimages_table = "petsplease_classifieds_extraimages_urls";
+	const extraimage_type = 1; // Each listing can have seperate types of extra images which are handled seperately
+	const max_width = 710;
+	const max_height = 210;
 	
 	public function displayInAdmin() {
 		return true;
@@ -34,53 +41,7 @@ class imagesOrderItem extends geoOrderItem {
 	 * @return String "user-friendly" name of this item
 	 */
 	public function friendlyName() {
-		return 'More Images';
-	}
-	
-	/**
-	 * Optional.
-	 * Used: In admin, during ajax call to display config settings for a particular
-	 * price plan item.
-	 * 
-	 * If this method exists, a config button will be displayed beside the item, and when
-	 * the config button is pressed, whatever this function returns will be displayed
-	 * below the item using an ajax call.
-	 *
-	 * @param geoPlanItem $planItem
-	 * @return string
-	 */
-	public function adminPlanItemConfigDisplay ($planItem)
-	{
-		$admin = geoAdmin::getInstance();
-		$db = DataAccess::getInstance();
-		$html = "";
-		$max = $planItem->get('max_uploads',8);
-		$html .= geoHTML::addOption('Max # uploads',"<label><input type='text' name='images[max_uploads]' id='images[max_uploads]' value='$max' size='5' /> Files or Photos</label>");
-		
-		return $html;
-	}
-	
-	/**
-	 * Optional.
-	 * Used: In admin, during ajax call to update config settings for a particular
-	 * price plan item.
-	 * 
-	 * This is only used if adminPlanItemConfigDisplay() is used.
-	 *
-	 * @param geoPlanItem $planItem
-	 * @return bool If return true, message "settings saved" will be displayed, if return
-	 *  false, message "settings not saved" will be displayed.
-	 */
-	public function adminPlanItemConfigUpdate ($planItem)
-	{
-		$settings = $_POST['images'];
-		
-		if (is_array($settings)) {
-			$max = intval($settings['max_uploads']);
-			$planItem->set('max_uploads',$max);
-		}
-		
-		return true;
+		return 'Ad Images';
 	}
 	
 	public function geoCart_previewDisplay(){
@@ -88,14 +49,14 @@ class imagesOrderItem extends geoOrderItem {
 		$cart = geoCart::getInstance();
 		//get the listing id
 		$listingId = $this->getParent()->get('listing_id',0);
-		$images_captured = $this->get('images_captured',array());
+		$images_captured = $this->get('adimages_captured',array());
 		
 		$ids = array();
 		foreach ($images_captured as $info) {
 			$ids[] = (int)$info['id'];
 		}
 		
-		$sql = "SELECT * FROM ".geoTables::images_urls_table." WHERE `image_id` IN (".implode(', ',$ids).") ORDER BY FIELD(`image_id`, ".implode(',',$ids).")";
+		$sql = "SELECT * FROM ".self::extraimages_table." WHERE `image_id` IN (".implode(', ',$ids).") ORDER BY FIELD(`image_id`, ".implode(',',$ids).")";
 		
 		$result_set = DataAccess::getInstance()->Execute($sql);
 		//Make call to get images and pass in the result set we wish it to use
@@ -124,159 +85,11 @@ class imagesOrderItem extends geoOrderItem {
 			trigger_error('DEBUG CART: Here in images.');
 			return '';
 		}
-		if (!geoMaster::is('site_fees')) {
-			trigger_error('DEBUG CART: Here in images.');
-			return;
-		}
+
 		$cart->site->get_ad_configuration();
 		self::fixPricePlan();
-		//get plan item
-		$category = $cart->item->getCategory();
-		$price_plan = $cart->item->getPricePlan();
-		$planItem = geoPlanItem::getPlanItem(self::type,$price_plan,$category);
-		if ($cart->price_plan['charge_per_picture'] == 0 || ($cart->item->renew_upgrade == self::upgrade && $cart->site->parent_session_variables['image'] >= $planItem->get('max_uploads',8))) {
-			//either we do not charge for pics, or this is an upgrade and the user already has the max number of images they can.
-			trigger_error('DEBUG CART: Here in images.');
-			return ;
-		}
-		trigger_error('DEBUG CART: Here in images.');
-		$renew_upgrade = $cart->item->renew_upgrade;
-		$numPics = intval($_POST['c']['new_pictures']);
-		
-		if ($numPics > $planItem->get('max_uploads',8)){
-			//do not allow more than the max allowed photos, to prevent invalid user input
-			$numPics = intval($planItem->get('max_uploads',8));
-		}
-		
-		$newPics = $numPics;
-		$free = ((geoPC::is_ent())? $cart->price_plan['num_free_pics']: 0);
-		
-		
-		if ($renew_upgrade == self::upgrade){
-			//only count number of pics added beyond whats already been purchased
-			//so, add the number that is already added that has been purchased to the "free" count
-			$numOldPics = $cart->site->parent_session_variables['image'];
-			if($free >= $numOldPics) {
-				$free = $free;
-			} else {
-				$free = $numOldPics;
-			}
-		} else {
-			//renewal, figure out minimum image count
-			if ($cart->item->get('listing_copy_id')) {
-				//this is a copy of auction being renewed, images won't have 
-				//ID's set for listing yet, get count different way
-				
-				//if there are images, there will be an image item
-				$imageItem = geoOrderItem::getOrderItemFromParent($cart->item, self::type);
-				if ($imageItem) {
-					$count = (int)$imageItem->get('image_count_total');
-				} else {
-					$count = 0;
-				}
-			} else {
-				//get image cound regular way
-				$sql = "SELECT count(`classified_id`) as `count` FROM ".geoTables::images_urls_table." WHERE `classified_id` = ".intval($cart->item->get('listing_id'));
-				$image_count = $cart->db->GetRow($sql);
-				if ($image_count === false) {
-					trigger_error('ERROR SQL CART: Sql: '.$sql.' Error Msg: '.$cart->db->ErrorMsg());
-					return false;
-				}
-				$count = $image_count['count'];
-			}
-			
-			$force_min = $count;
-			if ($numPics < $force_min) {
-				$numPics = $force_min;
-			}
-		}
-		$purchased = (($numPics - $free > 0) ? ($numPics - $free) : 0);
-		$amountPaid = $purchased * $cart->price_plan['charge_per_picture'];
-		
-		
-		$cart->setPricePlan($cart->item->getPricePlan(),$cart->item->getCategory());
-		//get current attached better_placement, if exists..
-		$items = $cart->order->getItem(self::type);
-		$order_item = false;
-		if (is_array($items)){
-			foreach ($items as $i => $val){
-				if (is_object($val) && is_object($val->getParent())){
-					$p = $val->getParent();
-					if ($p->getId() == $cart->item->getId()){
-						//parent is main item, the type is better_placement, so whoohoo...
-						$order_item = $val;
-						break;
-					}
-				}
-			}
-		}
 
-		if (!$purchased) {
-			//no new images purchased
-			
-			//find out if this is a copy
-			$parent = $cart->item->getParent();
-			if (!$parent) $parent = $cart->item;
-			if ($parent) {
-				$isCopy = $parent->get('listing_copy_id');
-			}
-			
-			//mark item for removal unless this is a copy with pics
-			$removeItem = ($isCopy && $numPics) ? false : true;
-		} else {
-			//new images have been purchased -- don't remove the item
-			$removeItem = false;
-		}
-		
-		if ($removeItem){
-			if ($order_item){
-				$id = $order_item->getId();
-				geoOrderItem::remove($id);
-				$cart->order->detachItem($id);
-			}
-		} else {
-			if (!$order_item){
-				$order_item = new imagesOrderItem;
-				$order_item->setParent($cart->item);//this is a child of the parent
-				$order_item->setOrder($cart->order);
-				
-				$order_item->save();//make sure it's serialized
-				$cart->order->addItem($order_item);
-				trigger_error('DEBUG CART: Adding images: <pre>'.print_r($order_item,1).'</pre>');
-			} else {
-				trigger_error('DEBUG CART: better_placement already attached: <pre>'.print_r($order_item,1).'</pre>');
-				$cart->order->addItem($order_item);
-			}
-			$order_item->setCreated($cart->order->getCreated());
-			$order_item->setCost($amountPaid);
-			
-			//set details specific to images
-			//set number of images total
-			$order_item->set('image_count_total', $numPics);
-			
-			//set number of images that apply to cost
-			$order_item->set('image_count_not_free', $purchased);
-			//set number of free images for this price plan, as of this time
-			$order_item->set('number_free_images', $free);
-			//set cost of each not-free image
-			$order_item->set('cost_per_image', $cart->price_plan['charge_per_picture']);
-			//set id of listing, if known
-			if (isset($cart->site->classified_id) && $cart->site->classified_id > 0){
-				$order_item->set('listing_id',$cart->site->classified_id);
-			}
-			//err umm set the images captured to be a copy of the original order item...
-			$order_item->set('renew_upgrade',$renew_upgrade);
-			if ($renew_upgrade == self::renewal && $force_min > 0) {
-				$order_item->set('force_no_remove',1);
-			}
-			$order_item->save();
-			
-			$session_variables = $cart->item->get('session_variables');
-			$session_variables['image'] = $numPics;
-			$cart->item->set('session_variables',$session_variables);
-						
-			$cart->item->save();
-		}
+		// REMOVED CODE FROM HERE FOR PAID IMAGES
 	}
 	public static function geoCart_other_detailsProcess(){
 		//everything done in check vars...
@@ -295,129 +108,8 @@ class imagesOrderItem extends geoOrderItem {
 		}
 		self::fixPricePlan();
 		$cart->site->get_ad_configuration();
-		//get plan item
-		$category = $cart->item->getCategory();
-		$price_plan = $cart->item->getPricePlan();
-		$planItem = geoPlanItem::getPlanItem(self::type,$price_plan,$category);
-		
-		if ($cart->price_plan['charge_per_picture'] == 0 || ($cart->item->renew_upgrade == self::upgrade && $cart->site->parent_session_variables['image'] >= $planItem->get('max_uploads',8))) {
-			//either we do not charge for pics, or this is an upgrade and the user already has the max number of images they can.
-			trigger_error('DEBUG CART: Here in images. charge: '.$cart->price_plan['charge_per_picture']);
-			return '';
-		}
-		
-		$renew_upgrade = $cart->item->renew_upgrade; //easier way to access var
-		
-		$tpl_vars = $cart->getCommonTemplateVars();
 
-		//number of free pics
-		$free = intval((geoPC::is_ent())? $cart->price_plan['num_free_pics']: 0);
-		
-		//get the number of existing image slots associated with this listing before upgrade/renewal began
-		
-		/*
-			There are a lot of variables here that do similar things, and they tend to get confused, so here's an explanation:
-			
-			$free -- number of free images, per admin setting
-			
-			$current -- number of image slots owned prior to starting the renew/upgrade
-						-- used to determine $start, but NOT in the calculations beyond that
-			
-			$start -- number of images purchaseable on the lowest selection
-					-- for renewals, this is simply the number of free images (if any)
-					-- for upgrades, this is the greater of $current or $free
-					-- The idea is that upgrades shouldn't pay for what they already have, but renewals buy everything again
-						-- Corollary: Let $free be some n greater than 1. There is no need to present options for n-1 or fewer images, hence starting at $free where applicable
-											
-			$maxToBuy -- highest number of images a listing may ever have (from the plan item)
-						-- used to determine $possibleBuys, but NOT beyond that
-			
-			$posssibleBuys -- number of images that may be purchased for this listing ($maxToBuy - $start)
-								-- greatest potential number of images, sans those already in place or free. i.e. number of options for the dropdown
-		
-			****
-			All of the above are available to the template for use in possible customization, but are NOT used in the default template.
-			$possibleBuys and $start are used to create the $img_dropdown array that IS used by the template. The others are computational only.
-			****
-		
-		*/
-		
-		$gotCount = false;
-		if ($renew_upgrade == self::renewal){
-			if ($cart->item->get('listing_copy_id')) {
-				//this is a copy of auction being renewed, images won't have 
-				//ID's set for listing yet, get count different way
-				
-				//if there are images, there will be an image item
-				$imageItem = geoOrderItem::getOrderItemFromParent($cart->item, self::type);
-				if ($imageItem) {
-					$current = (int)$imageItem->get('image_count_total');
-				} else {
-					$current = 0;
-				}
-				$gotCount = true;
-			}
-		} else {
-			//upgrade, the current is the number already recorded.
-			if (isset($cart->site->parent_session_variables['image'])) {
-				$current = (int)$cart->site->parent_session_variables['image'];
-				$gotCount = true;
-			}
-		}
-		if(!$gotCount) {
-			//don't have a count from one of the faster methods, so count existing images manually
-			$sql = "SELECT count(`classified_id`) as `count` FROM ".geoTables::images_urls_table." WHERE `classified_id` = ".intval($cart->item->get('listing_id'));
-			$current = $cart->db->GetOne($sql);
-			if ($image_count === false) {
-				trigger_error('ERROR SQL CART: Sql: '.$sql.' Error Msg: '.$cart->db->ErrorMsg());
-				return false;
-			}
-		}
-		
-		$start = ($renew_upgrade == self::renewal) ? max($free, 0) : max($free, $current);
-		$maxToBuy = max($planItem->get('max_uploads',8), 0);
-		$possibleBuys = max(($maxToBuy-$start),0);
-
-		/*
-		 * Now that we have $start and $possibleBuys set up properly, use them to create an array of selectable options.
-		 * 
-		 * Notes on this loop:
-		 * 	$i counts the number of dropdown choices, from 0
-		 *  $slotToBuy accounts for starting at some number of pre-purchased/free images
-		 *  Use $i to run the loop the correct number of times, and $slotToBuy for the actual numbers that mean something
-		 *  
-		 */
-				
-		$img_dropdown = array();
-		for($i = 0; $i <= $possibleBuys; $i++) {
-			//build array to use in smarty template for image drop down
-			$slotToBuy = $i + $start; //the actual index of the current slot
-			if (($renew_upgrade == self::renewal && $slotToBuy >= $tpl_vars['current']) || $renew_upgrade == self::upgrade) {
-				$price = 0;
-				if (($renew_upgrade == self::upgrade && ($tpl_vars['current']+$slotToBuy) > $tpl_vars['free']) || ($renew_upgrade == self::renewal && $slotToBuy > $tpl_vars['free'])) {
-					$multiplier = $i; // this is the $i'th image to be purchased
-					$price = ($cart->price_plan['charge_per_picture'] * $multiplier);
-				}
-				$img_dropdown[$slotToBuy] = geoString::displayPrice($price, false, false, 'cart');
-			}
-		}
-		
-		$cart->site->page_id = 56;
-		$cart->site->get_text();
-		
-		$tpl = new geoTemplate('system','order_items');
-		//most of these are not used in the default template, but may be handy to have for customizations
-		$tpl_vars = array(
-			'free' => $free,
-			'current' => $current,
-			'start' => $start,
-			'maxToBuy' => $maxToBuy,
-			'img_dropdown' => $img_dropdown,
-			'help_link' => $cart->site->display_help_link(500096),
-			'renew_upgrade' => $renew_upgrade
-		);
-		$tpl->assign($tpl_vars);
-		return array ('entire_box' => $tpl->fetch('images/other_details.item_box.tpl'));
+		// REMOVED CODE FROM HERE FOR PAID IMAGES 
 	}
 	
 	public function getDisplayDetails ($inCart,$inEmail=false)
@@ -660,7 +352,7 @@ class imagesOrderItem extends geoOrderItem {
 		}
 		$cart = geoCart::getInstance();
 		self::_start();
-		
+	
 		if (isset($_REQUEST["f"]) && isset($_REQUEST["g"])) {
 			//LEGACY user deleting an image, this will NOT be called like this if
 			//deleting an image the "ajax" way, this is used by the "fallback"
@@ -672,13 +364,12 @@ class imagesOrderItem extends geoOrderItem {
 			
 			$cart->addError(); //set error to send user back to image display page when we're done
 		} elseif ((isset($_REQUEST["c"]) && $_REQUEST["c"]) || (isset($_REQUEST["d"]) && $_REQUEST["d"]) || isset($_FILES['Filedata'])) {
-			
 			$cart->site->get_badword_array();
 			$images_captured = self::processImages($_REQUEST['c'],$_FILES);				
 			
 			$item = self::_getImageItem();
 			if (!is_object($item)) {
-				$item = new imagesOrderItem;
+				$item = new adimagesOrderItem;
 				$item->setParent($cart->item);//this is a child of the parent
 				$item->setOrder($cart->order);
 				$item->save();//make sure it's serialized
@@ -686,7 +377,7 @@ class imagesOrderItem extends geoOrderItem {
 				trigger_error('DEBUG CART: Adding images: <pre>'.print_r($item,1).'</pre>');
 			}
 			if (is_object($item)){
-				$item->set('images_captured',$images_captured);
+				$item->set('adimages_captured',$images_captured);
 				$item->save();
 			}
 		}
@@ -730,7 +421,7 @@ class imagesOrderItem extends geoOrderItem {
 			}
 		} else {
 			if (!$order_item){
-				$order_item = new imagesOrderItem;
+				$order_item = new adimagesOrderItem;
 				$order_item->setParent($cart->item);//this is a child of the parent
 				$order_item->setOrder($cart->order);
 				$order_item->save();//make sure it's serialized
@@ -753,7 +444,7 @@ class imagesOrderItem extends geoOrderItem {
 			
 			if (is_object($parent)){
 				//make sure image count is also set in session variables
-				if ($parent->getType() != 'listing_edit' || $image_data['cost_per_image']==0 || $parent->get('image_slots') < $image_data['number_free_images']) {
+				if ($parent->getType() != 'listing_edit' || $image_data['cost_per_image']==0 || $parent->get('adimage_slots') < $image_data['number_free_images']) {
 					//either this is a normal listing placement, or this is a listing edit and
 					//the number of slots open is less than the number of free images, or there is no charge for image.
 					trigger_error('DEBUG CART: Image count being added to session vars, count: '.$image_data['image_count_total']);
@@ -764,7 +455,7 @@ class imagesOrderItem extends geoOrderItem {
 						$cart->site->session_variables['image'] = $image_data['image_count_total'];
 					}
 				}
-				if ($parent->getType() == 'listing_edit' && $image_data['image_count_total'] <= $parent->get('image_slots')) {
+				if ($parent->getType() == 'listing_edit' && $image_data['image_count_total'] <= $parent->get('adimage_slots')) {
 					//no charge, they already paid for the extra image slots!
 					$order_item->setCost(0);
 				}
@@ -810,23 +501,7 @@ class imagesOrderItem extends geoOrderItem {
 	}
 	public static function getMaxImages ()
 	{
-		$cart = geoCart::getInstance();
-		$category = $cart->item->getCategory();
-		$price_plan = $cart->item->getPricePlan();
-		$planItem = geoPlanItem::getPlanItem('images',$price_plan,$category);
-		if ($cart->price_plan['charge_per_picture'] > 0 && $cart->item && $cart->item->getType() == 'listing_edit') {
-			//editing -- cannot add new "charged" slots
-			$slotsPurchased = $cart->item->get('image_slots');
-			if($slotsPurchased >= $cart->price_plan['num_free_pics']) {
-				$slotsAvailable = $slotsPurchased;
-			} else {
-				$slotsAvailable = $cart->price_plan['num_free_pics'];
-			}
-		} else {
-			$slotsAvailable = $planItem->get('max_uploads',8);
-		}
-		
-		return $slotsAvailable;
+		return self::max_banners;
 	}
 	
 	public static function mediaDisplay ($full_step)
@@ -861,7 +536,7 @@ class imagesOrderItem extends geoOrderItem {
 		//whether images are allowed or not is checked when this step is added, so don't need to check it here.
 		$cart->site->get_ad_configuration();
 		$slotsAvailable = self::getMaxImages();
-		
+
 		if ($full_step) {
 			$cart->site->messages = $cart->db->get_text(true, 10);
 		} else {
@@ -904,7 +579,7 @@ class imagesOrderItem extends geoOrderItem {
 		
 		$images['uploading_image'] = $cart->db->get_site_setting('uploading_image');
 		$images['old_config'] = $cart->db->GetRow("SELECT * FROM ".geoTables::ad_configuration_table);
-		$images['images_captured'] = $images_captured;
+		$images['adimages_captured'] = $images_captured;
 		//allow images to be removed in "legacy" uploader
 		$images['show_delete'] = true;
 		
@@ -938,28 +613,20 @@ class imagesOrderItem extends geoOrderItem {
 					$freeSlot = $n;
 				}
 			}
-			if (geoMaster::is('site_fees') && $imgInfo['cost_per_image'] > 0) {
-				//show price
-				if ($n <= $imgInfo['number_free_images']) {
-					$imageSlots[$n]['cost'] = $cart->site->messages[500679];
-				} else {
-					$imageSlots[$n]['cost'] = geoString::displayPrice($imgInfo['cost_per_image']);
-				}
-			}
 		}
 		$images['imageSlots'] = $imageSlots;
 		$images['not_keys_yet'] = $not_keys_yet;
 		$images['imgMaxTitleLength'] = $cart->site->ad_configuration_data->MAXIMUM_IMAGE_DESCRIPTION;
 		$images['full_step'] = $full_step;
 		
-		$tpl_vars['images'] = $images;
+		$tpl_vars['adimages'] = $images;
 		unset($images);
 		
 		if ($full_step === 'justImageSlots') {
 			//special case, just the image slots (for ajax calls)
 			$tpl = new geoTemplate('system','order_items');
 			$tpl->assign($tpl_vars);
-			return $tpl->fetch('images/images_captured_box.tpl');
+			return $tpl->fetch('adImages/images_captured_box.tpl');
 		}
 		$view = geoView::getInstance();
 		$session = geoSession::getInstance();
@@ -968,11 +635,11 @@ class imagesOrderItem extends geoOrderItem {
 		$headerVars['user_agent']= $_SERVER['HTTP_USER_AGENT'];
 		$headerVars['userId'] = (int)$cart->user_data['id'];
 		$headerVars['adminId'] = (defined('IN_ADMIN'))? $session->getUserId() : 0;
-		$headerVars['freeSlot'] = $freeSlot;
+		$headerVars['adfreeSlot'] = $freeSlot;
 		$headerVars['maximum_upload_size'] = (int)$cart->site->ad_configuration_data->MAXIMUM_UPLOAD_SIZE;
 		//during beta period, add timestamp onto URL so that files are not cached
 		
-		if ($tpl_vars['images']['useStandardUploader']) {
+		if ($tpl_vars['adimages']['useStandardUploader']) {
 			//using "standard" uploader
 			$pre = (defined('IN_ADMIN'))? '../' : '';
 			
@@ -981,17 +648,17 @@ class imagesOrderItem extends geoOrderItem {
 			$tpl = new geoTemplate(geoTemplate::SYSTEM, 'order_items');
 			$tpl->assign($headerVars);
 			
-			$view->addCssFile($pre.geoTemplate::getUrl('css','system/order_items/images/upload_images.css'))
+			$view->addCssFile($pre.geoTemplate::getUrl('css','vendor/upload_images.css'))
 				->addJScript($pre.'classes/swfupload/swfupload.js')
-				->addJScript($pre.geoTemplate::getUrl('js','system/order_items/images/handlers.js'))
-				->addTop($tpl->fetch('images/upload_images_head.tpl'));
+				->addJScript($pre.geoTemplate::getUrl('js','system/adimage_handlers.js'))
+				->addTop($tpl->fetch('adImages/upload_images_head.tpl'));
 		}
 		//tell it to include CSS for message box
 		$view->useMessageBox = 1;
 		if ($full_step == 'tpl') {
 			$view->setBodyVar($tpl_vars);
 			return array (
-				'file' => 'images/upload_images.tpl',
+				'file' => 'adImages/upload_images.tpl',
 				'g_type' => 'system',
 				'g_resource' => 'order_items',
 			);
@@ -999,8 +666,8 @@ class imagesOrderItem extends geoOrderItem {
 		
 		if ($cart->main_type == self::type) {
 			//- Editing images part by clicking edit next to images in cart
-			$tpl_vars ['mediaTemplates']['images'] = array (
-				'file' => 'images/upload_images.tpl',
+			$tpl_vars ['mediaTemplates']['adimages'] = array (
+				'file' => 'adImages/upload_images.tpl',
 				'g_type' => 'system',
 				'g_resource' => 'order_items',
 			);
@@ -1029,7 +696,7 @@ class imagesOrderItem extends geoOrderItem {
 		if (self::addMedia()) {
 			//Only add step if images are allowed
 			trigger_error('DEBUG CART: adding image step in images.php.');
-			$cart->addStep('images:media');
+			$cart->addStep('adImages:admedia');
 		}
 	}
 	
@@ -1038,17 +705,10 @@ class imagesOrderItem extends geoOrderItem {
 		trigger_error('DEBUG CART: top of images.php addMedia.');
 		$cart = geoCart::getInstance();
 		
-		$cart->site->get_ad_configuration();
-		
-		//get plan item
 		$category = $cart->item->getCategory();
-		$price_plan = $cart->item->getPricePlan();
-		$planItem = geoPlanItem::getPlanItem(self::type,$price_plan,$category);
-		trigger_error('DEBUG CART: checking if images allowed.');
 		
-		return (($planItem->get('max_uploads',8) > 0)
-			&& ($cart->site->ad_configuration_data->ALLOW_URL_REFERENCED
-			|| $cart->site->ad_configuration_data->ALLOW_UPLOAD_IMAGES));
+		// if we are in one of the allowed categories then yes, we can upload banners
+		return in_array($category, self::$allowedCategories);
 	}
 	
 	public static function geoCart_initItem_forceOutsideCart () {
@@ -1069,7 +729,7 @@ class imagesOrderItem extends geoOrderItem {
 		}
 		//delete url images
 		//get image urls to
-		$sql = "SELECT * FROM ".geoTables::images_urls_table." WHERE `image_id` = ?";
+		$sql = "SELECT * FROM ".self::extraimages_table." WHERE `image_id` = ?";
 		$imgData = $cart->db->GetRow($sql, array($image_id));
 		//echo $sql."<br />\n";
 		if (!$imgData) {
@@ -1078,7 +738,7 @@ class imagesOrderItem extends geoOrderItem {
 		}
 		
 		//get geoImage::remove() do the guts of the work.
-		if (!geoImage::remove($image_id)) {
+		if (!self::deleteImage($image_id)) {
 			//error happened when doing the actual removal of the image.
 			return false;
 		}
@@ -1099,7 +759,7 @@ class imagesOrderItem extends geoOrderItem {
 			//currently editing a listing, so images may span multiple order items
 			//need to figure out which one to remove from
 			
-			$map = $parent->get('mapImageItems');
+			$map = $parent->get('admapImageItems');
 			if ($map && isset($map[$image_id])) {
 				//find item IDs
 				$itemIds = $map[$image_id];
@@ -1107,7 +767,7 @@ class imagesOrderItem extends geoOrderItem {
 				foreach($itemIds as $orderItemId) {
 					$order_item = geoOrderItem::getOrderItem($orderItemId);
 					//to remove from order item's images...
-					$imgCap = $order_item->get('images_captured');
+					$imgCap = $order_item->get('adimages_captured');
 					$position = array_search($findEntry, $imgCap);
 					
 					$imgRemoved = $order_item->get('images_removed', array());
@@ -1115,7 +775,7 @@ class imagesOrderItem extends geoOrderItem {
 					//...and reset the item to have correct values
 					if ($position && isset($imgCap[$position]) && $imgCap[$position]['id'] == $image_id) {
 						unset($imgCap[$position]);
-						$order_item->set('images_captured',$imgCap);
+						$order_item->set('adimages_captured',$imgCap);
 						if ($cart->site->debug_image_delete) {
 							//FOR DEBUG: Save removed info
 							$imgRemoved[] = array ('slot' => $position, 'id' => $image_id);
@@ -1146,7 +806,7 @@ class imagesOrderItem extends geoOrderItem {
 		}
 		$parent = $order_item->getParent();
 		trigger_error('DEBUG CART: Photo: init photos TOP');
-		$images_captured = $order_item->get('images_captured');
+		$images_captured = $order_item->get('adimages_captured');
 		if (!is_array($images_captured)){
 			$images_captured = array();
 			trigger_error('DEBUG CART: here, images captured not set.');
@@ -1170,7 +830,7 @@ class imagesOrderItem extends geoOrderItem {
 			//no images in order
 			return;
 		}
-		
+
 		foreach ($items as $item){
 			if (is_object($item)) {
 				$cart->initItem($item->getId());
@@ -1188,11 +848,11 @@ class imagesOrderItem extends geoOrderItem {
 				
 				self::$session_id_to_use = 0;
 				
-				$images_captured = $img_item->get('images_captured');
+				$images_captured = $img_item->get('adimages_captured');
 
 				//don't run insert_classified_images() if editing -- we'll take care of it at approval time
 				if($parent->getType() == 'listing_edit') {
-					$parent->set('images_captured', $images_captured);
+					$parent->set('adimages_captured', $images_captured);
 					
 					//bounce these to parent for easier reverts
 					$parent->set('revertState', $cart->item->get('dontDeleteThese'));
@@ -1252,7 +912,7 @@ class imagesOrderItem extends geoOrderItem {
 		foreach($images_captured as $key => $image) {
 			self::removeImage($image['id'],$key, true);
 		}
-		$cart->item->set('images_captured',array());
+		$cart->item->set('adimages_captured',array());
 		$parent = $cart->item->getParent();
 		if (is_object($parent) && $parent->getType() != 'listing_edit') {
 			//note that this would not be called from listing edit or renewal
@@ -1278,7 +938,7 @@ class imagesOrderItem extends geoOrderItem {
 			$item = self::_getImageItem();
 			trigger_error('DEBUG CART: Got item');
 			if (!is_object($item) && $cart->item->getType() == 'listing_edit') {
-				$imagesCaptured = $cart->item->get('all_images_captured',array());
+				$imagesCaptured = $cart->item->get('all_adimages_captured',array());
 				if ($verify) {
 					return self::verifyImagesCaptured($imagesCaptured);
 				}
@@ -1290,7 +950,7 @@ class imagesOrderItem extends geoOrderItem {
 			trigger_error('DEBUG CART: No image item found! item: <pre>'.print_r($cart->order,1).'</pre>');
 			return array();
 		}
-		$imagesCaptured = $item->get('images_captured',array());
+		$imagesCaptured = $item->get('adimages_captured',array());
 		if ($verify) {
 			return self::verifyImagesCaptured($imagesCaptured);
 		}
@@ -1302,7 +962,7 @@ class imagesOrderItem extends geoOrderItem {
 		$db = DataAccess::getInstance();
 		
 		foreach ($imagesCaptured as $displayOrder => $imgData) {
-			$row = $db->GetRow("SELECT `image_id` FROM ".geoTables::images_urls_table." WHERE `image_id`=?", array($imgData['id']));
+			$row = $db->GetRow("SELECT `image_id` FROM ".self::extraimages_table." WHERE `image_id`=?", array($imgData['id']));
 			if (!$row) {
 				//not found!
 				unset($imagesCaptured[$displayOrder]);
@@ -1322,12 +982,12 @@ class imagesOrderItem extends geoOrderItem {
 		$item = self::_getImageItem();
 		$cart = geoCart::getInstance();
 		
-		if (!is_object($item) && $cart->item->getType() == 'listing_edit' && $cart->item->get('all_images_captured')) {
+		if (!is_object($item) && $cart->item->getType() == 'listing_edit' && $cart->item->get('all_adimages_captured')) {
 			//special case for image edits.
-			$cart->item->set('all_images_captured', $newImagesCaptured);
+			$cart->item->set('all_adimages_captured', $newImagesCaptured);
 		}
 		if (is_object($item)){
-			$item->set('images_captured',$newImagesCaptured);
+			$item->set('adimages_captured',$newImagesCaptured);
 			$item->save();
 		}
 	}
@@ -1340,12 +1000,12 @@ class imagesOrderItem extends geoOrderItem {
 			//we only get pre existing images from listing edit.
 			return false;
 		}
-		if ($cart->item->get('existingImages',false)) {
+		if ($cart->item->get('existingadImages',false)) {
 			//we've already done this -- don't do it again
 			return true;
 		}
 		//remember that we've already done this at least once.
-		$cart->item->set('existingImages',1);
+		$cart->item->set('existingadImages',1);
 		$listing_id = $cart->item->get('listing_id',false);
 		$items = array();
 		$ids = array();
@@ -1360,7 +1020,7 @@ class imagesOrderItem extends geoOrderItem {
 		$listing = geoListing::getListing($listing_id);
 		if(is_object($listing) && $listing->id > 0) {
 			$slots = $listing->image;
-			$cart->item->set('image_slots', $slots);
+			$cart->item->set('adimage_slots', $slots);
 
 			//get priceplan for this listing
 			$priceplan = $listing->price_plan_id;
@@ -1382,7 +1042,7 @@ class imagesOrderItem extends geoOrderItem {
 			//numbers of listings!  Yes we know how to nest queries but in this
 			//case doing so caused huge slow-downs on large sites, this solution
 			//fixes the slow-down.
-			$sql = "SELECT `id` FROM `geodesic_order_item` WHERE `type`='images' AND `parent` = {$row_item['id']}";
+			$sql = "SELECT `id` FROM `geodesic_order_item` WHERE `type`='adimages' AND `parent` = {$row_item['id']}";
 			$row = $cart->db->GetRow($sql);
 			//each main item should only have 1 image item attached.
 			if (isset($row['id'])) {
@@ -1399,7 +1059,7 @@ class imagesOrderItem extends geoOrderItem {
 					continue;
 				}
 				
-				$imageData = $item->get('images_captured', array());
+				$imageData = $item->get('adimages_captured', array());
 				
 				foreach($imageData as $key => $val) {
 					//see if that same data already exists
@@ -1410,7 +1070,7 @@ class imagesOrderItem extends geoOrderItem {
 						unset($images_captured[$found]);
 					}
 					//check to make sure image exists in the images urls table
-					if (!$cart->db->GetRow("SELECT `image_id` FROM ".geoTables::images_urls_table." WHERE `image_id`=?", array($val['id']))) {
+					if (!$cart->db->GetRow("SELECT `image_id` FROM ".self::extraimages_table." WHERE `image_id`=?", array($val['id']))) {
 						//no found, probably deleted at a later date
 						continue;
 					}
@@ -1427,9 +1087,9 @@ class imagesOrderItem extends geoOrderItem {
 			}
 		}
 		
-		$cart->item->set('mapImageItems', $mapImageItems);
+		$cart->item->set('admapImageItems', $mapImageItems);
 		$notThese = ($ids)? " AND `image_id` NOT IN (".implode(', ',$ids).") " : '';
-		$sql = "SELECT `image_id`, `display_order` FROM ".geoTables::images_urls_table." WHERE `classified_id` = ? $notThese ORDER BY `display_order`";
+		$sql = "SELECT `image_id`, `display_order` FROM ".self::extraimages_table." WHERE `type_id` = ".self::extraimage_type." AND `classified_id` = ? $notThese ORDER BY `display_order`";
 		$legacyResults = $cart->db->GetAll($sql, array($listing_id));
 		
 		if(count($items) + count($legacyResults) < 1) {
@@ -1482,7 +1142,7 @@ class imagesOrderItem extends geoOrderItem {
 			//save IDs of original images, so they can be not deleted if order canceled
 			$cart->item->set('dontDeleteThese', $saveMe);
 		}
-		$cart->item->set('all_images_captured',$images_captured);
+		$cart->item->set('all_adimages_captured',$images_captured);
 		$cart->item->save();
 		
 		return $images_captured;
@@ -1502,7 +1162,7 @@ class imagesOrderItem extends geoOrderItem {
 		
 		//see if there are any images, don't rely on session_variables['image'] by itself
 		//as it might not be accurate.
-		$sql = "SELECT count(*) as count FROM ".geoTables::images_urls_table." WHERE `classified_id` = ? ORDER BY `display_order` ASC";
+		$sql = "SELECT count(*) as count FROM ".self::extraimages_table." WHERE `type_id` = ".self::extraimage_type." AND `classified_id` = ? ORDER BY `display_order` ASC";
 		$row = $cart->db->GetRow($sql, array($session_variables['listing_copy_id']));
 		
 		if ((isset($row['count']) && $row['count'] > 0) || $cart->site->session_variables['image']) {
@@ -1527,7 +1187,7 @@ class imagesOrderItem extends geoOrderItem {
 			$item = self::_getImageItem();
 			if (!is_object($item)){
 				trigger_error('DEBUG CART: Copy Listing Here');
-				$item = new imagesOrderItem;
+				$item = new adimagesOrderItem;
 				$parentUse = ($parentItem)? $parentItem: $cart->item;
 				$order = ($parentUse->getOrder())? $parentUse->getOrder(): $cart->order;
 				if (!$order) {
@@ -1544,8 +1204,8 @@ class imagesOrderItem extends geoOrderItem {
 			//new geoImage($this->ad_configuration_data, $this->session_id);
 			$images_captured = $image_proc->copyImages($cart->site->session_variables['listing_copy_id']);
 			
-			$item->set('images_captured',$images_captured);
-			trigger_error('DEBUG CART: Copy Listing Here, copy_id: '.$cart->site->session_variables['listing_copy_id'].' images_captured: <pre>'.print_r($images_captured,1).'</pre>');
+			$item->set('adimages_captured',$images_captured);
+			trigger_error('DEBUG CART: Copy Listing Here, copy_id: '.$cart->site->session_variables['listing_copy_id'].' adimages_captured: <pre>'.print_r($images_captured,1).'</pre>');
 			$image_data = self::getImageData();
 			//NOTE: Initially, prices may be set wrong, but they will be fixed
 			//when we are "higher up" (in same page load) so we can better tell
@@ -1565,7 +1225,7 @@ class imagesOrderItem extends geoOrderItem {
 			//set cost of each not-free image
 			$item->set('cost_per_image', $image_data['cost_per_image']);
 			
-			$item->set('images_captured',$images_captured);
+			$item->set('adimages_captured',$images_captured);
 			
 			trigger_error('DEBUG CART: Copy Listing Here, image item: <pre>'.print_r($item,1).'</pre>');
 		}
@@ -1575,8 +1235,8 @@ class imagesOrderItem extends geoOrderItem {
 	public function processStatusChange($newStatus, $sendEmailNotices = true, $updateCategoryCount = false)
 	{
 		$parent = $this->getParent();
-		if ($newStatus == 'active' && $parent && $parent->getType() == 'listing_change_admin' && defined('IN_ADMIN')) {
-			self::_updateImageListingId($this->get('images_captured'), $parent->get('listing_id'));
+		if ($newStatus == 'active') {
+			self::_updateImageListingId($this->get('adimages_captured'), $parent->get('listing_id'));
 		}
 		parent::processStatusChange($newStatus, $sendEmailNotices, $updateCategoryCount);
 	}
@@ -1614,14 +1274,14 @@ class imagesOrderItem extends geoOrderItem {
 			return '';
 		}
 		$db = DataAccess::getInstance();
-		$images_captured = $item->get('images_captured');
+		$images_captured = $item->get('adimages_captured');
 		$images = array();
 		$base_url = dirname($db->get_site_setting('classifieds_url')).'/';
 		//the max width and height for displaying thumbnails in admin.
 		$maxW = $maxH = 100;
 		foreach ($images_captured as $display_order => $image_data) {
 			if ($image_data['type'] == 1) {
-				$sql = "SELECT * FROM ".geoTables::images_urls_table." WHERE `image_id` = ?";
+				$sql = "SELECT * FROM ".self::extraimages_table." WHERE `image_id` = ?";
 				$result = $db->GetRow($sql, array($image_data['id']));
 				
 				if (isset($result['image_url'])){
@@ -1658,7 +1318,7 @@ class imagesOrderItem extends geoOrderItem {
 		$tpl = new geoTemplate('admin');
 		$tpl->assign('images', $images);
 		$tpl->assign('current_color', geoHTML::adminGetRowColor());
-		return $tpl->fetch('order_items/images/item_details.tpl');
+		return $tpl->fetch('order_items/adImages/item_details.tpl');
 	}
 	
 	/**
@@ -1697,10 +1357,10 @@ class imagesOrderItem extends geoOrderItem {
 		$sell_debug_images = 0;
 		$cart->site->get_ad_configuration();
 		trigger_error('DEBUG CART IMAGES: Top of process images!');
-		$image_height = ($cart->site->ad_configuration_data->MAXIMUM_IMAGE_HEIGHT > $cart->site->ad_configuration_data->LEAD_PICTURE_HEIGHT) ?
-		$cart->site->ad_configuration_data->MAXIMUM_IMAGE_HEIGHT : $cart->site->ad_configuration_data->LEAD_PICTURE_HEIGHT;
-		$image_width = ($cart->site->ad_configuration_data->MAXIMUM_IMAGE_WIDTH > $cart->site->ad_configuration_data->LEAD_PICTURE_WIDTH) ?
-		$cart->site->ad_configuration_data->MAXIMUM_IMAGE_WIDTH : $cart->site->ad_configuration_data->LEAD_PICTURE_WIDTH;
+		$image_height = (self::max_height > $cart->site->ad_configuration_data->LEAD_PICTURE_HEIGHT) ?
+			self::max_height : $cart->site->ad_configuration_data->LEAD_PICTURE_HEIGHT;
+		$image_width = (self::max_width > $cart->site->ad_configuration_data->LEAD_PICTURE_WIDTH) ?
+			self::max_width : $cart->site->ad_configuration_data->LEAD_PICTURE_WIDTH;
 		
 		$fullWidth = $cart->site->ad_configuration_data->MAXIMUM_FULL_IMAGE_WIDTH;
 		$fullHeight = $cart->site->ad_configuration_data->MAXIMUM_FULL_IMAGE_HEIGHT;
@@ -1715,7 +1375,7 @@ class imagesOrderItem extends geoOrderItem {
 		
 		$cart->site->get_image_file_types_array();
 		//process the images entered by the ad poster
-		$max = (int)$planItem->get('max_uploads',8);
+		$max = (int)self::max_banners;
 		
 		for ($i = 1;$i <= $max;$i++) {
 			if (isset($post_files['Filedata'])) {
@@ -1776,7 +1436,7 @@ class imagesOrderItem extends geoOrderItem {
 				//Value: 1; The uploaded file exceeds the upload_max_filesize directive in php.ini. 
 				//see URL above for rest of codes listed.
 				$cart->addError()
-					->addErrorMsg('images',$cart->site->messages[500680].$fileError);
+					->addErrorMsg('adimages',$cart->site->messages[500680].$fileError);
 				return $images_captured;
 			}
 			if (isset($url_info[$i]["url"]["location"]) && strlen(trim($url_info[$i]["url"]["location"])) > 0) {
@@ -1873,7 +1533,7 @@ class imagesOrderItem extends geoOrderItem {
 				if (!$cart->site->image_accepted_type($type)) {
 					//wrong image file type
 					$cart->addError()
-						->addErrorMsg('images', $cart->site->messages[1150]);
+						->addErrorMsg('adimages', $cart->site->messages[1150]);
 					return $images_captured;
 				}
 				
@@ -2013,11 +1673,11 @@ class imagesOrderItem extends geoOrderItem {
 								//often (if at all) as most will get caught by the check
 								//on the $_FILES[..][error] done earlier.
 								$cart->addError()
-									->addErrorMsg('images', $cart->site->messages[1148].'('.__line__.')');
+									->addErrorMsg('adimages', $cart->site->messages[1148].'('.__line__.')');
 								return $images_captured;
 							} elseif ($size > $cart->site->ad_configuration_data->MAXIMUM_UPLOAD_SIZE) {
 								$cart->addError()
-									->addErrorMsg('images', $cart->site->messages[1149]);
+									->addErrorMsg('adimages', $cart->site->messages[1149]);
 								return $images_captured;
 							}
 							if ($cart->site->ad_configuration_data->IMAGE_UPLOAD_TYPE) {
@@ -2025,7 +1685,7 @@ class imagesOrderItem extends geoOrderItem {
 							}
 							//something generic happened, give generic error
 							$cart->addError()
-								->addErrorMsg('images', $cart->site->messages[1148].'('.__line__.')');
+								->addErrorMsg('adimages', $cart->site->messages[1148].'('.__line__.')');
 							return $images_captured;
 						}
 						
@@ -2126,7 +1786,7 @@ class imagesOrderItem extends geoOrderItem {
 							}
 							//let them know of the error.
 							$cart->addError()
-								->addErrorMsg('images',$cart->site->messages[1148].'('.__line__.' db)');//.$cart->db->ErrorMsg());
+								->addErrorMsg('adimages',$cart->site->messages[1148].'('.__line__.' db)');//.$cart->db->ErrorMsg());
 							return $images_captured;
 						}
 					}
@@ -2146,7 +1806,7 @@ class imagesOrderItem extends geoOrderItem {
 				//echo $cart->site->ad_configuration_data->MAXIMUM_UPLOAD_SIZE." is max size <br />\n";
 				if ($size > $cart->site->ad_configuration_data->MAXIMUM_UPLOAD_SIZE) {
 					$cart->addError()
-						->addErrorMsg('images',$cart->site->messages[1148].'('.__line__.')');
+						->addErrorMsg('adimages',$cart->site->messages[1148].'('.__line__.')');
 					return $images_captured;
 				}
 			}
@@ -2190,7 +1850,7 @@ class imagesOrderItem extends geoOrderItem {
 		
 		//aurigma
 		$not_keys_yet = array();
-		$max = $planItem->get('max_uploads',8);
+		$max = self::max_banners;
 		for ($n=1;$n<=$max;$n++) {
 			if (!isset($images_captured[$n])) {
 				array_push($not_keys_yet,$n);
@@ -2322,10 +1982,10 @@ class imagesOrderItem extends geoOrderItem {
 				}
 
 				if ($full_size_image_copied) {
-					$sql = "INSERT INTO ".geoTables::images_urls_table."
-						(image_url,full_filename,image_text,thumb_url,thumb_filename,file_path,date_entered,image_width,image_height,original_image_width,original_image_height,display_order,filesize,mime_type)
+					$sql = "INSERT INTO ".self::extraimages_table."
+						(image_url,full_filename,image_text,thumb_url,thumb_filename,file_path,date_entered,image_width,image_height,original_image_width,original_image_height,display_order,filesize,mime_type,type_id)
 						values
-						(\"".$full_url."\",\"".$full_filename."\",\"".$cart->site->check_for_badwords($description)."\",\"".$thumb_url."\",\"".$thumb_filename."\",\"".$cart->site->ad_configuration_data->IMAGE_UPLOAD_PATH."\",".geoUtil::time().",".$width1.",".$height1.",".$width2.",".$height2.",".$image_position.",".$size2.",\"".$imageProperties1['mime']."\")";
+						(\"".$full_url."\",\"".$full_filename."\",\"".$cart->site->check_for_badwords($description)."\",\"".$thumb_url."\",\"".$thumb_filename."\",\"".$cart->site->ad_configuration_data->IMAGE_UPLOAD_PATH."\",".geoUtil::time().",".$width1.",".$height1.",".$width2.",".$height2.",".$image_position.",".$size2.",\"".$imageProperties1['mime']."\",".self::extraimage_type.")";
 					if ($sell_debug_images) echo $sql."<br />\n";
 					
 					$result = $cart->db->Execute($sql);
@@ -2362,9 +2022,9 @@ class imagesOrderItem extends geoOrderItem {
 		$cart = geoCart::getInstance();
 		trigger_error("DEBUG IMAGE CART: inserting image, ". $image_position." is image_position");
 		
-		$sql = "INSERT INTO ".geoTables::images_urls_table." 
-		(image_url, full_filename, thumb_url, thumb_filename, file_path, date_entered, image_text, image_width, image_height, original_image_width, original_image_height, display_order, icon, mime_type) 
-		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO ".self::extraimages_table." 
+		(image_url, full_filename, thumb_url, thumb_filename, file_path, date_entered, image_text, image_width, image_height, original_image_width, original_image_height, display_order, icon, mime_type, type_id) 
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$query_data = array(
 			$url.'', 
 			$full_filename.'',
@@ -2379,13 +2039,14 @@ class imagesOrderItem extends geoOrderItem {
 			(int)$image_dimensions[1],
 			(int)$image_position,
 			$cart->site->current_file_type_icon.'',
-			$mime_type.''
+			$mime_type.'',
+			self::extraimage_type
 		);
 		
 		$result = $cart->db->Execute($sql, $query_data);
 		if (!$result) {
 			$cart->addError()
-				->addErrorMsg('images','Error inserting in database.');
+				->addErrorMsg('adimages','Error inserting in database.');
 			return false;
 		}
 
@@ -2417,15 +2078,13 @@ class imagesOrderItem extends geoOrderItem {
 			return true;
 		}
 		
-		
-		
 		//tie the images in the two tables to this classifieds
 		
 		//images were captured
 		//display them
 		$db = DataAccess::getInstance();
 		foreach ($images_captured as $key => $value) {
-			$sql = "UPDATE ".geoTables::images_urls_table." SET	`classified_id` = ?, `display_order`=? WHERE `image_id` = ?";
+			$sql = "UPDATE ".self::extraimages_table." SET  `type_id` = ".self::extraimage_type.", `classified_id` = ?, `display_order`=? WHERE `image_id` = ?";
 			$image_result = $db->Execute($sql, array($listingId, intval($key), intval($value["id"])));
 			if (!$image_result) {
 				//$this->body .=$sql." is the query<br />\n";
@@ -2447,7 +2106,7 @@ class imagesOrderItem extends geoOrderItem {
 			//nothing to return
 			return array();
 		}
-		$all = $db->GetAll("SELECT * FROM ".geoTables::images_urls_table." WHERE `image_id` IN ( ".implode(', ',$ids)." )
+		$all = $db->GetAll("SELECT * FROM ".self::extraimages_table." WHERE `image_id` IN ( ".implode(', ',$ids)." )
 			ORDER BY `display_order`");
 		$return = array();
 		$map = array_flip($ids);
@@ -2510,5 +2169,46 @@ class imagesOrderItem extends geoOrderItem {
 		$cart = geoCart::getInstance();
 		$parent = $cart->item->getParent();
 		return geoOrderItem::callDisplay('getActionName',$vars,'',$parent->getType());
+	}
+
+	public static function geoCart_other_detailsLabel ()
+	{
+		//TODO: implement or remove...
+		
+		return "Banner Ads";
+	}
+
+	/*
+	* Adapted from geoImage:remove()
+	*/
+	public static function deleteImage ($imageId)
+	{
+		$imageId = (int)$imageId;
+		if (!$imageId) {
+			//invalid ID
+			return false;
+		}
+		geoAddon::triggerUpdate('notify_image_remove', $imageId);
+		$db = DataAccess::getInstance();
+		$sql = "SELECT * FROM petsplease_classifieds_extraimages_urls WHERE `image_id`=?";
+		$imgData = $db->GetRow($sql, array($imageId));
+		if (!$imgData) {
+			//either sql error or no image found
+			return false;
+		}
+		if ($imgData['full_filename']) {
+			unlink($imgData['file_path'].$imgData['full_filename']);
+		}
+		if ($imgData['thumb_filename']) {
+			unlink($imgData['file_path'].$imgData['thumb_filename']);
+		}
+		$sql = "DELETE FROM petsplease_classifieds_extraimages_urls WHERE `image_id` = ?";
+		$result = $db->Execute($sql, array($imageId));
+		
+		if (!$result) {
+			//$cart->site->body .=$sql."<br />\n";
+			return false;
+		}
+		return true;
 	}
 }

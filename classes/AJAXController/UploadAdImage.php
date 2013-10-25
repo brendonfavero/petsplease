@@ -16,7 +16,7 @@ see license attached to distribution
 
 if( class_exists( 'classes_AJAX' ) or die());
 
-class CLASSES_AJAXController_UploadImage extends classes_AJAX {	
+class CLASSES_AJAXController_UploadAdImage extends classes_AJAX {	
 	public $messages = null;
 	
 	public function __construct()
@@ -56,20 +56,20 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 		//data to be returned
 		$data = array();
 		
-		$max = $data['maxSlots'] = imagesOrderItem::getMaxImages();
+		$max = $data['maxSlots'] = adimagesOrderItem::getMaxImages();
 		
-		$imagesCaptured = imagesOrderItem::getImagesCaptured('cart',true);
+		$imagesCaptured = adimagesOrderItem::getImagesCaptured('cart',true);
 		if (!isset($imagesCaptured[$imageSlot])) {
 			return $this->_returnError($this->messages[500681]);
 		}
 		//delete the image
-		$removeResult = imagesOrderItem::removeImage($imagesCaptured[$imageSlot]['id'], $imageSlot);
+		$removeResult = adimagesOrderItem::removeImage($imagesCaptured[$imageSlot]['id'], $imageSlot);
 		if (!$removeResult) {
 			//problem removing image
 			return $this->_returnError($this->messages[500682]);
 		}
 		//re-get the images captured
-		$imagesCaptured = imagesOrderItem::getImagesCaptured('cart',true);
+		$imagesCaptured = adimagesOrderItem::getImagesCaptured('cart',true);
 		
 		//remove all the empty slots (mainly to push everything over where the old
 		//image used to be, but also to remove any that somehow got in there before
@@ -85,7 +85,7 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 		
 		//save the new order
 		//apply changes to order item
-		imagesOrderItem::setImagesCaptured($newCaptured);
+		adimagesOrderItem::setImagesCaptured($newCaptured);
 		//note: don't put in the image slot # if text is blank, as blank text
 		//indicates no message to be displayed.
 		$data['msg'] = ($this->messages[500683])? $this->messages[500683].$imageSlot: '';
@@ -129,12 +129,12 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 		//data to be returned
 		$data = array();
 		
-		$max = $data['maxSlots'] = imagesOrderItem::getMaxImages();
+		$max = $data['maxSlots'] = adimagesOrderItem::getMaxImages();
 		
 		//Unlike other methods, this one does all the actual work instead of
 		//passing it off to the image order item to do.
 		
-		$imagesCaptured = imagesOrderItem::getImagesCaptured('cart',true);
+		$imagesCaptured = adimagesOrderItem::getImagesCaptured('cart',true);
 		
 		$newCaptured = array();
 		
@@ -177,7 +177,7 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 		}
 		
 		//apply changes to order item
-		imagesOrderItem::setImagesCaptured($newCaptured);
+		adimagesOrderItem::setImagesCaptured($newCaptured);
 		$data['msg'] = $this->messages[500686];
 		
 		return $this->_returnNewImages ($data, $newCaptured);
@@ -230,13 +230,13 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 		//data to be returned
 		$data = array();
 		
-		$max = imagesOrderItem::getMaxImages();
+		$max = adimagesOrderItem::getMaxImages();
 		
 		$doNormalProcessing = true;
 		
 		if (isset($_POST['editImage'], $_POST['editImageSlot']) && $_POST['editImage']) {
 			//editing an existing image...
-			$imagesCaptured = imagesOrderItem::getImagesCaptured();
+			$imagesCaptured = adimagesOrderItem::getImagesCaptured();
 			
 			
 			$slotNum = $_POST['uploadSlot'] = (int)$_POST['editImageSlot'];
@@ -247,7 +247,7 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 			}
 			if (isset($_FILES) && count($_FILES) > 0) {
 				//replacing the image...  First delete the existing one
-				$removeResult = imagesOrderItem::removeImage($imagesCaptured[$slotNum]['id'], $slotNum);
+				$removeResult = adimagesOrderItem::removeImage($imagesCaptured[$slotNum]['id'], $slotNum);
 				if (!$removeResult) {
 					//error removing old image
 					return $this->_returnError($this->messages[500688]);
@@ -269,7 +269,7 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 				}
 				//update the image, be sure to set the listing ID to 0 so image is not used
 				//until it is approved.
-				$sql = "UPDATE ".geoTables::images_urls_table." SET `classified_id` = 0, `image_text` = ? WHERE `image_id` = $imgId";
+				$sql = "UPDATE petsplease_classifieds_extraimages_urls SET `classified_id` = 0, `image_text` = ? WHERE `image_id` = $imgId";
 				$cart->db->Execute($sql, array($title));
 				$doNormalProcessing = false;
 			}
@@ -280,14 +280,14 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 			//processing here and not through the cart, the step will not be
 			//incremented before we're finished.
 			
-			geoOrderItem::callUpdate('mediaCheckVars',null,'images');
+			geoOrderItem::callUpdate('mediaCheckVars',null,'adimages');
 			if (!$cart->errors) {
-				geoOrderItem::callUpdate('mediaProcess',null,'images');
+				geoOrderItem::callUpdate('mediaProcess',null,'adimages');
 			}
 			
 			if ($cart->errors > 0) {
 				//oops! return error
-				$msg = $cart->getErrorMsg('images');
+				$msg = $cart->getErrorMsg('adimages');
 				if (!$msg) {
 					$msg = 'Unknown problem processing image.';
 				}
@@ -301,7 +301,7 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 			$data['maxSlots'] = $max;
 			$data['editImage'] = (isset($_POST['editImage']))? $_POST['editImage'] : 0;
 			//figure out the next image slot
-			$imagesCaptured = imagesOrderItem::getImagesCaptured('cart',true);
+			$imagesCaptured = adimagesOrderItem::getImagesCaptured('cart',true);
 			for ($i = 1; $i <= $max; $i++) {
 				if (!isset($imagesCaptured[$i])) {
 					$data['nextUploadSlot'] = $i;
@@ -346,9 +346,9 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 		//data to be returned
 		$data = array();
 		
-		$max = imagesOrderItem::getMaxImages();
+		$max = adimagesOrderItem::getMaxImages();
 		
-		$imagesCaptured = imagesOrderItem::getImagesCaptured('cart',true);
+		$imagesCaptured = adimagesOrderItem::getImagesCaptured('cart',true);
 		
 		//we're only giving them the latest image added
 		$addSlot = $data['uploadSlot'] = intval($_POST['uploadSlot']);
@@ -358,12 +358,12 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 			$maxW = 95;//$cart->site->ad_configuration_data->MAXIMUM_IMAGE_WIDTH;
 			$maxH = 95;//$cart->site->ad_configuration_data->MAXIMUM_IMAGE_HEIGHT;
 			
-			$imageData = imagesOrderItem::getImgsData($latestCaptured, $maxW, $maxH);
+			$imageData = adimagesOrderItem::getImgsData($latestCaptured, $maxW, $maxH);
 			
 			$cost = false;
 			
 			if (geoMaster::is('site_fees')) {
-				$imageInfo = imagesOrderItem::getImageData();
+				$imageInfo = adimagesOrderItem::getImageData();
 				if ($imageInfo['cost_per_image'] > 0) {
 					//show price
 					if ($addSlot <= $imageInfo['number_free_images']) {
@@ -382,7 +382,7 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 			$tpl_vars['process_form_url'] = $cart->getProcessFormUrl();
 			$tpl = new geoTemplate('system','order_items');
 			$tpl->assign($tpl_vars);
-			$data['imagesDisplay'] = $tpl->fetch('images/image_box.tpl');
+			$data['imagesDisplay'] = $tpl->fetch('adImages/image_box.tpl');
 		} else {
 			$data['imagesDisplay'] = false;
 		}
@@ -453,8 +453,8 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 		}
 		
 		//make sure the order items that are OK to be attached to
-		$validItems = geoOrderItem::getParentTypesFor('images');
-		$validItems[] = 'images'; //images would be the item if they clicked on edit button in cart.
+		$validItems = adimagesOrderItem::getParentTypesFor('images');
+		$validItems[] = 'adImages'; //images would be the item if they clicked on edit button in cart.
 		
 		if (!in_array($cart->item->getType(), $validItems)) {
 			//oops! this isn't a valid order item...  Not on images step error msg
@@ -509,7 +509,7 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 	private function _returnNewImages ($data = array(), $imagesCaptured = null)
 	{
 		if ($imagesCaptured === null) {
-			$imagesCaptured = imagesOrderItem::getImagesCaptured();
+			$imagesCaptured = adimagesOrderItem::getImagesCaptured();
 		}
 		
 		//apply them to the DB only at the time changes are being applied!
@@ -526,7 +526,7 @@ class CLASSES_AJAXController_UploadImage extends classes_AJAX {
 		
 		//re-render the innards so that all the id's and stuff will be correct
 		
-		$data['uploadImageBox'] = geoOrderItem::callDisplay('mediaDisplay','justImageSlots','','images');
+		$data['uploadImageBox'] = geoOrderItem::callDisplay('mediaDisplay','justImageSlots','','adimages');
 		
 		include GEO_BASE_DIR . 'app_bottom.php';
 		//echo "apply changes: $applyChanges \n\n images captured: \n\n".print_r($imagesCaptured,1)."\n\nSlots: \n\n".print_r($slots,1);

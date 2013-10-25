@@ -10,7 +10,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.2.4-1-g68ac455
+## 
+##    7.2.4-1-g68ac455
 ## 
 ##################################
 
@@ -250,6 +251,8 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 		if ($allPossible || geoOrderItem::callDisplay('addMedia', null, 'bool_true', $children)) {
 			$cart->addStep(self::$_type . ':media');
 		}
+
+		$cart->addStep(self::$_type . ':extramedia');
 		
 		geoOrderItem::callUpdate('geoCart_initSteps',$allPossible,$children);
 	}

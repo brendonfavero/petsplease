@@ -10,7 +10,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.2.2-24-g8571ba1
+## 
+##    7.2.2-24-g8571ba1
 ## 
 ##################################
 

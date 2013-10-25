@@ -16,7 +16,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.2.0-7-g48f279c
+## 
+##    7.2.0-7-g48f279c
 ## 
 ##################################
 
