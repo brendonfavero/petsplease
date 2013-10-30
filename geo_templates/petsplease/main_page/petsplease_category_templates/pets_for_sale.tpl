@@ -226,7 +226,9 @@
 			</span>
 		{/if}
 	</div>
-	
+
+	{listing tag='listingBannerImages' addon='petspleaseListingImagesExtra'}
+
 	<div class="content_box_1">
 		{listing tag='image_block'}
 	</div>

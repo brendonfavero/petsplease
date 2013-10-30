@@ -8,5 +8,9 @@ class addon_petspleaseListingImagesExtra_info
 	public $author = "Ardex Technology";
 	public $description = 'This addon is responsible for the extra images (user ads, user logo) under certain listing types (e.g. services)';
 	public $auth_tag = 'pp_addons';
+
+	public $listing_tags = array (
+		'listingBannerImages'
+	);
 }
 ?>
