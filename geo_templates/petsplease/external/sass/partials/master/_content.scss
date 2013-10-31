@@ -1,7 +1,10 @@
 .content_shell {
 	width: 100%;
 	font-family: Verdana;
-	// margin-top: $st_seperator;
+	margin-top: $st_seperator;
+}
+.topmargin_collapsed {
+	margin-top: 0;
 }
 
 .col_left {
