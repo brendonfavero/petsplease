@@ -99,8 +99,6 @@ that it will corrupt the smarty tags!
 			{/if}
 			<br>
 		{/if}
-
-		Available
 	</div>
 </article>
 

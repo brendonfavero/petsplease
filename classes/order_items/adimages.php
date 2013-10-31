@@ -506,6 +506,10 @@ class adimagesOrderItem extends geoOrderItem {
 	
 	public static function mediaDisplay ($full_step)
 	{
+		if (!self::addMedia()) {
+			return '';
+		}
+
 		$cart = geoCart::getInstance();
 		
 		//make sure it is NOT ssl mode for this step
@@ -696,7 +700,7 @@ class adimagesOrderItem extends geoOrderItem {
 		if (self::addMedia()) {
 			//Only add step if images are allowed
 			trigger_error('DEBUG CART: adding image step in images.php.');
-			$cart->addStep('adImages:admedia');
+			$cart->addStep('adimages:admedia');
 		}
 	}
 	
