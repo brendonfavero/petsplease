@@ -3,7 +3,7 @@
 header.page {
 	width: 100%;
 	font-family: $font_special;
-	background: url(../images/all_pets.jpg) no-repeat 60% 42%;  
+	background: url(../images/all_pets.jpg) no-repeat 60% 40%;  
 }
 #logo {
 	display: block;
@@ -131,7 +131,11 @@ header.page {
 /** Main Page Navigation **/
 #header-nav {
 	font-size: 1.3em;
-	@include buttonset-setwidth(1052px, $st_seperator / 2, 0, 1, 9);
+	@include buttonset-setwidth(1052px, $st_seperator / 2, 0, 0, 9);
+
+	li {
+		margin-right: 0;
+	}
 
 	a {
 		color: white;

@@ -43,21 +43,11 @@ that it will corrupt the smarty tags!
 {/if}
 
 <article class="list {$listing.css} clearfix{if $listing.featured_ad eq '1'} featured{/if}">
-	<h1><a href="{$cfg.listing_url}{$id}">{$listing.title}</a></h1>
-	
-	<div class="image-col">
-		<span class="helper"></span>
-		{if $listing.full_image_tag}
-			{$listing.image}
-		{else}
-			<a href="{$cfg.listing_url}{$id}">
-				<img src="{$listing.image}" alt="{$listing.title|escape}" />
-			</a>
-		{/if}
-	</div>
-
-	{* Listing Data *}
-	<div class="description-col">
+	<div class="list-listing-heading">
+		<h1>
+			{if $listing.icons.sold && $cfg.icons.sold}<img src="{$cfg.icons.sold}" alt="" />{/if}
+			<a href="{$cfg.listing_url}{$id}">{$listing.title}</a>
+		</h1>
 		{if $ex_breed}
 			<span class="breed">
 				{$ex_breed}
@@ -69,36 +59,77 @@ that it will corrupt the smarty tags!
 				{/if}
 			</span>
 		{/if}
+
+		{if $cfg.cols.price and $listing.price}
+			<span>
+				{$listing.price}
+				{if $ex_males + $ex_females gt 1}
+					each
+				{/if}
+			</span>
+		{/if}
+
+		{if $listing.topcategory eq 318}
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$listing.optional_field_1 assign='services'}
+			{if $services}
+				<span class="services">
+					{$services}
+				</span>
+			{/if}
+		{/if}
+	</div>
+	
+	<div class="image-col">
+		{if $listing.full_image_tag}
+			{$listing.image}
+		{else}
+			<a href="{$cfg.listing_url}{$id}">
+				<img src="{$listing.image}" alt="{$listing.title|escape}" />
+			</a>
+		{/if}
+	</div>
+
+	{* Listing Data *}
+	<div class="description-col">
 		<span class="description">{$listing.description}</span>
 	</div>
 
 	{* Listing More Data *}
-	<div class="details-col">
-		<span class="price">{$listing.price}</span><br>
-		{if $listing.city_data or $listing.state_data or $listing.zip_data}
-			{if $listing.city_data}
-				{$listing.city_data},
-			{/if}
-			{if $listing.state_data}
-				{$listing.state_data}
-			{/if}
-			{if $listing.zip_data}
-				{$listing.zip_data}
-			{/if}
-			<br>
+	{strip}
+		{if $listing.url_link_1_href}
+			{capture append="details" nocache}
+				<a href="{$listing.url_link_1_href}" target="_blank">Website</a>
+			{/capture}
 		{/if}
-		Seller:<br>
+
+		{if $listing.city_data or $listing.state_data}
+			{capture append="details" nocache}
+				{$listing.city_data}{if $listing.city_data and $listing.state_data}, {/if}
+				{$listing.state_data}
+			{/capture}
+		{/if}
 
 		{if $ex_males or $ex_females}
-			{if $ex_males eq 1 and !$ex_females}
-				Male
-			{elseif $ex_females eq 1 and !$ex_males}
-				Female
-			{else}
-				{$ex_males} males, {$ex_females} females
-			{/if}
-			<br>
+			{capture append="details"}
+				{if $ex_males eq 1 and !$ex_females}
+					Male
+				{elseif $ex_females eq 1 and !$ex_males}
+					Female
+				{elseif $ex_males or $ex_females}
+					{$ex_males} males, {$ex_females} females
+				{/if}
+			{/capture}
 		{/if}
-	</div>
+
+		{if count($details) gt 0}
+			<div class="details-col">
+				{foreach $details as $detail}
+					<div class="detail{if $detail@last} last{/if}">
+						{$detail}
+					</div>
+				{/foreach}
+			</div>
+		{/if}
+	{/strip}
 </article>
 

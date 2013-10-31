@@ -1344,7 +1344,7 @@ p.listing_results_description {
 .listing_set.gallery article div.article_inner//,
 //.listing_set.list article 
 {
-	border: 3px solid #eaeaea;
+	border: 1px solid #DDDDDD;
 	padding: 5px;
 	margin: 5px;
 	/* restore wrapping */
@@ -1400,10 +1400,8 @@ span.gallery_carousel_dot {
 /* gallery styles for featured pic modules */
 
 .featured_items .listing_set article div.article_inner {
-	background: #ffffff url('../themeimages/backgrounds/featured_item.gif') repeat-x bottom left;
 	padding: 2px;
 	margin: 5px;
-	border: 5px solid #eaeaea;
 }
 
 .featured_items .listing_set article div.article_inner:hover {

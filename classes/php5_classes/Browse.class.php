@@ -339,7 +339,7 @@ class geoBrowse extends geoSite
 		
 		if($this->configuration_data['display_all_of_description'] != 1) {
 			$description = geoFilter::listingDescription($description, true);//force always strip tags
-			$description = geoFilter::listingShortenDescription($description, 300); //shorten	
+			$description = geoFilter::listingShortenDescription($description, $this->configuration_data['length_of_description']); //shorten	
 		} else {
 			$description = geoFilter::listingDescription($description);
 		}
