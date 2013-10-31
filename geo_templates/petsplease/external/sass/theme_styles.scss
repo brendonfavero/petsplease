@@ -1192,60 +1192,60 @@ li.twitter { background-image:url("../themeimages/icons/social/twitter24.png"); 
 	white-space: nowrap;
 }
 
-.row_even,
-.browsing_result_table_body_even,
-.seller_result_table_body_even
-{
-	padding: 7px 5px;
-	background: #f7f7f7;
-	font-size: 12px;
-	color: #666666;
-}
+// .row_even,
+// .browsing_result_table_body_even,
+// .seller_result_table_body_even
+// {
+// 	padding: 7px 5px;
+// 	background: #f7f7f7;
+// 	font-size: 12px;
+// 	color: #666666;
+// }
 
-.row_odd,
-.browsing_result_table_body_odd,
-.seller_result_table_body_odd
-{
-	padding: 7px 5px;
-	background: #ffffff;
-	font-size: 12px;
-	color: #666666;
-}
+// .row_odd,
+// .browsing_result_table_body_odd,
+// .seller_result_table_body_odd
+// {
+// 	padding: 7px 5px;
+// 	background: #ffffff;
+// 	font-size: 12px;
+// 	color: #666666;
+// }
 
-.row_even_highlight,
-.browsing_result_table_body_even_bold,
-.seller_result_table_body_even_bold
-{
-	background: #ecf4ff;
-	color: #666666;
-	font-weight: bold;
-}
+// .row_even_highlight,
+// .browsing_result_table_body_even_bold,
+// .seller_result_table_body_even_bold
+// {
+// 	background: #ecf4ff;
+// 	color: #666666;
+// 	font-weight: bold;
+// }
 
-.row_odd_highlight,
-.browsing_result_table_body_odd_bold,
-.seller_result_table_body_odd_bold
-{
-	background: #dfeaf9;
-	color: #666666;
-	font-weighT: bold;
-}
+// .row_odd_highlight,
+// .browsing_result_table_body_odd_bold,
+// .seller_result_table_body_odd_bold
+// {
+// 	background: #dfeaf9;
+// 	color: #666666;
+// 	font-weighT: bold;
+// }
 
-.row_even:hover,
-tr.browsing_result_table_body_even:hover,
-tr.seller_result_table_body_even:hover,
-.row_odd:hover,
-tr.browsing_result_table_body_odd:hover,
-tr.seller_result_table_body_odd:hover,
-.row_even_highlight:hover,
-tr.browsing_result_table_body_even_bold:hover,
-tr.seller_result_table_body_even_bold:hover,
-.row_odd_highlight:hover,
-tr.browsing_result_table_body_odd_bold:hover,
-tr.seller_result_table_body_odd_bold:hover,
-article.listing .article_inner:hover
-{
-	background: #ffffe1;
-}
+// .row_even:hover,
+// tr.browsing_result_table_body_even:hover,
+// tr.seller_result_table_body_even:hover,
+// .row_odd:hover,
+// tr.browsing_result_table_body_odd:hover,
+// tr.seller_result_table_body_odd:hover,
+// .row_even_highlight:hover,
+// tr.browsing_result_table_body_even_bold:hover,
+// tr.seller_result_table_body_even_bold:hover,
+// .row_odd_highlight:hover,
+// tr.browsing_result_table_body_odd_bold:hover,
+// tr.seller_result_table_body_odd_bold:hover,
+// article.listing .article_inner:hover
+// {
+// 	background: #ffffe1;
+// }
 
 a.listing_tag {
 	white-space: nowrap;
@@ -1341,8 +1341,9 @@ p.listing_results_description {
 	vertical-align: top;
 }
 
-.listing_set.gallery article div.article_inner,
-.listing_set.list article {
+.listing_set.gallery article div.article_inner//,
+//.listing_set.list article 
+{
 	border: 3px solid #eaeaea;
 	padding: 5px;
 	margin: 5px;
@@ -1356,12 +1357,12 @@ p.listing_results_description {
 	font-weight: bold;
 }
 
-.listing_set.list article div.image {
-	/* Make things float around the image on the list view */
-	float: left;
-	border: 2px solid #eeeeee;
-	margin: 0px 5px 5px 0px;
-}
+// .listing_set.list article div.image {
+// 	 // Make things float around the image on the list view 
+// 	float: left;
+// 	border: 2px solid #eeeeee;
+// 	margin: 0px 5px 5px 0px;
+// }
 
 .listing_set.gallery article div.image {
 	/*  For gallery pics, image does not float or have border */
@@ -1372,12 +1373,6 @@ p.listing_results_description {
 
 .listing_set article p {
 	margin: 0px;
-}
-
-.listing_set article h1 {
-	margin: 0px 0px 5px 0px;
-	display: inline;
-	font-size: 14px;
 }
 
 /* CSS for the Carousel display mode for the gallery view */

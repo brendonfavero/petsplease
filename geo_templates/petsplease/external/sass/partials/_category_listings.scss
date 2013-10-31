@@ -1,0 +1,44 @@
+.listing_set article {
+	padding: 14px;
+	margin-bottom: 14px;
+	border: 1px solid black;
+
+	h1 {
+		font-size: 1.1em;
+		font-weight: bold;
+	}
+
+	.image-col {
+		width:150px; 
+		height:150px; 
+		float:left; 
+
+		.helper {
+			display:inline-block; 
+			height:100%;
+			vertical-align:middle;
+		}
+
+		img {
+			vertical-align: middle;
+			float: left;
+		}
+	}
+
+	.description-col {
+		width:300px; 
+		float:left;
+		margin-left: 14px;
+	}
+
+	.details-col {
+		width:200px; 
+		float:left;
+		margin-left: 14px;
+	}
+
+	&.featured {
+		background-color: $hotpink;
+		@include background-image(linear-gradient(#dd53a5, $hotpink));
+	}
+}

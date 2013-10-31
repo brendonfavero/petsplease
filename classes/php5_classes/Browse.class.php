@@ -16,7 +16,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.2.1-31-g71e7238
+## 
+##    7.2.1-31-g71e7238
 ## 
 ##################################
 
@@ -98,6 +99,15 @@ class geoBrowse extends geoSite
 		}
 		
 		$formatted = $data;
+
+		// ARDEX CUSTOM CATEGORY CODE
+		$categories = geoCategory::getTree($data['category']);
+		$firstcat = reset($categories);
+		$secondcat = next($categories);
+
+		$formatted['topcategory'] = $firstcat['category_id'];
+		$formatted['subcategory'] = $secondcat['category_id'];
+		// END ARDEX CUSTOM CATEGORY CODE
 		
 		/**
 		 * This is all the simple fields, here for consistency sake with the
@@ -329,7 +339,7 @@ class geoBrowse extends geoSite
 		
 		if($this->configuration_data['display_all_of_description'] != 1) {
 			$description = geoFilter::listingDescription($description, true);//force always strip tags
-			$description = geoFilter::listingShortenDescription($description, $this->configuration_data['length_of_description']); //shorten	
+			$description = geoFilter::listingShortenDescription($description, 300); //shorten	
 		} else {
 			$description = geoFilter::listingDescription($description);
 		}
