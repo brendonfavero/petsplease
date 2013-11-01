@@ -1,4 +1,11 @@
-<form action="#" onsubmit="alert('Searching!')">
+<form action="index.php" onsubmit="">
+	<input type="hidden" name="a" value="19" />
+
+	<div>
+		<label>Keyword</label>
+		<input type="text" name="b[search_text]" />
+	</div>
+
 	<div>
 		<label>Category</label>
 		<select id="search_category">
@@ -28,19 +35,24 @@
 		</select>
 	</div> -->
 
-	<div>
+	<div class="postcode">
 		<label>Postcode</label>
-		<input type="text" />
-	</div>
-
-	<div>
-		<label>Within</label>
-		<select>
-			<option>20km</option>
-			<option>50km</option>
-			<option>100km</option>
-			<option>250km</option>
-			<option>500km</option>
+		<input type="text" name="b[by_zip_code]" />
+		<select name="b[by_zip_code_distance]">
+			<option value="5">5km</option>
+			<option value="10">10km</option>
+			<option value="15">15km</option>
+			<option value="20">20km</option>
+			<option value="25">25km</option>
+			<option value="30">30km</option>
+			<option value="40">40km</option>
+			<option value="50">50km</option>
+			<option value="75">75km</option>
+			<option value="100">100km</option>
+			<option value="200">200km</option>
+			<option value="300">300km</option>
+			<option value="400">400km</option>
+			<option value="500">500km</option>
 		</select>
 	</div>
 

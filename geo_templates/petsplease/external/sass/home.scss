@@ -78,9 +78,15 @@
 	div {
 		margin-bottom: 20px;
 	}
-	select, input {
+	input {
 		margin-top: 4px;
-		width: 353px - 150px - 6;
+		// Input width is intentionally smaller than select width since on iOS 
+		//   the same defined width will display differently (badly) 
+		width: 191px; 
+	}
+	select {
+		margin-top: 4px;
+		width: 203px;
 	}
 	button {
 		font-size: 1.6em;
@@ -95,6 +101,16 @@
 
 		&:hover {
 			// background-color: $bluegreen;
+		}
+	}
+
+	.postcode {
+		input {
+			width: 105px; 
+		}
+		select {
+			width: 79px;
+			margin-left: 5px;
 		}
 	}
 }

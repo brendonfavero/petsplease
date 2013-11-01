@@ -20,7 +20,7 @@
 		</div>
 
 		<div id="homesearch">
-			<h2>Find your pet</h2>
+			<h2>Search</h2>
 
 			{addon author='pp_addons' addon='ppHomeSearch' tag='search'}
 		</div>
