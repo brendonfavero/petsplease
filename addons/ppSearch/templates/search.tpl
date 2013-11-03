@@ -1,5 +1,6 @@
 <form action="index.php" onsubmit="">
 	<input type="hidden" name="a" value="19" />
+	<input type="hidden" name="b[subcategories_also]" value="1">
 
 	<div>
 		<label>Keyword</label>
@@ -8,7 +9,7 @@
 
 	<div>
 		<label>Category</label>
-		<select id="search_category">
+		<select id="search_category" name="c">
 			{foreach from=$categories item=category}
 				<option value="{$category.category_id}">{$category.category_name}</option>
 			{/foreach}

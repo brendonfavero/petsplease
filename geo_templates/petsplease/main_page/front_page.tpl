@@ -22,7 +22,7 @@
 		<div id="homesearch">
 			<h2>Search</h2>
 
-			{addon author='pp_addons' addon='ppHomeSearch' tag='search'}
+			{addon author='pp_addons' addon='ppSearch' tag='searchSidebar'}
 		</div>
 	</div>
 

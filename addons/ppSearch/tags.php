@@ -1,5 +1,5 @@
 <?php
-class addon_ppHomeSearch_tags extends addon_ppHomeSearch_info
+class addon_ppSearch_tags extends addon_ppSearch_info
 {
 	public function search ($params, Smarty_Internal_Template $smarty)
 	{
@@ -70,5 +70,50 @@ class addon_ppHomeSearch_tags extends addon_ppHomeSearch_info
 		}
 
 		return $categories;
+	}
+
+	public function searchSidebar ($params, Smarty_Internal_Template $smarty) {
+		$db = true;
+		include (GEO_BASE_DIR.'get_common_vars.php');
+
+		$tpl_vars = array();
+
+		// Work search query into usable format
+		$queryurl = html_entity_decode($params['queryurl']);
+		$urlparts = parse_url('fake.com/' . $queryurl); // can't be bothered detecting if $queryurl has file included or not so just using this
+		$querystring = $urlparts['query'];
+		$search_parms = array();
+		parse_str($querystring, &$search_parms);
+		$tpl_vars['search_parms'] = $search_parms;
+
+		// Get all categories
+		$sql = "SELECT category_id, category_name, parent_id FROM geodesic_categories ORDER BY display_order, category_name";
+		$result = $db->GetAll($sql);
+
+		$tpl_vars['categories'] = $this->buildCategoryChildren(0, $result);
+
+		// Need to explicity define info about selected category
+		$selectedCategory = $search_parms['c'];
+		if ($selectedCategory) {
+			foreach ($tpl_vars['categories'] as $topcat) {
+				if ($topcat['category_id'] == $selectedCategory) {
+					$tpl_vars['topcat'] = $topcat['category_id'];
+				}
+				else {
+					foreach ($topcat['subcategories'] as $subcat) {
+						if ($subcat['category_id'] == $selectedCategory) {
+							$tpl_vars['topcat'] = $topcat['category_id'];
+							$tpl_vars['subcat'] = $subcat['category_id'];
+						}
+					}
+				}
+			}
+		}
+
+		// Zip search distances
+		$tpl_vars['zip_distances'] = array(5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 200, 300, 400, 500);
+
+		return geoTemplate::loadInternalTemplate($params, $smarty, 'searchSidebar.tpl',
+				geoTemplate::ADDON, $this->name, $tpl_vars);		
 	}
 }

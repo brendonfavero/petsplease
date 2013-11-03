@@ -32,27 +32,27 @@
 
 	<ul id="header-petnav" class="buttonset clearfix">
 		<li class="nav-dog">
-			<a href="/?a=5&b=309"><span>Dogs &amp;<br>Puppies</span></a>
+			<a href="/index.php?a=19&c=309&b[subcategories_also]=1"><span>Dogs &amp;<br>Puppies</span></a>
 		</li>
 
 		<li class="nav-cat">
-			<a href="/?a=5&b=310"><span>Cats &amp;<br>Kittens</span></a>
+			<a href="/index.php?a=19&c=310&b[subcategories_also]=1"><span>Cats &amp;<br>Kittens</span></a>
 		</li>
 
 		<li class="nav-bird">
-			<a href="/?a=5&b=311"><span>Birds</span></a>
+			<a href="/index.php?a=19&c=311&b[subcategories_also]=1"><span>Birds</span></a>
 		</li>
 
 		<li class="nav-fish">
-			<a href="/?a=5&b=312"><span>Fish</span></a>
+			<a href="/index.php?a=19&c=312&b[subcategories_also]=1"><span>Fish</span></a>
 		</li>
 
 		<li class="nav-reptile">
-			<a href="/?a=5&b=313"><span>Reptiles</span></a>
+			<a href="/index.php?a=19&c=313&b[subcategories_also]=1"><span>Reptiles</span></a>
 		</li>
 
 		<li class="nav-other last">
-			<a href="/?a=5&b=314"><span>Other Pets</span></a>
+			<a href="/index.php?a=19&c=314&b[subcategories_also]=1"><span>Other Pets</span></a>
 		</li>
 	</ul>
 
@@ -62,7 +62,7 @@
 		</li>
 
 		<li>
-			<a href="/?a=5&b=315">Pet Products</a>
+			<a href="/index.php?a=19&c=315&b[subcategories_also]=1">Pet Products</a>
 		</li>
 
 		<li>
@@ -70,19 +70,19 @@
 		</li>
 
 		<li>
-			<a href="/?a=5&b=411">Holiday with your pet</a>
+			<a href="/index.php?a=19&c=411&b[subcategories_also]=1">Holiday with your pet</a>
 		</li>
 
 		<li>
-			<a href="/?a=5&b=316">Pet Breeders</a>
+			<a href="/index.php?a=19&c=316&b[subcategories_also]=1">Pet Breeders</a>
 		</li>
 
 		<li>
-			<a href="/?a=5&b=318">Pet Services</a>
+			<a href="/index.php?a=19&c=318&b[subcategories_also]=1">Pet Services</a>
 		</li>
 
 		<li>
-			<a href="/?a=5&b=319">Pet Clubs</a>
+			<a href="/index.php?a=19&c=319&b[subcategories_also]=1">Pet Clubs</a>
 		</li>
 
 		<li>
@@ -90,7 +90,7 @@
 		</li>
 
 		<li class="last">
-			<a href="#">Sold Pets</a>
+			<a href="/index.php?a=19&c=308&b[subcategories_also]=1&b[sold_displayed]=1">Sold Pets</a>
 		</li>	
 	</ul>
 </header>

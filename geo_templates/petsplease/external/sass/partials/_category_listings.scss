@@ -2,6 +2,7 @@
 	padding: 14px;
 	margin-bottom: 14px;
 	border: 1px solid #DDDDDD;
+	width: 698px;
 
 	.list-listing-heading {
 		margin-bottom: 7px;
@@ -76,5 +77,60 @@
 		border-color: red;
 		// background-color: $powderblue;
 		// @include background-image(linear-gradient(bottom right, rgb(84, 197, 208) 30%, rgb(90, 140, 250) 95%));
+	}
+}
+
+// Search sidebar controls
+#browsing_search {
+	padding: 12px;
+	color: white;
+	background-color: $bluegreen;
+	margin-bottom: $st_seperator;
+
+	h2 {
+		font-family: $font_special;
+		font-size: 2.5em;
+		margin-bottom: 12px;
+	}
+	label {
+		display: block;
+	}
+	div {
+		margin-bottom: 20px;
+	}
+	input {
+		margin-top: 4px;
+		// Input width is intentionally smaller than select width since on iOS 
+		//   the same defined width will display differently (badly) 
+		width: 191px; 
+	}
+	select {
+		margin-top: 4px;
+		width: 203px;
+	}
+	button {
+		font-size: 1.6em;
+		font-family: $font_special;
+		padding: 6px 12px;
+		background-color: $navyblue;
+		@include background-image(linear-gradient(#3e7195, #3E4095));
+		border: none;
+		cursor: pointer;
+		color: white;
+		width: 100%;
+
+		&:hover {
+			// background-color: $bluegreen;
+		}
+	}
+
+	.postcode {
+		input {
+			width: 105px; 
+		}
+		select {
+			width: 79px;
+			margin-left: 5px;
+		}
 	}
 }

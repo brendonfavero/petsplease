@@ -10,7 +10,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.2.3-3-gb7c6dce
+## 
+##    7.2.3-3-gb7c6dce
 ## 
 ##################################
 
