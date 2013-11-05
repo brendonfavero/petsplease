@@ -7,15 +7,15 @@
 		{include file="petsplease_category_templates/pets_for_sale.tpl"}
 	{/if}
 {elseif $topcategory eq 315} {* Pet Products *}
-	Need custom template for Pets Products
+	{include file="petsplease_category_templates/pets_for_sale.tpl"}
 {elseif $topcategory eq 316} {* Breeders *}
-	Need custom template for Pet Breeders
+	{include file="petsplease_category_templates/pets_for_sale.tpl"}
 {elseif $topcategory eq 318} {* Services *}
 	{include file="petsplease_category_templates/pets_for_sale.tpl"}
 {elseif $topcategory eq 319} {* Clubs *}
-	Need custom template for Pet Clubs
+	{include file="petsplease_category_templates/pets_for_sale.tpl"}
 {elseif $topcategory eq 411} {* Accomodation *}
-	Need custom template for Pet Accomodation
+	{include file="petsplease_category_templates/pets_for_sale.tpl"}
 {else}
 	No template specified for toplevel category ({$topcategory})
 {/if}

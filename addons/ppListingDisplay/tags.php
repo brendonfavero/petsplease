@@ -73,21 +73,25 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		require (GEO_BASE_DIR."get_common_vars.php");
 
 		$type = $params['typeid'];
+		$listingfield = $params['listingfield'];
 		$value = $params['value'];
 		$values = explode(";", $value);
 
 		$sql = "SELECT * FROM ".geoTables::sell_choices_table." WHERE `type_id` = ".$type." ORDER BY `display_order`,`value`";
-		$services = $db->GetAll($sql);
+		$options = $db->GetAll($sql);
 
-		foreach ($services as &$service) {
-			if (in_array($service['value'], $values)) {
-				$service['checked'] = true;
+		foreach ($options as &$option) {
+			if (in_array($option['value'], $values)) {
+				$option['checked'] = true;
 			}
 		}
 
-		$tpl_vars = array('services' => $services);
+		$tpl_vars = array(
+			'listingfield' => $listingfield,
+			'options' => $options
+		);
 
-		return geoTemplate::loadInternalTemplate($params, $smarty, 'serviceOptions.tpl',
+		return geoTemplate::loadInternalTemplate($params, $smarty, 'multicheckSelector.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);
 	}
 }

@@ -569,16 +569,113 @@
 	{* Ardex Custom Services Stuff *}
 	{if $category_tree[0]['category_id'] eq 318}
 		<h2 class="title">Services Offered</h2>
-		<div class="content_box">
-			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=40 value=$opt_field_info[1].value}
+		<div class="content_box clearfix">
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=40 value=$opt_field_info[1].value listingfield='optional_field_1'}
 			<input type="hidden" name="b[optional_field_1]" value="{$opt_field_info[1].value}" />
 
 			<script>
 				jQuery(function() {
-					jQuery("input[name='servicetype_check']").on('click', function() {
-						var combined = jQuery("input[name='servicetype_check']:checked")
+					jQuery("input[name='optional_field_1_check']").on('click', function() {
+						var combined = jQuery("input[name='optional_field_1_check']:checked")
 							.map(function() { return jQuery(this).val()}).toArray().join(";")
 						jQuery("input[name='b[optional_field_1]']").val(combined)
+					})
+				})
+			</script>
+		</div>
+		<br />
+	{/if}
+	{* End Ardex Custom Services Stuff *}
+
+
+	{* Ardex Custom Clubs/Breeds Stuff *}
+	{if $category_tree[0]['category_id'] eq 316 or $category_tree[0]['category_id'] eq 319}
+		<h2 class="title">Dog Breeds</h2>
+		<div class="content_box clearfix" style="width: 100%">
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=42 value=$opt_field_info[8].value listingfield='optional_field_8'}
+			<input type="hidden" name="b[optional_field_8]" value="{$opt_field_info[8].value}" />
+
+			<script>
+				jQuery(function() {
+					jQuery("input[name='optional_field_8_check']").on('click', function() {
+						var combined = jQuery("input[name='optional_field_8_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_8]']").val(combined)
+					})
+				})
+			</script>
+		</div>
+		<br />
+
+
+		<h2 class="title">Cat Breeds</h2>
+		<div class="content_box clearfix" style="width: 100%">
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=43 value=$opt_field_info[9].value listingfield='optional_field_9'}
+			<input type="hidden" name="b[optional_field_9]" value="{$opt_field_info[9].value}" />
+
+			<script>
+				jQuery(function() {
+					jQuery("input[name='optional_field_9_check']").on('click', function() {
+						var combined = jQuery("input[name='optional_field_9_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_9]']").val(combined)
+					})
+				})
+			</script>
+		</div>
+		<br />
+
+
+		<h2 class="title">Bird Breeds</h2>
+		<div class="content_box clearfix" style="width: 100%">
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=45 value=$opt_field_info[10].value listingfield='optional_field_10'}
+			<input type="hidden" name="b[optional_field_10]" value="{$opt_field_info[10].value}" />
+
+			<script>
+				jQuery(function() {
+					jQuery("input[name='optional_field_10_check']").on('click', function() {
+						var combined = jQuery("input[name='optional_field_10_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_10]']").val(combined)
+					})
+				})
+			</script>
+		</div>
+		<br />
+
+
+		{* Fish breeds here - need multi level multi select stuff *}
+
+
+		<h2 class="title">Reptile Types</h2>
+		<div class="content_box clearfix" style="width: 100%">
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=46 value=$opt_field_info[12].value listingfield='optional_field_12'}
+			<input type="hidden" name="b[optional_field_12]" value="{$opt_field_info[12].value}" />
+
+			<script>
+				jQuery(function() {
+					jQuery("input[name='optional_field_12_check']").on('click', function() {
+						var combined = jQuery("input[name='optional_field_12_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_12]']").val(combined)
+					})
+				})
+			</script>
+		</div>
+		<br />
+
+
+		<h2 class="title">Other Pet Types</h2>
+		<div class="content_box clearfix" style="width: 100%">
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=47 value=$opt_field_info[13].value listingfield='optional_field_13'}
+			<input type="hidden" name="b[optional_field_13]" value="{$opt_field_info[13].value}" />
+
+			<script>
+				jQuery(function() {
+					jQuery("input[name='optional_field_13_check']").on('click', function() {
+						var combined = jQuery("input[name='optional_field_13_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_13]']").val(combined)
 					})
 				})
 			</script>
@@ -650,8 +747,15 @@
 		
 		{if $is_ent}
 			{foreach from=$opt_field_info item=opt_info key=i}
+				{* ARDEX Don't show inputs if handled by our own stuff *}
 				{if $category_tree[0]['category_id'] eq 318 and $i eq 1}
 					{* If service type, just ignore *}
+
+				{elseif ($category_tree[0]['category_id'] eq 316 or $category_tree[0]['category_id'] eq 319) 
+				  and ($i eq 8 or $i eq 9 or $i eq 10 or $i eq 11 or $i eq 12 or $i eq 13)}
+					{* If breeder type, just ignore}
+
+				{* END ARDEX Hide custom inputs *}
 
 				{elseif $opt_info.field->field_type=='cost'}
 					{if !$add_cost_at_top && ($sell_type != 2 || $editAuctionPrices)}

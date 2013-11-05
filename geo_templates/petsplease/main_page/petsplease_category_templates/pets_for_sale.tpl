@@ -83,7 +83,6 @@
 				{* The storefront link exists so show it! *}
 				<li>{$storefront_link}</li>
 			{/if}
-			<li>{listing tag='sellers_other_ads_link'}</li>
 			<li>{listing tag='message_to_seller_link'}</li>
 		</ul>
 	</div>
@@ -324,10 +323,57 @@
 		{if $topcategory eq 318 and $optional_field_1 neq ""} {* Services *}
 			<div class="field_set">
 				<span class="field_name">Services:</span>
-				<span class="field_value">
+				<span class="field_value clearfix">
 					{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_1}
 				</span>
 			</div>
+		{/if}
+
+		{if $topcategory eq 316 or $topcategory eq 319}
+			{if $optional_field_8 neq ""} {* Breeding - Dog breeds *}
+				<div class="field_set">
+					<span class="field_name">Dog Breeds:</span>
+					<span class="field_value clearfix">
+						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_8}
+					</span>
+				</div>
+			{/if}
+
+			{if $optional_field_9 neq ""} {* Breeding - Cat breeds *}
+				<div class="field_set">
+					<span class="field_name">Cat Breeds:</span>
+					<span class="field_value clearfix">
+						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_9}
+					</span>
+				</div>
+			{/if}
+
+			{if $optional_field_10 neq ""} {* Breeding - Bird breeds *}
+				<div class="field_set clearfix">
+					<span class="field_name">Bird Breeds:</span>
+					<span class="field_value">
+						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_10}
+					</span>
+				</div>
+			{/if}
+
+			{if $optional_field_12 neq ""} {* Breeding - Reptile types *}
+				<div class="field_set clearfix">
+					<span class="field_name">Reptile Types:</span>
+					<span class="field_value">
+						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_12}
+					</span>
+				</div>
+			{/if}
+
+			{if $optional_field_13 neq ""} {* Breeding - Other pet types *}
+				<div class="field_set clearfix">
+					<span class="field_name">Other Pet Types:</span>
+					<span class="field_value">
+						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_13}
+					</span>
+				</div>
+			{/if}
 		{/if}
 	</div>
 	
