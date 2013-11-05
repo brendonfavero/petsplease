@@ -1035,7 +1035,8 @@ div.category_column ul.sub_categories li.element {
 	font-weight: bold;
 	margin: 0;
 	padding: 0;
-	display: inline-block;
+	display: block;
+	float: left;
 }
 
 .priceplan_choose li.element {
