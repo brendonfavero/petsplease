@@ -357,6 +357,15 @@
 				</div>
 			{/if}
 
+			{if $optional_field_11 neq ""} {* Breeding - Fish breeds *}
+				<div class="field_set clearfix">
+					<span class="field_name">Fish Breeds:</span>
+					<span class="field_value">
+						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_11}
+					</span>
+				</div>
+			{/if}
+
 			{if $optional_field_12 neq ""} {* Breeding - Reptile types *}
 				<div class="field_set clearfix">
 					<span class="field_name">Reptile Types:</span>

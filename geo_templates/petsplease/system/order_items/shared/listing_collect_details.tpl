@@ -644,7 +644,35 @@
 		<br />
 
 
-		{* Fish breeds here - need multi level multi select stuff *}
+		<h2 class="title">Fish Breeds</h2>
+		<div class="content_box clearfix" style="width: 100%">
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraLeveledMutliCheckboxSelect' typeid=5 value=$opt_field_info[11].value listingfield='optional_field_11'}
+			<input type="hidden" name="b[optional_field_11]" value="{$opt_field_info[11].value}" />
+
+			<script>
+			{literal}
+				jQuery(function() {
+					jQuery("input[name='optional_field_11_check']").on('click', function() {
+						var checked = jQuery("input[name='optional_field_11_check']:checked")
+						var groups = {}
+
+						checked.each(function() {
+							var groupvalue = jQuery(this).parent("li").parent("ul").data("groupvalue")
+							if (!(groupvalue in groups)) groups[groupvalue] = []
+							groups[groupvalue].push(jQuery(this).val())
+						})
+
+						var combined = jQuery.map(groups, function(value, key) {
+							return key + "{" + value.join(";") + "}"
+						}).join("|")
+
+						jQuery("input[name='b[optional_field_11]']").val(combined)
+					})
+				})
+			{/literal}
+			</script>
+		</div>
+		<br />
 
 
 		<h2 class="title">Reptile Types</h2>

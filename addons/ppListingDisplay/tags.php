@@ -94,4 +94,63 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		return geoTemplate::loadInternalTemplate($params, $smarty, 'multicheckSelector.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);
 	}
+
+
+	public function extraLeveledMutliCheckboxDisplay($params, Smarty_Internal_Template $smarty)
+	{		
+		//Type{Breed;Breed;Breed};Type{Breed};Type{Breed;Breed}
+	}
+
+
+	public function extraLeveledMutliCheckboxSelect($params, Smarty_Internal_Template $smarty)
+	{		
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
+
+		$type = $params['typeid'];
+		$listingfield = $params['listingfield'];
+		$fieldvalue = $params['value'];
+
+		$strbygroup = explode("|", $fieldvalue);
+
+		$values = array();
+		foreach ($strbygroup as $strgroup) {
+			$startbrace = strpos($strgroup, "{");
+
+			$grouplabel = substr($strgroup, 0, $startbrace - 1);
+			$groupvaluesstr = substr($strgroup, $startbrace + 1, -1);
+
+			$groupvalues = explode(";", $groupvaluesstr);
+			$values = array_merge($values, $groupvalues);
+		}
+
+		$sql = "SELECT parent, name as value, field.id FROM ".geoTables::leveled_field_value." field JOIN ".geoTables::leveled_field_value_languages." language ON field.id = language.id  
+				WHERE `leveled_field` = ".$type." AND enabled='yes' ORDER BY `level`,`display_order`,`name`";
+		$options = $db->GetAll($sql);
+
+		$groups = array();
+		foreach ($options as &$option) {
+			$option['value'] = urldecode($option['value']);
+
+			if ($option['parent'] == 0) {
+				$option['values'] = array();
+				$groups[$option['id']] = $option;
+			}
+			else {
+				if (in_array($option['value'], $values)) {
+					$option['checked'] = true;
+				}
+
+				$groups[$option['parent']]['values'][] = $option;
+			}
+		}
+
+		$tpl_vars = array(
+			'listingfield' => $listingfield,
+			'groups' => $groups
+		);
+
+		return geoTemplate::loadInternalTemplate($params, $smarty, 'leveledmulticheckSelector.tpl',
+				geoTemplate::ADDON, $this->name, $tpl_vars);
+	}
 }

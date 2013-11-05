@@ -11,7 +11,9 @@ class addon_ppListingDisplay_info
 
 	public $tags = array (
 		'extraMultiCheckboxDisplay',
-		'extraMultiCheckboxSelect'
+		'extraMultiCheckboxSelect',
+		'extraLeveledMutliCheckboxDisplay',
+		'extraLeveledMutliCheckboxSelect'
 	);
 
 	public $listing_tags = array (
