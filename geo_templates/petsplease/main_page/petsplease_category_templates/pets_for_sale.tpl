@@ -361,7 +361,7 @@
 				<div class="field_set clearfix">
 					<span class="field_name">Fish Breeds:</span>
 					<span class="field_value">
-						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_11}
+						{addon author='pp_addons' addon='ppListingDisplay' tag='extraLeveledMutliCheckboxDisplay' joined=$optional_field_11}
 					</span>
 				</div>
 			{/if}

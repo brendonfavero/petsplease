@@ -710,8 +710,29 @@
 		</div>
 		<br />
 	{/if}
-	{* End Ardex Custom Services Stuff *}
+	{* End Ardex Custom Clubs/Breeds Stuff *}
 
+
+	{* Ardex Custom Accomodation Stuff *}
+	{if $category_tree[0]['category_id'] eq 411}
+		<h2 class="title">Pet Types</h2>
+		<div class="content_box clearfix" style="width: 100%">
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=48 value=$opt_field_info[1].value listingfield='optional_field_1'}
+			<input type="hidden" name="b[optional_field_1]" value="{$opt_field_info[1].value}" />
+
+			<script>
+				jQuery(function() {
+					jQuery("input[name='optional_field_1_check']").on('click', function() {
+						var combined = jQuery("input[name='optional_field_1_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_1]']").val(combined)
+					})
+				})
+			</script>
+		</div>
+		<br />		
+	{/if}
+	{* End Ardex Custom Accomodation Stuff *}
 
 {* capture this next bit into a smarty variable, so that it can be not shown if there's nothing to show *}
 	{capture assign=additionalInfo}
@@ -781,7 +802,10 @@
 
 				{elseif ($category_tree[0]['category_id'] eq 316 or $category_tree[0]['category_id'] eq 319) 
 				  and ($i eq 8 or $i eq 9 or $i eq 10 or $i eq 11 or $i eq 12 or $i eq 13)}
-					{* If breeder type, just ignore}
+					{* If breeder/club type, just ignore *}
+
+				{elseif $category_tree[0]['category_id'] eq 411 and $i eq 1}
+					{* If accomodation pet type, just ignore *}
 
 				{* END ARDEX Hide custom inputs *}
 

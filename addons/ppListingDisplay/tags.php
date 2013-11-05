@@ -98,7 +98,26 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 
 	public function extraLeveledMutliCheckboxDisplay($params, Smarty_Internal_Template $smarty)
 	{		
-		//Type{Breed;Breed;Breed};Type{Breed};Type{Breed;Breed}
+		$fieldvalue = $params['joined'];
+
+		$strbygroup = explode("|", $fieldvalue);
+
+		$groups = array();
+		foreach ($strbygroup as $strgroup) {
+			$startbrace = strpos($strgroup, "{");
+
+			$grouplabel = substr($strgroup, 0, $startbrace);
+			$groupvaluesstr = substr($strgroup, $startbrace + 1, -1);
+
+			$groupvalues = explode(";", $groupvaluesstr);
+
+			$groups[$grouplabel] = $groupvalues;
+		}
+
+		$tpl_vars = array('groups' => $groups);
+
+		return geoTemplate::loadInternalTemplate($params, $smarty, 'leveledmulticheckDisplay.tpl',
+				geoTemplate::ADDON, $this->name, $tpl_vars);
 	}
 
 
@@ -117,7 +136,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		foreach ($strbygroup as $strgroup) {
 			$startbrace = strpos($strgroup, "{");
 
-			$grouplabel = substr($strgroup, 0, $startbrace - 1);
+			$grouplabel = substr($strgroup, 0, $startbrace);
 			$groupvaluesstr = substr($strgroup, $startbrace + 1, -1);
 
 			$groupvalues = explode(";", $groupvaluesstr);
