@@ -1,5 +1,10 @@
 {* 7.0.2-183-gfa134f3 *}
 
+<h1 class="title">Featured Pets and Products</h1>
+<div class="content_box_1 gj_simple_carousel">
+	{module tag='module_featured_pic_1' gallery_columns=4 module_thumb_width=80}
+</div>
+
 {include file='common/browse_mode_buttons.tpl'}
 
 <div class="col_left">

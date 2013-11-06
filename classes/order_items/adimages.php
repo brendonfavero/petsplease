@@ -25,7 +25,7 @@ class adimagesOrderItem extends geoOrderItem {
 	const upgrade = 2;
 
 	const max_banners = 3; // Number of banners they can upload
-	public static $allowedCategories = array(318, 319, 316); // Categories that are can have banner ads
+	public static $allowedCategories = array(318, 319, 316, 412); // Categories that are can have banner ads
 	const extraimages_table = "petsplease_classifieds_extraimages_urls";
 	const extraimage_type = 1; // Each listing can have seperate types of extra images which are handled seperately
 	const max_width = 710;

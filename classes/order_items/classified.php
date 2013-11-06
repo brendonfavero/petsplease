@@ -10,7 +10,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.2.0-1-g89afec5
+## 
+##    7.2.0-1-g89afec5
 ## 
 ##################################
 
@@ -140,9 +141,14 @@ class classifiedOrderItem extends _listing_placement_commonOrderItem {
 			'total' => $price, //amount this and all children adds to the total
 			'children' => false
 		);
+
 		$session_variables = $this->get('session_variables');
 		$title = $this->_listingTitleDisplay($session_variables['classified_title'], $inEmail);
-		
+	
+		// ARDEX OVERRIDE TITLE LABEL
+		$return['title'] = geoCategory::getName($session_variables['category'], true);
+		// END ARDEX OVERRIDE TITLE LABEL
+
 		$return['title'] .= " - $title";
 		
 		//go through children...
