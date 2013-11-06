@@ -66,7 +66,7 @@
 		</li>
 
 		<li>
-			<a href="#">Pet Shops</a>
+			<a href="/index.php?a=19&c=412&b[subcategories_also]=1">Pet Shops</a>
 		</li>
 
 		<li>

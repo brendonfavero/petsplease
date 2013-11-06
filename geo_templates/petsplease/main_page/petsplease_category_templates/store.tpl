@@ -8,15 +8,16 @@
 	<!-- SHOP CATEGORIES BEGIN -->
 	<h1 class="title">Categories</h1>
 	<div class="content_box_1">
-		Shop categories here pleases!
+		{listing tag='storeCategories' addon='ppListingDisplay'}
 	</div>
 	<!-- SHOP CATEOGRIES END -->
 
 	<!-- SHOP NEWS BEGIN -->
-	<h1 class="title">News</h1>
-	<div class="content_box_1">
-		Any news/updates about should be in here!
-	</div>	
+	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_news' qid=190} {* Shop,News = 190 *}
+	{if $ex_news}
+		<h1 class="title">News</h1>
+		<div class="content_box_1">{$ex_news}</div>
+	{/if}
 	<!-- SHOP NEWS END -->
 
 
@@ -173,39 +174,6 @@
 <!-- # START CENTER COLUMN -->
 
 <div class="listing_maincol">
-	{if $subcategory eq 309} {* Dogs for Sale *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_size' qid=168} {* Dog,Size = 168 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_breed' qid=171} {* Dog,Breed = 171 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_secondbreed' qid=172} {* Dog,SecondBreed = 172 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_males' qid=173 default=0} {* Dog,Males = 173 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_females' qid=174 default=0} {* Dog,Females = 174 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_dateofbirth' qid=169} {* Dog,Date of Birth = 169 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_dateavailable' qid=170} {* Dog,Date Available = 170 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_microchip' qid=182} {* Dog,Microchip = 182 *}
-	{elseif $subcategory eq 310} {* Cats for Sale *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_size' qid=175} {* Cat,Size = 175 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_breed' qid=178} {* Cat,Breed = 178 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_secondbreed' qid=179} {* Cat,SecondBreed = 179 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_males' qid=180 default=0} {* Cat,Males = 180 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_females' qid=181 default=0} {* Cat,Females = 181 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_dateofbirth' qid=176} {* Cat,Date of Birth = 176 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_dateavailable' qid=177} {* Cat,Date Available = 177 *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_microchip' qid=183} {* Cat,Microchip = 183 *}	
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_hairlength' qid=184} {* Cat,Hair Length = 184 *}
-	{elseif $subcategory eq 311} {* Birds for Sale *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_breed' qid=185} {* Bird,Breed = 185 *}
-		{listing tag='extraCheckboxValue' addon='ppListingDisplay' assign='ex_handraised' qid=186} {* Bird,HandRaised = 186 *}
-		{listing tag='extraCheckboxValue' addon='ppListingDisplay' assign='ex_suitedtobreeding' qid=187} {* Bird,SuitedToBreeding = 187 *}
-		{* Gender *}
-	{elseif $subcategory eq 312} {* Fish for Sale *}
-		{listing tag='extraLeveledValue' addon='ppListingDisplay' assign='ex_breed' qid=5 level=2} {* Fish,Breed = Multi:5 *}
-		{listing tag='extraLeveledValue' addon='ppListingDisplay' assign='ex_breedfirstlevel' qid=5 level=1} {* Fish,Breed = Multi:5 1st level *}
-	{elseif $subcategory eq 313} {* Reptiles for Sale *}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_breed' qid=188} {* Reptile,Breed = 188 *}
-	{else}
-		{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_breed' qid=189} {* Other,Breed = 189 *}
-	{/if}
-
 	<div class="listing_heading">
 		<div class="action_buttons" style="float: right">
 			{if $can_edit}
@@ -218,212 +186,23 @@
 		</div>
 
 		<h1>{$title}</h1>
-
-		{if $ex_breed}
-			<span class="breed">
-				{$ex_breed}
-				{if $ex_secondbreed}
-					x {$ex_secondbreed}
-				{/if}
-				{if $ex_breedfirstlevel}
-					<span style="color: grey">({$ex_breedfirstlevel})</span>
-				{/if}
-			</span>
-		{/if}
-
-		{if $price}
-			<span>
-				{$price}
-				{if $ex_males + $ex_females gt 1}
-					each
-				{/if}
-			</span>
-		{/if}
 	</div>
 
 	{listing tag='listingBannerImages' addon='petspleaseListingImagesExtra'}
 
-	<div class="content_box_1">
-		{listing tag='image_block'}
-	</div>
+	{listing tag='storeProducts' addon='ppListingDisplay'}
 
 	{* START DESCRIPTION *}
 		
 	<h1 class="title">Details</h1>
 	<div class="content_box_1">
-		{if $ex_size}
-			<div class="field_set">
-				<span class="field_name">Size:</span> 
-				<span class="field_value">{$ex_size}</span>
-			</div> 
-		{/if}
-
-		<!--{if $ex_breed}
-			<div class="field_set">
-				<span class="field_name">Breed:</span> 
-				<span class="field_value">
-					{$ex_breed}
-					{if $ex_secondbreed}
-						x {$ex_secondbreed}
-					{/if}
-					{if $ex_breedfirstlevel}
-						<span style="color: grey">({$ex_breedfirstlevel})</span>
-					{/if}
-				</span>
-			</div>
-		{/if}-->
-
-		{if $ex_hairlength}
-			<div class="field_set">
-				<span class="field_name">Hair Length:</span>
-				<span class="field_value">{$ex_hairlength}</span>
-			</div>
-		{/if}
-
-		{if $ex_males or $ex_females}
-			<div class="field_set">
-				<span class="field_name">Gender:</span>
-				<span class="field_value"> 
-					{if $ex_males eq 1 and !$ex_females}
-						Male
-					{elseif $ex_females eq 1 and !$ex_males}
-						Female
-					{else}
-						{$ex_males} males, {$ex_females} females
-					{/if}
-				</span>
-			</div>
-		{/if}
-
-		{if $ex_dateofbirth}
-			<div class="field_set">
-				<span class="field_name">Date of Birth:</span>
-				<span class="field_value">{$ex_dateofbirth}</span>
-			</div>
-		{/if}
-
-		{if $ex_dateavailable}
-			<div class="field_set">
-				<span class="field_name">Date Available:</span>
-				<span class="field_value">{$ex_dateavailable}</span>
-			</div>
-		{/if}
-
-		{if $ex_handraised}
-			<div class="field_set">
-				<span class="field_name">Hand Raised:</span>
-				<span class="field_value">{$ex_handraised}</span>
-			</div>
-		{/if}
-
-		{if $ex_suitedtobreeding}
-			<div class="field_set">
-				<span class="field_name">Suited to Breeding:</span>
-				<span class="field_value">{$ex_suitedtobreeding}</span>
-			</div>
-		{/if}
-
 		<div class="field_set">
 			<span class="field_name">Description:</span>
 			<span class="field_value">{$description|regex_replace:"/\r\n?|\n/":'<br>'}</span>
 		</div>
-
-		{if $ex_microchip}
-			<div class="field_set">
-				<span class="field_name">Microchip Numbers:</span>
-				<span class="field_value">{$ex_microchip|regex_replace:"/\r\n?|\n/":'<br>'}</span>
-			</div>
-		{/if}
-
-		{if $topcategory eq 318 and $optional_field_1 neq ""} {* Services *}
-			<div class="field_set">
-				<span class="field_name">Services:</span>
-				<span class="field_value clearfix">
-					{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_1}
-				</span>
-			</div>
-		{/if}
-
-		{if $topcategory eq 316 or $topcategory eq 319}
-			{if $optional_field_8 neq ""} {* Breeding - Dog breeds *}
-				<div class="field_set">
-					<span class="field_name">Dog Breeds:</span>
-					<span class="field_value clearfix">
-						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_8}
-					</span>
-				</div>
-			{/if}
-
-			{if $optional_field_9 neq ""} {* Breeding - Cat breeds *}
-				<div class="field_set">
-					<span class="field_name">Cat Breeds:</span>
-					<span class="field_value clearfix">
-						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_9}
-					</span>
-				</div>
-			{/if}
-
-			{if $optional_field_10 neq ""} {* Breeding - Bird breeds *}
-				<div class="field_set clearfix">
-					<span class="field_name">Bird Breeds:</span>
-					<span class="field_value">
-						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_10}
-					</span>
-				</div>
-			{/if}
-
-			{if $optional_field_11 neq ""} {* Breeding - Fish breeds *}
-				<div class="field_set clearfix">
-					<span class="field_name">Fish Breeds:</span>
-					<span class="field_value">
-						{addon author='pp_addons' addon='ppListingDisplay' tag='extraLeveledMutliCheckboxDisplay' joined=$optional_field_11}
-					</span>
-				</div>
-			{/if}
-
-			{if $optional_field_12 neq ""} {* Breeding - Reptile types *}
-				<div class="field_set clearfix">
-					<span class="field_name">Reptile Types:</span>
-					<span class="field_value">
-						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_12}
-					</span>
-				</div>
-			{/if}
-
-			{if $optional_field_13 neq ""} {* Breeding - Other pet types *}
-				<div class="field_set clearfix">
-					<span class="field_name">Other Pet Types:</span>
-					<span class="field_value">
-						{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_13}
-					</span>
-				</div>
-			{/if}
-		{/if}
 	</div>
 	
 	{* END DESCRIPTION *}			
-
-	{listing tag='offsite_videos_block' assign='offsite_videos_block'}
-	{if $offsite_videos_block}
-		<h1 class="title">{$offsite_videos_title}</h1>
-		<div class="content_box_1">		
-			{$offsite_videos_block}
-			<div class="clr"><br /></div>
-		</div>
-	{/if}
-
-	{* START GOOGLE MAPS *}
-	{addon author='geo_addons' addon='google_maps' tag='listing_map' assign='map'}
-	{if $map}
-		<h1 class="title">{$additional_text_18}</h1>
-		<div class="content_box_1 cntr">
-			{* Make sure map is centered in the box *}
-			<div style="display: inline-block;">{$map}</div>
-			<div class="clr"></div>
-		</div>
-	{/if}
-	
-	{* END GOOGLE MAPS *}
 </div>
 
 <!-- END CENTER COLUMN -->

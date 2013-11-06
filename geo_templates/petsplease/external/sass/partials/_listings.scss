@@ -63,3 +63,30 @@
 .listing_bannerbox {
 	padding-bottom: 15px;
 }
+
+.product_categories ul {
+	margin-left: 12px;
+}
+.product_categories, .product_categories ul {
+	list-style-type: none;
+}
+
+.store_product_grid {
+	width: 100%;
+}
+.store_product {
+	width: 200px;
+	padding: 15px;
+	float: left;
+	border: 1px solid #DDDDDD;
+	margin-right: 16px;
+	text-align: center;
+
+	&.nomargin {
+		margin-right: 0;
+	}
+
+	.image {
+		height: 150px;
+	}
+}
