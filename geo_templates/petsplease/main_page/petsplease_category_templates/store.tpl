@@ -1,7 +1,18 @@
+<div class="action_buttons">
+	{if $can_edit}
+		<a href="{$classifieds_file_name}?a=cart&amp;action=new&amp;main_type=listing_edit&amp;listing_id={$classified_id}"><img src="{external file='images/buttons/listing_edit.gif'}" alt="" /></a>
+	{/if}
+	{if $can_delete}
+		<a onclick="if (!confirm('Are you sure you want to delete this?')) return false;" href="{$classifieds_file_name}?a=99&amp;b={$classified_id}"><img src="{external file='images/buttons/listing_delete.gif'}" alt="" /></a>
+	{/if}
+	{listing tag='listing_action_buttons' addon='core'}
+</div>
+
 <div class="nav_breadcrumb">
 	{listing tag='category_tree'}
 </div>
 
+<div class="clear"></div>
 
 <!-- # START LEFT COLUMN -->
 <div class="listing_leftcol">
@@ -175,16 +186,6 @@
 
 <div class="listing_maincol">
 	<div class="listing_heading">
-		<div class="action_buttons" style="float: right">
-			{if $can_edit}
-				<a href="{$classifieds_file_name}?a=cart&amp;action=new&amp;main_type=listing_edit&amp;listing_id={$classified_id}"><img src="{external file='images/buttons/listing_edit.gif'}" alt="" /></a>
-			{/if}
-			{if $can_delete}
-				<a onclick="if (!confirm('Are you sure you want to delete this?')) return false;" href="{$classifieds_file_name}?a=99&amp;b={$classified_id}"><img src="{external file='images/buttons/listing_delete.gif'}" alt="" /></a>
-			{/if}
-			{listing tag='listing_action_buttons' addon='core'}
-		</div>
-
 		<h1>{$title}</h1>
 	</div>
 

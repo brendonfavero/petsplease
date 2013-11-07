@@ -1396,7 +1396,10 @@ span.gallery_carousel_dot {
 	font-size: 18px;
 	color: #9A9A9A;
 }
-
+span.gallery_carousel_dot_active {
+	/*  This is the "active" dot for the carousel */
+	font-size: 20px; color: #4987C5;
+}
 
 /* gallery styles for featured pic modules */
 
