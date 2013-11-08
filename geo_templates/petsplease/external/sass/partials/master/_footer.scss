@@ -30,4 +30,17 @@ footer.page {
 	a:link, a:visited {
 		color: white;
 	}
+
+	.footer-quicklinks ul {
+		float: left;
+		list-style-type: none;
+
+		&.float-li li {
+			float: left;
+		}
+
+		li.title {
+			font-weight: bold;
+		}
+	}
 }

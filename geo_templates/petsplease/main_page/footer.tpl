@@ -1,5 +1,221 @@
 <!-- START FOOTER -->
 <footer class="page">
+	<div class="footer-quicklinks clearfix">
+		<h2>Quick Links</h2>
+		<ul>
+			<li class="title">Pet Products</li>
+			<li>Dog Products</li>
+			<li>Cat Products</li>
+			<li>Bird Products</li>
+			<li>Fish Products</li>
+			<li>Reptile Products</li>
+			<li>Small Pets Products</li>
+		</ul>
+
+		<ul>
+			<li class="title">Pet Breeders</li>
+			<li>Dog Breeders</li>
+			<li>Cat Breeders</li>
+			<li>Bird Breeders</li>
+			<li>Fish Breeders</li>
+			<li>Reptile Breeders</li>
+			<li>Small Pets Breeders</li>
+		</ul>
+
+		<ul>
+			<li class="title">Pet Services</li>
+			<li>Dog Services</li>
+			<li>Cat Services</li>
+			<li>Bird Services</li>
+			<li>Fish Services</li>
+			<li>Reptile Services</li>
+			<li>Small Pets Services</li>
+		</ul>
+
+		<ul>
+			<li class="title">Pet Clubs</li>
+			<li>Dog Clubs</li>
+			<li>Cat Clubs</li>
+			<li>Bird Clubs</li>
+			<li>Fish Clubs</li>
+			<li>Reptile Clubs</li>
+			<li>Small Pets Clubs</li>
+		</ul>
+
+		<ul>
+			<li class="title">Pets News and Advice</li>
+			<li>Dog News and Advice</li>
+			<li>Cat News and Advice</li>
+			<li>Bird News and Advice</li>
+			<li>Fish News and Advice</li>
+			<li>Reptile News and Advice</li>
+			<li>Small Pets News and Advice</li>
+		</ul>
+
+		<ul>
+			<li class="title">Pet Selector - Choose a Dog</li>
+			<li class="title">Pet Selector - Choose a Cat</li>
+			<li class="title">Dogs and Puppies for Adoption</li>
+			<li class="title">Cats and Kittens for Adoption</li>
+			<li class="title">Pet Youtube</li>
+			<li class="title">Wanted Pets</li>
+		</ul>
+	</div>
+
+	<div class="footer-quicklinks clearfix">
+		<h2>Quick Pet Location</h2>
+		<ul>
+			<li class="title">By State</li>
+			<li>New South Wales</li>
+			<li>Queensland</li>
+			<li>Victoria</li>
+			<li>South Australia</li>
+			<li>Western Australia</li>
+			<li>Tasmania</li>
+			<li>Northern Territory</li>
+			<li>Australian Capital Territory</li>
+		</ul>
+
+		<ul>
+			<li class="title">By Capital City</li>
+			<li>Sydney</li>
+			<li>Brisbane</li>
+			<li>Melbourne</li>
+			<li>Adelaide</li>
+			<li>Perth</li>
+			<li>Hobart</li>
+			<li>Darwin</li>
+			<li>Canberra</li>
+		</ul>
+
+		<ul class="float-li">
+			<li class="title">Other Major Towns</li>
+			<li>Orange</li>
+			<li>Townsville</li>
+			<li>Rockingham</li>
+			<li>Newcastle</li>
+			<li>Dubbo</li>
+			<li>Cairns</li>
+			<li>Mandurah</li>
+			<li>Central Coast</li>
+			<li>Lismore</li>
+			<li>Toowoomba</li>
+			<li>Bunbury</li>
+			<li>Wollongong</li>
+			<li>Bathurst</li>
+			<li>Rockhampton</li>
+			<li>Kalgoorlie</li>
+			<li>Albury</li>
+			<li>Coffs Harbour</li>
+			<li>Mackay</li>
+			<li>Geraldton</li>
+			<li>Maitland</li>
+			<li>Richmond</li>
+			<li>Bundaberg</li>
+			<li>Albany</li>
+			<li>Wagga Wagga</li>
+			<li>Nowra</li>
+			<li>Hervey Bay</li>
+			<li>Launceston</li>
+			<li>Port Macquarie</li>
+			<li>Gold Coast</li>
+			<li>Gladstone</li>
+			<li>Alice Springs</li>
+			<li>Tamworth</li>
+			<li>Sunshine Coast</li>
+			<li>Mount Gambier</li>
+		</ul>
+	</div>
+
+
+	<div class="footer-quicklinks clearfix">
+		<h2>Quick Pet Location</h2>
+		<ul>
+			<li class="title">Dogs and Puppies for Sale</li>
+			<li>Australian Cattle Dog puppies for sale</li>
+			<li>Australian Shepherd Dog puupies for sale</li>
+			<li>Border Collie puppies for sale</li>
+			<li>Cavalier King Charles Spaniel puppies for sale</li>
+			<li>Chihuahua puppies for sale</li>
+			<li>Cocker Spaniel puppies for sale</li>
+			<li>Dalmatian puppies for sale</li>
+			<li>German Shepherd puppies for sale</li>
+			<li>Golden Retriever puppies for sale</li>
+			<li>Great Dane puppies for sale</li>
+			<li>Jack Russell Terrier puppies for sale</li>
+			<li>Labrador Retriever puppies for sale</li>
+			<li>Toy Poodle puppies for sale</li>
+			<li>Rottweiler puppies for sale</li>
+			<li>Staffordshire Bull Terrier puppies for sale</li> 
+		</ul>
+
+		<ul>
+			<li class="title">Cat and Kittens for Sale</li>
+			<li>Australian Mist kittens for sale</li>
+			<li>Bengal kittens for sale</li>
+			<li>Burmese kittens for sale</li>
+			<li>Maine Coon kittens for sale</li>
+			<li>Manx kittens for sale</li>
+			<li>Persian kittens for sale</li>
+			<li>Ragdoll kittens for sale</li>
+			<li>Scottish Fold kittens for sale</li>
+			<li>Siamese kittens for sale</li>
+			<li>Sphynx kittens for sale</li>
+			<li>Tonkinese kittens for sale</li>
+		</ul>
+
+		<ul>
+			<li class="title">Birds for Sale</li>
+			<li>Hand Raised Birds for sale</li>
+			<li>Budgies for sale</li>
+			<li>Canaries for sale</li>
+			<li>Cockatiels for sale</li>
+			<li>Cockatoos for sale</li>
+			<li>Exotic Parrots for sale</li>
+			<li>Finches for sale</li>
+			<li>Lories for sale</li>
+			<li>Lorikeets for sale</li>
+			<li>Native Parrots for sale</li>
+			<li>Pigeons for sale</li>
+			<li>Pheasants for sale</li>
+			<li>Poultry for sale</li>
+		</ul>
+
+		<ul>
+			<li class="title">Fish for Sale</li>
+			<li>Goldfish for sale</li>
+			<li>Riftlake Cichlid fish for sale</li>
+			<li>Tropical Fish for sale</li>
+			<li>Angels fish for sale</li>
+			<li>Catfish for sale</li>
+			<li>Danio fish for sale</li>
+			<li>Discus fish for sale</li>
+			<li>Fighter fish for sale</li>
+			<li>Guppies for sale</li>
+			<li>Marine fish for sale</li>
+			<li>Australian Native fish for sale</li>
+			<li>New Guinea Natives fish for sale</li>
+			<li>Yabby for sale</li>
+		</ul>
+
+		<ul>
+			<li class="title">Other Small Pets for Sale</li>
+			<li>Guinea Pigs for sale</li>
+			<li>Leaf Insects for sale</li>
+			<li>Rabbits for sale</li>
+		</ul>
+
+		<ul>
+			<li class="title">Reptiles for Sale</li>
+			<li>Dragons for sale</li>
+			<li>Geckos for sale</li>
+			<li>Legless Lizards for sale</li>
+			<li>Pythons for sale</li>
+			<li>Skinks for sale</li>
+		</ul>
+	</div>
+
+
 	<div class="clearfix">
 		<nav class="footer">
 			<div class="footer_inner">
