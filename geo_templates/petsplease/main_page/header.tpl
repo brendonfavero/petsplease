@@ -97,7 +97,9 @@
 
 <script>
 jQuery(function() {
-	jQuery("#header-petnav").hover(function() 
-		{ jQuery("#header-petnav").toggleClass("hovering") })
+	jQuery("#header-petnav").hover(
+		function() { jQuery(this).addClass("hovering") },
+		function() { jQuery(this).removeClass("hovering") }
+	)
 }) 
 </script>
