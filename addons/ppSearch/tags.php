@@ -113,6 +113,80 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 		// Zip search distances
 		$tpl_vars['zip_distances'] = array(5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 200, 300, 400, 500);
 
+		// Pet Breeds
+		$sql = "SELECT * 
+				FROM geodesic_classifieds_sell_question_choices 
+			   WHERE type_id in (42, 43, 45, 46, 47)
+			   ORDER BY type_id, display_order, value";
+		$result = $db->GetAll($sql);
+
+		$breeds = array();
+		foreach ($result as $row) {
+			switch ($row['type_id']) {
+				case 42: // Dog
+				$breeds['dog'][] = $row['value'];
+				break;
+
+				case 43: // Cat
+				$breeds['cat'][] = $row['value'];
+				break;
+
+				case 45: // Bird
+				$breeds['bird'][] = $row['value'];
+				break;
+
+				case 46: // Reptile
+				$breeds['reptile'][] = $row['value'];
+				break;
+
+				case 47: // Other
+				$breeds['other'][] = $row['value'];
+			}
+		}
+
+		// Need to get bird breeds as well
+		$sql = "SELECT parent, name as value, field.id FROM ".geoTables::leveled_field_value." field JOIN ".geoTables::leveled_field_value_languages." language ON field.id = language.id  
+				WHERE `leveled_field` = ? AND enabled='yes' ORDER BY `level`,`display_order`,`name`";
+		$result = $db->GetAll($sql, 5); // Fish Breeds Multi
+
+		$fish_breeds = array();
+		foreach ($result as &$row) {
+			$row['value'] = urldecode($row['value']);
+
+			if ($row['parent'] == 0) {
+				$row['values'] = array();
+				$fish_breeds[$row['id']] = $row;
+			}
+			else {
+				if (in_array($row['value'], $values)) {
+					$row['checked'] = true;
+				}
+
+				$fish_breeds[$row['parent']]['values'][] = $row;
+			}
+		}
+
+		$breeds['fish'] = $fish_breeds;
+		$tpl_vars['breeds'] = $breeds;
+
+		// Pet Types (for Breeders, etc)
+		$tpl_vars['pettypes'] = array(
+			"dog" => "Dogs",
+			"cat" => "Cats",
+			"bird" => "Birds",
+			"fish" => "Fish",
+			"reptile" => "Reptiles",
+			"other" => "Other"
+		);
+
+		// Service Types
+		$sql = "SELECT value 
+				FROM geodesic_classifieds_sell_question_choices 
+			   WHERE type_id = 40
+			   ORDER BY type_id, display_order, value";
+		$result = $db->GetAll($sql);
+		$tpl_vars['services'] = $result;
+
 		return geoTemplate::loadInternalTemplate($params, $smarty, 'searchSidebar.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);		
 	}

@@ -1,25 +1,28 @@
 <!-- START FOOTER -->
+{assign "search_url" "/index.php?a=19&b[subcategories_also]=1"}
+
 <footer class="page">
 	<div class="footer-quicklinks clearfix">
 		<h2>Quick Links</h2>
 		<ul>
-			<li class="title">Pet Products</li>
-			<li>Dog Products</li>
-			<li>Cat Products</li>
-			<li>Bird Products</li>
-			<li>Fish Products</li>
-			<li>Reptile Products</li>
-			<li>Small Pets Products</li>
+			<li class="title"><a href="{$search_url}&c=320">Pet Products</a></li>
+			<li><a href="{$search_url}&c=320">Dog Products</a></li>
+			<li><a href="{$search_url}&c=321">Cat Products</a></li>
+			<li><a href="{$search_url}&c=322">Bird Products</a></li>
+			<li><a href="{$search_url}&c=323">Fish Products</a></li>
+			<li><a href="{$search_url}&c=324">Reptile Products</a></li>
+			<li><a href="{$search_url}&c=326">Small Pets Products</a></li>
 		</ul>
 
 		<ul>
-			<li class="title">Pet Breeders</li>
-			<li>Dog Breeders</li>
-			<li>Cat Breeders</li>
-			<li>Bird Breeders</li>
-			<li>Fish Breeders</li>
-			<li>Reptile Breeders</li>
-			<li>Small Pets Breeders</li>
+			{assign "breeder_url" "{$search_url}&c=316"}
+			<li class="title"><a href="{$breeder_url}">Pet Breeders</a></li>
+			<li><a href="{$breeder_url}&b[breeder_type]=dog">Dog Breeders</a></li>
+			<li><a href="{$breeder_url}&b[breeder_type]=cat">Cat Breeders</a></li>
+			<li><a href="{$breeder_url}&b[breeder_type]=bird">Bird Breeders</a></li>
+			<li><a href="{$breeder_url}&b[breeder_type]=fish">Fish Breeders</a></li>
+			<li><a href="{$breeder_url}&b[breeder_type]=reptile">Reptile Breeders</a></li>
+			<li><a href="{$breeder_url}&b[breeder_type]=other">Small Pets Breeders</a></li>
 		</ul>
 
 		<ul>

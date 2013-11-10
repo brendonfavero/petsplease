@@ -1001,8 +1001,8 @@ class Search_classifieds extends geoBrowse
 			}
 			
 			if (!$result) {
-				$this->body .= "<table><tr class=\"search_page_instructions\">\n\t<td colspan=\"4\">{$this->messages[592]}</td>\n</tr></table>";
-				return false;
+				// $this->body .= "<table><tr class=\"search_page_instructions\">\n\t<td colspan=\"4\">{$this->messages[592]}</td>\n</tr></table>";
+				// return false;
 			}
 			
 			//total number of pages to make available
@@ -1446,19 +1446,21 @@ class Search_classifieds extends geoBrowse
 			)
 		);
 		
-		while ($row = $result->FetchRow()) {
-			$id = $row['id']; //template expects $listings to be keyed by classified id
-			
-			$row['regionInfo'] = array('maxDepth' => $maxLocationDepth, 'enabledLevels' => $enabledRegions);
-						
-			//use the common geoBrowse class to do all the common heavy lifting
-			$listings[$id] = $this->commonBrowseData($row, $text);
-			
-			//css is different enough to not include in the common file
-			$listings[$id]['css'] = 'browsing_result_table_body_' . (($count++ % 2 == 0) ? 'even' : 'odd') . (($row['bolding']) ? '_bold' : '');
-			
-			//also do addons separately
-			$listings[$id]['addonData'] = geoAddon::triggerDisplay('Search_classifieds_BuildResults_addRow', array('this'=>$this,'listing_id' => $id, 'search_fields'=>$fields), geoAddon::ARRAY_ARRAY);
+		if ($result) {
+			while ($row = $result->FetchRow()) {
+				$id = $row['id']; //template expects $listings to be keyed by classified id
+				
+				$row['regionInfo'] = array('maxDepth' => $maxLocationDepth, 'enabledLevels' => $enabledRegions);
+							
+				//use the common geoBrowse class to do all the common heavy lifting
+				$listings[$id] = $this->commonBrowseData($row, $text);
+				
+				//css is different enough to not include in the common file
+				$listings[$id]['css'] = 'browsing_result_table_body_' . (($count++ % 2 == 0) ? 'even' : 'odd') . (($row['bolding']) ? '_bold' : '');
+				
+				//also do addons separately
+				$listings[$id]['addonData'] = geoAddon::triggerDisplay('Search_classifieds_BuildResults_addRow', array('this'=>$this,'listing_id' => $id, 'search_fields'=>$fields), geoAddon::ARRAY_ARRAY);
+			}
 		}
 		$tpl_vars['listings'] = $listings;
 		geoView::getInstance()->setBodyVar($tpl_vars);

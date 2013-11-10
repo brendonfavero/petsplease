@@ -1,8 +1,8 @@
 {* 7.2beta1-2-gf9b32d7 *}
 
-{if $no_listings}
+{if $no_listings or !$listings}
 	<div class="no_results_box">
-		{$no_listings}
+		<strong>Your search returned no matching results. Please try modifying your search.</strong>
 	</div>
 {else}
 	<div class="listing_set list">
