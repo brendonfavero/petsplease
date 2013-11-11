@@ -56,7 +56,7 @@ class addon_ppSearch_util extends addon_ppSearch_info
 			if ($searchClass->site_category == self::CATEGORY_PETSFORSALE_OTHER)
 				$subQuery->where("$questionTable.`question_id`=189", 'pets_breed_question');
 
-			$subQuery->where("$questionTable.`value` = \"$breed_criteria\"",'pets_breed');
+			$subQuery->where("$questionTable.`value` = \"$urlencodedBreed\"",'pets_breed');
 			$query->where("EXISTS ($subQuery)");
 		}
 

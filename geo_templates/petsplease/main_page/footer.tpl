@@ -17,12 +17,12 @@
 		<ul>
 			{assign "breeder_url" "{$search_url}&c=316"}
 			<li class="title"><a href="{$breeder_url}">Pet Breeders</a></li>
-			<li><a href="{$breeder_url}&b[breeder_type]=dog">Dog Breeders</a></li>
-			<li><a href="{$breeder_url}&b[breeder_type]=cat">Cat Breeders</a></li>
-			<li><a href="{$breeder_url}&b[breeder_type]=bird">Bird Breeders</a></li>
-			<li><a href="{$breeder_url}&b[breeder_type]=fish">Fish Breeders</a></li>
-			<li><a href="{$breeder_url}&b[breeder_type]=reptile">Reptile Breeders</a></li>
-			<li><a href="{$breeder_url}&b[breeder_type]=other">Small Pets Breeders</a></li>
+			<li><a href="{$breeder_url}&b[specpettype]=dog">Dog Breeders</a></li>
+			<li><a href="{$breeder_url}&b[specpettype]=cat">Cat Breeders</a></li>
+			<li><a href="{$breeder_url}&b[specpettype]=bird">Bird Breeders</a></li>
+			<li><a href="{$breeder_url}&b[specpettype]=fish">Fish Breeders</a></li>
+			<li><a href="{$breeder_url}&b[specpettype]=reptile">Reptile Breeders</a></li>
+			<li><a href="{$breeder_url}&b[specpettype]=other">Small Pets Breeders</a></li>
 		</ul>
 
 		<ul>
@@ -134,87 +134,93 @@
 	<div class="footer-quicklinks clearfix">
 		<h2>Quick Pet Location</h2>
 		<ul>
-			<li class="title">Dogs and Puppies for Sale</li>
-			<li>Australian Cattle Dog puppies for sale</li>
-			<li>Australian Shepherd Dog puupies for sale</li>
-			<li>Border Collie puppies for sale</li>
-			<li>Cavalier King Charles Spaniel puppies for sale</li>
+			{assign "dogs_url" "{$search_url}&c=309"}
+			<li class="title"><a href="{$dogs_url}">Dogs and Puppies for Sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Australian+Cattle+dog">Australian Cattle Dog puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Australian+Shepherd+Dog">Australian Shepherd Dog puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Border+Collie">Border Collie puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Cavalier+King+Charles+Spaniel">Cavalier King Charles Spaniel puppies for sale</a></li>
 			<li>Chihuahua puppies for sale</li>
-			<li>Cocker Spaniel puppies for sale</li>
-			<li>Dalmatian puppies for sale</li>
-			<li>German Shepherd puppies for sale</li>
-			<li>Golden Retriever puppies for sale</li>
-			<li>Great Dane puppies for sale</li>
-			<li>Jack Russell Terrier puppies for sale</li>
-			<li>Labrador Retriever puppies for sale</li>
-			<li>Toy Poodle puppies for sale</li>
-			<li>Rottweiler puppies for sale</li>
-			<li>Staffordshire Bull Terrier puppies for sale</li> 
+			<li><a href="{$dogs_url}&b[breed]=Cocker+Spaniel">Cocker Spaniel puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Dalmatian">Dalmatian puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=German+Shepherd+Dog">German Shepherd puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Golden+Retriever">Golden Retriever puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Great+Dane">Great Dane puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Jack+Russell+Terrier">Jack Russell Terrier puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Labrador+Retriever">Labrador Retriever puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Poodle+(Toy)">Toy Poodle puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Rottweiler">Rottweiler puppies for sale</a></li>
+			<li><a href="{$dogs_url}&b[breed]=Staffordshire+Bull+Terrier">Staffordshire Bull Terrier puppies for sale</a></li> 
 		</ul>
 
 		<ul>
-			<li class="title">Cat and Kittens for Sale</li>
-			<li>Australian Mist kittens for sale</li>
-			<li>Bengal kittens for sale</li>
-			<li>Burmese kittens for sale</li>
-			<li>Maine Coon kittens for sale</li>
-			<li>Manx kittens for sale</li>
-			<li>Persian kittens for sale</li>
-			<li>Ragdoll kittens for sale</li>
-			<li>Scottish Fold kittens for sale</li>
-			<li>Siamese kittens for sale</li>
-			<li>Sphynx kittens for sale</li>
-			<li>Tonkinese kittens for sale</li>
+			{assign "cats_url" "{$search_url}&c=310"}
+			<li class="title"><a href="{$cats_url}">Cat and Kittens for Sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Australian+Mist">Australian Mist kittens for sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Bengal">Bengal kittens for sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Burmese">Burmese kittens for sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Maine+Coon">Maine Coon kittens for sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Manx">Manx kittens for sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Persian">Persian kittens for sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Ragdoll">Ragdoll kittens for sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Scottish+Fold">Scottish Fold kittens for sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Siamese">Siamese kittens for sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Sphynx">Sphynx kittens for sale</a></li>
+			<li><a href="{$cats_url}&b[breed]=Tonkinese">Tonkinese kittens for sale</a></li>
 		</ul>
 
 		<ul>
-			<li class="title">Birds for Sale</li>
-			<li>Hand Raised Birds for sale</li>
-			<li>Budgies for sale</li>
+			{assign "birds_url" "{$search_url}&c=311"}
+			<li class="title"><a href="{$birds_url}">Birds for Sale</a></li>
+			<li><a href="{$birds_url}&b[question_value][186]=Hand+Raised">Hand Raised Birds for sale</a></li>
+			<li><a href="{$birds_url}&b[breed]=">Budgies for sale</a></li>
 			<li>Canaries for sale</li>
 			<li>Cockatiels for sale</li>
 			<li>Cockatoos for sale</li>
-			<li>Exotic Parrots for sale</li>
+			<li><a href="{$birds_url}&b[breed]=Exotic+Parrots">Exotic Parrots for sale</a></li>
 			<li>Finches for sale</li>
 			<li>Lories for sale</li>
 			<li>Lorikeets for sale</li>
-			<li>Native Parrots for sale</li>
+			<li><a href="{$birds_url}&b[breed]=Native+Parrots">Native Parrots for sale</a></li>
 			<li>Pigeons for sale</li>
 			<li>Pheasants for sale</li>
-			<li>Poultry for sale</li>
+			<li><a href="{$birds_url}&b[breed]=Poultry">Poultry for sale</a></li>
 		</ul>
 
 		<ul>
-			<li class="title">Fish for Sale</li>
-			<li>Goldfish for sale</li>
-			<li>Riftlake Cichlid fish for sale</li>
-			<li>Tropical Fish for sale</li>
-			<li>Angels fish for sale</li>
-			<li>Catfish for sale</li>
-			<li>Danio fish for sale</li>
-			<li>Discus fish for sale</li>
+			{assign "fish_url" "{$search_url}&c=312"}
+			<li class="title"><a href="{$fish_url}">Fish for Sale</a></li>
+			<li><a href="{$fish_url}&b[breed]=Goldfish+(Cold+Water)">Goldfish for sale</a></li>
+			<li><a href="{$fish_url}&b[breed]=Riftlake+Cichlid+Fish">Riftlake Cichlid fish for sale</a></li>
+			<li><a href="{$fish_url}&b[breed]=Tropical+Fish">Tropical Fish for sale</a></li>
+			<li><a href="{$fish_url}&b[breed]=Angels">Angels fish for sale</a></li>
+			<li><a href="{$fish_url}&b[breed]=Catfish">Catfish for sale</a></li>
+			<li><a href="{$fish_url}&b[breed]=Danio">Danio fish for sale</a></li>
+			<li><a href="{$fish_url}&b[breed]=Discus">Discus fish for sale</a></li>
 			<li>Fighter fish for sale</li>
-			<li>Guppies for sale</li>
-			<li>Marine fish for sale</li>
+			<li><a href="{$fish_url}&b[breed]=Guppies">Guppies for sale</a></li>
+			<li><a href="{$fish_url}&b[breed]=Marine+Fish+(Salt+Water)">Marine fish for sale</a></li>
 			<li>Australian Native fish for sale</li>
 			<li>New Guinea Natives fish for sale</li>
-			<li>Yabby for sale</li>
+			<li><a href="{$fish_url}&b[breed]=Yabby">Yabby for sale</a></li>
 		</ul>
 
 		<ul>
-			<li class="title">Other Small Pets for Sale</li>
-			<li>Guinea Pigs for sale</li>
-			<li>Leaf Insects for sale</li>
-			<li>Rabbits for sale</li>
+			{assign "other_url" "{$search_url}&c=314"}
+			<li class="title"><a href="{$other_url}">Other Small Pets for Sale</a></li>
+			<li><a href="{$other_url}&b[breed]=Guinea+Pig">Guinea Pigs for sale</li>
+			<li><a href="{$other_url}&b[breed]=Leaf+Insect">Leaf Insects for sale</a></li>
+			<li><a href="{$other_url}&b[breed]=Rabbit">Rabbits for sale</a></li>
 		</ul>
 
 		<ul>
-			<li class="title">Reptiles for Sale</li>
-			<li>Dragons for sale</li>
-			<li>Geckos for sale</li>
-			<li>Legless Lizards for sale</li>
-			<li>Pythons for sale</li>
-			<li>Skinks for sale</li>
+			{assign "reptile_url" "{$search_url}&c=313"}
+			<li class="title"><a href="{$reptile_url}">Reptiles for Sale</a></li>
+			<li><a href="{$reptile_url}&b[breed]=Dragon">Dragons for sale</a></li>
+			<li><a href="{$reptile_url}&b[breed]=Gecko">Geckos for sale</a></li>
+			<li><a href="{$reptile_url}&b[breed]=Legless+Lizard">Legless Lizards for sale</a></li>
+			<li><a href="{$reptile_url}&b[breed]=Python">Pythons for sale</a></li>
+			<li><a href="{$reptile_url}&b[breed]=Skink">Skinks for sale</a></li>
 		</ul>
 	</div>
 
