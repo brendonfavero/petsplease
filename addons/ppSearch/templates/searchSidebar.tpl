@@ -88,6 +88,17 @@
 		</select>
 	</div>
 
+	{if !$simplesearch}
+		<div class="sort">
+			<label>Sort by</label>
+			<select name="order">
+				{foreach from=$sort_options item=opt key=id}
+					<option value="{$id}"{if $browse_sort_c==$id} selected="selected"{/if}>{$opt}</option>
+				{/foreach}
+			</select>
+		</div>
+	{/if}
+
 	<button>Search</button>
 </form>
 

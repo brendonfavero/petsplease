@@ -5,8 +5,6 @@
 	{module tag='module_featured_pic_1' gallery_columns=4 module_thumb_width=80}
 </div>
 
-{include file='common/browse_mode_buttons.tpl'}
-
 <div class="col_left">
 	<div id="browsing_search">
 		{addon author='pp_addons' addon='ppSearch' tag='searchSidebar' queryurl=$cfg.browse_url}

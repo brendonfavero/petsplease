@@ -26,7 +26,8 @@
 		</ul>
 
 		<ul>
-			<li class="title">Pet Services</li>
+			{assign "service_url" "{$search_url}&c=318"}
+			<li class="title"><a href="{$service_url}">Pet Services</a></li>
 			<li>Dog Services</li>
 			<li>Cat Services</li>
 			<li>Bird Services</li>
@@ -36,7 +37,8 @@
 		</ul>
 
 		<ul>
-			<li class="title">Pet Clubs</li>
+			{assign "club_url" "{$search_url}&c=319"}
+			<li class="title"><a href="{$club_url}">Pet Clubs</a></li>
 			<li>Dog Clubs</li>
 			<li>Cat Clubs</li>
 			<li>Bird Clubs</li>

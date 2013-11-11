@@ -78,6 +78,10 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 
 		$tpl_vars = array();
 
+		if ($params['simple']) {
+			$tpl_vars['simplesearch'] = true;
+		}
+
 		// Work search query into usable format
 		$queryurl = html_entity_decode($params['queryurl']);
 		$urlparts = parse_url('fake.com/' . $queryurl); // can't be bothered detecting if $queryurl has file included or not so just using this
@@ -186,6 +190,14 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 			   ORDER BY type_id, display_order, value";
 		$result = $db->GetAll($sql);
 		$tpl_vars['services'] = $result;
+
+		// Sort options
+		$tpl_vars['sort_options'] = array(
+			0 => "",
+			1 => "Lowest Price",
+			2 => "Highest Price",
+			5 => "Title"
+		);
 
 		return geoTemplate::loadInternalTemplate($params, $smarty, 'searchSidebar.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);		
