@@ -1,7 +1,7 @@
 <?php
-class addon_petspleaseListingImagesExtra_info
+class addon_ppListingImagesExtra_info
 {
-	public $name = 'petspleaseListingImagesExtra';
+	public $name = 'ppListingImagesExtra';
 	public $version = '1.0.0';
 	public $title = 'Pets Please Listing Images Extra';
 	public $core_version_minimum = '7.1.0';

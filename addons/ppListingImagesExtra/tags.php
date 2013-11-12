@@ -1,5 +1,5 @@
 <?php
-class addon_petspleaseListingImagesExtra_tags extends addon_petspleaseListingImagesExtra_info
+class addon_ppListingImagesExtra_tags extends addon_ppListingImagesExtra_info
 {
 	/* Show scrolling banner ads against listing */
 	public function listingBannerImages($params, Smarty_Internal_Template $smarty) {
