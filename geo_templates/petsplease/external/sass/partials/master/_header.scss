@@ -131,7 +131,7 @@ header.page {
 /** Main Page Navigation **/
 #header-nav {
 	font-size: 1.3em;
-	@include buttonset-setwidth(1052px, $st_seperator / 2, 0, 0, 9);
+	@include buttonset-setwidth(1052px, $st_seperator / 2, 0, 0, 8);
 
 	li {
 		margin-right: 0;

@@ -94,7 +94,7 @@
 		</ul>
 
 		<ul class="float-li">
-			<li class="title">Other Major Towns</li>
+			<li class="title" style="float:none">Other Major Towns</li>
 			<li>Orange</li>
 			<li>Townsville</li>
 			<li>Rockingham</li>
@@ -133,9 +133,9 @@
 	</div>
 
 
-	<div class="footer-quicklinks clearfix">
-		<h2>Quick Pet Location</h2>
-		<ul>
+	<div class="footer-quicklinks clearfix fivecol">
+		<h2>Popular Pet Breeds</h2>
+		<ul class="double">
 			{assign "dogs_url" "{$search_url}&c=309"}
 			<li class="title"><a href="{$dogs_url}">Dogs and Puppies for Sale</a></li>
 			<li><a href="{$dogs_url}&b[breed]=Australian+Cattle+dog">Australian Cattle Dog puppies for sale</a></li>
@@ -208,14 +208,6 @@
 		</ul>
 
 		<ul>
-			{assign "other_url" "{$search_url}&c=314"}
-			<li class="title"><a href="{$other_url}">Other Small Pets for Sale</a></li>
-			<li><a href="{$other_url}&b[breed]=Guinea+Pig">Guinea Pigs for sale</li>
-			<li><a href="{$other_url}&b[breed]=Leaf+Insect">Leaf Insects for sale</a></li>
-			<li><a href="{$other_url}&b[breed]=Rabbit">Rabbits for sale</a></li>
-		</ul>
-
-		<ul>
 			{assign "reptile_url" "{$search_url}&c=313"}
 			<li class="title"><a href="{$reptile_url}">Reptiles for Sale</a></li>
 			<li><a href="{$reptile_url}&b[breed]=Dragon">Dragons for sale</a></li>
@@ -224,10 +216,18 @@
 			<li><a href="{$reptile_url}&b[breed]=Python">Pythons for sale</a></li>
 			<li><a href="{$reptile_url}&b[breed]=Skink">Skinks for sale</a></li>
 		</ul>
+
+		<ul style="margin-top: 7px;">
+			{assign "other_url" "{$search_url}&c=314"}
+			<li class="title"><a href="{$other_url}">Other Small Pets for Sale</a></li>
+			<li><a href="{$other_url}&b[breed]=Guinea+Pig">Guinea Pigs for sale</li>
+			<li><a href="{$other_url}&b[breed]=Leaf+Insect">Leaf Insects for sale</a></li>
+			<li><a href="{$other_url}&b[breed]=Rabbit">Rabbits for sale</a></li>
+		</ul>
 	</div>
 
 
-	<div class="clearfix">
+	<div class="footer-bottom clearfix">
 		<nav class="footer">
 			<div class="footer_inner">
 				<ul>

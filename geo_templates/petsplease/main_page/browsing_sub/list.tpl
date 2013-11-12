@@ -62,9 +62,13 @@ that it will corrupt the smarty tags!
 
 		{if $cfg.cols.price and $listing.price}
 			<span>
-				{$listing.price}
-				{if $ex_males + $ex_females gt 1}
-					each
+				{if $listing.topcategory eq 411}
+					Starting from {$listing.price}/night
+				{else}
+					{$listing.price}
+					{if $ex_males + $ex_females gt 1}
+						each
+					{/if}
 				{/if}
 			</span>
 		{/if}

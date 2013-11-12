@@ -219,9 +219,13 @@
 
 		{if $price}
 			<span>
-				{$price}
-				{if $ex_males + $ex_females gt 1}
-					each
+				{if $topcategory eq 411}
+					Starting from {$price}/night
+				{else}
+					{$price}
+					{if $ex_males + $ex_females gt 1}
+						each
+					{/if}
 				{/if}
 			</span>
 		{/if}

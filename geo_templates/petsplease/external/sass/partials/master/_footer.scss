@@ -2,8 +2,8 @@ footer.page {
 	width: 1052px - ($st_seperator);
 	margin: $st_seperator auto 0;
 	padding: $st_seperator / 2;
-	color: white;
-	@include background-image(linear-gradient(#3e7195, #3E4095));
+	// color: white;
+	// @include background-image(linear-gradient(#3e7195, #3E4095));
 
 	nav {
 		float: left;
@@ -28,19 +28,54 @@ footer.page {
 	}
 
 	a:link, a:visited {
-		color: white;
+		color: black;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+
+	.footer-quicklinks h2 {
+		font-weight: bold;
+		margin: 14px 0 7px;
+		border-bottom: 1px solid #DDD;
 	}
 
 	.footer-quicklinks ul {
 		float: left;
 		list-style-type: none;
+		font-size: 0.8em;
+		width: 171px;
 
-		&.float-li li {
-			float: left;
+		&.double {
+			width: 342px;
+		}
+
+		&.float-li {
+			width:684px;
+
+			li {
+				float: left;
+				width: 171px;
+			}
 		}
 
 		li.title {
 			font-weight: bold;
 		}
+	}
+
+	.footer-quicklinks.fivecol ul {
+		width: 185px;
+
+		&.double {
+			width: 288px;
+		}
+	}
+
+	.footer-bottom {
+		padding-top: 7px;
+		border-top: 1px solid #DDD;
+		margin-top: 7px;
 	}
 }

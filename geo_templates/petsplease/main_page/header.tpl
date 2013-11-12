@@ -85,13 +85,13 @@
 			<a href="/index.php?a=19&c=319&b[subcategories_also]=1">Pet Clubs</a>
 		</li>
 
-		<li>
+		<li class="last">
 			<a href="#">Pet News and Advice</a>
 		</li>
 
-		<li class="last">
+		<!-- <li class="last">
 			<a href="/index.php?a=19&c=308&b[subcategories_also]=1&b[sold_displayed]=1">Sold Pets</a>
-		</li>	
+		</li> -->	
 	</ul>
 </header>
 

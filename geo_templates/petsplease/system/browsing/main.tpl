@@ -5,49 +5,6 @@
 
 {$category_cache}
 
-<div class="col_left">
-	<div id="browsing_search">
-		<h2>Refine your search</h2>
-
-		<form>
-			<div>
-				<label>Category</label>
-				<select>
-					<option>Pets for Sale</option>
-					<option>Pet Products</option>
-					<option>Breeders</option>
-					<option>Services</option>
-					<option>Clubs</option>
-				</select>
-			</div>
-
-			<div>
-				<label>Type</label>
-				<select>
-					<option>Dogs &amp; Puppies</option>
-					<option>Cats &amp; Kittens</option>
-					<option>Birds</option>
-					<option>Fish</option>
-					<option>Reptiles</option>
-					<option>Other Pets</option>
-				</select>
-			</div>
-
-			<div>
-				<label>Breed</label>
-				<select>
-					<option>Affenpinscher</option>
-					<option>Afgan Hound</option>
-				</select>
-			</div>
-		</form>
-	</div>
-
-	<div class="adspot160x600">
-		<img src="{external file='images/ad_example_160x600.jpg'}" width="160" height="600" style="display:block;" />
-	</div>
-</div>
-
 <div class="col_right">
 	{include file='common/browse_mode_buttons.tpl'}	
 	<div class="clear"></div>

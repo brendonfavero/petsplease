@@ -203,7 +203,20 @@
 		</div>
 	</div>
 	
-	{* END DESCRIPTION *}			
+	{* END DESCRIPTION *}	
+
+	{* START GOOGLE MAPS *}
+	{addon author='geo_addons' addon='google_maps' tag='listing_map' assign='map'}
+	{if $map}
+		<h1 class="title">{$additional_text_18}</h1>
+		<div class="content_box_1 cntr">
+			{* Make sure map is centered in the box *}
+			<div style="display: inline-block;">{$map}</div>
+			<div class="clr"></div>
+		</div>
+	{/if}
+	
+	{* END GOOGLE MAPS *}		
 </div>
 
 <!-- END CENTER COLUMN -->
