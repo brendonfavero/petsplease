@@ -237,6 +237,18 @@
 		{listing tag='image_block'}
 	</div>
 
+	
+
+	{* Start buyable product stuff *}
+	{if $topcategory eq 315 and $optional_field_1 eq "1"}
+		<div class="content_box_1">
+			This product is buyable
+		</div>
+	{/if}
+	{* End buyable product stuff}
+
+
+
 	{* START DESCRIPTION *}
 		
 	<h1 class="title">Details</h1>

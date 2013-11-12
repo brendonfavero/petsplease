@@ -37,7 +37,7 @@
 				{/if}
 			</strong>
 		</div>
-		
+
 		{if $sell_type == 1 && $editCheck}
 			<div class="{cycle values='row_odd,row_even'} combined_update_fields">
 				<label for="classified_length" class="field_label">
@@ -351,29 +351,31 @@
 			</div>
 		{/if}
 		
-		{if $fields->payment_types->is_enabled}
-			<div class="{if $error_msgs.payment_options}field_error_row {/if}{cycle values='row_odd,row_even'}">
-				
-				<label class="field_label" style="width: 400px;">{$messages.102850}<br /><span class="mini_note">{$messages.102867}</span></label>
-				
-				<ul class="payment_options_list inline">
-					{foreach from=$payment_options item="show_payment" key="key" name="payment_type_loop"}
-						<li>
-							<label>
-								<input type="checkbox" name="b[payment_options_from_form][]" value="{$show_payment.type_name}"
-								{if in_array($show_payment.type_name, $session_variables.payment_options)}checked="checked"{/if} />
-								{$show_payment.type_name}
-							</label>
-						</li>
-					{foreachelse}
-						<li>No Choices to Display</li>
-					{/foreach}
-				</ul>
-				
-				{if $error_msgs.payment_options}
-					<span class="error_message">{$messages.102851}</span>
-				{/if}
-			</div>
+		{if $session_variables.storeproduct != "true"}
+			{if $fields->payment_types->is_enabled}
+				<div class="{if $error_msgs.payment_options}field_error_row {/if}{cycle values='row_odd,row_even'}">
+					
+					<label class="field_label" style="width: 400px;">{$messages.102850}<br /><span class="mini_note">{$messages.102867}</span></label>
+					
+					<ul class="payment_options_list inline">
+						{foreach from=$payment_options item="show_payment" key="key" name="payment_type_loop"}
+							<li>
+								<label>
+									<input type="checkbox" name="b[payment_options_from_form][]" value="{$show_payment.type_name}"
+									{if in_array($show_payment.type_name, $session_variables.payment_options)}checked="checked"{/if} />
+									{$show_payment.type_name}
+								</label>
+							</li>
+						{foreachelse}
+							<li>No Choices to Display</li>
+						{/foreach}
+					</ul>
+					
+					{if $error_msgs.payment_options}
+						<span class="error_message">{$messages.102851}</span>
+					{/if}
+				</div>
+			{/if}
 		{/if}
 		
 		{if $field_config.use_buy_now}
@@ -412,158 +414,169 @@
 			</div>
 		{/if}
 		
+
+		{* ARDEX Qty stuff *}
+		<div>
+			<label class="field_label">Product Qty:</label>
+			<input id="optional_field_2" class="field" type="text" value="{$opt_field_info[2].value}" />
+		</div>
+		{**}
+		
 	</div>
 	<br />
+
 	
-	<div class="content_box">
-		<h2 class="title">{$messages.500804}</h2>
-		
-		{if $fields->email->is_enabled}
-			<div class="{if $error_msgs.email_option}field_error_row {/if}{cycle values='row_odd,row_even'}">
-				<label for="email_option" class="field_label">{$messages.1339}</label>
-		
-				{if $fields->email->can_edit || $editCheck}
-					<input type="text" id="email_option" name="b[email_option]" value="{if $session_variables.email_option}{$session_variables.email_option}{else}{$user_data.email}{/if}"
-						class="field" />
-				{else}
-					{$session_variables.email_option}
-					<input type="hidden" name="b[email_option]" value="{$session_variables.email_option}" />
-				{/if}
-				{if $fields->email->type_data == 'reveal'}
-					{$messages.1340}
-					<label>{$messages.1341} <input type="radio" name="b[expose_email]" value="1"{if $session_variables.expose_email == 1} checked="checked"{/if} /></label>
-					<label>{$messages.1342} <input type="radio" name="b[expose_email]" value="0"{if $session_variables.expose_email != 1} checked="checked"{/if} /></label>
-				{/if}
-				{if $error_msgs.email_option}
-					<span class="error_message">{$messages.1343}</span>
-				{/if}
-			</div>
-		{else}
-			<input type="hidden" name="b[email_option]" value="{$session_variables.email_option}" />
-		{/if}
-		
-		{if $fields->phone_1->is_enabled}
-			<div class="{if $error_msgs.phone_1_option}field_error_row {/if}{cycle values='row_odd,row_even'}">
-				<label for="phone_1_option" class="field_label">{$messages.1345}</label>
-				{if $editCheck || $fields->phone_1->can_edit}
-					<input type="text" id="phone_1_option" name="b[phone_1_option]" value="{$session_variables.phone_1_option}"
-						size="{if $fields->phone_1->text_length > 18}18{else}{$fields->phone_1->text_length}{/if}"
-						maxlength="{$fields->phone_1->text_length}" class="field" />
-				{else}
-					{$session_variables.phone_1_option}
-					<input type="hidden" name="b[phone_1_option]" value="{$session_variables.phone_1_option}" />
-				{/if}
+	{if $session_variables.storeproduct != "true"}
+		<div class="content_box">
+			<h2 class="title">{$messages.500804}</h2>
 			
-				{if $error_msgs.phone_1_option}
-					<span class="error_message">{$messages.500097}</span>
-				{/if}
-			</div>
-		{/if}
-		
-		{if $fields->phone_2->is_enabled}
-			<div class="{if $error_msgs.phone_2_option}field_error_row {/if}{cycle values='row_odd,row_even'}">
-				<label for="phone_2_option" class="field_label">{$messages.1346}</label>
+			{if $fields->email->is_enabled}
+				<div class="{if $error_msgs.email_option}field_error_row {/if}{cycle values='row_odd,row_even'}">
+					<label for="email_option" class="field_label">{$messages.1339}</label>
 			
-				{if $editCheck || $fields->phone_2->can_edit}
-					<input type="text" id="phone_2_option" name="b[phone_2_option]" value="{$session_variables.phone_2_option}"
-						size="{if $fields->phone_2->text_length > 18}18{else}{$fields->phone_2->text_length}{/if}"
-						maxlength="{$fields->phone_2->text_length}" class="field" />
-				{else}
-					{$session_variables.phone_2_option}
-					<input type="hidden" name="b[phone_2_option]" value="{$session_variables.phone_2_option}" />
-				{/if}
+					{if $fields->email->can_edit || $editCheck}
+						<input type="text" id="email_option" name="b[email_option]" value="{if $session_variables.email_option}{$session_variables.email_option}{else}{$user_data.email}{/if}"
+							class="field" />
+					{else}
+						{$session_variables.email_option}
+						<input type="hidden" name="b[email_option]" value="{$session_variables.email_option}" />
+					{/if}
+					{if $fields->email->type_data == 'reveal'}
+						{$messages.1340}
+						<label>{$messages.1341} <input type="radio" name="b[expose_email]" value="1"{if $session_variables.expose_email == 1} checked="checked"{/if} /></label>
+						<label>{$messages.1342} <input type="radio" name="b[expose_email]" value="0"{if $session_variables.expose_email != 1} checked="checked"{/if} /></label>
+					{/if}
+					{if $error_msgs.email_option}
+						<span class="error_message">{$messages.1343}</span>
+					{/if}
+				</div>
+			{else}
+				<input type="hidden" name="b[email_option]" value="{$session_variables.email_option}" />
+			{/if}
 			
-				{if $error_msgs.phone_2_option}
-					<span class="error_message">{$messages.500098}</span>
-				{/if}
-			</div>
-		{/if}
-		
-		{if $fields->fax->is_enabled}
-			<div class="{if $error_msgs.fax_option}field_error_row {/if}{cycle values='row_odd,row_even'}">
-				<label for="fax_option" class="field_label">{$messages.1355}</label>
+			{if $fields->phone_1->is_enabled}
+				<div class="{if $error_msgs.phone_1_option}field_error_row {/if}{cycle values='row_odd,row_even'}">
+					<label for="phone_1_option" class="field_label">{$messages.1345}</label>
+					{if $editCheck || $fields->phone_1->can_edit}
+						<input type="text" id="phone_1_option" name="b[phone_1_option]" value="{$session_variables.phone_1_option}"
+							size="{if $fields->phone_1->text_length > 18}18{else}{$fields->phone_1->text_length}{/if}"
+							maxlength="{$fields->phone_1->text_length}" class="field" />
+					{else}
+						{$session_variables.phone_1_option}
+						<input type="hidden" name="b[phone_1_option]" value="{$session_variables.phone_1_option}" />
+					{/if}
+				
+					{if $error_msgs.phone_1_option}
+						<span class="error_message">{$messages.500097}</span>
+					{/if}
+				</div>
+			{/if}
 			
-				{if $editCheck || $fields->fax->can_edit}
-					<input type="text" id="fax_option" name="b[fax_option]" value="{$session_variables.fax_option}"
-						size="{if $fields->fax->text_length > 18}18{else}{$fields->fax->text_length}{/if}"
-						maxlength="{$fields->fax->text_length}" class="field" />
-				{else}
-					{$session_variables.fax_option}
-					<input type="hidden" name="b[fax_option]" value="{$session_variables.fax_option}" />
-				{/if}
+			{if $fields->phone_2->is_enabled}
+				<div class="{if $error_msgs.phone_2_option}field_error_row {/if}{cycle values='row_odd,row_even'}">
+					<label for="phone_2_option" class="field_label">{$messages.1346}</label>
+				
+					{if $editCheck || $fields->phone_2->can_edit}
+						<input type="text" id="phone_2_option" name="b[phone_2_option]" value="{$session_variables.phone_2_option}"
+							size="{if $fields->phone_2->text_length > 18}18{else}{$fields->phone_2->text_length}{/if}"
+							maxlength="{$fields->phone_2->text_length}" class="field" />
+					{else}
+						{$session_variables.phone_2_option}
+						<input type="hidden" name="b[phone_2_option]" value="{$session_variables.phone_2_option}" />
+					{/if}
+				
+					{if $error_msgs.phone_2_option}
+						<span class="error_message">{$messages.500098}</span>
+					{/if}
+				</div>
+			{/if}
 			
-				{if $error_msgs.fax_option}
-					<span class="error_message">{$messages.500099}</span>
-				{/if}
-			</div>
-		{/if}
-		
-		{if $fields->address->is_enabled && ($editCheck || $fields->address->can_edit)}
-			<div class="{if $error_msgs.address}field_error_row {/if}{cycle values='row_odd,row_even'}">
-				<label for="address" class="field_label">{$messages.500161}</label>
+			{if $fields->fax->is_enabled}
+				<div class="{if $error_msgs.fax_option}field_error_row {/if}{cycle values='row_odd,row_even'}">
+					<label for="fax_option" class="field_label">{$messages.1355}</label>
+				
+					{if $editCheck || $fields->fax->can_edit}
+						<input type="text" id="fax_option" name="b[fax_option]" value="{$session_variables.fax_option}"
+							size="{if $fields->fax->text_length > 18}18{else}{$fields->fax->text_length}{/if}"
+							maxlength="{$fields->fax->text_length}" class="field" />
+					{else}
+						{$session_variables.fax_option}
+						<input type="hidden" name="b[fax_option]" value="{$session_variables.fax_option}" />
+					{/if}
+				
+					{if $error_msgs.fax_option}
+						<span class="error_message">{$messages.500099}</span>
+					{/if}
+				</div>
+			{/if}
 			
-				{if $error_msgs.address}
-					<span class="error_message">{$messages.500162}</span>
-				{/if}
+			{if $fields->address->is_enabled && ($editCheck || $fields->address->can_edit)}
+				<div class="{if $error_msgs.address}field_error_row {/if}{cycle values='row_odd,row_even'}">
+					<label for="address" class="field_label">{$messages.500161}</label>
+				
+					{if $error_msgs.address}
+						<span class="error_message">{$messages.500162}</span>
+					{/if}
+				
+					<input type="text" id="address" name="b[address]" size="{if $fields->address->text_length > 20}20{else}{$fields->address->text_length}{/if}"
+						maxlength="{$fields->address->text_length}"
+						value="{$session_variables.address}" class="field" />
+				</div>
+			{/if}
 			
-				<input type="text" id="address" name="b[address]" size="{if $fields->address->text_length > 20}20{else}{$fields->address->text_length}{/if}"
-					maxlength="{$fields->address->text_length}"
-					value="{$session_variables.address}" class="field" />
-			</div>
-		{/if}
-		
-		{if $region_selector && ($editCheck || $fields->region_level_1->can_edit)} {* allow editing based on "level 1" switch...for now... *}
-			<div class="{if $error_msgs.location}field_error_row {/if}{cycle values='row_odd,row_even'}">
-				{if $error_msgs.location}
-					<span class="error_message">{$messages.501631}</span>
-				{/if}
-				{$region_selector}
-			</div>
-		{/if}
-		
-		{if $fields->city->is_enabled && ($editCheck || $fields->city->can_edit) && !$geographicOverrides.city}
-			<div class="{if $error_msgs.city}field_error_row {/if}{cycle values='row_odd,row_even'}">
-				<label for="city" class="field_label">{$messages.1129}</label>
-				{if $error_msgs.city}
-					<span class="error_message">{$messages.1130}</span>
-				{/if}
+			{if $region_selector && ($editCheck || $fields->region_level_1->can_edit)} {* allow editing based on "level 1" switch...for now... *}
+				<div class="{if $error_msgs.location}field_error_row {/if}{cycle values='row_odd,row_even'}">
+					{if $error_msgs.location}
+						<span class="error_message">{$messages.501631}</span>
+					{/if}
+					{$region_selector}
+				</div>
+			{/if}
 			
-				{if $editCheck || $fields->city->can_edit}
-					<input type="text" id="city" name="b[city]" size="{if $fields->city->text_length > 20}20{else}{$fields->city->text_length}{/if}"
-						maxlength="{$fields->city->text_length}"
-						value="{$session_variables.city}" class="field" />
-				{else}
-					{$session_variables.city}
-				{/if}
-			</div>
-		{/if}
-		
-		
-		{if $fields->zip->is_enabled}
-			<div class="{if $error_msgs.zip_code}field_error_row {/if}{cycle values='row_odd,row_even'}">
-				<label for="zip_code" class="field_label">{$messages.121}</label>
-				{if $error_msgs.zip_code}
-					<span class="error_message">{$messages.118}</span>
-				{/if}
-				{if $messages.119}
-					{$messages.119}
-				{/if}
+			{if $fields->city->is_enabled && ($editCheck || $fields->city->can_edit) && !$geographicOverrides.city}
+				<div class="{if $error_msgs.city}field_error_row {/if}{cycle values='row_odd,row_even'}">
+					<label for="city" class="field_label">{$messages.1129}</label>
+					{if $error_msgs.city}
+						<span class="error_message">{$messages.1130}</span>
+					{/if}
+				
+					{if $editCheck || $fields->city->can_edit}
+						<input type="text" id="city" name="b[city]" size="{if $fields->city->text_length > 20}20{else}{$fields->city->text_length}{/if}"
+							maxlength="{$fields->city->text_length}"
+							value="{$session_variables.city}" class="field" />
+					{else}
+						{$session_variables.city}
+					{/if}
+				</div>
+			{/if}
 			
-				{if $editCheck || $fields->zip->can_edit}
-					<input type="text" id="zip_code" name="b[zip_code]" value="{$session_variables.zip_code}"
-						size="{if $fields->zip->text_length > 10}10{else}{$fields->zip->text_length}{/if}"
-						maxlength="{$fields->zip->text_length}" class="field" />
-				{else}
-					{$session_variables.zip_code}
-				{/if}
-			</div>
-		{/if}
-		
-		{if $moreDetailsLocation}
-			{include file='shared/listing_collect_more.tpl' more=$moreDetailsLocation}
-		{/if}
-	</div>
-	<br />
+			
+			{if $fields->zip->is_enabled}
+				<div class="{if $error_msgs.zip_code}field_error_row {/if}{cycle values='row_odd,row_even'}">
+					<label for="zip_code" class="field_label">{$messages.121}</label>
+					{if $error_msgs.zip_code}
+						<span class="error_message">{$messages.118}</span>
+					{/if}
+					{if $messages.119}
+						{$messages.119}
+					{/if}
+				
+					{if $editCheck || $fields->zip->can_edit}
+						<input type="text" id="zip_code" name="b[zip_code]" value="{$session_variables.zip_code}"
+							size="{if $fields->zip->text_length > 10}10{else}{$fields->zip->text_length}{/if}"
+							maxlength="{$fields->zip->text_length}" class="field" />
+					{else}
+						{$session_variables.zip_code}
+					{/if}
+				</div>
+			{/if}
+			
+			{if $moreDetailsLocation}
+				{include file='shared/listing_collect_more.tpl' more=$moreDetailsLocation}
+			{/if}
+		</div>
+		<br />
+	{/if}
 
 
 	{* Ardex Custom Services Stuff *}
@@ -793,19 +806,28 @@
 			</div>
 		{/if}
 		
+
+		{* Need to get the topmost (first parent) category (note: first element but not first index) *}
+		{foreach from=$category_tree item=cat}
+			{assign "topcat" "{$cat['category_id']}"}
+			{break}
+		{/foreach}
 		
 		{if $is_ent}
 			{foreach from=$opt_field_info item=opt_info key=i}
 				{* ARDEX Don't show inputs if handled by our own stuff *}
-				{if $category_tree[0]['category_id'] eq 318 and $i eq 1}
+				{if $topcat eq 318 and $i eq 1}
 					{* If service type, just ignore *}
 
-				{elseif ($category_tree[0]['category_id'] eq 316 or $category_tree[0]['category_id'] eq 319) 
+				{elseif ($topcat eq 316 or $topcat eq 319) 
 				  and ($i eq 8 or $i eq 9 or $i eq 10 or $i eq 11 or $i eq 12 or $i eq 13)}
 					{* If breeder/club type, just ignore *}
 
-				{elseif $category_tree[0]['category_id'] eq 411 and $i eq 1}
+				{elseif $topcat eq 411 and $i eq 1}
 					{* If accomodation pet type, just ignore *}
+
+				{elseif $topcat eq 315 and ($i eq 1 or $i eq 2)}
+					{* Product isSellable/Qty controls, just ignore *}
 
 				{* END ARDEX Hide custom inputs *}
 
@@ -899,21 +921,23 @@
 		</div>
 	{/if}
 {********************************************}
-	{if $fields->mapping_location->is_enabled}
-		<br />
-		<div class="content_box">
-			<h2 class="title">{$messages.1622}</h2>
-			<p class="page_instructions">{$messages.1623}</p>
-			
-				<div class="{if $error_msgs.mapping_location}field_error_row {/if}{cycle values='row_odd,row_even'}">
-					<label for="mapping_location" class="field_label">{$messages.1617}</label>
-					<input type="text" id="mapping_location" name="b[mapping_location]" value="{$session_variables.mapping_location}" class="field" size="70" />
-					{if $error_msgs.mapping_location}
-						<span class="error_message">{$messages.500100}</span>
-					{/if}
-				</div>
-			
-		</div>
+	{if $session_variables.storeproduct != "true"}
+		{if $fields->mapping_location->is_enabled}
+			<br />
+			<div class="content_box">
+				<h2 class="title">{$messages.1622}</h2>
+				<p class="page_instructions">{$messages.1623}</p>
+				
+					<div class="{if $error_msgs.mapping_location}field_error_row {/if}{cycle values='row_odd,row_even'}">
+						<label for="mapping_location" class="field_label">{$messages.1617}</label>
+						<input type="text" id="mapping_location" name="b[mapping_location]" value="{$session_variables.mapping_location}" class="field" size="70" />
+						{if $error_msgs.mapping_location}
+							<span class="error_message">{$messages.500100}</span>
+						{/if}
+					</div>
+				
+			</div>
+		{/if}
 	{/if}
 	{if $moreDetailsEnd}
 		{*  Allow addons to insert stuff at the very end. *}

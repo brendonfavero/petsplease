@@ -243,11 +243,42 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 			$cart->addStep(self::$_type . ':choose_plan');
 		}
 		$cart->addStep(self::$_type . ':category');
+
+
+		// ARDEX: adding in intermediate step to ask if store product
+		$cat_id = $cart->item->getCategory();
+
+		if ($cat_id == 0 && $_REQUEST['action'] == "process" && 
+				$_REQUEST['step'] == "classified:category" && $_REQUEST['b'] > 0) {
+			// We have no set category but one has just been passed in so check against that
+			// The reason for this is that categoryProcess is called after cart init, so even if this
+			// page is setting the category we won't see it here yet
+			$cat_id = $_REQUEST['b'];
+		}
+
+		if ($cat_id > 0) {
+			// Need to see if this category belong to Products
+			$parent_id = geoCategory::getParent($cat_id);
+
+			while ($parent_id != 0) {
+				$cat_id = $parent_id;
+				$parent_id = geoCategory::getParent($cat_id);
+			}
+
+			if ($cat_id == 315) {
+				// We are under Products and can do our custom stuff
+				$storeHelperUtil = geoAddon::getUtil('ppStoreHelper');
+				if ($storeHelperUtil->userHasStoreListing()) {
+					$cart->addStep(self::$_type . ':isproduct');
+				}
+			}
+		}
+
 		$cart->addStep(self::$_type . ':details');
 		
 		//get steps from children as well.
 		$children = geoOrderItem::getChildrenTypes(self::$_type);
-		
+
 		if ($allPossible || geoOrderItem::callDisplay('addMedia', null, 'bool_true', $children)) {
 			$cart->addStep(self::$_type . ':media');
 		}
@@ -1695,6 +1726,11 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 		//NOTE: do NOT set end_time to ends - it is only set when seller is given option
 		//to select the end time.
 				
+		// ARDEX CUSTOM STUFF
+		// If we just created a shop product, set optional_field_1 to 1
+		$listing->optional_field_1 = '1';
+		//
+
 		//save the info we just set in session vars
 		$session_variables['ends'] = $ends;
 		$session_variables['date'] = $current_time;
@@ -3344,5 +3380,44 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 			}
 		}
 		return $title;
+	}
+
+
+	/* Ardex Custom Step for store product */
+
+	public static function isproductCheckVars ($save_session_vars = true)
+	{
+		$cart = geoCart::getInstance();
+	}
+
+	public static function isproductDisplay() {
+		if (!geoMaster::is('classifieds')) { return; }
+		$cart = geoCart::getInstance();
+		$cart->site->sell_type = 1;
+		$view = geoView::getInstance();
+		
+		$tpl_vars = $cart->getCommonTemplateVars();
+
+		$view->setBodyTpl('isproductDisplay.tpl','','order_items')
+			->setBodyVar($tpl_vars);
+		
+		$cart->site->display_page();
+		return $tpl_vars;
+	}
+
+	public static function isproductProcess() {
+		$cart = geoCart::getInstance();
+		
+		if ($_REQUEST['type'] == "storeproduct") {
+			$cart->site->session_variables['storeproduct'] = 'true';
+		}
+		else {
+			unset($cart->site->session_variables['storeproduct']);
+		}
+		self::saveFormVariables();
+	}
+
+	public static function isproductLabel() {
+		return "Store Product";
 	}
 }

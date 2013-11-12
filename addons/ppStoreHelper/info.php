@@ -9,7 +9,8 @@ class addon_ppStoreHelper_info
 	public $description = 'Store and store procut helper';
 	public $auth_tag = 'pp_addons';
 
-	public $listing_tags = array (
+	public $tags = array (
+		'userHasStoreListing'
 	);
 }
 ?>
