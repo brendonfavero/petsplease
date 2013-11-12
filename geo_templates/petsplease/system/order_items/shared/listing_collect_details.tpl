@@ -418,7 +418,7 @@
 		{* ARDEX Qty stuff *}
 		<div>
 			<label class="field_label">Product Qty:</label>
-			<input id="optional_field_2" class="field" type="text" value="{$opt_field_info[2].value}" />
+			<input name="b[optional_field_2]" class="field" type="text" value="{$opt_field_info[2].value}" />
 		</div>
 		{**}
 		

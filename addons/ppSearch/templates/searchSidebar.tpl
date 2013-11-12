@@ -3,10 +3,10 @@
 	<input type="hidden" name="b[subcategories_also]" value="1">
 	<input type="hidden" name="c" id="category_value" value="{$search_parms.c}">
 
-	<div>
+	<!-- <div>
 		<label>Keyword</label>
 		<input type="text" name="b[search_text]" value="{$search_parms.b.search_text}" />
-	</div>
+	</div> -->
 
 	<div>
 		<label>Category</label>

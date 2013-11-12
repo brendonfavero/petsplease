@@ -233,16 +233,28 @@
 
 	{listing tag='listingBannerImages' addon='petspleaseListingImagesExtra'}
 
-	<div class="content_box_1">
-		{listing tag='image_block'}
-	</div>
+
+	{listing tag='image_block' assign='imageblock'}
+	{if $imageblock}
+		<div class="content_box_1">
+			{$imageblock}
+		</div>
+	{/if}
 
 	
 
 	{* Start buyable product stuff *}
 	{if $topcategory eq 315 and $optional_field_1 eq "1"}
 		<div class="content_box_1">
-			This product is buyable
+			<p>
+				<a href="#">Buy Now</a> |
+				<a href="#">Add to Cart</a>
+			</p>
+
+			<p>
+				Shipping and handling: {$optional_field_20}<br>
+				Quantity: {$optional_field_2}
+			</p>
 		</div>
 	{/if}
 	{* End buyable product stuff}
@@ -259,21 +271,6 @@
 				<span class="field_value">{$ex_size}</span>
 			</div> 
 		{/if}
-
-		<!--{if $ex_breed}
-			<div class="field_set">
-				<span class="field_name">Breed:</span> 
-				<span class="field_value">
-					{$ex_breed}
-					{if $ex_secondbreed}
-						x {$ex_secondbreed}
-					{/if}
-					{if $ex_breedfirstlevel}
-						<span style="color: grey">({$ex_breedfirstlevel})</span>
-					{/if}
-				</span>
-			</div>
-		{/if}-->
 
 		{if $ex_hairlength}
 			<div class="field_set">

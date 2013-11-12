@@ -7,11 +7,13 @@
 	
 	<ul id="header-buttons" class="buttonset">
 		<li class="first"><span class="right-divider">Welcome to Pets Please</span></li>
+		<li><a href="/?a=cart&action=new&main_type=classified" class="right-divider">Create Your Ad</a></li>
+		<li><a href="/?a=4" class="right-divider">My PetsPlease</a></li>
+		<li><a href="/?a=4&b=10" class="right-divider">My PETfavourites</a></li>
 		{if not $logged_in}
 			<li><a href="/?a=10" class="right-divider">Register</a></li>
 			<li><a href="/?a=10" class="right-divider">Login</a></li>
 		{else}
-			<li><a href="/?a=4" class="right-divider">My PetsPlease</a></li>
 			<li><a href="/?a=17" class="right-divider">Logout</a></li>
 		{/if}
 		<li><a href="http://facebook.com/Petsplease" target="_blank" class="icon-link right-divider"><div class="icon-facebook" title="Facebook"></div></a></li>
@@ -20,6 +22,16 @@
 
 	<div id="header-bytext">
 		Free Classifieds
+	</div>
+
+	<div id="header-search">
+		<form action="index.php">
+			<input type="hidden" name="a" value="19">
+			<input type="hidden" name="b[subcategories_also]" value="1">
+
+			<input type="text" name="b[search_text]" placeholder="Breed/Product/Keyword" />
+			<input type="submit" value="Search" />
+		</form>
 	</div>
 
 	<div id="header-bytext2">
@@ -85,8 +97,12 @@
 			<a href="/index.php?a=19&c=319&b[subcategories_also]=1">Pet Clubs</a>
 		</li>
 
-		<li class="last">
+		<li>
 			<a href="#">Pet News and Advice</a>
+		</li>
+
+		<li class="last">
+			<a href="#">Pet Selector</a>
 		</li>
 
 		<!-- <li class="last">

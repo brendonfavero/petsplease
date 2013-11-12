@@ -8,9 +8,5 @@ class addon_ppStoreHelper_info
 	public $author = "Ardex Technology";
 	public $description = 'Store and store procut helper';
 	public $auth_tag = 'pp_addons';
-
-	public $tags = array (
-		'userHasStoreListing'
-	);
 }
 ?>

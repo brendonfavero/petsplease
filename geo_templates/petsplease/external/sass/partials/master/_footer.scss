@@ -35,44 +35,6 @@ footer.page {
 		text-decoration: underline;
 	}
 
-	.footer-quicklinks h2 {
-		font-weight: bold;
-		margin: 14px 0 7px;
-		border-bottom: 1px solid #DDD;
-	}
-
-	.footer-quicklinks ul {
-		float: left;
-		list-style-type: none;
-		font-size: 0.8em;
-		width: 171px;
-
-		&.double {
-			width: 342px;
-		}
-
-		&.float-li {
-			width:684px;
-
-			li {
-				float: left;
-				width: 171px;
-			}
-		}
-
-		li.title {
-			font-weight: bold;
-		}
-	}
-
-	.footer-quicklinks.fivecol ul {
-		width: 185px;
-
-		&.double {
-			width: 288px;
-		}
-	}
-
 	.footer-bottom {
 		padding-top: 7px;
 		border-top: 1px solid #DDD;

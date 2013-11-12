@@ -84,6 +84,7 @@
 	float: left;
 	border: 1px solid #DDDDDD;
 	margin-right: 16px;
+	margin-top: 16px;
 	text-align: center;
 
 	&.nomargin {
@@ -92,5 +93,6 @@
 
 	.image {
 		height: 150px;
+		padding: 5px;
 	}
 }

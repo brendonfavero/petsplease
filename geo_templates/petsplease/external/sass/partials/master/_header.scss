@@ -10,6 +10,12 @@ header.page {
 	margin: 10px;
 	float: left;
 }
+#header-search {
+	float: right;
+	clear: right;
+	margin-top: 7px;
+	margin-right: 12px;
+}
 #header-bytext, #header-bytext2 {
 	font-size: 2.1em;
 	float:right;
@@ -18,10 +24,11 @@ header.page {
 }
 #header-bytext {
 	color: $powderblue;
-	margin-top: 70px;
+	margin-top: 30px;
 }
 #header-bytext2 {
 	color: $navyblue;
+	margin-top: 7px;
 }
 #header-buttons {
 	font-size: 1.3em;
@@ -131,7 +138,7 @@ header.page {
 /** Main Page Navigation **/
 #header-nav {
 	font-size: 1.3em;
-	@include buttonset-setwidth(1052px, $st_seperator / 2, 0, 0, 8);
+	@include buttonset-setwidth(1052px, $st_seperator / 2, 0, 0, 9);
 
 	li {
 		margin-right: 0;
