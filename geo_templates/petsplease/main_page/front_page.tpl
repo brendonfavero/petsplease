@@ -105,6 +105,33 @@
 	</div>
 
 	<div class="footer-quicklinks clearfix">
+		<h2>Pet Services</h2>
+		<ul class="float-li-service">
+			{assign "servicetype_url" "{$search_url}&c=318"}
+			<li class="title"><a href="{$servicetype_url}">All Services</a>
+			<li><a href="{$servicetype_url}&b[service]=Aquarium+Maintenance">Aquarium Maintenance</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Boarding+for+Cats">Boarding for Cats</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Boarding+for+Other+Pets">Boarding for Other Pets</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Boarding+Kennels+Dog">Boarding Kennels Dog</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Dog+and+Cat+Washing,+Clipping+and+Grooming">Dog and Cat Washing, Clipping and Grooming</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Dog+Swimming+Lessons">Dog Swimming Lessons</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Dog+Training">Dog Training</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Natural+Therapies">Natural Therapies</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Pet+Cemeteries+and+Crematoriums">Pet Cemeteries and Crematoriums</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Pet+Day+Care">Pet Day Care</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Pet+Insurance">Pet Insurance</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Pet+Minding+in+the+Home">Pet Minding in the Home</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Pet+Nutrition+Advise">Pet Nutrition Advise</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Pet+Photography">Pet Photography</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Pet+Transport+Services">Pet Transport Services</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Puppy+Socialising">Puppy Socialising</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Veterinary+Surgeries+and+Hospotals">Veterinary Surgeries and Hospotals</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Walking">Walking</a></li>
+			<li><a href="{$servicetype_url}&b[service]=Other">Other</a></li>
+		</ul>
+	</div>
+
+	<div class="footer-quicklinks clearfix">
 		<h2>Quick Pet Location</h2>
 		<ul>
 			<li class="title">By State</li>
@@ -262,6 +289,7 @@
 			<li><a href="{$other_url}&b[breed]=Rabbit">Rabbits for sale</a></li>
 		</ul>
 	</div>
+
 </div>
 
 {include file='footer.tpl'}

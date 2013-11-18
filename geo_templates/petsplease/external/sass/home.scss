@@ -153,6 +153,15 @@
 		}
 	}
 
+	&.float-li-service {
+		width: auto;
+
+		li {
+			float: left;
+			width: 263px;
+		}
+	}
+
 	li.title {
 		font-weight: bold;
 	}
