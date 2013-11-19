@@ -247,7 +247,7 @@
 	{if $topcategory eq 315 and $optional_field_1 eq "1"}
 		<div class="content_box_1">
 			<p>
-				<a href="#">Buy Now</a> |
+				<a href="/?a=ap&addon=ppStoreSeller&page=buyNow&b={$classified_id}">Buy Now</a> |
 				<a href="#">Add to Cart</a>
 			</p>
 

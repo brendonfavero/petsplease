@@ -246,7 +246,7 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 
 
 		// ARDEX: adding in intermediate step to ask if store product
-		$cat_id = $cart->item->getCategory();
+		$cat_id = ($cart && $cart->item) ? $cart->item->getCategory() : 0;
 
 		if ($cat_id == 0 && $_REQUEST['action'] == "process" && 
 				$_REQUEST['step'] == "classified:category" && $_REQUEST['b'] > 0) {

@@ -14,6 +14,11 @@ class addon_ppStoreSeller_info
 		// 'searchSidebar'
 	);
 
+	public $pages = array(
+		'buyNow',
+		'ipnNotify'
+	);
+
 	public $core_events = array(
 		// 'Search_classifieds_generate_query',
 	);
