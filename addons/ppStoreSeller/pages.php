@@ -5,7 +5,6 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 	// private $paypal_api_endpoint_pay = "http://www.google.com";
 	private $paypal_api_endpoint = "https://svcs.sandbox.paypal.com/";
-	// private $paypal_api_endpoint_pay = "https://svcs.sandbox.paypal.com/AdaptivePayments/Pay";
 	private $paypal_payment_url = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment";
 
 	private $paypal_api_caller_email = "chris+merchant@ardex.com.au";
@@ -19,6 +18,138 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 	private $paypal_api_cancelbaseurl = "http://54.252.238.130/index.php";
 	private $paypal_api_ipnnotifyurl = "http://54.252.238.130/index.php?a=ap&addon=ppStoreSeller&page=ipnNotify";
 	
+	public function merchantCart() {
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
+
+		// need to be logged in
+		$user_id = geoSession::getInstance()->getUserId();
+		if ($user_id == 0) {
+			header("Location: /?a=10");
+			exit;
+		}
+
+		$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
+
+		$action = $_REQUEST['action'];
+		if ($action != "") {
+			$errors = array();
+			$redirectToCartHome = true;
+
+			if ($action == "additem") {
+				$listing_id = $_REQUEST['b'];
+				$qty = $_REQUEST['qty'];
+
+				if (!is_numeric($qty) || $qty < 1) { // Invalid quantity
+					$qty = 1;
+				}
+
+				$doinsert = true;
+
+				// should verify that listing is product and is connected to shop
+				if (!$ppStoreHelperUtil->listingIsValidStoreProduct($listing_id)) {
+					$errors[] = 1;
+					$doinsert = false;
+				}
+
+				// make sure they aren't trying to put they're own product into the cart
+				$seller = geoListing::getListing($listing_id)->seller;
+				if ($seller == $user_id) {
+					$errors[] = 2;
+					$doinsert = false;
+				}
+
+				// add the listing to cart
+				if ($doinsert) {
+					$sql = "INSERT INTO petsplease_merchant_cart (user_id, listing_id, qty, time_added) VALUES (?,?,?,?)
+							ON DUPLICATE KEY UPDATE qty = ?";
+					$db->Execute($sql, array($user_id, $listing_id, $qty, time(), $qty));
+				}
+			}
+			elseif ($action == "removeitem") {
+				$listing_id = $_REQUEST['b'];
+
+				$sql = "DELETE FROM petsplease_merchant_cart WHERE user_id = ? AND listing_id = ?";
+				$db->Execute($sql, array($user_id, $listing_id));
+			}
+			elseif ($action == "updateqty") {
+				$listing_id = $_REQUEST['b'];
+				$new_qty = $_REQUEST['b'];
+
+				// !! Do any checking to allow new qty here
+				
+				$sql = "UPDATE petsplease_merchant_cart SET qty = ?
+						WHERE user_id = ? AND listing_id = ?";
+				$db->Execute($sql, array($new_qty, $user_id, $listing_id));
+			}
+
+			if ($redirectToCartHome) {
+				$redirect_loc = "?a=ap&addon=ppStoreSeller&page=merchantCart";
+
+				if (count($errors) > 0)
+					$redirect_loc .= "&msgs=" . implode(",", $errors);
+				
+				header("Location: " . $redirect_loc);
+				exit;
+			}
+		}
+
+
+		$view = geoView::getInstance();
+
+		$cart_messages = array(
+			1 => "ERROR: Listing is not valid merchant product",
+			2 => "ERROR: Can't add your own product to the cart"
+		);
+
+		if ($_REQUEST['msgs'] != '') {
+			$message_ids = explode(",", $_REQUEST['msgs']);
+			$messages = array_map(function($i) use(&$cart_messages) { return $cart_messages[$i]; }, $message_ids);
+			$view->setBodyVar('msgs', $messages);
+		}
+
+		// get all products currently in cart
+		$sql = "SELECT mcart.listing_id, mcart.qty, mcart.time_added, c.seller 
+				FROM petsplease_merchant_cart mcart JOIN geodesic_classifieds c ON mcart.listing_id = c.id 
+				WHERE user_id = ? ORDER BY c.seller ASC, mcart.time_added DESC";
+		$cart_items = $db->GetAll($sql, array($user_id));
+
+		$data = array();
+		foreach ($cart_items as $cart_item) {
+			$seller = $cart_item['seller'];
+			if (!array_key_exists($seller)) {
+				$vendor_info = array();
+				$vendor_info['shop_listing'] = $ppStoreHelperUtil->getUserStoreListing($seller)->toArray();
+
+				// fill in needed info about vendor here
+
+				$data[$seller] = $vendor_info;
+			}
+
+			$listing = geoListing::getListing($cart_item['listing_id']);
+			$listingdata = $listing->toArray();
+			$listingdata['cartqty'] = $cart_item['qty'];
+
+			// PRICE ? (base,shipping, total)
+			// total price = qty * (base + shipping)
+
+			$data[$seller]['listings'][] = $listingdata;
+		}
+
+		$view->setBodyVar('cart_items', $data);
+		$view->setBodyTpl('merchantCart.tpl','ppStoreSeller');
+	}
+
+	public function startCheckout() {
+
+	}
+
+	public function processPaymentType() {
+
+	}
+
+	////////
+
 	public function buyNow() {
 		$db = true;
 		require (GEO_BASE_DIR."get_common_vars.php");
@@ -46,7 +177,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$total = $price + $shipping;
 
 		// make rest call to Paypal for payment key
-		$payKey = $this->api_getPayKey($vendorPaypal, $total, $listing_id);
+		$payKey = $this->api_createPayment($vendorPaypal, $total, $listing_id);
+		$this->api_setPaymentInformation($payKey);
 
 		// if successful redirect user to paypal to complete payment
 		header('Location: ' . $this->paypal_payment_url . '&paykey=' . $payKey);
@@ -78,7 +210,15 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$params = array();
 		$params['payKey'] = $payKey;
 		// displayOptions
-		// senderOptions
+		$params['senderOptions']['shippingAddress'] = array(
+			 'addresseeName' => 'Mister Misterson',
+			 'street1' => '84 Pitt St',
+			 'city' => 'Sydney',
+			 'state' => 'NSW',
+			 'zip' => '2000',
+			 'country' => 'Australia',
+			 'phone' => '0404 234 567'
+		);
 		// receiverOptions
 		$params["requestEnvelope"]["errorLanguage"] = "en_US";
 		$params["requestEnvelope"]["detailLevel"] = "ReturnAll";

@@ -1,6 +1,4 @@
 <!-- START FOOTER -->
-{assign "search_url" "/index.php?a=19&b[subcategories_also]=1"}
-
 <footer class="page">
 	<div class="footer-bottom clearfix">
 		<nav class="footer">

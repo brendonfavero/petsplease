@@ -10,13 +10,12 @@ class addon_ppStoreSeller_info
 	public $auth_tag = 'pp_addons';
 
 	public $tags = array (
-		// 'search',
-		// 'searchSidebar'
 	);
 
 	public $pages = array(
 		'buyNow',
-		'ipnNotify'
+		'ipnNotify',
+		'merchantCart'
 	);
 
 	public $core_events = array(

@@ -39,6 +39,8 @@
 </div>
 
 <div class="homepage-footer">
+	{assign "search_url" "/index.php?a=19&b[subcategories_also]=1"}
+
 	<div class="footer-quicklinks clearfix">
 		<h2>Quick Links</h2>
 		<ul>
