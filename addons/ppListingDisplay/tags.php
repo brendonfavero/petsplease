@@ -273,8 +273,11 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 
 		$totalPages = ceil($total_count / $page_size);
 		$link = 'index.php?a=2&b='.$listing_id.($categoryid != $products_category ? '&c=' . $categoryid : '');
-		$tpl_vars['pagination'] = geoPagination::getHTML($totalPages, $page, $link . '&p=');
 
+		if ($totalPages > 0) {
+			$tpl_vars['pagination'] = geoPagination::getHTML($totalPages, $page, $link . '&p=');
+		}
+		
 		return geoTemplate::loadInternalTemplate($params, $smarty, 'storeProducts.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);
 	}

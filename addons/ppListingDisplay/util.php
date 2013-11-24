@@ -1,15 +1,6 @@
 <?php
 class addon_ppListingDisplay_util extends addon_ppListingDisplay_info
 {
-	/**
-	 * This is called when display listing details, right after all the listing
-	 * template vars are set.  This would be a good place to change/remove a
-	 * specific template var, for instance if you did not want to display a 
-	 * specific bit of info in certain cases.
-	 * 
-	 * @param array $vars An associative array of vars
-	 * @since Geo Version 4.0.4
-	 */
 	public function core_notify_Display_ad_display_classified_after_vars_set ($vars)
 	{ // $vars = {id, return, preview, autoDisplay}
 		// Allow the listing template to access the listings category tree
@@ -22,28 +13,23 @@ class addon_ppListingDisplay_util extends addon_ppListingDisplay_info
 
 		$view->topcategory = $firstcat['category_id'];
 		$view->subcategory = $secondcat['category_id'];
+	}
 
+	public function getLeadImageDataForListing($listing_id) {
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
 
-		// if ($topcat == 308) { // Pets for Sale
-		// 	$view->categorytpl = "pets_for_sale.tpl";
-		// }
-		// elseif ($topcat == 315) {// Pet Products
-		// 	$view->category_tpl_text = "Should load pet products category here";
-		// }
-		// elseif ($topcat == 316) { // Breeders
-		// 	$view->category_tpl_text = "Should load pet breeders category here";
-		// }
-		// elseif ($topcat == 318) { // Services
-		// 	$view->category_tpl_text = "Should load pet services category here";
-		// }
-		// elseif ($topcat == 319) { // Clubs
-		// 	$view->category_tpl_text = "Should load pet clubs category here";
-		// }
-		// elseif ($topcat == 411) { // Accomodation
-		// 	$view->category_tpl_text = "Should load pet accomodation category here";
-		// }
-		// else {
-		// 	$view->category_tpl_text = "No template override exists for top level category: " . $topcat;
-		// }
+		if (!($listing_id > 0)) 
+			return false;
+
+		$sql = "SELECT * FROM geodesic_classifieds_images_urls WHERE classified_id = ? AND display_order = 1";
+		$result = $db->GetRow($sql, array($listing_id));
+
+		if ($result && $result['image_id'] && $result['image_id'] > 0) {
+			return $result;
+		}
+		else {
+			return false;
+		}
 	}
 }

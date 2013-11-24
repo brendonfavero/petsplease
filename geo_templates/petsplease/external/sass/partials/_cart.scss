@@ -1,3 +1,7 @@
+.vendor_box {
+	margin-bottom: 24px;
+}
+
 .vendor_name {
 	padding: 5px 12px;
 	background-color: $powderblue;
@@ -6,12 +10,28 @@
 }
 
 .vendor_listings {
+	padding: 14px;
+	border: 1px solid #DDDDDD;
+	width: 698px;
 }
 
 .vendor_listing {
-	
+	width: 349px;
+	float: left;
+
+	.image {
+		float: left;
+		width: 150px;
+		margin-right: 14px;
+	}
+
+	.data {
+		float: left;
+	}
 }
 
 .vendor_footer {
-
+	padding: 7px;
+	background-color: $hotpink;
+	text-align: right;
 }

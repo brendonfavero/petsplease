@@ -416,10 +416,12 @@
 		
 
 		{* ARDEX Qty stuff *}
-		<div>
-			<label class="field_label">Product Qty:</label>
-			<input name="b[optional_field_2]" class="field" type="text" value="{$opt_field_info[2].value}" />
-		</div>
+		{if $session_variables.storeproduct == "true"}
+			<div>
+				<label class="field_label">Product Qty:</label>
+				<input name="b[optional_field_2]" class="field" type="text" value="{$opt_field_info[2].value}" />
+			</div>
+		{/if}
 		{**}
 		
 	</div>

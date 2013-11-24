@@ -30,6 +30,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		}
 
 		$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
+		$ppListingDisplayUtil = geoAddon::getInstance()->getUtil('ppListingDisplay');
 
 		$action = $_REQUEST['action'];
 		if ($action != "") {
@@ -68,9 +69,16 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			}
 			elseif ($action == "removeitem") {
 				$listing_id = $_REQUEST['b'];
+				$vendor_id = $_REQUEST['vendor'];
 
-				$sql = "DELETE FROM petsplease_merchant_cart WHERE user_id = ? AND listing_id = ?";
-				$db->Execute($sql, array($user_id, $listing_id));
+				if ($listing_id > 0) {
+					$sql = "DELETE FROM petsplease_merchant_cart WHERE user_id = ? AND listing_id = ?";
+					$db->Execute($sql, array($user_id, $listing_id));
+				}
+				elseif ($vendor_id > 0) {
+					$sql = "DELETE FROM petsplease_merchant_cart WHERE user_id = ? AND vendor_id = ?";
+					$db->Execute($sql, array($user_id, $vendor_id));
+				}
 			}
 			elseif ($action == "updateqty") {
 				$listing_id = $_REQUEST['b'];
@@ -94,7 +102,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			}
 		}
 
-
+		// Other show the contents of the cart
 		$view = geoView::getInstance();
 
 		$cart_messages = array(
@@ -117,18 +125,30 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$data = array();
 		foreach ($cart_items as $cart_item) {
 			$seller = $cart_item['seller'];
-			if (!array_key_exists($seller)) {
+			if (!array_key_exists($seller, $data)) {
 				$vendor_info = array();
 				$vendor_info['shop_listing'] = $ppStoreHelperUtil->getUserStoreListing($seller)->toArray();
-
+				$vendor_info['total_price'] = 0;
 				// fill in needed info about vendor here
 
 				$data[$seller] = $vendor_info;
 			}
 
+
 			$listing = geoListing::getListing($cart_item['listing_id']);
 			$listingdata = $listing->toArray();
+
+			$listing_price_total = $cart_item['qty'] * ($listingdata['price'] + $listingdata['optional_field_20']);
+			$listingdata['total_price'] = geoString::displayPrice($listing_price_total);
+
+			$data[$seller]['total_price'] += $listing_price_total;
+			$data[$seller]['total_price_display'] = geoString::displayPrice($data[$seller]['total_price']);
+
 			$listingdata['cartqty'] = $cart_item['qty'];
+			$listingdata['image_thumbnail'] = geoImage::getInstance()->display_thumbnail($listing->id);
+
+			$listingdata['price'] = geoString::displayPrice($listingdata['price']);
+			$listingdata['shipping'] = geoString::displayPrice($listingdata['optional_field_20']);
 
 			// PRICE ? (base,shipping, total)
 			// total price = qty * (base + shipping)
@@ -140,8 +160,22 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$view->setBodyTpl('merchantCart.tpl','ppStoreSeller');
 	}
 
-	public function startCheckout() {
+	public function checkout() {
+		$vendor_id = $_REQUEST['vendor'];
 
+		if (!($vendor_id > 0)) {
+			return "ERROR: must pass in vendor we are checking out";
+		}
+
+		// Need to collect shipping info + payment method
+		// need to get user info so we can pre-populate shipping fields
+		$view = geoView::getInstance();
+
+		$regions = geoRegion::billingRegionSelector('c',$userLocation);
+		$view->setBodyVar('countries', $regions['countries']);
+		$view->setBodyVar('states', $regions['states']); 
+
+		$view->setBodyTpl('shipping.tpl','ppStoreSeller');
 	}
 
 	public function processPaymentType() {
