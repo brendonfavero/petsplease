@@ -53,7 +53,7 @@
 				<input type="hidden" id="classified_title" name="b[classified_title]" value="{$messages.500110}" />
 			{else}
 				<div class="{if $error_msgs.classified_title}field_error_row {/if}{cycle values='row_odd,row_even'}">
-					<label for="classified_title" class="field_label">Pet {$messages.123}</label>
+					<label for="classified_title" class="field_label">{$messages.123}</label>
 					
 					{if !$editCheck && !$fields->title->can_edit}
 						{$session_variables.classified_title}

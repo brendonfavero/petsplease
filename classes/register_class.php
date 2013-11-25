@@ -10,7 +10,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.2beta3-34-g5c1f956
+## 
+##    7.2beta3-34-g5c1f956
 ## 
 ##################################
 
@@ -836,6 +837,23 @@ class Register extends geoSite {
 			}
 		}
 
+		if ($this->registration_configuration->USE_REGISTRATION_CITY_FIELD && !$regionOverrides['city']) {
+			$f = 'city';
+			$fields[$f]['label'] = $msgs[251];
+			if ($this->registration_configuration->REQUIRE_REGISTRATION_CITY_FIELD) {
+				$fields[$f]['required'] = true;
+			}
+
+			$fields[$f]['type'] = 'text';
+			$fields[$f]['name'] = 'c[city]';
+			$fields[$f]['value'] = $this->registered_variables["city"];
+			$fields[$f]['size'] = $this->registration_configuration->CITY_MAXLENGTH;
+
+			if (isset($this->error['city'])) {
+				$fields[$f]['error'] = $msgs[265];
+			}
+		}	
+
 		$regionOverrides = geoRegion::getLevelsForOverrides();
 		$maxLocationDepth = 0;
 		$regionRequired = false;
@@ -854,23 +872,6 @@ class Register extends geoSite {
 				$fields['regions']['error'] = $msgs[501629];
 			}
 		}
-		
-		if ($this->registration_configuration->USE_REGISTRATION_CITY_FIELD && !$regionOverrides['city']) {
-			$f = 'city';
-			$fields[$f]['label'] = $msgs[251];
-			if ($this->registration_configuration->REQUIRE_REGISTRATION_CITY_FIELD) {
-				$fields[$f]['required'] = true;
-			}
-
-			$fields[$f]['type'] = 'text';
-			$fields[$f]['name'] = 'c[city]';
-			$fields[$f]['value'] = $this->registered_variables["city"];
-			$fields[$f]['size'] = $this->registration_configuration->CITY_MAXLENGTH;
-
-			if (isset($this->error['city'])) {
-				$fields[$f]['error'] = $msgs[265];
-			}
-		}	
 		
 		if ($this->registration_configuration->USE_REGISTRATION_ZIP_FIELD) {
 			$f = 'zip';

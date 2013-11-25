@@ -5,18 +5,24 @@
 .vendor_name {
 	padding: 5px 12px;
 	background-color: $powderblue;
-	font-size: 16px;
+	font-size: 12px;
 	font-weight: bold;
+}
+
+.cart_holder {
+	padding: 14px;
+	border: 1px solid #DDDDDD;	
+	width: 698px;
 }
 
 .vendor_listings {
 	padding: 14px;
 	border: 1px solid #DDDDDD;
-	width: 698px;
+	width: 668px;
 }
 
 .vendor_listing {
-	width: 349px;
+	width: 334px;
 	float: left;
 
 	.image {
@@ -32,6 +38,38 @@
 
 .vendor_footer {
 	padding: 7px;
-	background-color: $hotpink;
+	background-color: #E05CAA;
 	text-align: right;
+}
+
+.field_label_tight {
+	clear: both;
+	color: #666666;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 2px 5px;
+	vertical-align: middle;
+	width: 120px;
+}
+
+.summary_table {
+	color: #666666;
+	font-size: 12px;
+	line-height: 18px;
+
+	th {
+		text-align: left;
+		text-decoration: underline;
+		padding: 3px;
+	}
+
+	td {
+		padding: 3px;;
+	}
+
+	.grandtotal {
+		font-weight: bold;
+		border-top: 1px solid #DDDDDD;
+	}
 }

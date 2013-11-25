@@ -62,9 +62,9 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 				// add the listing to cart
 				if ($doinsert) {
-					$sql = "INSERT INTO petsplease_merchant_cart (user_id, listing_id, qty, time_added) VALUES (?,?,?,?)
+					$sql = "INSERT INTO petsplease_merchant_cart (user_id, listing_id, vendor_id, qty, time_added) VALUES (?,?,?,?,?)
 							ON DUPLICATE KEY UPDATE qty = ?";
-					$db->Execute($sql, array($user_id, $listing_id, $qty, time(), $qty));
+					$db->Execute($sql, array($user_id, $listing_id, $seller, $qty, time(), $qty));
 				}
 			}
 			elseif ($action == "removeitem") {
@@ -161,24 +161,105 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 	}
 
 	public function checkout() {
+		$user_id = geoSession::getInstance()->getUserId();
+		if ($user_id == 0) {
+			header("Location: /?a=10");
+			exit;
+		}
+
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
+
 		$vendor_id = $_REQUEST['vendor'];
 
 		if (!($vendor_id > 0)) {
 			return "ERROR: must pass in vendor we are checking out";
 		}
 
+		if ($_REQUEST['c'] && $_REQUEST['c']['payment_type']) {
+			$c = $_REQUEST['c'];
+
+			// Billing fields
+			$billing_firstname = $_REQUEST['f'];
+
+			// CHECK FIELDS
+			// 	billing fields
+			// 	 firstname
+			// 	 lastname
+			//   address
+			//   address2
+			//   city
+			//   country
+			//   state
+			//   zipcode
+			//   phone
+			//   email
+
+			//  shipping fields
+			//   firstname
+			//   lastname
+			//   address
+			//   address2
+			//   city
+			//   country
+			//   state
+			//   zipcode
+
+
+			// if everything checks out process the checkout
+		}
+
 		// Need to collect shipping info + payment method
 		// need to get user info so we can pre-populate shipping fields
 		$view = geoView::getInstance();
 
-		$regions = geoRegion::billingRegionSelector('c',$userLocation);
-		$view->setBodyVar('countries', $regions['countries']);
-		$view->setBodyVar('states', $regions['states']); 
+		// Billing address
+		$regions = geoRegion::billingRegionSelector('billing',$userLocation);
+		$view->setBodyVar('billingCountries', $regions['countries']);
+		$view->setBodyVar('billingStates', $regions['states']); 
+
+		// Shipping address
+		$regions2 = geoRegion::billingRegionSelector('shipping',$userLocation);
+		$view->setBodyVar('shippingCountries', $regions2['countries']);
+		$view->setBodyVar('shippingStates', $regions2['states']); 
+
+		// Get summary information about listings to purchase
+		$sql = "SELECT mcart.listing_id, mcart.qty, mcart.time_added, c.seller 
+				FROM petsplease_merchant_cart mcart JOIN geodesic_classifieds c ON mcart.listing_id = c.id 
+				WHERE user_id = ? AND vendor_id = ? ORDER BY c.seller ASC, mcart.time_added DESC";
+		$cart_items = $db->GetAll($sql, array($user_id, $vendor_id));
+
+		$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
+		$ppListingDisplayUtil = geoAddon::getInstance()->getUtil('ppListingDisplay');
+
+		$data = array();
+		$data['shop_listing'] = $ppStoreHelperUtil->getUserStoreListing($vendor_id)->toArray();
+		$data['total_price'] = 0;
+		foreach ($cart_items as $cart_item) {
+			$listing = geoListing::getListing($cart_item['listing_id']);
+			$listingdata = $listing->toArray();
+
+			$listing_price_total = $cart_item['qty'] * ($listingdata['price'] + $listingdata['optional_field_20']);
+			$listingdata['total_price'] = geoString::displayPrice($listing_price_total);
+
+			$data['total_price'] += $listing_price_total;
+			$data['total_price_display'] = geoString::displayPrice($data['total_price']);
+
+			$listingdata['cartqty'] = $cart_item['qty'];
+			$listingdata['image_thumbnail'] = geoImage::getInstance()->display_thumbnail($listing->id);
+
+			$listingdata['subtotal'] = geoString::displayPrice($listing_price_total);
+			$listingdata['price'] = geoString::displayPrice($listingdata['price']);
+			$listingdata['shipping'] = geoString::displayPrice($listingdata['optional_field_20']);
+
+			$data['listings'][] = $listingdata;
+		}
+		$view->setBodyVar('order', $data); 
 
 		$view->setBodyTpl('shipping.tpl','ppStoreSeller');
 	}
 
-	public function processPaymentType() {
+	public function processCheckout() {
 
 	}
 
