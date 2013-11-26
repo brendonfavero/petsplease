@@ -21,7 +21,8 @@ class addon_ppListingDisplay_info
 		'extraCheckboxValue',
 		'extraLeveledValue',
 		'storeCategories',
-		'storeProducts'
+		'storeProducts',
+		'specialListingBox'
 	);
 
 	public $core_events = array ('notify_Display_ad_display_classified_after_vars_set');

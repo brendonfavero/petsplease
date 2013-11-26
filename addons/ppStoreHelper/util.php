@@ -20,7 +20,7 @@ class addon_ppStoreHelper_util extends addon_ppStoreHelper_info
 		return $result > 0;
 	}
 
-	public function listingIsValidStoreProduct($listing_id) {
+	public function listingIsValidStoreProduct($listing_id, $include_classifieds = false) {
 		$listing = geoListing::getListing($listing_id);
 		
 		// Check if the listing falls under product category
@@ -31,7 +31,7 @@ class addon_ppStoreHelper_util extends addon_ppStoreHelper_info
 		}
 
 		// Check if the listing merchant product field is 1 (optional_field_1)
-		if ($listing->optional_field_1 != '1') { 
+		if ($listing->optional_field_1 != '1' && !$include_classifieds) { 
 			return false;
 		}
 

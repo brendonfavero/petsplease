@@ -16,7 +16,12 @@
 
 <!-- # START LEFT COLUMN -->
 <div class="listing_leftcol">
-	<!-- SELLER INFO BEGIN -->						
+	<!-- SELLER INFO BEGIN -->
+	{listing tag='specialListingBox' addon='ppListingDisplay' assign='special'}
+	{if $special}
+		<div class="content_box_1">{$special}</div>
+	{/if}
+
 	<h1 class="title">{$seller_label}</h1>
 	<div class="content_box_1">
 		User: {listing tag='seller'}<br>

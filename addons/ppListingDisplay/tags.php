@@ -174,6 +174,105 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 	}
 
 
+	public function specialListingBox($params, Smarty_Internal_Template $smarty)
+	{		
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
+
+		$listing_id = $params['listing_id'];
+		$listing = geoListing::getListing($listing_id);
+
+		$seller = $listing->seller;
+
+		$util = geoAddon::getUtil($this->name);
+
+		$display = null;
+
+		if (!$display) {
+			$shopListing = $util->getUsersSpecialListing($listing->seller, 412);
+		
+			if ($shopListing) {
+				$display = array(
+					'id' => $shopListing['id'],
+					'title' => $shopListing['title']
+				);
+
+				$shopUtil = geoAddon::getUtil('ppStoreHelper');
+				$isProduct = $shopUtil->listingIsValidStoreProduct($listing_id);
+
+				if ($isProduct) {
+					$display['tag'] = "This product is available in a store:";
+				}
+				else {
+					$display['tag'] = "The seller of this listing also has a store:";
+				}
+			}
+		}
+
+		if (!$display) {
+			$accomodationListing = $util->getUsersSpecialListing($listing->seller, 411);
+
+			if ($accomodationListing) {
+				$display = array(
+					'tag' => "The seller of this listing also offers an accomodation service:",
+					'id' => $accomodationListing['id'],
+					'title' => $accomodationListing['title']
+				);
+			}
+		}
+
+		if (!$display) {
+			$breederListing = $util->getUsersSpecialListing($listing->seller, 316);
+
+			if ($breederListing) {
+				$display = array(
+					'tag' => "The seller of this listing also offers pet breeding services:",
+					'id' => $breederListing['id'],
+					'title' => $breederListing['title']
+				);
+			}
+		}
+
+		if (!$display) {
+			$serviceListing = $util->getUsersSpecialListing($listing->seller, 318);
+
+			if ($serviceListing) {
+				$display = array(
+					'tag' => "The seller of this listing also offers pet services:",
+					'id' => $serviceListing['id'],
+					'title' => $serviceListing['title']
+				);
+			}
+		}
+
+		if (!$display) {
+			$clubListing = $util->getUsersSpecialListing($listing->seller, 319);
+
+			if ($clubListing) {
+				$display = array(
+					'tag' => "The seller of this listing also operates a club :",
+					'id' => $clubListing['id'],
+					'title' => $clubListing['title']
+				);
+			}
+		}
+
+		if (!$display) {
+			// No special listing
+			return;
+		}
+
+
+
+		$tpl_vars = array(
+			'display' => $display
+		);
+
+		return geoTemplate::loadInternalTemplate($params, $smarty, 'specialListingBox.tpl',
+				geoTemplate::ADDON, $this->name, $tpl_vars);
+	}
+
+
 	public function storeCategories($params, Smarty_Internal_Template $smarty)
 	{		
 		$db = true;

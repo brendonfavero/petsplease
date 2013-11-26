@@ -82,7 +82,7 @@
 		</li>
 
 		<li>
-			<a href="/index.php?a=19&c=411&b[subcategories_also]=1">Holiday with your pet</a>
+			<a href="/index.php?a=19&c=411&b[subcategories_also]=1">Pet Friendly Accomodation</a>
 		</li>
 
 		<li>
@@ -93,17 +93,17 @@
 			<a href="/index.php?a=19&c=318&b[subcategories_also]=1">Pet Services</a>
 		</li>
 
-		<li>
+		<li class="last">
 			<a href="/index.php?a=19&c=319&b[subcategories_also]=1">Pet Clubs</a>
 		</li>
 
-		<li>
+		<li><!-- 
 			<a href="#">Pet News and Advice</a>
 		</li>
 
 		<li class="last">
 			<a href="#">Pet Selector</a>
-		</li>
+		</li> -->
 
 		<!-- <li class="last">
 			<a href="/index.php?a=19&c=308&b[subcategories_also]=1&b[sold_displayed]=1">Sold Pets</a>

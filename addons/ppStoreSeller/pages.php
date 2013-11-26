@@ -82,7 +82,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			}
 			elseif ($action == "updateqty") {
 				$listing_id = $_REQUEST['b'];
-				$new_qty = $_REQUEST['b'];
+				$new_qty = $_REQUEST['qty'];
 
 				// !! Do any checking to allow new qty here
 				
@@ -144,6 +144,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$data[$seller]['total_price'] += $listing_price_total;
 			$data[$seller]['total_price_display'] = geoString::displayPrice($data[$seller]['total_price']);
 
+			$listingdata['qtyavailable'] = $listingdata['optional_field_2'];
 			$listingdata['cartqty'] = $cart_item['qty'];
 			$listingdata['image_thumbnail'] = geoImage::getInstance()->display_thumbnail($listing->id);
 
@@ -157,6 +158,12 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		}
 
 		$view->setBodyVar('cart_items', $data);
+
+		// continue shopping btn
+		$lastShopVisited = $_COOKIE['laststorevisited'];
+		if ($lastShopVisited > 0)
+			$view->setBodyVar('laststorevisited', $lastShopVisited);
+
 		$view->setBodyTpl('merchantCart.tpl','ppStoreSeller');
 	}
 

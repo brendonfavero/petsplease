@@ -15,6 +15,21 @@ class addon_ppListingDisplay_util extends addon_ppListingDisplay_info
 		$view->subcategory = $secondcat['category_id'];
 	}
 
+	public function getUsersSpecialListing($user_id, $topcategory) {
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
+
+		if ($user_id == 0) return false;
+
+		$sql = "SELECT * FROM geodesic_classifieds WHERE seller = ? AND category = ? AND live = 1";
+		$result = $db->GetRow($sql, array($user_id, $topcategory));
+
+		if (!$result || empty($result))
+			return null;
+
+		return $result;
+	}
+
 	public function getLeadImageDataForListing($listing_id) {
 		$db = true;
 		require (GEO_BASE_DIR."get_common_vars.php");

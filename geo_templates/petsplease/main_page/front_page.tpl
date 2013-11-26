@@ -64,7 +64,7 @@
 			<li><a href="{$breeder_url}&b[specpettype]=other">Small Pets Breeders</a></li>
 		</ul>
 
-		<ul>
+<!-- 		<ul>
 			{assign "service_url" "{$search_url}&c=318"}
 			<li class="title"><a href="{$service_url}">Pet Services</a></li>
 			<li>Dog Services</li>
@@ -73,7 +73,7 @@
 			<li>Fish Services</li>
 			<li>Reptile Services</li>
 			<li>Small Pets Services</li>
-		</ul>
+		</ul> -->
 
 		<ul>
 			{assign "club_url" "{$search_url}&c=319"}
@@ -101,7 +101,6 @@
 			<li class="title">Pet Selector - Choose a Cat</li>
 			<li class="title">Dogs and Puppies for Adoption</li>
 			<li class="title">Cats and Kittens for Adoption</li>
-			<li class="title">Pet Youtube</li>
 			<li class="title">Wanted Pets</li>
 		</ul>
 	</div>

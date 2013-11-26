@@ -10,7 +10,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.0.1-5-g113e20b
+## 
+##    7.0.1-5-g113e20b
 ## 
 ##################################
 
@@ -263,3 +264,42 @@ $db->get_text(false, 59);
 
 //Since most of the front side still uses site class, include it
 include_once (CLASSES_DIR . 'site_class.php');
+
+
+
+
+
+// ARDEX CUSTOM STUFF
+// Here we are setting the cookie to allow us to navigate back to a page from the merchant cart's "Continue Shopping" button
+// If user navigates to a store, or a listing that belongs to a store, we set that store as the last shop visited
+// If user navigates away from either the shop, any of its listings or the cart (or cart related areas)
+$a = $_REQUEST['a'];
+if ($a == 2) { // Listing page
+	$listing = geoListing::getListing($_REQUEST['b']);
+
+	$ppListingUtil = geoAddon::getUtil('ppListingDisplay');
+	$ppStoreUtil = geoAddon::getUtil('ppStoreHelper');
+
+	$storeid = null;
+
+	if ($listing->category != 412 && $ppStoreUtil->listingIsValidStoreProduct($listing->id, true)) { // is a product
+		$storedata = $ppListingUtil->getUsersSpecialListing($listing->seller, 412);
+		$storeid = (string)$storedata['id'];
+	}
+	else if ($listing->category == 412) {
+		$store = $listing;
+		$storeid = (string)$store->id;
+	}
+
+	if ($storeid) {
+		setcookie("laststorevisited", $storeid, time() + 3600, '/');
+	}
+	else {
+		if ($_COOKIE['laststorevisited'])
+			setcookie("laststorevisited"); // remove cookie
+	}
+}
+else if ($a == 19 || !$a) { 
+	if ($_COOKIE['laststorevisited'])
+		setcookie("laststorevisited"); // remove cookie
+}
