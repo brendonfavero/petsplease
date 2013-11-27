@@ -15,7 +15,14 @@
 
 	{foreach $cart_items as $vendor}
 		<div class="vendor_box">
-			<div class="vendor_name">{$vendor.shop_listing.title|urldecode}</div>
+			<div class="vendor_name">
+				<div class="remove_all_from_vendor">
+					<a href="?a=ap&addon=ppStoreSeller&page=merchantcart&action=removeitem&vendor={$vendor.shop_listing.seller}">&times;</a>
+				</div>
+				<a href="?a=2&b={$vendor.shop_listing.id}">
+					{$vendor.shop_listing.title|urldecode}
+				</a>
+			</div>
 			<div class="vendor_listings clearfix">
 				{foreach $vendor.listings as $listing}
 					<div class="vendor_listing">
@@ -55,9 +62,6 @@
 			</div>
 
 			<div class="vendor_footer">
-				<div style="float:left;">
-					<a href="?a=ap&addon=ppStoreSeller&page=merchantcart&action=removeitem&vendor={$vendor.shop_listing.seller}" class="button">Remove all</a>
-				</div>
 				<div>
 					<span class="bold">Total: {$vendor.total_price_display}</span>
 					<a href="?a=ap&addon=ppStoreSeller&page=checkout&vendor={$vendor.shop_listing.seller}" class="button">Checkout</a>

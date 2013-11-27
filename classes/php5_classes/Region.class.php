@@ -16,7 +16,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.1.2-44-g21156ac
+## 
+##    7.1.2-44-g21156ac
 ## 
 ##################################
 
@@ -646,7 +647,7 @@ class geoRegion
 		$id = $db->GetOne("SELECT `id` FROM ".geoTables::region." WHERE `billing_abbreviation` = ?", array($abbreviation));
 		if(!$id) {
 			//if no id was found, the "abbreviation" may be a full name
-			$id = $db->GetOne("SELECT `id` FROM ".geoTables::region." as r, ".geoTables::region_languages." as l WHERE r.id=l.id AND l.name = ? AND l.language_id = ?", array($abbreviation, $db->getLanguage()));
+			$id = $db->GetOne("SELECT r.`id` FROM ".geoTables::region." as r, ".geoTables::region_languages." as l WHERE r.id=l.id AND l.name = ? AND l.language_id = ?", array($abbreviation, $db->getLanguage()));
 		}
 		return intval($id);
 	}

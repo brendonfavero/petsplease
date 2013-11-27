@@ -183,50 +183,92 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			return "ERROR: must pass in vendor we are checking out";
 		}
 
-		if ($_REQUEST['c'] && $_REQUEST['c']['payment_type']) {
-			$c = $_REQUEST['c'];
+		if (!empty($_REQUEST['payment_type'])) {
+			// Pull in form data
+			$fields = array();
+			$fields['billing'] = array('firstname', 'lastname', 'address', 'address2', 'city', 'country', 'state', 'zip', 'phone', 'email');
+			$fields['shipping'] = array('copy_billing', 'firstname', 'lastname', 'address', 'address2', 'city', 'country', 'state', 'zip');
+			$fields[] = 'additional_info';
+			$fields[] = 'payment_type';
 
-			// Billing fields
-			$billing_firstname = $_REQUEST['f'];
+			$fielddata = $this->getDataFromFields($fields, $_REQUEST);
 
-			// CHECK FIELDS
-			// 	billing fields
-			// 	 firstname
-			// 	 lastname
-			//   address
-			//   address2
-			//   city
-			//   country
-			//   state
-			//   zipcode
-			//   phone
-			//   email
+			// Validate
+			$fields_validate = array();
+			$fields_validate['billing'] = array('firstname', 'lastname', 'address', 'city', 'country', 'state', 'zip', 'email');
+			if ($fielddata['shipping']['copy_billing'] != "1") {
+				// Since shipping fields are subset of billing, don't need to validate if simply copying
+				$fields_validate['shipping'] = array('firstname', 'lastname', 'address', 'city', 'country', 'state', 'zip');
+			}
 
-			//  shipping fields
-			//   firstname
-			//   lastname
-			//   address
-			//   address2
-			//   city
-			//   country
-			//   state
-			//   zipcode
+			$invalidFields = $this->validateData($fields_validate, $fielddata);
 
+			if (count($invalidFields) == 0) {
+				// Validation successful, process the checkout
 
-			// if everything checks out process the checkout
+				// Expand abbreviated billing country/state to full
+				$billingCountryID = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['billing']['country']));
+				$billingStateID = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['billing']['state']));
+				$fielddata['billing']['country'] = geoRegion::getNameForRegion($billingCountryID);
+				$fielddata['billing']['state'] = geoRegion::getNameForRegion($billingStateID);
+
+				// Shipping address - copy billing
+				if ($fielddata['shipping']['copy_billing'] == "1") {
+					$fieldsToCopy = array('firstname', 'lastname', 'address', 'address2', 'city', 'country', 'state', 'zip');
+					foreach ($fieldsToCopy as $fieldToCopy)
+						$fielddata['shipping'][$fieldToCopy] = $fielddata['billing'][$fieldToCopy];
+				}
+				else {
+					// Do same as before for shipping
+					$shippingCountryID = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['shipping']['country']));
+					$shippingStateID = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['shipping']['state']));
+					$fielddata['shipping']['country'] = geoRegion::getNameForRegion($shippingCountryID);
+					$fielddata['shipping']['state'] = geoRegion::getNameForRegion($shippingStateID);
+				}
+
+				$this->processCheckout($fielddata, $vendor_id);
+			}
+		}
+
+		if (!$fielddata) {
+			// Fill out default form
+			$user = geoUser::getUser($user_id);
+			$fielddata = array();
+			$fielddata['billing'] = array(
+				'firstname' => $user->firstname,
+				'lastname' => $user->lastname,
+				'address' => $user->address,
+				'address2' => $user->address_2,
+				'city' => $user->city,
+				'country' => $user->country,
+				'state' => $user->state,
+				'zip' => $user->zip,
+				'phone' => $user->phone,
+				'email' => $user->email
+			);
+			$fielddata['shipping']['copy_billing'] = "1";
+			$fielddata['payment_type'] = "paypal";
 		}
 
 		// Need to collect shipping info + payment method
 		// need to get user info so we can pre-populate shipping fields
 		$view = geoView::getInstance();
 
+		if ($invalidFields) {
+			$view->setBodyVar('invalidfields', $invalidFields);
+		}
+
 		// Billing address
-		$regions = geoRegion::billingRegionSelector('billing',$userLocation);
+		$billing_location[1] = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['billing']['country']));
+		$billing_location[2] = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['billing']['state']));
+		$regions = geoRegion::billingRegionSelector('billing',$billing_location);
 		$view->setBodyVar('billingCountries', $regions['countries']);
 		$view->setBodyVar('billingStates', $regions['states']); 
 
 		// Shipping address
-		$regions2 = geoRegion::billingRegionSelector('shipping',$userLocation);
+		$shipping_location[1] = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['shipping']['country']));
+		$shipping_location[2] = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['shipping']['state']));
+		$regions2 = geoRegion::billingRegionSelector('shipping',$shipping_location);
 		$view->setBodyVar('shippingCountries', $regions2['countries']);
 		$view->setBodyVar('shippingStates', $regions2['states']); 
 
@@ -237,10 +279,10 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$cart_items = $db->GetAll($sql, array($user_id, $vendor_id));
 
 		$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
-		$ppListingDisplayUtil = geoAddon::getInstance()->getUtil('ppListingDisplay');
 
 		$data = array();
 		$data['shop_listing'] = $ppStoreHelperUtil->getUserStoreListing($vendor_id)->toArray();
+		$data['shop_listing']['payment_options'] = explode("||", $data['shop_listing']['payment_options']);
 		$data['total_price'] = 0;
 		foreach ($cart_items as $cart_item) {
 			$listing = geoListing::getListing($cart_item['listing_id']);
@@ -262,12 +304,135 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$data['listings'][] = $listingdata;
 		}
 		$view->setBodyVar('order', $data); 
+		$view->setBodyVar('fielddata', $fielddata);
 
 		$view->setBodyTpl('shipping.tpl','ppStoreSeller');
 	}
 
-	public function processCheckout() {
+	// Paramters: fields is the name of the fields passed in, $userParms holds the collection to be inspected (e.g. $_REQUEST or some subset)
+	private function getDataFromFields($fields, $userParms) {
+		$content = array();
 
+		foreach ($fields as $key => $fieldrow) {
+			if (is_array($fieldrow)) {
+				$content[$key] = $this->getDataFromFields($fieldrow, $userParms[$key]);
+			}
+			else {
+				$content[$fieldrow] = $userParms[$fieldrow];
+			}
+		}
+
+		return $content;
+	}
+
+
+	// Paramters: fields is the name of the fields passed in, $userParms holds the collection to be inspected (e.g. $_REQUEST or some subset)
+	private function validateData($fields, $userParms) {
+		$invalid = array();
+
+		foreach ($fields as $key => $fieldrow) {
+			if (is_array($fieldrow)) {
+				$sub_invalid = $this->validateData($fieldrow, $userParms[$key]);
+				if (!empty($sub_invalid)) $invalid[] = $sub_invalid;
+			}
+			else {
+				if (empty($userParms[$fieldrow])) $invalid[] = $fieldrow;
+			}
+		}
+
+		return $invalid;
+	}
+
+	private function processCheckout($fielddata, $vendor_id) {
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
+
+		$user_id = geoSession::getInstance()->getUserId();
+
+		$sql = "SELECT mcart.listing_id, mcart.qty, mcart.time_added, c.seller 
+				FROM petsplease_merchant_cart mcart JOIN geodesic_classifieds c ON mcart.listing_id = c.id 
+				WHERE user_id = ? AND vendor_id = ? ORDER BY c.seller ASC, mcart.time_added DESC";
+		$cart_items = $db->GetAll($sql, array($user_id, $vendor_id));
+
+		$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
+
+		$data = array();
+		$shop_listing = $ppStoreHelperUtil->getUserStoreListing($vendor_id)->toArray();
+		$shop_listing['payment_options'] = explode("||", $data['shop_listing']['payment_options']);
+		$total_price = 0;
+		foreach ($cart_items as $cart_item) {
+			$listing = geoListing::getListing($cart_item['listing_id']);
+			$listingdata = $listing->toArray();
+
+			$listing_price_total = $cart_item['qty'] * ($listingdata['price'] + $listingdata['optional_field_20']);
+
+			$total_price += $listing_price_total;
+
+			$listingdata['cartqty'] = $cart_item['qty'];
+
+			$listingdata['subtotal'] = $listing_price_total;
+			$listingdata['price'] = $listingdata['price'];
+			$listingdata['shipping'] = $listingdata['optional_field_20'];
+
+			$listingdata['subtotal_display'] = geoString::displayPrice($listingdata['subtotal']);
+			$listingdata['price_display'] = geoString::displayPrice($listingdata['price']);
+			$listingdata['shipping_display'] = geoString::displayPrice($listingdata['shipping']);
+
+			$listings[] = $listingdata;
+		}
+
+
+		// Create the order
+		$sql = "INSERT INTO petsplease_merchant_order (buyer, seller, date, total_price) VALUES (?, ?, ?, ?)";
+		$db->Execute($sql, array($user_id, $vendor_id, time(), $total_price));
+		$orderid = $db->Insert_Id();
+
+		// Now create the order items
+		foreach ($listings as $listing) {
+			$sql = "INSERT INTO petsplease_merchant_orderitem (order_id, listing_id, qty, unit_price, unit_shipping, price_total) 
+					VALUES (?, ?, ?, ?, ?, ?)";
+			$db->Execute($sql, array($orderid, $listing['id'], $listing['cartqty'], $listing['price'], $listing['shipping'], $listing['subtotal']));
+		}
+
+		// Order's logged now we can clear the items from the cart
+		// !!!!! CLEAR VENDOR ITEMS FROM USERS CART
+
+		if ($fielddata['payment_type'] == "paypal") {
+			// If paying with Paypal, create the payment with the Paypal API and send them through the process of actually paying
+
+		}
+		else {
+			// Otherwise simply get the order details and email it through to the merchant
+			$tpl = new geoTemplate('addon', 'ppStoreSeller');
+			$mailVars['listings'] = $listings;
+			$mailVars['grand_total'] = $total_price;
+			$mailVars['grand_total_display'] = geoString::displayPrice($total_price);
+			$mailVars['fielddata'] = $fielddata;
+			$tpl->assign($mailVars);
+			$email_message = $tpl->fetch('emails/other_payment_order_received.tpl');
+			// $email_subject = $reg->get('subject_prefix','contact us - ').$subject;
+			// $tpl = new geoTemplate('addon','contact_us');
+			// $mailVars = array();
+			// $mailVars['ip'] = $ip;
+			// $mailVars['name'] = $name;
+			// $mailVars['email'] = $email;
+			// $mailVars['subject'] = $subject;
+			// $mailVars['message'] = $message;
+			// $mailVars['username'] = geoSession::getInstance()->getUsername();
+			// $mailVars['show_ip'] = $reg->show_ip;
+			// $mailVars['dept'] = $dept.' - '.$tpl_vars['msgs']['dept_'.$dept];
+			// $tpl->assign($mailVars);
+			// $email_message = $tpl->fetch('emails/contact.tpl');
+			
+			// $to_emails = explode(',',$reg->get('dept_'.$dept.'_email', $db->get_site_setting('site_email')));
+			// //send the e-mail, as an HTML e-mail
+			// geoEmail::sendMail($to_emails, $email_subject, $email_message, 
+				// $db->get_site_setting('site_email'), $email, 0, 'text/html');
+			geoEmail::sendMail("chris@ardex.com.au", "Pets Please - Shop Order Received", $email_message, 
+				$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
+
+			return true;
+		}
 	}
 
 	////////

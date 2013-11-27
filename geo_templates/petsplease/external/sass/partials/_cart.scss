@@ -7,6 +7,21 @@
 	background-color: $powderblue;
 	font-size: 12px;
 	font-weight: bold;
+
+	a {
+		color: black;
+	}
+
+	.remove_all_from_vendor {
+		float: right;
+
+		a {
+			text-decoration: none;
+		}
+		a:hover, a:active {
+			text-decoration: underline;
+		}
+	}
 }
 
 .cart_holder {
@@ -38,19 +53,23 @@
 
 .vendor_footer {
 	padding: 7px;
-	background-color: #E05CAA;
+	background-color: #A6EAEF;
 	text-align: right;
 }
 
-.field_label_tight {
+label.field_label_tight {
 	clear: both;
 	color: #666666;
 	display: inline-block;
 	font-size: 12px;
 	font-weight: bold;
-	padding: 2px 5px;
-	vertical-align: middle;
+	padding: 9px 5px 2px;
 	width: 120px;
+
+	&.required:after {
+		content: " *";
+		color: red;
+	}
 }
 
 .summary_table {
