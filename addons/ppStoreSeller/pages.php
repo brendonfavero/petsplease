@@ -348,6 +348,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		require (GEO_BASE_DIR."get_common_vars.php");
 
 		$user_id = geoSession::getInstance()->getUserId();
+		$user = geoUser::getUser($user_id);
+
 
 		$sql = "SELECT mcart.listing_id, mcart.qty, mcart.time_added, c.seller 
 				FROM petsplease_merchant_cart mcart JOIN geodesic_classifieds c ON mcart.listing_id = c.id 
@@ -360,19 +362,28 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$shop_listing = $ppStoreHelperUtil->getUserStoreListing($vendor_id)->toArray();
 		$shop_listing['payment_options'] = explode("||", $data['shop_listing']['payment_options']);
 		$total_price = 0;
+		$total_shipping = 0;
+		$grand_total = 0;
 		foreach ($cart_items as $cart_item) {
 			$listing = geoListing::getListing($cart_item['listing_id']);
 			$listingdata = $listing->toArray();
 
-			$listing_price_total = $cart_item['qty'] * ($listingdata['price'] + $listingdata['optional_field_20']);
-
-			$total_price += $listing_price_total;
-
 			$listingdata['cartqty'] = $cart_item['qty'];
 
-			$listingdata['subtotal'] = $listing_price_total;
 			$listingdata['price'] = $listingdata['price'];
 			$listingdata['shipping'] = $listingdata['optional_field_20'];
+
+			$listing_total_price = $listingdata['cartqty'] * $listingdata['price'];
+			$listing_total_shipping = $listingdata['cartqty'] * $listingdata['shipping'];
+			$listing_sub_total = $listing_total_price + $listing_total_shipping;
+
+			$total_price += $listing_total_price;
+			$total_shipping += $listing_total_shipping;
+			$grand_total += $listing_sub_total;
+
+			$listingdata['price_total'] = $listing_total_price;
+			$listingdata['shipping_total'] = $listing_total_shipping; 
+			$listingdata['subtotal'] = $listing_sub_total;
 
 			$listingdata['subtotal_display'] = geoString::displayPrice($listingdata['subtotal']);
 			$listingdata['price_display'] = geoString::displayPrice($listingdata['price']);
@@ -384,7 +395,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 		// Create the order
 		$sql = "INSERT INTO petsplease_merchant_order (buyer, seller, date, total_price) VALUES (?, ?, ?, ?)";
-		$db->Execute($sql, array($user_id, $vendor_id, time(), $total_price));
+		$db->Execute($sql, array($user_id, $vendor_id, time(), $grand_total));
 		$orderid = $db->Insert_Id();
 
 		// Now create the order items
@@ -400,34 +411,69 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		if ($fielddata['payment_type'] == "paypal") {
 			// If paying with Paypal, create the payment with the Paypal API and send them through the process of actually paying
 
+			// from store listing get paypal acc
+			$storeQuestions = geoListing::getExtraQuestions($shop_listing['id']);
+			$vendorPaypal = $storeQuestions[192]['value'];
+
+			// replace spaces with +'s since they get lost when being pulled out of the db
+			$vendorPaypal = str_replace(' ', '+', $vendorPaypal);
+
+			// Create payment
+			$payKey = $this->api_createPayment($vendorPaypal, $grand_total, $orderid);
+
+			// Now add extra info to payment
+			$params = array();
+			$params['senderOptions']['shippingAddress'] = array(
+				 'addresseeName' => $fielddata['shipping']['firstname'] . ' ' . $fielddata['shipping']['lastname'],
+				 'street1' => $fielddata['shipping']['address'],
+				 'street2' => 'sdfgioshdjf',
+				 'city' => $fielddata['shipping']['city'],
+				 'state' => $fielddata['shipping']['state'],
+				 'zip' => $fielddata['shipping']['zip'],
+				 'country' => $fielddata['shipping']['country']
+				 // 'phone' => !!NEED:'type', 'countryCode', 'number' //$fielddata['shipping']['phone']
+			);
+
+			if ($fielddata['shipping']['address2'] != "")
+				$params['senderOptions']['shippingAddress']['street2'] = $fielddata['shipping']['address2'];
+
+			$params['receiverOptions'][0]['customId'] = "10000";
+			$params['receiverOptions'][0]['description'] = "Invoice Title";
+			$params['receiverOptions'][0]['receiver']['email'] = $vendorPaypal;
+			$params['receiverOptions'][0]['invoiceData']['totalShipping'] = $total_shipping;	
+			$params['receiverOptions'][0]['invoiceData']['totalTax'] = 0.0;			
+			foreach ($listings as $i => $listing) {
+				$params['receiverOptions'][0]['invoiceData']['item'][] = array(
+					'name' => $listing['title'],
+					'identifier' => $listing['id'],
+					'price' => $listing['price_total'],
+					'itemPrice' => $listing['price'],
+					'itemCount' => $listing['cartqty']
+				);
+			}
+			// exit;
+			$res = $this->api_setPaymentInformation($payKey, &$params);
+
+			// echo '<pre>'.print_r($params, true).'</pre><br><br>';
+			// echo '<pre>' . print_r($res, true) . '</pre>';
+			// exit;
+
+			// if successful redirect user to paypal to complete payment
+			header('Location: ' . $this->paypal_payment_url . '&paykey=' . $payKey);
+			exit;
+
 		}
 		else {
 			// Otherwise simply get the order details and email it through to the merchant
 			$tpl = new geoTemplate('addon', 'ppStoreSeller');
 			$mailVars['listings'] = $listings;
-			$mailVars['grand_total'] = $total_price;
-			$mailVars['grand_total_display'] = geoString::displayPrice($total_price);
+			$mailVars['grand_total'] = $grand_total;
+			$mailVars['grand_total_display'] = geoString::displayPrice($grand_total);
 			$mailVars['fielddata'] = $fielddata;
+			$mailVars['shoplisting'] = $shop_listing;
+			$mailVars['baseUrl'] = $db->get_site_setting('classifieds_url');
 			$tpl->assign($mailVars);
 			$email_message = $tpl->fetch('emails/other_payment_order_received.tpl');
-			// $email_subject = $reg->get('subject_prefix','contact us - ').$subject;
-			// $tpl = new geoTemplate('addon','contact_us');
-			// $mailVars = array();
-			// $mailVars['ip'] = $ip;
-			// $mailVars['name'] = $name;
-			// $mailVars['email'] = $email;
-			// $mailVars['subject'] = $subject;
-			// $mailVars['message'] = $message;
-			// $mailVars['username'] = geoSession::getInstance()->getUsername();
-			// $mailVars['show_ip'] = $reg->show_ip;
-			// $mailVars['dept'] = $dept.' - '.$tpl_vars['msgs']['dept_'.$dept];
-			// $tpl->assign($mailVars);
-			// $email_message = $tpl->fetch('emails/contact.tpl');
-			
-			// $to_emails = explode(',',$reg->get('dept_'.$dept.'_email', $db->get_site_setting('site_email')));
-			// //send the e-mail, as an HTML e-mail
-			// geoEmail::sendMail($to_emails, $email_subject, $email_message, 
-				// $db->get_site_setting('site_email'), $email, 0, 'text/html');
 			geoEmail::sendMail("chris@ardex.com.au", "Pets Please - Shop Order Received", $email_message, 
 				$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
 
@@ -476,7 +522,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		Calls the Paypal api to begin the payment process
 		Returns payKey (identifier for this payment) 
 	*/
-	private function api_createPayment($vendorPaypal, $amount, $listing_id) {
+	private function api_createPayment($vendorPaypal, $amount, $order_id) {
 		$params = array();
 		$params["actionType"] = "CREATE";
 		$params["currencyCode"] = "AUD";
@@ -493,24 +539,24 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		return $api_result->payKey;
 	}
 
-	private function api_setPaymentInformation($payKey) {
-		$params = array();
+	private function api_setPaymentInformation($payKey, $params) {
+		// $params = array();
 		$params['payKey'] = $payKey;
-		// displayOptions
-		$params['senderOptions']['shippingAddress'] = array(
-			 'addresseeName' => 'Mister Misterson',
-			 'street1' => '84 Pitt St',
-			 'city' => 'Sydney',
-			 'state' => 'NSW',
-			 'zip' => '2000',
-			 'country' => 'Australia',
-			 'phone' => '0404 234 567'
-		);
+		// // displayOptions
+		// $params['senderOptions']['shippingAddress'] = array(
+		// 	 'addresseeName' => 'Mister Misterson',
+		// 	 'street1' => '84 Pitt St',
+		// 	 'city' => 'Sydney',
+		// 	 'state' => 'NSW',
+		// 	 'zip' => '2000',
+		// 	 'country' => 'Australia',
+		// 	 'phone' => '0404 234 567'
+		// );
 		// receiverOptions
 		$params["requestEnvelope"]["errorLanguage"] = "en_US";
 		$params["requestEnvelope"]["detailLevel"] = "ReturnAll";
 
-		$api_result = $this->api_callPaypalClassicAPI("AdaptivePayments/SetPaymentsOptions", $params);
+		return $this->api_callPaypalClassicAPI("AdaptivePayments/SetPaymentOptions", $params);
 	}
 
 	private function api_callPaypalClassicAPI($call, $data) {

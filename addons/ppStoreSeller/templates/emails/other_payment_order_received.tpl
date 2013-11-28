@@ -1,6 +1,4 @@
-Hello !!BLAABLAA!!,<br>
-<br>
-You have received a new order through your shop on Petsplease.com.au<br>
+You have received a new order through <a href="{$baseUrl}?a=2&b={$shoplisting.id}">your shop</a> on Petsplease.com.au<br>
 <br>
 Below are the details of the order:<br>
 <br>
@@ -16,7 +14,9 @@ Below are the details of the order:<br>
 	
 	{foreach $listings as $listing}
 		<tr>
-			<td>{$listing.title|urldecode}</td>
+			<td>
+				<a href="{$baseUrl}?a=2&b={$listing.id}">{$listing.title|urldecode}</a>
+			</td>
 			<td>{$listing.price_display}</td>
 			<td>{$listing.shipping_display}</td>
 			<td>{$listing.cartqty}</td>

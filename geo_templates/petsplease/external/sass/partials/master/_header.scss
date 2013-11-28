@@ -109,6 +109,10 @@ header.page {
 				background-image: url(../images/icon-#{$item}.jpg);
 			}
 		}
+
+		&.nav-reptile {
+			background-position: 7px;
+		}
 	}
 	a {
 		height: 83px;
