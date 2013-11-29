@@ -44,7 +44,7 @@
 							Shipping: {$listing.shipping}<br>
 							<span class="bold">Total: {$listing.total_price}</span><br>
 							<br>
-							<a href="#">Move to Favourites</a><br>
+							<a href="?a=ap&addon=ppStoreSeller&page=merchantcart&action=movetofavourites&b={$listing.id}">Move to Favourites</a><br>
 							<a href="?a=13&b={$listing.id}">Contact Shop Owner</a><br>
 							<a href="?a=ap&addon=ppStoreSeller&page=merchantcart&action=removeitem&b={$listing.id}">Remove from Cart</a>
 

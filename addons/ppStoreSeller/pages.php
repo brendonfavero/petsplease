@@ -6,6 +6,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 	// private $paypal_api_endpoint_pay = "http://www.google.com";
 	private $paypal_api_endpoint = "https://svcs.sandbox.paypal.com/";
 	private $paypal_payment_url = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment";
+	private $paypal_ipn_postback_url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //https://www.paypal.com/cgi-bin/webscr
 
 	private $paypal_api_caller_email = "chris+merchant@ardex.com.au";
 
@@ -14,8 +15,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 	private $paypal_api_signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31A5sNxRo0m.YXuBMy5XrIgGIiL0iW";
 	private $paypal_api_applicationid = "APP-80W284485P519543T"; // this is the sandbox application id
 
-	private $paypal_api_returnbaseurl = "http://54.252.238.130/index.php";
-	private $paypal_api_cancelbaseurl = "http://54.252.238.130/index.php";
+	private $success_url = "http://54.252.238.130/index.php?a=ap&addon=ppStoreSeller&page=success";
+	private $paypal_api_cancelbaseurl = "http://54.252.238.130/index.php?a=ap&addon=ppStoreSeller&page=merchantCart";
 	private $paypal_api_ipnnotifyurl = "http://54.252.238.130/index.php?a=ap&addon=ppStoreSeller&page=ipnNotify";
 	
 	public function merchantCart() {
@@ -89,6 +90,19 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				$sql = "UPDATE petsplease_merchant_cart SET qty = ?
 						WHERE user_id = ? AND listing_id = ?";
 				$db->Execute($sql, array($new_qty, $user_id, $listing_id));
+			}
+			elseif ($action == "movetofavourites") {
+				$listing_id = $_REQUEST['b'];
+
+				if ($listing_id > 0) {
+					// Delete from cart...
+					$sql = "DELETE FROM petsplease_merchant_cart WHERE user_id = ? AND listing_id = ?";
+					$db->Execute($sql, array($user_id, $listing_id));
+
+					// ...then add to favourites
+					header('Location: ?a=20&b=' . $listing_id);
+					exit;
+				}
 			}
 
 			if ($redirectToCartHome) {
@@ -360,7 +374,6 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 		$data = array();
 		$shop_listing = $ppStoreHelperUtil->getUserStoreListing($vendor_id)->toArray();
-		$shop_listing['payment_options'] = explode("||", $data['shop_listing']['payment_options']);
 		$total_price = 0;
 		$total_shipping = 0;
 		$grand_total = 0;
@@ -394,7 +407,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 
 		// Create the order
-		$sql = "INSERT INTO petsplease_merchant_order (buyer, seller, date, total_price) VALUES (?, ?, ?, ?)";
+		$sql = "INSERT INTO petsplease_merchant_order (buyer, seller, `date`, total_price) VALUES (?, ?, ?, ?)";
 		$db->Execute($sql, array($user_id, $vendor_id, time(), $grand_total));
 		$orderid = $db->Insert_Id();
 
@@ -405,8 +418,9 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$db->Execute($sql, array($orderid, $listing['id'], $listing['cartqty'], $listing['price'], $listing['shipping'], $listing['subtotal']));
 		}
 
-		// Order's logged now we can clear the items from the cart
-		// !!!!! CLEAR VENDOR ITEMS FROM USERS CART
+		// Store our form info
+		$sql = "INSERT INTO petsplease_merchant_order_registry (order_id, data) VALUES (?, ?)";
+		$db->Execute($sql, array($orderid, json_encode($fielddata)));
 
 		if ($fielddata['payment_type'] == "paypal") {
 			// If paying with Paypal, create the payment with the Paypal API and send them through the process of actually paying
@@ -426,7 +440,6 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$params['senderOptions']['shippingAddress'] = array(
 				 'addresseeName' => $fielddata['shipping']['firstname'] . ' ' . $fielddata['shipping']['lastname'],
 				 'street1' => $fielddata['shipping']['address'],
-				 'street2' => 'sdfgioshdjf',
 				 'city' => $fielddata['shipping']['city'],
 				 'state' => $fielddata['shipping']['state'],
 				 'zip' => $fielddata['shipping']['zip'],
@@ -451,12 +464,12 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 					'itemCount' => $listing['cartqty']
 				);
 			}
-			// exit;
+
 			$res = $this->api_setPaymentInformation($payKey, &$params);
 
-			// echo '<pre>'.print_r($params, true).'</pre><br><br>';
-			// echo '<pre>' . print_r($res, true) . '</pre>';
-			// exit;
+			// if we're here update to order to include the paykey
+			$sql = "UPDATE petsplease_merchant_order SET paypal_status=?, paypal_paykey=? WHERE order_id=?";
+			$db->Execute($sql, array("started", $payKey, $orderid));
 
 			// if successful redirect user to paypal to complete payment
 			header('Location: ' . $this->paypal_payment_url . '&paykey=' . $payKey);
@@ -477,45 +490,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			geoEmail::sendMail("chris@ardex.com.au", "Pets Please - Shop Order Received", $email_message, 
 				$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
 
-			return true;
+			header('Location: ' . $this->success_url . '&o=' . $orderid);
 		}
-	}
-
-	////////
-
-	public function buyNow() {
-		$db = true;
-		require (GEO_BASE_DIR."get_common_vars.php");
-
-		$listing_id = $_REQUEST['b'];
-
-		// get seller
-		$listing = geoListing::getListing($listing_id);
-		$seller_id = $listing->seller;
-
-		// get sellers store listing
-		$sql = "SELECT id FROM geodesic_classifieds WHERE seller = ? AND category = ? AND live = 1";
-		$store_id = $db->GetOne($sql, array($seller_id, self::SHOP_CATEGORY));
-
-		// from store listing get paypal acc
-		$storeQuestions = geoListing::getExtraQuestions($store_id);
-		$vendorPaypal = $storeQuestions[192]['value'];
-
-		// replace spaces with +'s since they get lost when being pulled out of the db
-		$vendorPaypal = str_replace(' ', '+', $vendorPaypal);
-
-		// get price and shipping of item being purchased
-		$price = $listing->price;
-		$shipping = $listing->optional_field_20;
-		$total = $price + $shipping;
-
-		// make rest call to Paypal for payment key
-		$payKey = $this->api_createPayment($vendorPaypal, $total, $listing_id);
-		$this->api_setPaymentInformation($payKey);
-
-		// if successful redirect user to paypal to complete payment
-		header('Location: ' . $this->paypal_payment_url . '&paykey=' . $payKey);
-		exit;
 	}
 
 	/* 
@@ -526,7 +502,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$params = array();
 		$params["actionType"] = "CREATE";
 		$params["currencyCode"] = "AUD";
-		$params["returnUrl"] = $this->paypal_api_returnbaseurl;
+		$params["returnUrl"] = $this->success_url . '&o=' . $order_id;
 		$params["cancelUrl"] = $this->paypal_api_cancelbaseurl;
 		$params["ipnNotificationUrl"] = $this->paypal_api_ipnnotifyurl;
 		$params["receiverList"]["receiver"][0]["email"] = $vendorPaypal;
@@ -540,19 +516,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 	}
 
 	private function api_setPaymentInformation($payKey, $params) {
-		// $params = array();
 		$params['payKey'] = $payKey;
-		// // displayOptions
-		// $params['senderOptions']['shippingAddress'] = array(
-		// 	 'addresseeName' => 'Mister Misterson',
-		// 	 'street1' => '84 Pitt St',
-		// 	 'city' => 'Sydney',
-		// 	 'state' => 'NSW',
-		// 	 'zip' => '2000',
-		// 	 'country' => 'Australia',
-		// 	 'phone' => '0404 234 567'
-		// );
-		// receiverOptions
 		$params["requestEnvelope"]["errorLanguage"] = "en_US";
 		$params["requestEnvelope"]["detailLevel"] = "ReturnAll";
 
@@ -597,6 +561,10 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$raw_post_data = file_get_contents('php://input');
 		$raw_post_array = explode('&', $raw_post_data);
 		
+		if (empty($raw_post_data)) {
+			exit;
+		}
+
 		$myPost = array();
 		foreach ($raw_post_array as $keyval) {
 			$keyval = explode ('=', $keyval);
@@ -614,11 +582,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$req = str_replace("%2F", "/", $req); // unencode forward slashes (paypal doesn't encode theirs)
 
 		// Step 2: post the data back to paypal for verification
-		// $postback_url = "https://www.paypal.com/cgi-bin/webscr";
-		$postback_url = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-
 		$output = array();
-		$api_cmd = "curl -s -H \"Connection: Close\" " . $postback_url . " -d \"" . $req . "\"";
+		$api_cmd = "curl -s -H \"Connection: Close\" " . $this->paypal_ipn_postback_url . " -d \"" . $req . "\"";
 		exec($api_cmd, $output);
 		$res = $output[0];
 
@@ -632,10 +597,77 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$txn_id = $_POST['txn_id'];
 			$receiver_email = $_POST['receiver_email'];
 			$payer_email = $_POST['payer_email'];	
+			$pay_key = $_POST['pay_key'];
 
-			$notify = print_r($myPost, true);	
+			if ($payment_status == 'Completed') {
+				$sql = "SELECT * FROM petsplease_merchant_order WHERE paypal_paykey=? AND paypal_status <> 'paid'";
+				$order = $db->GetRow($sql, array($pay_key));
 
-			geoEmail::sendMail ("chris@ardex.com.au","IPN Delivered VERIFIED Payment notification",$notify);
+				if ($payment_amount != $order['total_price']) {
+					// The amount they paid didn't match up with how much they were charged
+
+				}
+
+				$sql = "UPDATE petsplease_merchant_order SET paypal_status = 'paid' WHERE paypal_paykey=?";
+				$db->Execute($sql, array($pay_key));
+
+				$sql = "SELECT data FROM petsplease_order_registry WHERE order_id=?";
+				$result = $db->GetRow($sql, array($order['order_id']));
+
+				$fielddata = json_decode($result);
+
+
+				$sql = "SELECT oi.listing_id, oi.qty WHERE order_id = ?";
+				$order_items = $db->GetAll($sql, array($order_id));
+
+				$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
+
+				$data = array();
+				$shop_listing = $ppStoreHelperUtil->getUserStoreListing($vendor_id)->toArray();
+				$total_price = 0;
+				$total_shipping = 0;
+				$grand_total = 0;
+				foreach ($order_items as $order_item) {
+					$listing = geoListing::getListing($order_item['listing_id']);
+					$listingdata = $listing->toArray();
+
+					$listingdata['cartqty'] = $order_item['qty'];
+
+					$listingdata['price'] = $order_item['unit_price'];
+					$listingdata['shipping'] = $order_item['unit_shipping'];
+
+					$listing_total_price = $listingdata['cartqty'] * $listingdata['price'];
+					$listing_total_shipping = $listingdata['cartqty'] * $listingdata['shipping'];
+					$listing_sub_total = $listing_total_price + $listing_total_shipping;
+
+					$total_price += $listing_total_price;
+					$total_shipping += $listing_total_shipping;
+					$grand_total += $listing_sub_total;
+
+					$listingdata['price_total'] = $listing_total_price;
+					$listingdata['shipping_total'] = $listing_total_shipping; 
+					$listingdata['subtotal'] = $listing_sub_total;
+
+					$listingdata['subtotal_display'] = geoString::displayPrice($listingdata['subtotal']);
+					$listingdata['price_display'] = geoString::displayPrice($listingdata['price']);
+					$listingdata['shipping_display'] = geoString::displayPrice($listingdata['shipping']);
+
+					$listings[] = $listingdata;
+				}
+
+				$tpl = new geoTemplate('addon', 'ppStoreSeller');
+				$mailVars['listings'] = $listings;
+				$mailVars['grand_total'] = $grand_total;
+				$mailVars['grand_total_display'] = geoString::displayPrice($grand_total);
+				$mailVars['fielddata'] = $fielddata;
+				$mailVars['shoplisting'] = $shop_listing;
+				$mailVars['baseUrl'] = $db->get_site_setting('classifieds_url');
+				$mailVars['paypalPaid'] = true;
+				$tpl->assign($mailVars);
+				$email_message = $tpl->fetch('emails/other_payment_order_received.tpl');
+				geoEmail::sendMail("chris@ardex.com.au", "Pets Please - Shop Order Received", $email_message, 
+					$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
+			}
 		} else if (strcmp ($res, "INVALID") == 0) {
 			// IPN invalid, log for manual investigation
 			$notify = "api cmd: " . $api_cmd . "\r\n";
@@ -649,11 +681,23 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		geoView::getInstance()->setRendered(true); // don't bother loading templates
 	}
 
-	public function showSuccessfulOrder() {
-		// This is the page that the user should be directed to after they have made a payment.
-		// This may be loaded before IPN has arrived from paypal, so we should wait until that has happened 
-		//  (i.e. we have received a notification of successful payment)
+	public function success() {
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
 
+		$orderid = $_REQUEST['o'];
+		$user_id = geoSession::getInstance()->getUserId();
 
+		// If we reach this page then we can clear the relevant items out of the cart
+		$sql = "SELECT listing_id FROM petsplease_merchant_orderitem WHERE order_id=?";
+		$listing_ids = $db->GetCol($sql, array($orderid));
+
+		if (!empty($listing_ids)) {
+			$sql = "DELETE FROM petsplease_merchant_cart WHERE user_id=? AND listing_id IN (" . implode(',', $listing_ids) . ")";
+			$db->Execute($sql, array($user_id));
+		}
+
+		$view = geoView::getInstance();
+		$view->setBodyTpl('success.tpl', $this->name);
 	}
 }

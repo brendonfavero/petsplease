@@ -13,10 +13,10 @@ class addon_ppStoreSeller_info
 	);
 
 	public $pages = array(
-		'buyNow',
 		'ipnNotify',
 		'merchantCart',
-		'checkout'
+		'checkout',
+		'success'
 	);
 
 	public $core_events = array(

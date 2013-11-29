@@ -30,6 +30,12 @@ Below are the details of the order:<br>
 	</tr>
 </table><br>
 
+{if $paypalPaid}
+	<b>PAID FOR IN FULL THROUGH PAYPAL</b><br>
+	Please log in to your Paypal account and check that the payment has been received<br>
+	<br>
+{/if}
+
 <b>Billing address:</b><br>
 First name: {$fielddata.billing.firstname}<br>
 Last name: {$fielddata.billing.lastname}<br>
