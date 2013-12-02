@@ -9,7 +9,6 @@
 		<li class="first"><span class="right-divider">Welcome to Pets Please</span></li>
 		<li><a href="/?a=cart&action=new&main_type=classified" class="right-divider">Create Your Ad</a></li>
 		<li><a href="/?a=4" class="right-divider">My PetsPlease</a></li>
-		<li><a href="/?a=4&b=10" class="right-divider">My PETfavourites</a></li>
 		{if not $logged_in}
 			<li><a href="/?a=10" class="right-divider">Register</a></li>
 			<li><a href="/?a=10" class="right-divider">Login</a></li>
@@ -38,9 +37,30 @@
 		Pets and Products for Sale
 	</div>
 
-	<div class="petnav-header-icon">
-		Pets for Sale
+
+
+
+	<div class="header-navpre">
+		<div style="float: right">
+			<a href="#" class="curveleft pink">Pet Competition</a>
+			<a href="?a=4&b=10">My PETfavourites</a>
+			<a href="?a=ap&addon=ppStoreSeller&page=merchantCart">Shopping Cart</a>
+		</div>
+
+		<div>
+			<a href="?a=19&c=308&b[subcategories_also]=1" class="curveright">Pets for Sale</a>
+		</div>
+
 	</div>
+
+
+
+
+
+
+	<!-- <div class="petnav-header-icon">
+		Pets for Sale
+	</div> -->
 
 	<ul id="header-petnav" class="buttonset clearfix">
 		<li class="nav-dog">

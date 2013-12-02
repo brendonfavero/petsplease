@@ -79,21 +79,12 @@ header.page {
 }
 
 /** Main Listing Category Navigation **/ 
-.petnav-header-icon {
-	width: 0;
-	height: 84px;
-	padding-left: 24px;
-	float: left;
-	clear: left;
-	overflow: hidden;
-	background-image: url(../images/pets-for-sale-icon.png);
-}
-
 #header-petnav {
 	clear: right;
 	float: left;
+	border-left: 1px solid #777777;
 
-	@include buttonset-setwidth(1052px - 24 - 1, $st_seperator, 0, 1, 6);
+	@include buttonset-setwidth(1052px - 2, $st_seperator, 0, 1, 6);
 
 	li {
 		background-color: white;
@@ -160,5 +151,35 @@ header.page {
 			background-color: $bluegreen;
 			background-image: none;
 		}
+	}
+}
+
+.header-navpre {
+	width: 100%;
+	clear: both;
+
+	a {
+		display: inline-block;
+		padding: 3px 20px;
+		background-color: $bluegreen;
+		color: white;
+		text-decoration: none;
+		font-size: 15px;
+		font-weight: bold;
+
+		&:hover {
+			background-color: $navyblue;
+		}
+
+		&.pink {
+			background-color: $hotpink;
+		}
+	}
+
+	.curveleft {
+		@include border-top-left-radius(5px);
+	}
+	.curveright {
+		@include border-top-right-radius(5px);
 	}
 }

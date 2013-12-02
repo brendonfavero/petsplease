@@ -87,6 +87,8 @@ that it will corrupt the smarty tags!
 		{listing tag='listingLogoThumb' addon='ppListingImagesExtra' assign='logo'}
 		{if $logo}
 			{$logo}
+		{elseif $listing.topcategory eq 413}
+			{* Wanted Pets have no images so suppress "No Image Available" *}
 		{elseif $listing.full_image_tag}
 			{$listing.image}
 		{else}
