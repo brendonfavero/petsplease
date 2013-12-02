@@ -84,7 +84,10 @@ that it will corrupt the smarty tags!
 	</div>
 	
 	<div class="image-col">
-		{if $listing.full_image_tag}
+		{listing tag='listingLogoThumb' addon='ppListingImagesExtra' assign='logo'}
+		{if $logo}
+			{$logo}
+		{elseif $listing.full_image_tag}
 			{$listing.image}
 		{else}
 			<a href="{$cfg.listing_url}{$id}">

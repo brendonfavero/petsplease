@@ -17,6 +17,13 @@
 <!-- # START LEFT COLUMN -->
 <div class="listing_leftcol">
 	<!-- SHOP CATEGORIES BEGIN -->
+	{listing tag='listingLogoImage' addon='ppListingImagesExtra' assign='logo'}
+	{if $logo}
+	<div class="listing_logo">	
+		{$logo}
+	</div>
+	{/if}
+
 	<h1 class="title">Categories</h1>
 	<div class="content_box_1">
 		{listing tag='storeCategories' addon='ppListingDisplay'}
@@ -189,7 +196,7 @@
 		<h1>{$title}</h1>
 	</div>
 
-	{listing tag='listingBannerImages' addon='petspleaseListingImagesExtra'}
+	{listing tag='listingBannerImages' addon='ppListingImagesExtra'}
 
 	{listing tag='storeProducts' addon='ppListingDisplay'}
 

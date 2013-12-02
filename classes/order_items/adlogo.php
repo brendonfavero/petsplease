@@ -1,24 +1,24 @@
 <?php
 /*
 	By Chris (Ardex)
-	Means for attaching a banner images to certain listings
+	Means for attaching a logo to certain listings
 */
 
 require_once CLASSES_DIR . PHP5_DIR . 'OrderItem.class.php';
 
-class adimagesOrderItem extends geoOrderItem {
+class adlogoOrderItem extends geoOrderItem {
 	var $defaultProcessOrder = 40;
-	protected $type = 'adimages';
-	const type = 'adimages';
+	protected $type = 'adlogo';
+	const type = 'adlogo';
 	const renewal = 1; //easier way to access what is renew/upgrade
 	const upgrade = 2;
 
-	const max_banners = 3; // Number of banners they can upload
-	public static $allowedCategories = array(318, 319, 316, 412); // Categories that are can have banner ads
+	const max_banners = 1; // Number of banners they can upload
+	public static $allowedCategories = array(318, 319, 316, 412); // Categories that are can have logos
 	const extraimages_table = "petsplease_classifieds_extraimages_urls";
-	const extraimage_type = 1; // Each listing can have seperate types of extra images which are handled seperately
-	const max_width = 710;
-	const max_height = 210;
+	const extraimage_type = 2; // Each listing can have seperate types of extra images which are handled seperately
+	const max_width = 200;
+	const max_height = 200;
 	
 	public function displayInAdmin() {
 		return true;
@@ -30,7 +30,7 @@ class adimagesOrderItem extends geoOrderItem {
 	 * @return String "user-friendly" name of this item
 	 */
 	public function friendlyName() {
-		return 'Ad Images';
+		return 'Logo';
 	}
 	
 	public function geoCart_previewDisplay(){
@@ -38,7 +38,7 @@ class adimagesOrderItem extends geoOrderItem {
 		$cart = geoCart::getInstance();
 		//get the listing id
 		$listingId = $this->getParent()->get('listing_id',0);
-		$images_captured = $this->get('adimages_captured',array());
+		$images_captured = $this->get('adlogo_captured',array());
 		
 		$ids = array();
 		foreach ($images_captured as $info) {
@@ -358,7 +358,7 @@ class adimagesOrderItem extends geoOrderItem {
 			
 			$item = self::_getImageItem();
 			if (!is_object($item)) {
-				$item = new adimagesOrderItem;
+				$item = new adlogoOrderItem;
 				$item->setParent($cart->item);//this is a child of the parent
 				$item->setOrder($cart->order);
 				$item->save();//make sure it's serialized
@@ -366,7 +366,7 @@ class adimagesOrderItem extends geoOrderItem {
 				trigger_error('DEBUG CART: Adding images: <pre>'.print_r($item,1).'</pre>');
 			}
 			if (is_object($item)){
-				$item->set('adimages_captured',$images_captured);
+				$item->set('adlogo_captured',$images_captured);
 				$item->save();
 			}
 		}
@@ -410,7 +410,7 @@ class adimagesOrderItem extends geoOrderItem {
 			}
 		} else {
 			if (!$order_item){
-				$order_item = new adimagesOrderItem;
+				$order_item = new adlogoOrderItem;
 				$order_item->setParent($cart->item);//this is a child of the parent
 				$order_item->setOrder($cart->order);
 				$order_item->save();//make sure it's serialized
@@ -433,7 +433,7 @@ class adimagesOrderItem extends geoOrderItem {
 			
 			if (is_object($parent)){
 				//make sure image count is also set in session variables
-				if ($parent->getType() != 'listing_edit' || $image_data['cost_per_image']==0 || $parent->get('adimage_slots') < $image_data['number_free_images']) {
+				if ($parent->getType() != 'listing_edit' || $image_data['cost_per_image']==0 || $parent->get('adlogo_slots') < $image_data['number_free_images']) {
 					//either this is a normal listing placement, or this is a listing edit and
 					//the number of slots open is less than the number of free images, or there is no charge for image.
 					trigger_error('DEBUG CART: Image count being added to session vars, count: '.$image_data['image_count_total']);
@@ -444,7 +444,7 @@ class adimagesOrderItem extends geoOrderItem {
 						$cart->site->session_variables['image'] = $image_data['image_count_total'];
 					}
 				}
-				if ($parent->getType() == 'listing_edit' && $image_data['image_count_total'] <= $parent->get('adimage_slots')) {
+				if ($parent->getType() == 'listing_edit' && $image_data['image_count_total'] <= $parent->get('adlogo_slots')) {
 					//no charge, they already paid for the extra image slots!
 					$order_item->setCost(0);
 				}
@@ -572,7 +572,7 @@ class adimagesOrderItem extends geoOrderItem {
 		
 		$images['uploading_image'] = $cart->db->get_site_setting('uploading_image');
 		$images['old_config'] = $cart->db->GetRow("SELECT * FROM ".geoTables::ad_configuration_table);
-		$images['adimages_captured'] = $images_captured;
+		$images['adlogo_captured'] = $images_captured;
 		//allow images to be removed in "legacy" uploader
 		$images['show_delete'] = true;
 		
@@ -612,14 +612,14 @@ class adimagesOrderItem extends geoOrderItem {
 		$images['imgMaxTitleLength'] = $cart->site->ad_configuration_data->MAXIMUM_IMAGE_DESCRIPTION;
 		$images['full_step'] = $full_step;
 		
-		$tpl_vars['adimages'] = $images;
+		$tpl_vars['adlogo'] = $images;
 		unset($images);
 		
 		if ($full_step === 'justImageSlots') {
 			//special case, just the image slots (for ajax calls)
 			$tpl = new geoTemplate('system','order_items');
 			$tpl->assign($tpl_vars);
-			return $tpl->fetch('adImages/images_captured_box.tpl');
+			return $tpl->fetch('adlogo/images_captured_box.tpl');
 		}
 		$view = geoView::getInstance();
 		$session = geoSession::getInstance();
@@ -628,11 +628,11 @@ class adimagesOrderItem extends geoOrderItem {
 		$headerVars['user_agent']= $_SERVER['HTTP_USER_AGENT'];
 		$headerVars['userId'] = (int)$cart->user_data['id'];
 		$headerVars['adminId'] = (defined('IN_ADMIN'))? $session->getUserId() : 0;
-		$headerVars['adfreeSlot'] = $freeSlot;
+		$headerVars['adlogofreeSlot'] = $freeSlot;
 		$headerVars['maximum_upload_size'] = (int)$cart->site->ad_configuration_data->MAXIMUM_UPLOAD_SIZE;
 		//during beta period, add timestamp onto URL so that files are not cached
 		
-		if ($tpl_vars['adimages']['useStandardUploader']) {
+		if ($tpl_vars['adlogo']['useStandardUploader']) {
 			//using "standard" uploader
 			$pre = (defined('IN_ADMIN'))? '../' : '';
 			
@@ -643,15 +643,15 @@ class adimagesOrderItem extends geoOrderItem {
 			
 			$view->addCssFile($pre.geoTemplate::getUrl('css','vendor/upload_images.css'))
 				->addJScript($pre.'classes/swfupload/swfupload.js')
-				->addJScript($pre.geoTemplate::getUrl('js','system/adimage_handlers.js'))
-				->addTop($tpl->fetch('adImages/upload_images_head.tpl'));
+				->addJScript($pre.geoTemplate::getUrl('js','system/adlogo_handlers.js'))
+				->addTop($tpl->fetch('adlogo/upload_images_head.tpl'));
 		}
 		//tell it to include CSS for message box
 		$view->useMessageBox = 1;
 		if ($full_step == 'tpl') {
 			$view->setBodyVar($tpl_vars);
 			return array (
-				'file' => 'adImages/upload_images.tpl',
+				'file' => 'adlogo/upload_images.tpl',
 				'g_type' => 'system',
 				'g_resource' => 'order_items',
 			);
@@ -659,8 +659,8 @@ class adimagesOrderItem extends geoOrderItem {
 		
 		if ($cart->main_type == self::type) {
 			//- Editing images part by clicking edit next to images in cart
-			$tpl_vars ['mediaTemplates']['adimages'] = array (
-				'file' => 'adImages/upload_images.tpl',
+			$tpl_vars ['mediaTemplates']['adlogo'] = array (
+				'file' => 'adlogo/upload_images.tpl',
 				'g_type' => 'system',
 				'g_resource' => 'order_items',
 			);
@@ -689,7 +689,7 @@ class adimagesOrderItem extends geoOrderItem {
 		if (self::addMedia()) {
 			//Only add step if images are allowed
 			trigger_error('DEBUG CART: adding image step in images.php.');
-			$cart->addStep('adimages:admedia');
+			$cart->addStep('adlogo:admedia');
 		}
 	}
 	
@@ -760,7 +760,7 @@ class adimagesOrderItem extends geoOrderItem {
 				foreach($itemIds as $orderItemId) {
 					$order_item = geoOrderItem::getOrderItem($orderItemId);
 					//to remove from order item's images...
-					$imgCap = $order_item->get('adimages_captured');
+					$imgCap = $order_item->get('adlogo_captured');
 					$position = array_search($findEntry, $imgCap);
 					
 					$imgRemoved = $order_item->get('images_removed', array());
@@ -768,7 +768,7 @@ class adimagesOrderItem extends geoOrderItem {
 					//...and reset the item to have correct values
 					if ($position && isset($imgCap[$position]) && $imgCap[$position]['id'] == $image_id) {
 						unset($imgCap[$position]);
-						$order_item->set('adimages_captured',$imgCap);
+						$order_item->set('adlogo_captured',$imgCap);
 						if ($cart->site->debug_image_delete) {
 							//FOR DEBUG: Save removed info
 							$imgRemoved[] = array ('slot' => $position, 'id' => $image_id);
@@ -799,7 +799,7 @@ class adimagesOrderItem extends geoOrderItem {
 		}
 		$parent = $order_item->getParent();
 		trigger_error('DEBUG CART: Photo: init photos TOP');
-		$images_captured = $order_item->get('adimages_captured');
+		$images_captured = $order_item->get('adlogo_captured');
 		if (!is_array($images_captured)){
 			$images_captured = array();
 			trigger_error('DEBUG CART: here, images captured not set.');
@@ -841,11 +841,11 @@ class adimagesOrderItem extends geoOrderItem {
 				
 				self::$session_id_to_use = 0;
 				
-				$images_captured = $img_item->get('adimages_captured');
+				$images_captured = $img_item->get('adlogo_captured');
 
 				//don't run insert_classified_images() if editing -- we'll take care of it at approval time
 				if($parent->getType() == 'listing_edit') {
-					$parent->set('adimages_captured', $images_captured);
+					$parent->set('adlogo_captured', $images_captured);
 					
 					//bounce these to parent for easier reverts
 					$parent->set('revertState', $cart->item->get('dontDeleteThese'));
@@ -905,7 +905,7 @@ class adimagesOrderItem extends geoOrderItem {
 		foreach($images_captured as $key => $image) {
 			self::removeImage($image['id'],$key, true);
 		}
-		$cart->item->set('adimages_captured',array());
+		$cart->item->set('adlogo_captured',array());
 		$parent = $cart->item->getParent();
 		if (is_object($parent) && $parent->getType() != 'listing_edit') {
 			//note that this would not be called from listing edit or renewal
@@ -931,7 +931,7 @@ class adimagesOrderItem extends geoOrderItem {
 			$item = self::_getImageItem();
 			trigger_error('DEBUG CART: Got item');
 			if (!is_object($item) && $cart->item->getType() == 'listing_edit') {
-				$imagesCaptured = $cart->item->get('all_adimages_captured',array());
+				$imagesCaptured = $cart->item->get('all_adlogo_captured',array());
 				if ($verify) {
 					return self::verifyImagesCaptured($imagesCaptured);
 				}
@@ -943,7 +943,7 @@ class adimagesOrderItem extends geoOrderItem {
 			trigger_error('DEBUG CART: No image item found! item: <pre>'.print_r($cart->order,1).'</pre>');
 			return array();
 		}
-		$imagesCaptured = $item->get('adimages_captured',array());
+		$imagesCaptured = $item->get('adlogo_captured',array());
 		if ($verify) {
 			return self::verifyImagesCaptured($imagesCaptured);
 		}
@@ -975,12 +975,12 @@ class adimagesOrderItem extends geoOrderItem {
 		$item = self::_getImageItem();
 		$cart = geoCart::getInstance();
 		
-		if (!is_object($item) && $cart->item->getType() == 'listing_edit' && $cart->item->get('all_adimages_captured')) {
+		if (!is_object($item) && $cart->item->getType() == 'listing_edit' && $cart->item->get('all_adlogo_captured')) {
 			//special case for image edits.
-			$cart->item->set('all_adimages_captured', $newImagesCaptured);
+			$cart->item->set('all_adlogo_captured', $newImagesCaptured);
 		}
 		if (is_object($item)){
-			$item->set('adimages_captured',$newImagesCaptured);
+			$item->set('adlogo_captured',$newImagesCaptured);
 			$item->save();
 		}
 	}
@@ -993,12 +993,12 @@ class adimagesOrderItem extends geoOrderItem {
 			//we only get pre existing images from listing edit.
 			return false;
 		}
-		if ($cart->item->get('existingadImages',false)) {
+		if ($cart->item->get('existingadlogo',false)) {
 			//we've already done this -- don't do it again
 			return true;
 		}
 		//remember that we've already done this at least once.
-		$cart->item->set('existingadImages',1);
+		$cart->item->set('existingadlogo',1);
 		$listing_id = $cart->item->get('listing_id',false);
 		$items = array();
 		$ids = array();
@@ -1013,7 +1013,7 @@ class adimagesOrderItem extends geoOrderItem {
 		$listing = geoListing::getListing($listing_id);
 		if(is_object($listing) && $listing->id > 0) {
 			$slots = $listing->image;
-			$cart->item->set('adimage_slots', $slots);
+			$cart->item->set('adlogo_slots', $slots);
 
 			//get priceplan for this listing
 			$priceplan = $listing->price_plan_id;
@@ -1035,7 +1035,7 @@ class adimagesOrderItem extends geoOrderItem {
 			//numbers of listings!  Yes we know how to nest queries but in this
 			//case doing so caused huge slow-downs on large sites, this solution
 			//fixes the slow-down.
-			$sql = "SELECT `id` FROM `geodesic_order_item` WHERE `type`='adimages' AND `parent` = {$row_item['id']}";
+			$sql = "SELECT `id` FROM `geodesic_order_item` WHERE `type`='adlogo' AND `parent` = {$row_item['id']}";
 			$row = $cart->db->GetRow($sql);
 			//each main item should only have 1 image item attached.
 			if (isset($row['id'])) {
@@ -1052,7 +1052,7 @@ class adimagesOrderItem extends geoOrderItem {
 					continue;
 				}
 				
-				$imageData = $item->get('adimages_captured', array());
+				$imageData = $item->get('adlogo_captured', array());
 				
 				foreach($imageData as $key => $val) {
 					//see if that same data already exists
@@ -1135,7 +1135,7 @@ class adimagesOrderItem extends geoOrderItem {
 			//save IDs of original images, so they can be not deleted if order canceled
 			$cart->item->set('dontDeleteThese', $saveMe);
 		}
-		$cart->item->set('all_adimages_captured',$images_captured);
+		$cart->item->set('all_adlogo_captured',$images_captured);
 		$cart->item->save();
 		
 		return $images_captured;
@@ -1180,7 +1180,7 @@ class adimagesOrderItem extends geoOrderItem {
 			$item = self::_getImageItem();
 			if (!is_object($item)){
 				trigger_error('DEBUG CART: Copy Listing Here');
-				$item = new adimagesOrderItem;
+				$item = new adlogoOrderItem;
 				$parentUse = ($parentItem)? $parentItem: $cart->item;
 				$order = ($parentUse->getOrder())? $parentUse->getOrder(): $cart->order;
 				if (!$order) {
@@ -1197,8 +1197,8 @@ class adimagesOrderItem extends geoOrderItem {
 			//new geoImage($this->ad_configuration_data, $this->session_id);
 			$images_captured = $image_proc->copyImages($cart->site->session_variables['listing_copy_id']);
 			
-			$item->set('adimages_captured',$images_captured);
-			trigger_error('DEBUG CART: Copy Listing Here, copy_id: '.$cart->site->session_variables['listing_copy_id'].' adimages_captured: <pre>'.print_r($images_captured,1).'</pre>');
+			$item->set('adlogo_captured',$images_captured);
+			trigger_error('DEBUG CART: Copy Listing Here, copy_id: '.$cart->site->session_variables['listing_copy_id'].' adlogo_captured: <pre>'.print_r($images_captured,1).'</pre>');
 			$image_data = self::getImageData();
 			//NOTE: Initially, prices may be set wrong, but they will be fixed
 			//when we are "higher up" (in same page load) so we can better tell
@@ -1218,7 +1218,7 @@ class adimagesOrderItem extends geoOrderItem {
 			//set cost of each not-free image
 			$item->set('cost_per_image', $image_data['cost_per_image']);
 			
-			$item->set('adimages_captured',$images_captured);
+			$item->set('adlogo_captured',$images_captured);
 			
 			trigger_error('DEBUG CART: Copy Listing Here, image item: <pre>'.print_r($item,1).'</pre>');
 		}
@@ -1229,7 +1229,7 @@ class adimagesOrderItem extends geoOrderItem {
 	{
 		$parent = $this->getParent();
 		if ($newStatus == 'active') {
-			self::_updateImageListingId($this->get('adimages_captured'), $parent->get('listing_id'));
+			self::_updateImageListingId($this->get('adlogo_captured'), $parent->get('listing_id'));
 		}
 		parent::processStatusChange($newStatus, $sendEmailNotices, $updateCategoryCount);
 	}
@@ -1267,7 +1267,7 @@ class adimagesOrderItem extends geoOrderItem {
 			return '';
 		}
 		$db = DataAccess::getInstance();
-		$images_captured = $item->get('adimages_captured');
+		$images_captured = $item->get('adlogo_captured');
 		$images = array();
 		$base_url = dirname($db->get_site_setting('classifieds_url')).'/';
 		//the max width and height for displaying thumbnails in admin.
@@ -1311,7 +1311,7 @@ class adimagesOrderItem extends geoOrderItem {
 		$tpl = new geoTemplate('admin');
 		$tpl->assign('images', $images);
 		$tpl->assign('current_color', geoHTML::adminGetRowColor());
-		return $tpl->fetch('order_items/adImages/item_details.tpl');
+		return $tpl->fetch('order_items/adlogo/item_details.tpl');
 	}
 	
 	/**
@@ -1429,7 +1429,7 @@ class adimagesOrderItem extends geoOrderItem {
 				//Value: 1; The uploaded file exceeds the upload_max_filesize directive in php.ini. 
 				//see URL above for rest of codes listed.
 				$cart->addError()
-					->addErrorMsg('adimages',$cart->site->messages[500680].$fileError);
+					->addErrorMsg('adlogo',$cart->site->messages[500680].$fileError);
 				return $images_captured;
 			}
 			if (isset($url_info[$i]["url"]["location"]) && strlen(trim($url_info[$i]["url"]["location"])) > 0) {
@@ -1526,7 +1526,7 @@ class adimagesOrderItem extends geoOrderItem {
 				if (!$cart->site->image_accepted_type($type)) {
 					//wrong image file type
 					$cart->addError()
-						->addErrorMsg('adimages', $cart->site->messages[1150]);
+						->addErrorMsg('adlogo', $cart->site->messages[1150]);
 					return $images_captured;
 				}
 				
@@ -1666,11 +1666,11 @@ class adimagesOrderItem extends geoOrderItem {
 								//often (if at all) as most will get caught by the check
 								//on the $_FILES[..][error] done earlier.
 								$cart->addError()
-									->addErrorMsg('adimages', $cart->site->messages[1148].'('.__line__.')');
+									->addErrorMsg('adlogo', $cart->site->messages[1148].'('.__line__.')');
 								return $images_captured;
 							} elseif ($size > $cart->site->ad_configuration_data->MAXIMUM_UPLOAD_SIZE) {
 								$cart->addError()
-									->addErrorMsg('adimages', $cart->site->messages[1149]);
+									->addErrorMsg('adlogo', $cart->site->messages[1149]);
 								return $images_captured;
 							}
 							if ($cart->site->ad_configuration_data->IMAGE_UPLOAD_TYPE) {
@@ -1678,7 +1678,7 @@ class adimagesOrderItem extends geoOrderItem {
 							}
 							//something generic happened, give generic error
 							$cart->addError()
-								->addErrorMsg('adimages', $cart->site->messages[1148].'('.__line__.')');
+								->addErrorMsg('adlogo', $cart->site->messages[1148].'('.__line__.')');
 							return $images_captured;
 						}
 						
@@ -1779,7 +1779,7 @@ class adimagesOrderItem extends geoOrderItem {
 							}
 							//let them know of the error.
 							$cart->addError()
-								->addErrorMsg('adimages',$cart->site->messages[1148].'('.__line__.' db)');//.$cart->db->ErrorMsg());
+								->addErrorMsg('adlogo',$cart->site->messages[1148].'('.__line__.' db)');//.$cart->db->ErrorMsg());
 							return $images_captured;
 						}
 					}
@@ -1799,7 +1799,7 @@ class adimagesOrderItem extends geoOrderItem {
 				//echo $cart->site->ad_configuration_data->MAXIMUM_UPLOAD_SIZE." is max size <br />\n";
 				if ($size > $cart->site->ad_configuration_data->MAXIMUM_UPLOAD_SIZE) {
 					$cart->addError()
-						->addErrorMsg('adimages',$cart->site->messages[1148].'('.__line__.')');
+						->addErrorMsg('adlogo',$cart->site->messages[1148].'('.__line__.')');
 					return $images_captured;
 				}
 			}
@@ -2039,7 +2039,7 @@ class adimagesOrderItem extends geoOrderItem {
 		$result = $cart->db->Execute($sql, $query_data);
 		if (!$result) {
 			$cart->addError()
-				->addErrorMsg('adimages','Error inserting in database.');
+				->addErrorMsg('adlogo','Error inserting in database.');
 			return false;
 		}
 

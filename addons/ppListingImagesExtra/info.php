@@ -10,7 +10,9 @@ class addon_ppListingImagesExtra_info
 	public $auth_tag = 'pp_addons';
 
 	public $listing_tags = array (
-		'listingBannerImages'
+		'listingBannerImages',
+		'listingLogoImage',
+		'listingLogoThumb'
 	);
 }
 ?>

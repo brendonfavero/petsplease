@@ -25,7 +25,7 @@ theme_styles.css file in your template set and customize there.
 	
 }
 
-#adnewImageBox {
+#adnewImageBox, #adlogonewImageBox {
 	/* Specific styles for the new image box. */
 	
 	/* position needs to be absolute for the fancy moving about of the box */
@@ -46,7 +46,7 @@ theme_styles.css file in your template set and customize there.
 	opacity: 0.6;
 	filter: alpha(opacity=60);
 }
-#aduploadBar {
+#aduploadBar, #adlogouploadBar {
 	/* This is the part of the progress bar with actual progress made. */
 	background-color: #cccccc;
 	overflow: hidden;
@@ -55,7 +55,7 @@ theme_styles.css file in your template set and customize there.
 	margin: 0px;
 }
 
-#adplopDropImageHere {
+#adplopDropImageHere, #adlogoplopDropImageHere {
 	/* 
 	 * this is the box that appears in the slot where an image will be moved
 	 * to.
@@ -144,7 +144,7 @@ theme_styles.css file in your template set and customize there.
 	overflow: hidden;
 }
 
-#adselectFileButtonBox {
+#adselectFileButtonBox, #adlogoselectFileButtonBox {
 	/* box the select file is in, used to position it where we want */
 	float: right;
 	margin-top: 2px;
@@ -164,10 +164,6 @@ theme_styles.css file in your template set and customize there.
 	padding: 1px;
 	text-align: center;
 	vertical-align: middle;
-}
-#adimagePreview {
-	/* image preview box specific to image uploader box */
-	
 }
 
 .emptyPreview {
@@ -200,10 +196,6 @@ theme_styles.css file in your template set and customize there.
 	background-color: white;
 }
 
-#adstandardUploadBox {
-	/* overall containter for "standard" image uploader (the fancy one) */
-	
-}
 
 .uploadButtonsContainer {
 	/* This is the container for upload/edit and cancel buttons in image
@@ -211,7 +203,7 @@ theme_styles.css file in your template set and customize there.
 	text-align: right;
 }
 
-#adloadingBox {
+#adloadingBox, #adloadingBox {
 	/* When the page is first loading, this is the style for the box saying
 	that the page is loading */
 	width: 300px;
@@ -222,7 +214,7 @@ theme_styles.css file in your template set and customize there.
 	padding: 40px;
 }
 
-#adloadingBox img {
+#adloadingBox img, #adloadingBox img {
 	/* Position the image in the loading box */
 	vertical-align: middle;
 	margin-right: 50px;
@@ -254,7 +246,7 @@ theme_styles.css file in your template set and customize there.
 	cursor: pointer;
 }
 
-#adbarAnimation {
+#adbarAnimation, #adbarAnimation {
 	vertical-align: top;
 } 
 
