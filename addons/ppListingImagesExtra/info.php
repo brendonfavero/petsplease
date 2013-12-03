@@ -9,6 +9,10 @@ class addon_ppListingImagesExtra_info
 	public $description = 'This addon is responsible for the extra images (user ads, user logo) under certain listing types (e.g. services)';
 	public $auth_tag = 'pp_addons';
 
+	public $tags = array(
+		'listingLogoThumb'
+	);
+
 	public $listing_tags = array (
 		'listingBannerImages',
 		'listingLogoImage',

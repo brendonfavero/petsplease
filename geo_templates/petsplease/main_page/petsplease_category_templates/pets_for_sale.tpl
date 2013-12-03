@@ -17,11 +17,12 @@
 <!-- # START LEFT COLUMN -->
 <div class="listing_leftcol">
 	<!-- SELLER INFO BEGIN -->
-	{listing tag='listingBannerImages' addon='ppListingImagesExtra' assign='logo'}
+	{listing tag='listingLogoImage' addon='ppListingImagesExtra' assign='logo'}
 	{if $logo}
+	<div class="listing_logo">	
 		{$logo}
+	</div>
 	{/if}
-	
 
 	{listing tag='specialListingBox' addon='ppListingDisplay' assign='special'}
 	{if $special}

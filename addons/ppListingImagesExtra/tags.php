@@ -33,33 +33,8 @@ class addon_ppListingImagesExtra_tags extends addon_ppListingImagesExtra_info
 	}
 
 	public function listingLogoImage($params, Smarty_Internal_Template $smarty) {
-		$db = true;
-		require (GEO_BASE_DIR."get_common_vars.php");
-
-		$listing_id = $params['listing_id'];
-
-		$listing = geoListing::getListing($listing_id);
-
-		$category = $listing->category;
-
-		require_once(CLASSES_DIR.'order_items/adlogo.php');
-
-		if (!in_array($category, adlogoOrderItem::$allowedCategories)) {
-			return '';
-		}
-
-		$sql = "SELECT * FROM `petsplease_classifieds_extraimages_urls` WHERE `type_id` = 2 AND classified_id = " . $listing_id;
-		$result = $db->GetRow($sql);
-
-		if (!$result || count($result) == 0) {
-			return '';
-		}
-
-		$tpl_vars = array();
-		$tpl_vars['logo'] = $result;
-
-		return geoTemplate::loadInternalTemplate($params, $smarty, 'listingLogoImage.tpl',
-				geoTemplate::ADDON, $this->name, $tpl_vars);		
+		$util = geoAddon::getUtil($this->name);
+		return $util->listingLogoImage($params['listing_id']);
 	}
 
 	public function listingLogoThumb($params, Smarty_Internal_Template $smarty) {

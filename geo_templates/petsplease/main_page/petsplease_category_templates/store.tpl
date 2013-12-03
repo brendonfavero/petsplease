@@ -16,7 +16,6 @@
 
 <!-- # START LEFT COLUMN -->
 <div class="listing_leftcol">
-	<!-- SHOP CATEGORIES BEGIN -->
 	{listing tag='listingLogoImage' addon='ppListingImagesExtra' assign='logo'}
 	{if $logo}
 	<div class="listing_logo">	
@@ -24,6 +23,7 @@
 	</div>
 	{/if}
 
+	<!-- SHOP CATEGORIES BEGIN -->
 	<h1 class="title">Categories</h1>
 	<div class="content_box_1">
 		{listing tag='storeCategories' addon='ppListingDisplay'}
@@ -223,7 +223,7 @@
 		</div>
 	{/if}
 	
-	{* END GOOGLE MAPS *}		
+	{* END GOOGLE MAPS *}
 </div>
 
 <!-- END CENTER COLUMN -->

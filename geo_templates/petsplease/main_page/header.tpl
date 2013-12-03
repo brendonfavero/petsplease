@@ -43,7 +43,7 @@
 	<div class="header-navpre">
 		<div style="float: right">
 			<a href="#" class="curveleft pink">Pet Competition</a>
-			<a href="?a=4&b=10">My PETfavourites</a>
+			<a href="?a=4&b=10">My Favourites</a>
 			<a href="?a=ap&addon=ppStoreSeller&page=merchantCart">Shopping Cart</a>
 		</div>
 

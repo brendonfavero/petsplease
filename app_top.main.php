@@ -283,7 +283,7 @@ if ($a == 2) { // Listing page
 	$storeid = null;
 
 	if ($listing->category != 412 && $ppStoreUtil->listingIsValidStoreProduct($listing->id, true)) { // is a product
-		$storedata = $ppListingUtil->getUsersSpecialListing($listing->seller, 412);
+		$storedata = $ppListingUtil->getUsersSpecialListings($listing->seller, 412, true);
 		$storeid = (string)$storedata['id'];
 	}
 	else if ($listing->category == 412) {

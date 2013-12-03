@@ -186,86 +186,85 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 
 		$util = geoAddon::getUtil($this->name);
 
-		$display = null;
 
-		if (!$display) {
-			$shopListing = $util->getUsersSpecialListing($listing->seller, 412);
-		
-			if ($shopListing) {
-				$display = array(
-					'id' => $shopListing['id'],
-					'title' => $shopListing['title']
+		$leadListing = null;
+		$listings = array();
+
+		$grab = function($category, $onlyFirst) use (&$util, $seller, $listing_id) {
+			$listings = $util->getUsersSpecialListings($seller, $category, $onlyFirst);
+
+			$extractor = function($listing) {
+				return array(
+					'id' => $listing['id'],
+					'title' => $listing['title'],
+					'category' => $listing['category']
 				);
+			};
 
-				$shopUtil = geoAddon::getUtil('ppStoreHelper');
-				$isProduct = $shopUtil->listingIsValidStoreProduct($listing_id);
+			if ($onlyFirst && !!$listings && $listings['id'] != $listing_id) {
+				return $extractor($listings);			
+			}
+			else if (!$onlyFirst && !empty($listings)) {
+				$filtered = array_filter($listings, function($listing) use ($listing_id) 
+					{ return $listing['id'] != $listing_id; });
+				return array_map($extractor, $filtered);
+			}
+		};
 
-				if ($isProduct) {
-					$display['tag'] = "This product is available in a store:";
-				}
-				else {
-					$display['tag'] = "The seller of this listing also has a store:";
-				}
+		// Shop listing
+		$shopListing = $grab(412, true);
+		if ($shopListing) {
+			$shopUtil = geoAddon::getUtil('ppStoreHelper');
+			if($shopUtil->listingIsValidStoreProduct($listing_id, true)) {
+				$leadListing = $shopListing;
+			}
+			else {
+				$listings[] = $shopListing;
 			}
 		}
 
-		if (!$display) {
-			$accomodationListing = $util->getUsersSpecialListing($listing->seller, 411);
+		// Breeders
+		$breederListings = $grab(316);
+		if (!empty($breederListings)) {
+			// Is this a pet for sale?
+			$categories = geoCategory::getTree($listing->category);
+			$topcat = reset($categories);
 
-			if ($accomodationListing) {
-				$display = array(
-					'tag' => "The seller of this listing also offers an accomodation service:",
-					'id' => $accomodationListing['id'],
-					'title' => $accomodationListing['title']
-				);
+			if ($topcat['category_id'] == 308) {
+				// Shift the listing off so it wont be shown twice
+				$leadListing = array_shift($breederListings);
+			}
+
+			if (!empty($breederListings)) {
+				$listings = array_merge($listings, $breederListings);
 			}
 		}
 
-		if (!$display) {
-			$breederListing = $util->getUsersSpecialListing($listing->seller, 316);
+		// Accomodation
+		$ls = $grab(411);
+		if (!empty($ls)) $listings = array_merge($listings, $ls); 
 
-			if ($breederListing) {
-				$display = array(
-					'tag' => "The seller of this listing also offers pet breeding services:",
-					'id' => $breederListing['id'],
-					'title' => $breederListing['title']
-				);
-			}
+		// Services
+		$ls = $grab(318);
+		if (!empty($ls)) $listings = array_merge($listings, $ls); 
+
+		// Clubs
+		$ls = $grab(319);
+		if (!empty($ls)) $listings = array_merge($listings, $ls); 
+
+
+		if (!$leadListing && empty($listings)) {
+			return '';
 		}
 
-		if (!$display) {
-			$serviceListing = $util->getUsersSpecialListing($listing->seller, 318);
-
-			if ($serviceListing) {
-				$display = array(
-					'tag' => "The seller of this listing also offers pet services:",
-					'id' => $serviceListing['id'],
-					'title' => $serviceListing['title']
-				);
-			}
+		if ($leadListing) {
+			$ppImagesUtil = geoAddon::getUtil('ppListingImagesExtra');
+			$leadListing['logo'] = $ppImagesUtil->listingLogoImage($leadListing['id']);
 		}
-
-		if (!$display) {
-			$clubListing = $util->getUsersSpecialListing($listing->seller, 319);
-
-			if ($clubListing) {
-				$display = array(
-					'tag' => "The seller of this listing also operates a club :",
-					'id' => $clubListing['id'],
-					'title' => $clubListing['title']
-				);
-			}
-		}
-
-		if (!$display) {
-			// No special listing
-			return;
-		}
-
-
 
 		$tpl_vars = array(
-			'display' => $display
+			'lead' => $leadListing,
+			'listings' => $listings
 		);
 
 		return geoTemplate::loadInternalTemplate($params, $smarty, 'specialListingBox.tpl',
