@@ -61,6 +61,15 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 					$doinsert = false;
 				}
 
+				// make sure the product has enough quantity for this
+				$listing = geoListing::getListing($listing_id);
+				$listing_qty = $listing->optional_field_2;
+
+				if ($qty > $listing_qty) {
+					$errors[] = 3;
+					$doinsert = false;
+				}
+
 				// add the listing to cart
 				if ($doinsert) {
 					$sql = "INSERT INTO petsplease_merchant_cart (user_id, listing_id, vendor_id, qty, time_added) VALUES (?,?,?,?,?)
@@ -121,7 +130,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 		$cart_messages = array(
 			1 => "ERROR: Listing is not valid merchant product",
-			2 => "ERROR: Can't add your own product to the cart"
+			2 => "ERROR: Can't add your own product to the cart",
+			3 => "ERROR: You are trying to add more quantity to the cart than the product has available"
 		);
 
 		if ($_REQUEST['msgs'] != '') {
@@ -223,12 +233,14 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				// Expand abbreviated billing country/state to full
 				$billingCountryID = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['billing']['country']));
 				$billingStateID = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['billing']['state']));
+				$billingCountryInfo = geoRegion::getRegionInfo($billingCountryID);
+				$fielddata['billing']['countryCode'] = $billingCountryInfo['billing_abbreviation'];
 				$fielddata['billing']['country'] = geoRegion::getNameForRegion($billingCountryID);
 				$fielddata['billing']['state'] = geoRegion::getNameForRegion($billingStateID);
 
 				// Shipping address - copy billing
 				if ($fielddata['shipping']['copy_billing'] == "1") {
-					$fieldsToCopy = array('firstname', 'lastname', 'address', 'address2', 'city', 'country', 'state', 'zip');
+					$fieldsToCopy = array('firstname', 'lastname', 'address', 'address2', 'city', 'country', 'state', 'zip', 'countryCode');
 					foreach ($fieldsToCopy as $fieldToCopy)
 						$fielddata['shipping'][$fieldToCopy] = $fielddata['billing'][$fieldToCopy];
 				}
@@ -236,6 +248,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 					// Do same as before for shipping
 					$shippingCountryID = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['shipping']['country']));
 					$shippingStateID = geoRegion::getRegionIdFromAbbreviation(urlencode($fielddata['shipping']['state']));
+					$shippingCountryInfo = geoRegion::getRegionInfo($shippingCountryID);
+					$fielddata['shipping']['countryCode'] = $shippingCountryInfo['billing_abbreviation'];
 					$fielddata['shipping']['country'] = geoRegion::getNameForRegion($shippingCountryID);
 					$fielddata['shipping']['state'] = geoRegion::getNameForRegion($shippingStateID);
 				}
@@ -296,7 +310,10 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 		$data = array();
 		$data['shop_listing'] = $ppStoreHelperUtil->getUserStoreListing($vendor_id)->toArray();
-		$data['shop_listing']['payment_options'] = explode("||", $data['shop_listing']['payment_options']);
+		if ($data['shop_listing']['payment_options'] != "") {
+			$data['shop_listing']['payment_options'] = explode("||", $data['shop_listing']['payment_options']);
+		}
+		
 		$data['total_price'] = 0;
 		foreach ($cart_items as $cart_item) {
 			$listing = geoListing::getListing($cart_item['listing_id']);
@@ -438,26 +455,27 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			// Now add extra info to payment
 			$params = array();
 			$params['senderOptions']['shippingAddress'] = array(
-				 'addresseeName' => $fielddata['shipping']['firstname'] . ' ' . $fielddata['shipping']['lastname'],
-				 'street1' => $fielddata['shipping']['address'],
-				 'city' => $fielddata['shipping']['city'],
-				 'state' => $fielddata['shipping']['state'],
-				 'zip' => $fielddata['shipping']['zip'],
-				 'country' => $fielddata['shipping']['country']
-				 // 'phone' => !!NEED:'type', 'countryCode', 'number' //$fielddata['shipping']['phone']
+				'addresseeName' => $fielddata['shipping']['firstname'] . ' ' . $fielddata['shipping']['lastname'],
+				'street1' => $fielddata['shipping']['address'],
+				'city' => $fielddata['shipping']['city'],
+				'state' => $fielddata['shipping']['state'],
+				'zip' => $fielddata['shipping']['zip'],
+				'country' => $fielddata['shipping']['countryCode']
+				// 'phone' => !!NEED:'type', 'countryCode', 'number' //$fielddata['shipping']['phone']
 			);
 
 			if ($fielddata['shipping']['address2'] != "")
 				$params['senderOptions']['shippingAddress']['street2'] = $fielddata['shipping']['address2'];
 
-			$params['receiverOptions'][0]['customId'] = "10000";
-			$params['receiverOptions'][0]['description'] = "Invoice Title";
+			$params['displayOptions']['businessName'] = "Pets Please";
+			$params['receiverOptions'][0]['customId'] = $orderid;
+			$params['receiverOptions'][0]['description'] = $fielddata['additional_info'];
 			$params['receiverOptions'][0]['receiver']['email'] = $vendorPaypal;
 			$params['receiverOptions'][0]['invoiceData']['totalShipping'] = $total_shipping;	
 			$params['receiverOptions'][0]['invoiceData']['totalTax'] = 0.0;			
 			foreach ($listings as $i => $listing) {
 				$params['receiverOptions'][0]['invoiceData']['item'][] = array(
-					'name' => $listing['title'],
+					'name' => urldecode($listing['title']),
 					'identifier' => $listing['id'],
 					'price' => $listing['price_total'],
 					'itemPrice' => $listing['price'],
@@ -466,6 +484,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			}
 
 			$res = $this->api_setPaymentInformation($payKey, &$params);
+			echo '<pre>' . print_r($params, true) . '</pre>';
+			// exit;
 
 			// if we're here update to order to include the paykey
 			$sql = "UPDATE petsplease_merchant_order SET paypal_status=?, paypal_paykey=? WHERE order_id=?";
@@ -490,6 +510,12 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			geoEmail::sendMail("chris@ardex.com.au", "Pets Please - Shop Order Received", $email_message, 
 				$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
 
+			// For non-paypal payments we consider this point for our part of the order chain to be finished, so subtract item quantities
+			foreach ($listings as $listing) {
+				$this->subtractQuantityFromProduct($listing['id'], $listing['cartqty']);
+			}
+
+			// Send to success page
 			header('Location: ' . $this->success_url . '&o=' . $orderid);
 		}
 	}
@@ -553,6 +579,14 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		return $result;
 	}
 
+	private function subtractQuantityFromProduct($listing_id, $qty) {
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
+
+		$sql = "UPDATE geodesic_classifieds SET optional_field_2 = optional_field_2 - ? WHERE id = ?";
+		$db->Execute($sql, array($qty, $listing_id));
+	}
+
 	public function ipnNotify() {
 		// This page will be called by Paypal to notify us of any changes to payments (e.g. when a payment is completed)
 
@@ -587,43 +621,44 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		exec($api_cmd, $output);
 		$res = $output[0];
 
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
+
 		if (strcmp ($res, "VERIFIED") == 0) {
 			// The IPN is verified, process it
-			$item_name = $_POST['item_name'];
-			$item_number = $_POST['item_number'];
-			$payment_status = $_POST['payment_status'];
-			$payment_amount = $_POST['mc_gross'];
-			$payment_currency = $_POST['mc_currency'];
-			$txn_id = $_POST['txn_id'];
-			$receiver_email = $_POST['receiver_email'];
-			$payer_email = $_POST['payer_email'];	
+			$payment_status = $_POST['status'];
 			$pay_key = $_POST['pay_key'];
 
-			if ($payment_status == 'Completed') {
+			// $notify .= "raw output: " . $req . "\r\n";
+			// geoEmail::sendMail ("chris@ardex.com.au","IPN Delivered Payment notification", '<pre>' . print_r($notify, true) . '</pre>');
+
+			if (strcasecmp($payment_status, "completed") == 0) {
 				$sql = "SELECT * FROM petsplease_merchant_order WHERE paypal_paykey=? AND paypal_status <> 'paid'";
 				$order = $db->GetRow($sql, array($pay_key));
 
-				if ($payment_amount != $order['total_price']) {
-					// The amount they paid didn't match up with how much they were charged
+				// if ($payment_amount != $order['total_price']) {
+				// 	// The amount they paid didn't match up with how much they were charged
 
-				}
+				// }
 
 				$sql = "UPDATE petsplease_merchant_order SET paypal_status = 'paid' WHERE paypal_paykey=?";
 				$db->Execute($sql, array($pay_key));
 
-				$sql = "SELECT data FROM petsplease_order_registry WHERE order_id=?";
-				$result = $db->GetRow($sql, array($order['order_id']));
+				$sql = "SELECT data FROM petsplease_merchant_order_registry WHERE order_id=?";
+				$result = $db->GetOne($sql, array($order['order_id']));
 
-				$fielddata = json_decode($result);
+				$fielddata = json_decode($result, true);
 
 
-				$sql = "SELECT oi.listing_id, oi.qty WHERE order_id = ?";
-				$order_items = $db->GetAll($sql, array($order_id));
+				$sql = "SELECT listing_id, qty, unit_price, unit_shipping, price_total FROM petsplease_merchant_orderitem oi WHERE order_id = ?";
+				$order_items = $db->GetAll($sql, array($order['order_id']));
 
 				$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
 
 				$data = array();
-				$shop_listing = $ppStoreHelperUtil->getUserStoreListing($vendor_id)->toArray();
+				error_log($order['seller']);
+				$shop_listing = $ppStoreHelperUtil->getUserStoreListing($order['seller'])->toArray();
+				error_log(print_r($shop_listing, true));
 				$total_price = 0;
 				$total_shipping = 0;
 				$grand_total = 0;
@@ -667,6 +702,11 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				$email_message = $tpl->fetch('emails/other_payment_order_received.tpl');
 				geoEmail::sendMail("chris@ardex.com.au", "Pets Please - Shop Order Received", $email_message, 
 					$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
+
+				// Subtract quantites now that order is done
+				foreach ($listings as $listing) {
+					$this->subtractQuantityFromProduct($listing['id'], $listing['cartqty']);
+				}
 			}
 		} else if (strcmp ($res, "INVALID") == 0) {
 			// IPN invalid, log for manual investigation

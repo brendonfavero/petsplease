@@ -257,23 +257,32 @@
 	{* Start buyable product stuff *}
 	{if $topcategory eq 315 and $optional_field_1 eq "1"}
 		<div class="content_box_1">
-			<p>
-				<form action="index.php">
-					<input type="hidden" name="a" value="ap" />
-					<input type="hidden" name="addon" value="ppStoreSeller" />
-					<input type="hidden" name="page" value="merchantcart" />
-					<input type="hidden" name="action" value="additem" />
-					<input type="hidden" name="b" value="{$classified_id}" />
+			{if $optional_field_2 > 1} {* If stock is available *}
+				<p>
+					<form action="index.php">
+						<input type="hidden" name="a" value="ap" />
+						<input type="hidden" name="addon" value="ppStoreSeller" />
+						<input type="hidden" name="page" value="merchantcart" />
+						<input type="hidden" name="action" value="additem" />
+						<input type="hidden" name="b" value="{$classified_id}" />
 
-					<label>Qty</label>
-					<input type="text" name="qty" value="1" />
-					<input type="submit" value="Add to Cart" />
-				</form>
-			</p>
+						<label>Qty</label>
+						<input type="text" name="qty" value="1" />
+						<input type="submit" value="Add to Cart" />
+					</form>
+				</p>
+			{else} {* other this product is sold out *}
+				<p style="font-weight: bold">
+					This product has run out of stock. Please check back later.
+				</p>
+			{/if}
 
 			<p>
+				Price: {$price}<br>
 				Shipping and handling: {$optional_field_20}<br>
-				Quantity available: {$optional_field_2}
+				{if $optional_field_2 > 1}
+					Quantity available: {$optional_field_2}
+				{/if}
 			</p>
 		</div>
 	{/if}
