@@ -34,7 +34,9 @@
 		</div>
 		<!-- FEATURED CAROUSEL END -->
 
-		<div class="adspot728x90"></div>
+		<div style="width:728px;margin:auto;">
+			{addon author='pp_addons' addon='ppAds' tag='adspot' aid=0}
+		</div>
 	</div>
 </div>
 

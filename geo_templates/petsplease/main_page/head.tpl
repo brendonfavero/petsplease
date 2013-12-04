@@ -25,6 +25,8 @@
 	<link href="{external file='css/master.css'}" rel="stylesheet" type="text/css" />
 	<link href="{external file='css/home.css'}" rel="stylesheet" type="text/css" />
 
+	{addon addon='ppAds' tag='header'}
+
 	{* HTML5 compatibility for browsers before IE 9. *}
 	<!--[if lt IE 9]>
 		<script type="text/javascript" src="js/html5shiv.js"></script>

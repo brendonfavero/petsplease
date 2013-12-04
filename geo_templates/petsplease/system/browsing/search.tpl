@@ -10,13 +10,11 @@
 		{addon author='pp_addons' addon='ppSearch' tag='searchSidebar' queryurl=$cfg.browse_url}
 	</div>
 
-	<div class="adspot300x250" style="margin-bottom: 24px;">
-		<img src="{external file='images/ad_example_160x600.jpg'}" width="300" height="250" style="display:block;" />
+	<div style="margin-bottom: 24px;">
+	{addon addon="ppAds" tag="adspot" aid=1}
 	</div>
 
-	<div class="adspot300x250">
-		<img src="{external file='images/ad_example_160x600.jpg'}" width="300" height="250" style="display:block;" />
-	</div>
+	{addon addon="ppAds" tag="adspot" aid=2}
 </div>
 
 <div class="col_right">

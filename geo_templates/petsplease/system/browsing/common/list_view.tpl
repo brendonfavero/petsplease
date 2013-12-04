@@ -200,7 +200,7 @@
 			{/if}
 
 			{if $listing@last or $listing@iteration is div by 10}
-				<div class="adspot728x90"></div>
+				{addon addon="ppAds" tag="adspot" aid=3}
 			{/if}
 		{/foreach}
 	</div>
