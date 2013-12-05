@@ -588,6 +588,25 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 		$sql = "UPDATE geodesic_classifieds SET optional_field_2 = optional_field_2 - ? WHERE id = ?";
 		$db->Execute($sql, array($qty, $listing_id));
+
+		// Check new value of qty and alert if out of stock
+		$sql = "SELECT optional_field_2 stock, title, seller FROM geodesic_classifieds WHERE id = ?";
+		$listing = $db->GetRow($sql, array($listing_id));
+
+		if ($listing['stock'] < 1) {
+			$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
+			$shop_listing = $ppStoreHelperUtil->getUserStoreListing($listing['seller'])->toArray();
+
+			$tpl = new geoTemplate('addon', 'ppStoreSeller');
+			$mailVars['shoplisting_id'] = $shop_listing['id'];
+			$mailVars['baseUrl'] = $db->get_site_setting('classifieds_url');
+			$mailVars['listing_id'] = $listing_id;
+			$mailVars['listing_title'] = $listing['title'];
+			$tpl->assign($mailVars);
+			$email_message = $tpl->fetch('emails/out_of_stock.tpl');
+			geoEmail::sendMail("chris@ardex.com.au", "Pets Please - Shop Order Received", $email_message, 
+				$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
+		}
 	}
 
 	public function ipnNotify() {
