@@ -15,9 +15,9 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 	private $paypal_api_signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31A5sNxRo0m.YXuBMy5XrIgGIiL0iW";
 	private $paypal_api_applicationid = "APP-80W284485P519543T"; // this is the sandbox application id
 
-	private $success_url = "http://54.252.238.130/index.php?a=ap&addon=ppStoreSeller&page=success";
-	private $paypal_api_cancelbaseurl = "http://54.252.238.130/index.php?a=ap&addon=ppStoreSeller&page=merchantCart";
-	private $paypal_api_ipnnotifyurl = "http://54.252.238.130/index.php?a=ap&addon=ppStoreSeller&page=ipnNotify";
+	private $success_url = "?a=ap&addon=ppStoreSeller&page=success";
+	private $paypal_api_cancelbaseurl = "?a=ap&addon=ppStoreSeller&page=merchantCart";
+	private $paypal_api_ipnnotifyurl = "?a=ap&addon=ppStoreSeller&page=ipnNotify";
 	
 	public function merchantCart() {
 		$db = true;
@@ -516,7 +516,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			}
 
 			// Send to success page
-			header('Location: ' . $this->success_url . '&o=' . $orderid);
+			$redirect_url = $db->get_site_setting('classifieds_url') . $this->success_url . '&o=' . $orderid;
+			header('Location: ' . $redirect_url);
 		}
 	}
 
@@ -525,12 +526,14 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		Returns payKey (identifier for this payment) 
 	*/
 	private function api_createPayment($vendorPaypal, $amount, $order_id) {
+		$site_baseurl = DataAccess::getInstance()->get_site_setting('classifieds_url');
+
 		$params = array();
 		$params["actionType"] = "CREATE";
 		$params["currencyCode"] = "AUD";
-		$params["returnUrl"] = $this->success_url . '&o=' . $order_id;
-		$params["cancelUrl"] = $this->paypal_api_cancelbaseurl;
-		$params["ipnNotificationUrl"] = $this->paypal_api_ipnnotifyurl;
+		$params["returnUrl"] = $site_baseurl . $this->success_url . '&o=' . $order_id;
+		$params["cancelUrl"] = $site_baseurl . $this->paypal_api_cancelbaseurl;
+		$params["ipnNotificationUrl"] = $site_baseurl .  $this->paypal_api_ipnnotifyurl;
 		$params["receiverList"]["receiver"][0]["email"] = $vendorPaypal;
 		$params["receiverList"]["receiver"][0]["amount"] = $amount; 
 		$params["requestEnvelope"]["errorLanguage"] = "en_US";
