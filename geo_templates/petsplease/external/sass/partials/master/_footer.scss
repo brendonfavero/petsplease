@@ -2,6 +2,7 @@ footer.page {
 	width: 1052px - ($st_seperator);
 	margin: $st_seperator auto 0;
 	padding: $st_seperator / 2;
+	border-top: 1px solid #DDD;
 	// color: white;
 	// @include background-image(linear-gradient(#3e7195, #3E4095));
 
@@ -35,9 +36,4 @@ footer.page {
 		text-decoration: underline;
 	}
 
-	.footer-bottom {
-		padding-top: 7px;
-		border-top: 1px solid #DDD;
-		margin-top: 7px;
-	}
 }

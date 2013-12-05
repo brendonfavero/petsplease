@@ -10,7 +10,6 @@ class addon_ppSearch_info
 	public $auth_tag = 'pp_addons';
 
 	public $tags = array (
-		'search',
 		'searchSidebar'
 	);
 

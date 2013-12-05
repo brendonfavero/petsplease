@@ -1,26 +1,27 @@
 <!-- START FOOTER -->
 <footer class="page">
-	<div class="footer-bottom clearfix">
-		<nav class="footer">
-			<div class="footer_inner">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/?a=19">Search</a></li>
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">About Us</a></li>
-					<li><a href="#">Register</a></li>
-					<li><a href="#">Login</a></li>
-					<li><a href="/?a=1">Create Your Ad</a></li>
-					<li><a href="#">Terms of Use</a></li>				
-				</ul>
-				<div class="clear"></div>
-			</div>
-		</nav>
-		<div class="disclaimer">
-			<h4>Copyright &copy;  {$smarty.now|date_format:"%Y"} <a href="http://petsplease.com.au/">Pets Please</a>.  All Rights Reserved.</h4>
-			<p>Pets Please is an Australian owned and managed business part of the Please Network.</p>
+	<nav class="footer">
+		<div class="footer_inner">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<!-- <li><a href="/?a=19">Search</a></li> -->
+				<li><a href="#">Contact Us</a></li>
+				<li><a href="#">About Us</a></li>
+				<!-- <li><a href="#">Register</a></li>
+				<li><a href="#">Login</a></li> -->
+				<li><a href="/?a=1">Create Your Ad</a></li>
+				<li><a href="/?a=28&b=140">Terms of Use</a></li>	
+				<li><a href="/?a=28&b=144">Advertise</a></li>			
+			</ul>
+			<div class="clear"></div>
 		</div>
+	</nav>
+	<div class="disclaimer">
+		<h4>Copyright &copy;  {$smarty.now|date_format:"%Y"} <a href="http://petsplease.com.au/">Pets Please</a>.  All Rights Reserved.</h4>
+		<p>Pets Please is an Australian owned and managed business part of the Please Network.</p>
 	</div>
+
+	<div class="clr"></div>
 </footer>
 <!-- END FOOTER -->
 
