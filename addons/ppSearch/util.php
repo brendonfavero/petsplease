@@ -125,6 +125,43 @@ class addon_ppSearch_util extends addon_ppSearch_info
 
 			$query->where("$classTable.`optional_field_1` LIKE \"%$urlencodedService%\"", "services_service");
 		}
+
+		// Dog Size
+		$dogsize_criteria = $searchClass->search_criteria["dog_size"];
+		if ($dogsize_criteria) {
+			$dogsize_criteria = mysql_real_escape_string($dogsize_criteria);
+			$urlencodedDogsize = urlencode($dogsize_criteria);
+
+			$subQuery = new geoTableSelect($questionTable);
+			$subQuery->where("$questionTable.`classified_id` = $classTable.`id`");
+			$subQuery->where("$questionTable.`question_id`=168");
+			$subQuery->where("$questionTable.`value` = \"$urlencodedDogsize\"");
+			$query->where("EXISTS ($subQuery)");
+		}
+
+		$purebred_criteria = $searchClass->search_criteria["purebred_only"];
+		if ($purebred_criteria) {
+			$subQueryBreed1 = new geoTableSelect($questionTable);
+			$subQueryBreed1->where("$questionTable.`classified_id` = $classTable.`id`");
+
+			$subQueryBreed2 = new geoTableSelect($questionTable);
+			$subQueryBreed2->where("$questionTable.`classified_id` = $classTable.`id`");
+
+			if ($searchClass->site_category == self::CATEGORY_PETSFORSALE_DOG) {
+				$subQueryBreed1->where("$questionTable.`question_id`=171");
+				$subQueryBreed2->where("$questionTable.`question_id`=172");
+			}
+			if ($searchClass->site_category == self::CATEGORY_PETSFORSALE_CAT) {
+				$subQueryBreed1->where("$questionTable.`question_id`=178");
+				$subQueryBreed2->where("$questionTable.`question_id`=179");
+			}
+
+			$subQueryBreed1->where("$questionTable.`value` <> ''");
+			$subQueryBreed2->where("$questionTable.`value` <> ''");
+			$query->where("EXISTS ($subQueryBreed1)");
+			$query->where("NOT EXISTS ($subQueryBreed2)");
+
+		}
 	}
 }
 ?>

@@ -133,4 +133,13 @@
 			margin-left: 5px;
 		}
 	}
+
+	.check {
+		input {
+			width: auto;
+		}
+		label {
+			display: inline;
+		}
+	}
 }

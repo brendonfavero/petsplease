@@ -117,8 +117,24 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 				FROM geodesic_classifieds_sell_question_choices 
 			   WHERE type_id = 40
 			   ORDER BY type_id, display_order, value";
-		$result = $db->GetAll($sql);
+		$result = $db->GetCol($sql);
 		$tpl_vars['services'] = $result;
+
+		// Dog Sizes
+		$sql = "SELECT value
+		          FROM geodesic_classifieds_sell_question_choices
+		         WHERE type_id = 41
+			  ORDER BY display_order, value";
+		$result = $db->GetCol($sql);
+		$tpl_vars['dogsizes'] = $result;
+
+		// Cat Hair Length
+		$sql = "SELECT value
+		          FROM geodesic_classifieds_sell_question_choices
+		         WHERE type_id = 44
+			  ORDER BY display_order, value";
+		$result = $db->GetCol($sql);
+		$tpl_vars['cathairlength'] = $result;
 
 		// Sort options
 		$tpl_vars['sort_options'] = array(
@@ -127,6 +143,8 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 			2 => "Highest Price",
 			5 => "Title"
 		);
+
+		geoView::getInstance()->addJScript('addons/ppSearch/ppsearch.js');
 
 		return geoTemplate::loadInternalTemplate($params, $smarty, 'searchSidebar.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);		

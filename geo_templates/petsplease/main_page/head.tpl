@@ -17,6 +17,8 @@
 	<!--  This loads the RSS feed  -->
 	<link rel="alternate" type="application/rss+xml" title="Newest Listing Feed" href="rss_listings.php" />
 	
+	<script type="text/javascript" src="{external file='js/ppsearch.js'}"></script>
+
 	{* Load the theme_styles.css files last, so it can over-write any page/module 
 		specific CSS files if desired. *}
 	<link href="{external file='css/theme_styles.css'}" rel="stylesheet" type="text/css" />
