@@ -139,6 +139,8 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 		// Sort options
 		$tpl_vars['sort_options'] = array(
 			0 => "",
+			4 => "Latest",
+			3 => "Oldest",
 			1 => "Lowest Price",
 			2 => "Highest Price",
 			5 => "Title"
