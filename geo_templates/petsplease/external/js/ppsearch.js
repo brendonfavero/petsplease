@@ -6,15 +6,16 @@ ppSearch = {
 	val_cat: 0,
 	select_topcat: 0,
 	select_subcat: 0,
+	select_subcat2: 0,
 	
-	topCategoryChangedByUser: function() {
+	topCategoryChanged: function() {
 		var catid = ppSearch.select_topcat.val()
 		ppSearch.val_cat.val(catid)
 
 		ppSearch.select_subcat.val("")
 	},
 
-	subCategoryChanged: function() {
+	subCategoryChanged: function(clearchild) {
 		var subcatval = ppSearch.select_subcat.val()
 		if (subcatval != "") {
 			ppSearch.val_cat.val(subcatval)
@@ -22,6 +23,18 @@ ppSearch = {
 		else {
 			var topcatval = ppSearch.select_topcat.val()
 			ppSearch.val_cat.val(topcatval)
+		}
+
+		if (clearchild) ppSearch.select_subcat2.val("")
+	},
+
+	subCategory2Changed: function() {
+		var subcatval = ppSearch.select_subcat2.val()
+		if (subcatval != "") {
+			ppSearch.val_cat.val(subcatval)
+		}
+		else {
+			ppSearch.subCategoryChanged(true)
 		}
 	},
 
@@ -37,7 +50,7 @@ ppSearch = {
 		ppSearch.bindEvents()
 
 		if (ppSearch.val_cat.val() == "") { // on home page, no search info
-			ppSearch.topCategoryChangedByUser()
+			ppSearch.topCategoryChanged()
 		}
 
 		ppSearch.bindRefreshables()
@@ -49,13 +62,15 @@ ppSearch = {
 		ppSearch.val_cat = jQuery("#category_value")
 		ppSearch.select_topcat = jQuery("#search_category")
 		ppSearch.select_subcat = jQuery("#search_subcategory")
+		ppSearch.select_subcat2 = jQuery("#search_productcategory")
 	},
 
 	bindEvents: function() {
 		ppSearch.form.on("change", ppSearch.refreshControls)
 
-		ppSearch.select_topcat.change(ppSearch.topCategoryChangedByUser)
+		ppSearch.select_topcat.change(ppSearch.topCategoryChanged)
 		ppSearch.select_subcat.change(ppSearch.subCategoryChanged)
+		ppSearch.select_subcat2.change(ppSearch.subCategory2Changed)
 	},
 
 	bindRefreshables: function() {

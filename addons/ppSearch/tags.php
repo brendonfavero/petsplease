@@ -38,6 +38,15 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 							$tpl_vars['topcat'] = $topcat['category_id'];
 							$tpl_vars['subcat'] = $subcat['category_id'];
 						}
+						else {
+							foreach ($subcat['subcategories'] as $subcat2) {
+								if ($subcat2['category_id'] == $selectedCategory) {
+									$tpl_vars['topcat'] = $topcat['category_id'];
+									$tpl_vars['subcat'] = $subcat['category_id'];
+									$tpl_vars['subcat2'] = $subcat2['category_id'];			
+								}
+							}
+						}
 					}
 				}
 			}
@@ -135,6 +144,14 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 			  ORDER BY display_order, value";
 		$result = $db->GetCol($sql);
 		$tpl_vars['cathairlength'] = $result;
+
+		// Pet Product Types
+		$sql = "SELECT value
+		          FROM geodesic_classifieds_sell_question_choices
+		         WHERE type_id = 40
+			  ORDER BY display_order, value";
+		$result = $db->GetCol($sql);
+		$tpl_vars['productTypes'] = $result;
 
 		// Sort options
 		$tpl_vars['sort_options'] = array(

@@ -31,6 +31,24 @@
 	</div>
 
 
+	<div id="search_productcategory_container" data-showif="#search_subcategory=320,321,322,323,324,326" style="display:none">
+		<label for="search_productcategory">Product Type</label>
+		<select id="search_productcategory" data-childfilter="#search_subcategory=?">
+			<option value="" class="showalways">All Products</option>
+
+			{foreach from=$categories item=category}
+				{if $category.category_id neq 315}{continue}{/if}
+				
+				{foreach from=$category.subcategories item=animalproductcategory}
+					{foreach from=$animalproductcategory.subcategories item=producttypecategory}
+						<option value="{$producttypecategory.category_id}" data-parent="{$animalproductcategory.category_id}" {if $producttypecategory.category_id eq $subcat2}selected="selected"{/if}>{$producttypecategory.category_name}</option>
+					{/foreach}
+				{/foreach}
+			{/foreach}
+		</select>
+	</div>
+
+
 	<div id="search_pettype_container" data-showif="#search_category=316" style="display:none">
 		<label for="search_pettype">Pet Type</label>
 		<select id="search_pettype" name="b[specpettype]">
