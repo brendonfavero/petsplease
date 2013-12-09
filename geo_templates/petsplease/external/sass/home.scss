@@ -117,7 +117,8 @@
 
 .homepage-footer {
 	margin: auto;
-	width: 1052px;
+	width: 1028px;
+	padding: 12px;
 
 	a:link, a:visited {
 		color: black;
@@ -128,49 +129,54 @@
 		text-decoration: underline;
 	}
 }
-.footer-quicklinks h2 {
-	font-weight: bold;
-	margin: 14px 0 7px;
-	border-bottom: 1px solid #DDD;
-}
 
-.footer-quicklinks ul {
-	float: left;
-	list-style-type: none;
-	font-size: 0.8em;
-	width: 171px;
+.footer-quicklinks {
+	width: 100%;
 
-	&.double {
-		width: 342px;
-	}
-
-	&.float-li {
-		width:684px;
-
-		li {
-			float: left;
-			width: 171px;
-		}
-	}
-
-	&.float-li-service {
-		width: auto;
-
-		li {
-			float: left;
-			width: 263px;
-		}
-	}
-
-	li.title {
+	h2 {
 		font-weight: bold;
+		margin: 14px 0 7px;
+		border-bottom: 1px solid #DDD;
 	}
-}
 
-.footer-quicklinks.fivecol ul {
-	width: 185px;
+	ul {
+		float: left;
+		list-style-type: none;
+		font-size: 0.8em;
+		width: 171px;
 
-	&.double {
-		width: 288px;
+		&.double {
+			width: 342px;
+		}
+
+		&.float-li {
+			width:684px;
+
+			li {
+				float: left;
+				width: 171px;
+			}
+		}
+
+		&.float-li-service {
+			width: auto;
+
+			li {
+				float: left;
+				width: 263px;
+			}
+		}
+
+		li.title {
+			font-weight: bold;
+		}
+	}
+
+	&.fivecol ul {
+		width: 185px;
+
+		&.double {
+			width: 288px;
+		}
 	}
 }
