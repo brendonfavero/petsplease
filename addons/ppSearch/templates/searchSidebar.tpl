@@ -155,5 +155,5 @@
 </form>
 
 <script>
-	jQuery(ppSearch.init)
+	ppSearch.init()
 </script>
