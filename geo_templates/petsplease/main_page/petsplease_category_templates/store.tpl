@@ -198,7 +198,7 @@
 
 	{listing tag='listingBannerImages' addon='ppListingImagesExtra'}
 
-	{listing tag='storeProducts' addon='ppListingDisplay'}
+	{listing tag='listingsEmbed' addon='ppListingDisplay' category=315}
 
 	{* START DESCRIPTION *}
 		

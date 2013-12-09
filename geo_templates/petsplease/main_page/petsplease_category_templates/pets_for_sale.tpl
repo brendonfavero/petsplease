@@ -430,7 +430,13 @@
 		{/if}
 	</div>
 	
-	{* END DESCRIPTION *}			
+	{* END DESCRIPTION *}
+
+
+	{if $topcategory eq 316 or $topcategory eq 420}
+		{listing addon='ppListingDisplay' tag='listingsEmbed' category=308}
+	{/if}
+
 
 	{listing tag='offsite_videos_block' assign='offsite_videos_block'}
 	{if $offsite_videos_block}

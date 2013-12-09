@@ -8,7 +8,7 @@ class addon_ppListingImagesExtra_util extends addon_ppListingImagesExtra_info
 		$listing = geoListing::getListing($listing_id);
 		$category = $listing->category;
 
-		require_once(CLASSES_DIR.'order_items/adlogo.php');
+		require_once('order_items/adlogo.php');
 		if (!in_array($category, adlogoOrderItem::$allowedCategories)) {
 			return '';
 		}

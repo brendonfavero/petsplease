@@ -21,7 +21,7 @@ class addon_ppListingDisplay_info
 		'extraCheckboxValue',
 		'extraLeveledValue',
 		'storeCategories',
-		'storeProducts',
+		'listingsEmbed',
 		'specialListingBox'
 	);
 

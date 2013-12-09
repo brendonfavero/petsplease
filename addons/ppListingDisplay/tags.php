@@ -215,12 +215,29 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		$shopListing = $grab(412, true);
 		if ($shopListing) {
 			$shopUtil = geoAddon::getUtil('ppStoreHelper');
-			if($shopUtil->listingIsValidStoreProduct($listing_id, true)) {
+			if($shopUtil->listingIsValidStoreProduct($listing_id, true) && !$leadListing) {
 				$leadListing = $shopListing;
 			}
 			else {
 				$listings[] = $shopListing;
 			}
+		}
+
+		// Shelters
+		$shelterListing = $grab(420, true);
+		if (!empty($shelterListing)) {
+			// Is this a pet for sale?
+			$categories = geoCategory::getTree($listing->category);
+			$topcat = reset($categories);
+
+			if ($topcat['category_id'] == 308 && !$leadListing) {
+				// Shift the listing off so it wont be shown twice
+				$leadListing = $shelterListing;
+			}
+
+			if (!empty($shelterListing)) {
+				$listings[] = $shelterListing;
+			}			
 		}
 
 		// Breeders
@@ -230,7 +247,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 			$categories = geoCategory::getTree($listing->category);
 			$topcat = reset($categories);
 
-			if ($topcat['category_id'] == 308) {
+			if ($topcat['category_id'] == 308 && !$leadListing) {
 				// Shift the listing off so it wont be shown twice
 				$leadListing = array_shift($breederListings);
 			}
@@ -315,20 +332,20 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 				geoTemplate::ADDON, $this->name, $tpl_vars);
 	}
 
-	public function storeProducts($params, Smarty_Internal_Template $smarty)
+	public function listingsEmbed($params, Smarty_Internal_Template $smarty)
 	{
-		$page_size = 15;
-		$products_category = 315;
-
 		$db = true;
 		require (GEO_BASE_DIR."get_common_vars.php");
+
+		$page_size = 15;
+		$archCategory = $params['category'] or die("No category supplied to listingsEmbed");
 
 		$listing_id = $params['listing_id'];
 		$listing = geoListing::getListing($listing_id);
 
 		$seller = $listing->seller;
 
-		$categoryid = isset($_REQUEST['c']) ? $_REQUEST['c'] : $products_category;
+		$categoryid = isset($_REQUEST['c']) ? $_REQUEST['c'] : $archCategory;
 		$page = (isset($_REQUEST['p']) ? $_REQUEST['p'] : 1);
 
 
@@ -376,7 +393,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 			$tpl_vars['pagination'] = geoPagination::getHTML($totalPages, $page, $link . '&p=');
 		}
 		
-		return geoTemplate::loadInternalTemplate($params, $smarty, 'storeProducts.tpl',
+		return geoTemplate::loadInternalTemplate($params, $smarty, 'listingsEmbed.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);
 	}
 }

@@ -12,7 +12,7 @@ class addon_ppListingImagesExtra_tags extends addon_ppListingImagesExtra_info
 
 		$category = $listing->category;
 
-		require_once(CLASSES_DIR.'order_items/adimages.php');
+		require_once('order_items/adimages.php');
 
 		if (!in_array($category, adimagesOrderItem::$allowedCategories)) {
 			return '';
@@ -47,7 +47,7 @@ class addon_ppListingImagesExtra_tags extends addon_ppListingImagesExtra_info
 
 		$category = $listing->category;
 
-		require_once(CLASSES_DIR.'order_items/adlogo.php');
+		require_once('order_items/adlogo.php');
 
 		if (!in_array($category, adlogoOrderItem::$allowedCategories)) {
 			return '';

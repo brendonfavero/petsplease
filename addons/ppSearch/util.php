@@ -160,7 +160,6 @@ class addon_ppSearch_util extends addon_ppSearch_info
 			$subQueryBreed2->where("$questionTable.`value` <> ''");
 			$query->where("EXISTS ($subQueryBreed1)");
 			$query->where("NOT EXISTS ($subQueryBreed2)");
-
 		}
 	}
 }

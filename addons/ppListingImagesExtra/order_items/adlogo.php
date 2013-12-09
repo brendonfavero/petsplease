@@ -14,7 +14,7 @@ class adlogoOrderItem extends geoOrderItem {
 	const upgrade = 2;
 
 	const max_banners = 1; // Number of banners they can upload
-	public static $allowedCategories = array(318, 319, 316, 412); // Categories that are can have logos
+	public static $allowedCategories = array(318, 319, 316, 412, 420); // Categories that are can have logos
 	const extraimages_table = "petsplease_classifieds_extraimages_urls";
 	const extraimage_type = 2; // Each listing can have seperate types of extra images which are handled seperately
 	const max_width = 200;
