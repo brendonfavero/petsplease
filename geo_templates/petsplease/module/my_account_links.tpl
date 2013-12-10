@@ -5,7 +5,7 @@
 {if $show_cart}
 	{* Need to let the main cart know, wherever it is, that a mini cart was displayed *}
 	{$geo_mini_cart_displayed=1 scope='global'}
-	<div id="left_cart">
+	<div class="left_cart">
 		<h1 class="title">
 			<!-- <a href="{$classifieds_file_name}?a=cart"> -->
 				{if $allFree}

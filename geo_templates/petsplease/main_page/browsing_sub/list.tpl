@@ -44,6 +44,23 @@ that it will corrupt the smarty tags!
 
 <article class="list {$listing.css} clearfix{if $listing.featured_ad eq '1'} featured{/if}">
 	<div class="list-listing-heading">
+
+		{if $cfg.cols.edit or $cfg.cols.delete}
+			<div style="float:right; padding-left: 10px;">
+				{if $cfg.cols.edit}
+					<p class="edit">
+						<a href="{$classifieds_file_name}?a=cart&amp;action=new&amp;main_type=listing_edit&amp;listing_id={$id}"><img src="{external file='images/buttons/listing_edit.gif'}" alt="" /></a>
+					</p>
+				{/if}
+				
+				{if $cfg.cols.delete}
+					<p class="delete">
+						<a onclick="if (!confirm('Are you sure you want to delete this?')) return false;" href="{$classifieds_file_name}?a=99&amp;b={$id}"><img src="{external file='images/buttons/listing_delete.gif'}" alt="" /></a>
+					</p>
+				{/if}
+			</div>
+		{/if}
+
 		<h1>
 			{if $listing.icons.sold && $cfg.icons.sold}<img src="{$cfg.icons.sold}" alt="" />{/if}
 			<a href="{$cfg.listing_url}{$id}">{$listing.title}</a>
