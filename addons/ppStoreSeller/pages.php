@@ -48,6 +48,12 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 				$doinsert = true;
 
+				// make sure this isnt the admin
+				if ($user_id == 1) {
+					$errors[] = 4;
+					$doinsert = false;
+				}
+
 				// should verify that listing is product and is connected to shop
 				if (!$util->listingIsValidStoreProduct($listing_id)) {
 					$errors[] = 1;
@@ -131,7 +137,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$cart_messages = array(
 			1 => "ERROR: Listing is not valid merchant product",
 			2 => "ERROR: Can't add your own product to the cart",
-			3 => "ERROR: You are trying to add more quantity to the cart than the product has available"
+			3 => "ERROR: You are trying to add more quantity to the cart than the product has available",
+			4 => "ERROR: the admin cannot purchase products"
 		);
 
 		if ($_REQUEST['msgs'] != '') {
