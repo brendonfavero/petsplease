@@ -96,16 +96,6 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 					$db->Execute($sql, array($user_id, $vendor_id));
 				}
 			}
-			elseif ($action == "updateqty") {
-				$listing_id = $_REQUEST['b'];
-				$new_qty = $_REQUEST['qty'];
-
-				// !! Do any checking to allow new qty here
-				
-				$sql = "UPDATE petsplease_merchant_cart SET qty = ?
-						WHERE user_id = ? AND listing_id = ?";
-				$db->Execute($sql, array($new_qty, $user_id, $listing_id));
-			}
 			elseif ($action == "movetofavourites") {
 				$listing_id = $_REQUEST['b'];
 

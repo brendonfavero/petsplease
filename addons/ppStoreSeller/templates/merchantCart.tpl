@@ -52,7 +52,7 @@
 							jQuery(function() {
 								var e = jQuery("#qty-{$listing.id}")
 								e.on("change", function() {
-									window.location = "?a=ap&addon=ppStoreSeller&page=merchantcart&action=updateqty&b={$listing.id}&qty=" + e.val()
+									window.location = "?a=ap&addon=ppStoreSeller&page=merchantcart&action=additem&b={$listing.id}&qty=" + e.val()
 								})
 							})
 							</script>
