@@ -1007,7 +1007,7 @@ class adimagesOrderItem extends geoOrderItem {
 			return false;
 		}
 		//get rid of any duplicates
-		geoImage::fixDuplicates($listing_id);
+		ppExtraImage::fixDuplicates($listing_id);
 		
 		//get number of image slots available
 		$listing = geoListing::getListing($listing_id);
@@ -1174,7 +1174,7 @@ class adimagesOrderItem extends geoOrderItem {
 				trigger_error('DEBUG CART: Copy Listing Here');
 			}
 			
-			$image_proc = geoImage::getInstance();
+			$image_proc = ppExtraImage::getInstance();
 			$image_proc->setAdConfig($cart->site->ad_configuration_data);
 			
 			$item = self::_getImageItem();
@@ -1390,7 +1390,7 @@ class adimagesOrderItem extends geoOrderItem {
 				$imageTitle = (isset($_POST['imageTitle']))? trim($_POST['imageTitle']): '';
 				$defaultType = (isset($post_files['Filedata']['mime_type']))? $post_files['Filedata']['mime_type']: null;
 				//no use in sending defaultMime, as it will always be same for image uploader
-				$type = geoImage::getMimeType($tmp_file, $name);
+				$type = ppExtraImage::getMimeType($tmp_file, $name);
 				if ($sell_debug_images) echo "\n".__line__." got here! type: $type\n\n";
 				//set i to whatever slot was passed in
 				$i = (isset($_POST['uploadSlot']) && intval($_POST['uploadSlot']) > 0)? intval($_POST['uploadSlot']): $max+1;
@@ -1410,7 +1410,7 @@ class adimagesOrderItem extends geoOrderItem {
 				$tmp_file = (isset($post_files['d']['tmp_name'][$i]))? $post_files['d']['tmp_name'][$i]: null;
 				$defaultType = (isset($post_files['d']['type'][$i]))? $post_files['d']['type'][$i]: null;
 				
-				$type = geoImage::getMimeType($tmp_file, $name, $defaultType);
+				$type = ppExtraImage::getMimeType($tmp_file, $name, $defaultType);
 				
 				$imageTitle = (isset($_POST['c'][$i]['text']))? trim($_POST['c'][$i]['text']): '';
 				
@@ -1420,7 +1420,7 @@ class adimagesOrderItem extends geoOrderItem {
 			}
 			//clean up image title
 			$imageTitle = $cart->site->check_for_badwords($imageTitle);
-			$imageTitle = geoImage::shortenImageTitle($imageTitle, $cart->site->ad_configuration_data->MAXIMUM_IMAGE_DESCRIPTION);
+			$imageTitle = ppExtraImage::shortenImageTitle($imageTitle, $cart->site->ad_configuration_data->MAXIMUM_IMAGE_DESCRIPTION);
 			
 			if ($fileError) {
 				//error with upload.  Error codes can be found listed at
@@ -1506,7 +1506,7 @@ class adimagesOrderItem extends geoOrderItem {
 						$filename = stripslashes($cart->site->ad_configuration_data->IMAGE_UPLOAD_PATH).$filename;
 						if (!$type) {
 							//attempt to re-get the image type in new location since getting it failed in tmp location
-							$type = geoImage::getMimeType($filename, $name, $defaultType);
+							$type = ppExtraImage::getMimeType($filename, $name, $defaultType);
 						}
 						if ($sell_debug_images) {
 							echo "uploaded file moved successfully<br />\n";
@@ -1538,7 +1538,7 @@ class adimagesOrderItem extends geoOrderItem {
 				if (strlen(trim($cart->site->current_file_type_icon)) > 0) {
 					//upload file and reference using icon
 					
-					$full_filename = geoImage::generateFilename($imgPath, '.'.$cart->site->current_file_type_extension);
+					$full_filename = ppExtraImage::generateFilename($imgPath, '.'.$cart->site->current_file_type_extension);
 					$full_url = $cart->site->ad_configuration_data->URL_IMAGE_DIRECTORY.$full_filename;
 					$filepath = $imgPath.$full_filename;
 					
@@ -1615,22 +1615,22 @@ class adimagesOrderItem extends geoOrderItem {
 					
 					//handy for debug ajax, get it to list files array
 					//geoImage::_returnError('Files: <pre>'.print_r($post_files,1).'</pre>');
-					$full = geoImage::resize($filename, $fullWidth, $fullHeight);
+					$full = ppExtraImage::resize($filename, $fullWidth, $fullHeight);
 					if ($full && function_exists('imagejpeg')) {
 						//re-size of full image was successful, process it!
-						$fullName = geoImage::generateFilename($imgPath);
+						$fullName = ppExtraImage::generateFilename($imgPath);
 						
 						$fullCreate = imagejpeg($full['image'], $imgPath.$fullName, $fullQuality);
 						//now kill image to free up memory
 						imagedestroy($full['image']);
 						if ($fullCreate) {
 							//attempt to create thumbnail
-							$thumbnail = geoImage::resize($filename, $image_width, $image_height, false);
+							$thumbnail = ppExtraImage::resize($filename, $image_width, $image_height, false);
 							
 							if ($thumbnail) {
 								//save thumb image
 								
-								$thumbName = geoImage::generateFilename($imgPath);
+								$thumbName = ppExtraImage::generateFilename($imgPath);
 								$thumbCreate = imagejpeg($thumbnail['image'], $imgPath.$thumbName, $thumbQuality);
 								//destroy image to free up memory
 								imagedestroy($thumbnail['image']);
@@ -1735,7 +1735,7 @@ class adimagesOrderItem extends geoOrderItem {
 						
 						if ($extension) {
 							//do full size image & thumb as same file
-							$fullName = $thumbName = geoImage::generateFilename($imgPath, $extension);
+							$fullName = $thumbName = ppExtraImage::generateFilename($imgPath, $extension);
 							
 							$filepath = $imgPath.$fullName;
 							
@@ -2107,7 +2107,7 @@ class adimagesOrderItem extends geoOrderItem {
 			
 			if(!$row['image_width'] || !$row['image_height'] || !$row['mime_type']) {
 				//don't have image dimensions -- try to get them!
-				$dims = geoImage::getRemoteDims($row['image_id']);
+				$dims = ppExtraImage::getRemoteDims($row['image_id']);
 				$row['image_width'] = $dims['width'];
 				$row['image_height'] = $dims['height'];
 				$row['mime_type'] = $dims['mime'];
@@ -2141,7 +2141,7 @@ class adimagesOrderItem extends geoOrderItem {
 			}
 			//if in admin, fix URL
 			if (defined('IN_ADMIN')) $url = '../'.$url;
-			$row['tag'] = geoImage::display_image( $url, $w, $h, $row['mime_type']);
+			$row['tag'] = ppExtraImage::display_image( $url, $w, $h, $row['mime_type']);
 			$return[$map[$row['image_id']]] = $row;
 		}
 		return $return;

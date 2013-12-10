@@ -66,5 +66,25 @@ class addon_ppListingImagesExtra_util extends addon_ppListingImagesExtra_info
 	// 	return geoTemplate::loadInternalTemplate($params, $smarty, 'listingLogoThumb.tpl',
 	// 			geoTemplate::ADDON, $this->name, $tpl_vars);		
 	// }
+
+	public function core_notify_geoListing_remove ($vars)
+	{
+		$db = DataAccess::getInstance();
+
+		//delete url images
+		$sql = "SELECT `image_id` FROM petsplease_classifieds_extraimages_urls WHERE `classified_id`=?";
+		$get_url_result = $db->Execute($sql, array($vars['listingId']));
+		if (!$get_url_result) {
+			trigger_error('ERROR SQL: Error getting images, using sql: '.$sql.', Error: '.$db->ErrorMsg());
+			return false;
+		}
+		while ($row = $get_url_result->FetchRow()) {
+			//using this way as it takes less resources than something like FetchAll
+			$imageId = (int)$row['image_id'];
+			if ($imageId) {
+				$removeImage = ppExtraImage::remove($imageId);
+			}
+		}
+	}
 }
 ?>

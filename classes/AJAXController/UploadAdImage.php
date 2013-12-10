@@ -260,7 +260,7 @@ class CLASSES_AJAXController_UploadAdImage extends classes_AJAX {
 				$title = (isset($_POST['imageTitle']))? trim($_POST['imageTitle']): '';
 				$title = $cart->site->check_for_badwords($title);
 				$cart->site->get_ad_configuration();
-				$title = geoImage::shortenImageTitle($title, $cart->site->ad_configuration_data->MAXIMUM_IMAGE_DESCRIPTION);
+				$title = ppExtraImage::shortenImageTitle($title, $cart->site->ad_configuration_data->MAXIMUM_IMAGE_DESCRIPTION);
 				$imgId = (int)$imagesCaptured[$slotNum]['id'];
 				
 				if (!$imgId) {

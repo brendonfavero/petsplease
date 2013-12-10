@@ -10,7 +10,8 @@ see license attached to distribution
 ##########GIT Build Data##########
 ## 
 ## File Changed In GIT Commit:
-## ##    7.2beta1-153-gd6a581e
+## 
+##    7.2beta1-153-gd6a581e
 ## 
 ##################################
 
@@ -319,6 +320,15 @@ class Admin_classauction_tools extends Admin_site
 			$filenames[] = $row['full_filename'];
 			$filenames[] = $row['thumb_filename'];
 		}
+
+		// ARDEX EXTRA IMAGES SECTION: need to consider extra images as well
+		$sql = "SELECT full_filename, thumb_filename FROM petsplease_classifieds_extraimages_urls";
+		$result = $db->Execute($sql);
+		while($row = $result->FetchRow()) {
+			$filenames[] = $row['full_filename'];
+			$filenames[] = $row['thumb_filename'];
+		}
+		// END ARDEX EXTRA IMAGES SECTION
 		
 		$folder = $db->GetOne("SELECT image_upload_path FROM ".$this->ad_configuration_table);
 
