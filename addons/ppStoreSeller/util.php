@@ -1,5 +1,5 @@
 <?php
-class addon_ppStoreHelper_util extends addon_ppStoreHelper_info
+class addon_ppStoreSeller_util extends addon_ppStoreSeller_info
 {
 	const SHOP_CATEGORY = 412;
 	const PRODUCT_CATEGORY = 315;

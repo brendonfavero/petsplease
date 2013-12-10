@@ -278,7 +278,7 @@ if ($a == 2) { // Listing page
 	$listing = geoListing::getListing($_REQUEST['b']);
 
 	$ppListingUtil = geoAddon::getUtil('ppListingDisplay');
-	$ppStoreUtil = geoAddon::getUtil('ppStoreHelper');
+	$ppStoreUtil = geoAddon::getUtil('ppStoreSeller');
 
 	$storeid = null;
 

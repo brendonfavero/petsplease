@@ -30,7 +30,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			exit;
 		}
 
-		$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
+		$util = geoAddon::getInstance()->getUtil($this->name);
 		$ppListingDisplayUtil = geoAddon::getInstance()->getUtil('ppListingDisplay');
 
 		$action = $_REQUEST['action'];
@@ -49,7 +49,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				$doinsert = true;
 
 				// should verify that listing is product and is connected to shop
-				if (!$ppStoreHelperUtil->listingIsValidStoreProduct($listing_id)) {
+				if (!$util->listingIsValidStoreProduct($listing_id)) {
 					$errors[] = 1;
 					$doinsert = false;
 				}
@@ -151,7 +151,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$seller = $cart_item['seller'];
 			if (!array_key_exists($seller, $data)) {
 				$vendor_info = array();
-				$vendor_info['shop_listing'] = $ppStoreHelperUtil->getUserStoreListing($seller)->toArray();
+				$vendor_info['shop_listing'] = $util->getUserStoreListing($seller)->toArray();
 				$vendor_info['total_price'] = 0;
 				// fill in needed info about vendor here
 
@@ -306,10 +306,10 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				WHERE user_id = ? AND vendor_id = ? ORDER BY c.seller ASC, mcart.time_added DESC";
 		$cart_items = $db->GetAll($sql, array($user_id, $vendor_id));
 
-		$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
+		$util = geoAddon::getInstance()->getUtil($this->name);
 
 		$data = array();
-		$data['shop_listing'] = $ppStoreHelperUtil->getUserStoreListing($vendor_id)->toArray();
+		$data['shop_listing'] = $util->getUserStoreListing($vendor_id)->toArray();
 		if ($data['shop_listing']['payment_options'] != "") {
 			$data['shop_listing']['payment_options'] = explode("||", $data['shop_listing']['payment_options']);
 		}
@@ -387,10 +387,10 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				WHERE user_id = ? AND vendor_id = ? ORDER BY c.seller ASC, mcart.time_added DESC";
 		$cart_items = $db->GetAll($sql, array($user_id, $vendor_id));
 
-		$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
+		$util = geoAddon::getInstance()->getUtil($this->name);
 
 		$data = array();
-		$shop_listing = $ppStoreHelperUtil->getUserStoreListing($vendor_id)->toArray();
+		$shop_listing = $util->getUserStoreListing($vendor_id)->toArray();
 		$total_price = 0;
 		$total_shipping = 0;
 		$grand_total = 0;
@@ -594,8 +594,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$listing = $db->GetRow($sql, array($listing_id));
 
 		if ($listing['stock'] < 1) {
-			$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
-			$shop_listing = $ppStoreHelperUtil->getUserStoreListing($listing['seller'])->toArray();
+			$util = geoAddon::getInstance()->getUtil($this->name);
+			$shop_listing = $util->getUserStoreListing($listing['seller'])->toArray();
 
 			$tpl = new geoTemplate('addon', 'ppStoreSeller');
 			$mailVars['shoplisting_id'] = $shop_listing['id'];
@@ -675,11 +675,11 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				$sql = "SELECT listing_id, qty, unit_price, unit_shipping, price_total FROM petsplease_merchant_orderitem oi WHERE order_id = ?";
 				$order_items = $db->GetAll($sql, array($order['order_id']));
 
-				$ppStoreHelperUtil = geoAddon::getInstance()->getUtil('ppStoreHelper');
+				$util = geoAddon::getInstance()->getUtil($this->name);
 
 				$data = array();
 				error_log($order['seller']);
-				$shop_listing = $ppStoreHelperUtil->getUserStoreListing($order['seller'])->toArray();
+				$shop_listing = $util->getUserStoreListing($order['seller'])->toArray();
 				error_log(print_r($shop_listing, true));
 				$total_price = 0;
 				$total_shipping = 0;

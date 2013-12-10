@@ -267,8 +267,8 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 
 			if ($cat_id == 315) {
 				// We are under Products and can do our custom stuff
-				$storeHelperUtil = geoAddon::getUtil('ppStoreHelper');
-				if ($storeHelperUtil->userHasStoreListing()) {
+				$storeUtil = geoAddon::getUtil('ppStoreSeller');
+				if ($storeUtil->userHasStoreListing()) {
 					$cart->addStep(self::$_type . ':isproduct');
 				}
 			}

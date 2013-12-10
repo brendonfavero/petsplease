@@ -214,7 +214,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		// Shop listing
 		$shopListing = $grab(412, true);
 		if ($shopListing) {
-			$shopUtil = geoAddon::getUtil('ppStoreHelper');
+			$shopUtil = geoAddon::getUtil('ppStoreSeller');
 			if($shopUtil->listingIsValidStoreProduct($listing_id, true) && !$leadListing) {
 				$leadListing = $shopListing;
 			}
