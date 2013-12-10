@@ -10,6 +10,7 @@ class addon_ppStoreSeller_info
 	public $auth_tag = 'pp_addons';
 
 	public $tags = array (
+		'miniCart'
 	);
 
 	public $pages = array(

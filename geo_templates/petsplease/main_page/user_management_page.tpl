@@ -4,7 +4,7 @@
 	<div class="content_shell">
 		<!-- START LEFT COLUMN -->
 		<div id="user_column">
-			<h1 class="title">My PetsPlease</h1>
+			<!-- <h1 class="title">My PetsPlease</h1> -->
 			{module tag='my_account_links'}
 		</div>
 		<!-- END LEFT COLUMN -->

@@ -1,20 +1,22 @@
 {* 6.0.7-3-gce41f93 *}
 
+{addon addon='ppStoreSeller' tag='miniCart'}
+
 {if $show_cart}
 	{* Need to let the main cart know, wherever it is, that a mini cart was displayed *}
 	{$geo_mini_cart_displayed=1 scope='global'}
 	<div id="left_cart">
-		<h2 class="title">
-			<a href="{$classifieds_file_name}?a=cart">
+		<h1 class="title">
+			<!-- <a href="{$classifieds_file_name}?a=cart"> -->
 				{if $allFree}
 					{$messages.500647}
 				{else}
 					{$messages.500646}
 				{/if}
-			</a>
-		</h2>
+			<!-- </a> -->
+		</h1>
 		{* Mini-cart information *}
-		<ul>
+		<ul class="option_list">
 			<li class="my_account_links_{if $cartLink.active}active{else}inactive{/if}">
 				<h1 class="subtitle">
 					{if !$allFree}
@@ -29,7 +31,7 @@
 		{* Cart actions *}
 		{if $cartAction}
 			<h1 class="subtitle">{$messages.500649} <span class="sub_note">{$cartAction}</span></h1>
-			<ul>
+			<ul class="option_list">
 				{if !$inCart || !$cartStepIndex}
 					{* This is the resume button - only shown if on a page "ouside" the cart *}
 					<li class="my_account_links_inactive">
@@ -47,7 +49,7 @@
 			<h1 class="subtitle">
 				{$messages.500654}
 			</h1>
-			<ul>
+			<ul class="option_list">
 				{foreach from=$cartLinks item=listItem}
 					{if $listItem.icon||$listItem.label}
 						<li class="my_account_links_{if $listItem.active}active{else}inactive{/if}">
@@ -77,7 +79,7 @@
 	{capture assign=accountFinanceContents}
 		{* Capture the links, then put them where we want them. *}
 		{if $orderItemLinks}
-			<ul>
+			<ul class="option_list">
 				{foreach from=$orderItemLinks item=itemLink}
 					{if $itemLink.icon||$itemLink.label}
 						<li class="my_account_links_{if $itemLink.active}active{else}inactive{/if}">
@@ -98,7 +100,7 @@
 			</ul>
 		{/if}
 		{if $paymentGatewayLinks}
-			<ul>
+			<ul class="option_list">
 				{foreach from=$paymentGatewayLinks item=gatewayLink}
 					{if $gatewayLink.icon||$gatewayLink.label}
 						<li class="my_account_links_{if $gatewayLink.active}active{else}inactive{/if}">
@@ -132,7 +134,7 @@
 	<br />
 	<h1 class="title"><a href="{$classifieds_file_name}?a=4">{$messages.500542}</a></h1>
 	<div class="content_box_1">
-		<ul>
+		<ul class="option_list">
 			{foreach from=$links item=listItem}
 				{if $listItem.icon||$listItem.label}
 					<li class="my_account_links_{if $listItem.active}active{else}inactive{/if}">
