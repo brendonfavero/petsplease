@@ -3,6 +3,7 @@ class addon_ppStoreSeller_util extends addon_ppStoreSeller_info
 {
 	const SHOP_CATEGORY = 412;
 	const PRODUCT_CATEGORY = 315;
+	const SHELTER_CATEGORY = 420;
 
 	public function userHasStoreListing($user_id = 0) {
 		$db = true;
@@ -57,6 +58,29 @@ class addon_ppStoreSeller_util extends addon_ppStoreSeller_info
 		}
 
 		return false;
+	}
+
+	public function core_filter_listing_placement_category_query($query)
+	{
+		// Enforce one listing per category rule for Shop and Shelter categories
+		$db = true;
+		require (GEO_BASE_DIR."get_common_vars.php");
+
+		$catTbl = geoTables::categories_table;
+		$user_id = geoSession::getInstance()->getUserId();
+		$limited = array(self::SHELTER_CATEGORY, self::SHOP_CATEGORY);		
+
+		if (!empty($limited)) {
+			$in_limited = '(' . implode(",", $limited) . ')';
+
+			$sql = "SELECT category FROM geodesic_classifieds WHERE seller = ? AND category in ".$in_limited." AND live = 1";
+			$result = $db->GetCol($sql, array($user_id));
+
+			if (!empty($result)) {
+				$in_cats = '(' . implode(",", $result) . ')';
+				$query->where("$catTbl.category_id not in ".$in_cats);
+			}
+		}
 	}
 }
 ?>

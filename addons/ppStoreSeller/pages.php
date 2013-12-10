@@ -507,8 +507,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$mailVars['baseUrl'] = $db->get_site_setting('classifieds_url');
 			$tpl->assign($mailVars);
 			$email_message = $tpl->fetch('emails/other_payment_order_received.tpl');
-			geoEmail::sendMail("chris@ardex.com.au", "Pets Please - Shop Order Received", $email_message, 
-				$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
+			geoEmail::sendMail(geoString::fromDB($shop_listing->email), "Pets Please - Shop Order Received", $email_message, 
+				$db->get_site_setting('site_email'), 0, 0, 'text/html');
 
 			// For non-paypal payments we consider this point for our part of the order chain to be finished, so subtract item quantities
 			foreach ($listings as $listing) {
@@ -604,8 +604,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$mailVars['listing_title'] = $listing['title'];
 			$tpl->assign($mailVars);
 			$email_message = $tpl->fetch('emails/out_of_stock.tpl');
-			geoEmail::sendMail("chris@ardex.com.au", "Pets Please - Shop Order Received", $email_message, 
-				$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
+			geoEmail::sendMail(geoString::fromDB($shop_listing->email), "Pets Please - Shop Order Received", $email_message, 
+				$db->get_site_setting('site_email'), 0, 0, 'text/html');
 		}
 	}
 
@@ -722,7 +722,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				$mailVars['paypalPaid'] = true;
 				$tpl->assign($mailVars);
 				$email_message = $tpl->fetch('emails/other_payment_order_received.tpl');
-				geoEmail::sendMail("chris@ardex.com.au", "Pets Please - Shop Order Received", $email_message, 
+				geoEmail::sendMail(geoString::fromDB($shop_listing->email), "Pets Please - Shop Order Received", $email_message, 
 					$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
 
 				// Subtract quantites now that order is done
@@ -737,6 +737,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$notify .= "raw input: " . $raw_post_data . "\r\n";
 			$notify .= "raw output: " . $req . "\r\n";
 
+			// TODO: Change this to send to specific petsplease error mailbox
 			geoEmail::sendMail ("chris@ardex.com.au","IPN Delivered INVALID Payment notification", $notify);
 		}
 

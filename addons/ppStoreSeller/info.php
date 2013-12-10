@@ -20,7 +20,7 @@ class addon_ppStoreSeller_info
 	);
 
 	public $core_events = array(
-		// 'Search_classifieds_generate_query',
+		'filter_listing_placement_category_query'
 	);
 }
 ?>
