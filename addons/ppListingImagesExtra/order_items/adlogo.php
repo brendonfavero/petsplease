@@ -5,6 +5,7 @@
 */
 
 require_once CLASSES_DIR . PHP5_DIR . 'OrderItem.class.php';
+require_once CLASSES_DIR . PHP5_DIR . 'ExtraImage.class.php';
 
 class adlogoOrderItem extends geoOrderItem {
 	var $defaultProcessOrder = 40;
