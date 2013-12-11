@@ -161,6 +161,139 @@ class addon_ppSearch_util extends addon_ppSearch_info
 			$query->where("EXISTS ($subQueryBreed1)");
 			$query->where("NOT EXISTS ($subQueryBreed2)");
 		}
+
+		$this->handleLocationSearch(&$searchClass->search_criteria, &$query);
+	}
+
+	private function handleLocationSearch($fields, $query) {
+		$db = DataAccess::getInstance();
+		$classTable = geoTables::classifieds_table;
+
+		$location = $fields['location'];
+		$distance = $fields['location_distance'];
+
+		if (empty($location)) return;
+
+		$postcode = null;
+		if (!is_numeric($location)) {
+			// We assume they've passed in a suburb, we need to find the associated postcode for it.
+			// Clean input
+			$location = strtolower($location);
+			$location = str_replace(",", " ", $location); // remove commas
+			$location = str_replace(array("'", "&#039;"), "", $location); // remove apostrophies
+			$location = trim($location);
+			$location = preg_replace('!\s+!', ' ', $location); // remove consecutive whitespace
+
+			// see if there's a postcode at the end
+			$location_split = explode(" ", $location);
+			$location_lastterm = array_pop($location_split);
+			if (is_numeric($location_lastterm)) {
+				$postcode = $location_lastterm;
+				$location = implode(" ", $location_split);
+			}
+
+			// try pull a state out of the field
+			$states = array( // format => odd = abbreviation, even = full name
+				'nsw', 'new south wales', 'qld', 'queensland', 'nt', 'northern territory', 
+				'sa', 'south australia', 'tas', 'tasmania', 'vic', 'victoria', 
+				'wa', 'western australia', 'act', 'australian capital territory'
+			);
+			$states_abbrToRegionId = array(
+				'nsw' => 355, 'qld' => 357, 'nt' => 356, 'sa' => 358, 
+				'tas' => 359, 'vic' => 360, 'wa' => 361, 'act' => 351
+			);
+
+			$state_exceptions = array('mount victoria', 'port victoria', 'university of tasmania');
+
+			// Only check for state if location is not among the exceptions
+			$location_state = null;
+			if (!in_array($location, $state_exceptions)) {
+				for ($i = 0; $i < count($states); $i++) {
+					$state = $states[$i];
+
+					if ($this->endsWithWord($location, $state)) {
+						// Take the state off the end
+						$location = substr($location, 0, strlen($location) - strlen($state));
+						$location = trim($location);
+
+						$location_state = ($i&1 ? $states[$i - 1] : $state); // use previous if odd 
+					}
+				}
+			}
+
+			if (!empty($location_state) && empty($location) && !$postcode) {
+				// State only - we don't need to do proximity search, we can just match directly on state
+				$fields['location'] = strtoupper($location_state);
+				unset($fields['location_distance']);
+
+				if (!$postcode) {
+					$regionId = $states_abbrToRegionId[$location_state];
+					$regionTbl = "geodesic_listing_regions";
+					$query->where("EXISTS(SELECT 1 FROM $regionTbl WHERE $regionTbl.listing = $classTable.id AND level = 2 AND region = $regionId)");
+					return;
+				}
+			}
+			else {
+				// Suburb + maybe state, need to grab a postcode
+				if (!$postcode) {
+					$sql = "SELECT postcode, suburb, state FROM petsplease_location_suburbs WHERE suburb = ?";
+					if ($location_state) $sql .= " AND state = '".$location_state."'";
+
+					$result = $db->GetAll($sql, array($location));
+
+					if (count($result) >= 1) {
+						$postcode = $result[0]['postcode'];
+						$location_state = $result[0]['state'];
+					}
+
+					if (count($result) > 1) {
+						$querystring = $_SERVER['QUERY_STRING'];
+						$search_parms = array();
+						parse_str($querystring, &$search_parms);
+
+						foreach ($result as &$locationrow) {
+							$search_parms['b']['location'] = ucwords($locationrow['suburb']) . ', ' . strtoupper($locationrow['state']) . ' ' . $locationrow['postcode'];
+							$locationrow['querystring'] = http_build_query($search_parms);
+						}
+
+						geoView::getInstance()->setBodyVar('multiple_locations_found', $result);
+					}
+				}
+
+				$fields['location'] = ucwords($location) . ', ' . strtoupper($location_state) . ' ' . $postcode;
+			}
+		}
+		else {
+			$postcode = $location;
+		}
+
+		if ($postcode) {
+			// Pass the actual creating of the sql to the zipsearch addon
+			$zipsearchUtil = geoAddon::getUtil("zipsearch");
+			$search_sql = $zipsearchUtil->getSearchSql($postcode, $distance);
+			if ($search_sql) {
+				//if we have distance query, replace the built-in where with this one.
+				$query->where($search_sql, 'location_zip');
+			}
+		}
+		else {
+			// !! TODO: Warn that this location couldnt be found
+			$query->where('true = false');
+			echo 'ERROR: Invalid location entered<br>';
+			geoView::getInstance()->setBodyVar('invalid_location_entered', true);
+		}
+	}
+
+	function endsWithWord($haystack, $needle) {
+		if ($needle === "" || $needle === $haystack) {
+			return true;
+		}
+		else if (substr($haystack, -strlen(' '.$needle)) === ' '.$needle) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }
 ?>

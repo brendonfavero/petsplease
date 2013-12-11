@@ -17,7 +17,6 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 		$querystring = $urlparts['query'];
 		$search_parms = array();
 		parse_str($querystring, &$search_parms);
-		$tpl_vars['search_parms'] = $search_parms;
 
 		// Get all categories
 		$sql = "SELECT category_id, category_name, parent_id FROM geodesic_categories ORDER BY display_order, category_name";
@@ -54,6 +53,10 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 
 		// Zip search distances
 		$tpl_vars['zip_distances'] = array(5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 200, 300, 400, 500);
+
+		if (empty($search_parms['b']['location_distance'])) {
+			$search_parms['b']['location_distance'] = 25;
+		}
 
 		// Pet Breeds
 		$sql = "SELECT * 
@@ -162,6 +165,8 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 			2 => "Highest Price",
 			5 => "Title"
 		);
+
+		$tpl_vars['search_parms'] = $search_parms;
 
 		geoView::getInstance()->addJScript('addons/ppSearch/ppsearch.js');
 

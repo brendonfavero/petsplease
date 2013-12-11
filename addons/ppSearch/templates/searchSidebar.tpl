@@ -129,11 +129,11 @@
 	{/if}
 
 	<div class="postcode">
-		<label for="search_postcode">Postcode</label>
-		<input type="text" id="search_postcode" name="b[by_zip_code]" value="{$search_parms.b.by_zip_code}"/>
-		<select name="b[by_zip_code_distance]">
+		<label for="search_postcode">Location/Postcode</label>
+		<input type="text" id="search_postcode" name="b[location]" value="{$search_parms.b.location}"/>
+		<select name="b[location_distance]">
 			{foreach from=$zip_distances item=distance}
-				<option value="{$distance}"{if $distance eq $search_parms.b.by_zip_code_distance} selected="selected"{/if}>
+				<option value="{$distance}"{if $distance eq $search_parms.b.location_distance} selected="selected"{/if}>
 					{$distance}km
 				</option>
 			{/foreach}
