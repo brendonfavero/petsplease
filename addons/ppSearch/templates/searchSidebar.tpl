@@ -155,5 +155,19 @@
 </form>
 
 <script>
-	ppSearch.init()
+	function mapPetCategoryIDToPetType(catID) {
+		if (catID == 309) return "dog"
+		if (catID == 310) return "cat"
+		if (catID == 311) return "bird"
+		if (catID == 312) return "fish"
+		if (catID == 313) return "reptile"
+		if (catID == 314) return "other"
+	}
+
+	jQuery("#search_form").refreshables()
+	jQuery("#category_value").bindChainValues([
+		jQuery("#search_category"), 
+		jQuery("#search_subcategory"),
+		jQuery("#search_productcategory")
+	])
 </script>

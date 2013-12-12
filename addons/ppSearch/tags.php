@@ -168,8 +168,6 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 
 		$tpl_vars['search_parms'] = $search_parms;
 
-		geoView::getInstance()->addJScript('addons/ppSearch/ppsearch.js');
-
 		return geoTemplate::loadInternalTemplate($params, $smarty, 'searchSidebar.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);		
 	}
