@@ -175,7 +175,7 @@
 		$form.on("change", refreshControls)
 		refreshControls() // do a refresh straight away
 	}
-}(jQuery))
+}(jQuery));
 
 /* 
 	BindChainValues (by Chris)
@@ -194,7 +194,6 @@
 			var belows = index + 1 < selects.length ? selects.slice(index + 1) : null
 
 			$(el).on('change', function() {
-				console.log(this)
 				var this_value = $(this).val()
 
 				if (this_value != "") {
@@ -217,4 +216,4 @@
 			$finalField.val(init_value)
 		}
 	}
-}(jQuery))
+}(jQuery));

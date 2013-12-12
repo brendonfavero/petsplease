@@ -1,0 +1,13 @@
+.starrating-bg {
+	margin-top: 1px;
+	display: inline-block;
+	width: 18px * 5;
+	height: 17px; 
+	background-image: url(../images/star_faded.png);
+}
+.starrating {
+	display: inline-block;
+	height: 17px;
+	width: 0;
+	background-image: url(../images/star.png);
+}
