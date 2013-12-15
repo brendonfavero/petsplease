@@ -37,10 +37,18 @@
 			{$detail.breed}
 		</h1>
 		<div class="content_box_1" style="padding:15px;">
+			{if $images}
+				<div class="petselector_images">
+					{foreach $images as $image}
+						<img src="{$image.image_url}">
+					{/foreach}
+				</div>
+			{/if}
+		
 			{if $detail.description neq ""}
 				<div class="field_set">
 					<span class="field_name">Description</span>
-					<span class="field_value">{$detail.description}</span>
+					<span class="field_value">{$detail.description|regex_replace:"/\r\n?|\n/":'<br>'}</span>
 				</div>
 			{/if}
 

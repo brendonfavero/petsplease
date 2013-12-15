@@ -12,3 +12,7 @@ config.php
 # Don't allow generated CSS files in our template to be added
 geo_templates/petsplease/external/css
 .sass-cache
+
+# Don't allow pet selector images into the repo
+!addons/ppPetSelector/images/.gitempty
+addons/ppPetSelector/images

@@ -14,7 +14,7 @@ class addon_ppPetSelector_pages extends addon_ppPetSelector_info
 		$pettypes = array("1" => "Dog", "2" => "Cat");
 		$view->setBodyVar("pettypes", $pettypes);
 
-		$sql = "SELECT id, pettype_id, breed FROM petsplease_petselector_breed";
+		$sql = "SELECT id, pettype_id, breed FROM petsplease_petselector_breed ORDER BY pettype_id, breed";
 		$nav = $db->GetAll($sql);
 		$view->setBodyVar('nav', $nav);
 
@@ -23,6 +23,10 @@ class addon_ppPetSelector_pages extends addon_ppPetSelector_info
 			$sql = "SELECT * FROM petsplease_petselector_breed WHERE id = ?";
 			$detail = $db->GetRow($sql, array($breedID));
 			$view->setBodyVar('detail', $detail);
+
+			$sql = "SELECT * FROM petsplease_petselector_images WHERE breed_id = ?";
+			$images = $db->GetAll($sql, array($breedID));
+			$view->setBodyVar('images', $images);
 		}
 
 		$view->setBodyTpl('detail.tpl', $this->name);

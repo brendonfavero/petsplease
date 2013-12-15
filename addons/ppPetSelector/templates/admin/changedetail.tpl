@@ -31,14 +31,17 @@
 	<div>
 		<label>Pet Type</label>
 		<span>
+		{if $detail.pettype_id}
 			{if $detail.pettype_id eq 1}Dog
 			{elseif $detail.pettype_id eq 2}Cat
-			{else}
-				<select>
-					<option value="1">Dog</option>
-					<option value="2">Cat</option>
-				</select>
+			{else}??
 			{/if}
+		{else}
+			<select name="d[pettype_id]">
+				<option value="1">Dog</option>
+				<option value="2">Cat</option>
+			</select>
+		{/if}
 		</span>
 	</div>
 
@@ -49,7 +52,7 @@
 
 	<div>
 		<label for="breed_description">Description</label>
-		<textarea name="d[description]" id="breed_description">{$detail.description|utf8_decode}</textarea>
+		<textarea name="d[description]" id="breed_description" style="width: 550px; height: 200px;">{$detail.description|utf8_decode}</textarea>
 	</div>
 
 	<div>
@@ -79,7 +82,7 @@
 
 	<div>
 		<label for="breed_colours">Colours</label>
-		<textarea name="d[colours]" id="breed_colours">{$detail.colours}</textarea>
+		<textarea name="d[colours]" id="breed_colours" style="width: 550px; height: 100px;">{$detail.colours}</textarea>
 	</div>
 
 	<div>
@@ -138,4 +141,6 @@
 	</div>
 
 	<input type="submit" name="auto_save" value="Save" />
+	| <a href="?page=addon_petselector_settings&mc=addon_cat_ppPetSelector&auto_save=1&d[id]={$detail.id}&dodelete=true">Delete this breed</a>
+
 </form>
