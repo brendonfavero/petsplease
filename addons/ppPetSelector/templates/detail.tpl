@@ -27,7 +27,10 @@
 		</form>
 
 		<script> jQuery("#selector_form").refreshables() </script>
+		
 	</div>
+	
+	{addon addon="ppAds" tag="adspot" aid=4}
 </div>
 
 <div class="col_right">
