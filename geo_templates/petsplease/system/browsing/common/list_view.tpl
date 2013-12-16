@@ -5,6 +5,18 @@
 		<strong>Your search returned no matching results. Please try modifying your search.</strong>
 	</div>
 {else}
+	{if $viewing_breed}
+		<h1 class="title">
+			<div style="float:right">
+				<a href="?a=ap&addon=ppPetSelector&page=detail&id={$viewing_breed.id}">View more info with the PetSelector</a>
+			</div>
+			{$viewing_breed.breed}
+		</h1>
+		<div class="content_box_2">
+			{$viewing_breed.description}
+		</div>
+	{/if}
+
 	<div class="listing_set list">
 		{foreach $listings as $id=>$listing}
 			{if $main_page_list_sub_template}

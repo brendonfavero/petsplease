@@ -15,5 +15,9 @@ class addon_ppPetSelector_info
 
 	public $tags = array (
 	);
+
+	public $core_events = array(
+		'Search_classifieds_generate_query',
+	);
 }
 ?>
