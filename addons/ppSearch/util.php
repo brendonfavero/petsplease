@@ -277,9 +277,8 @@ class addon_ppSearch_util extends addon_ppSearch_info
 			}
 		}
 		else {
-			// !! TODO: Warn that this location couldnt be found
+			// Location could not be found
 			$query->where('true = false');
-			echo 'ERROR: Invalid location entered<br>';
 			geoView::getInstance()->setBodyVar('invalid_location_entered', true);
 		}
 	}
