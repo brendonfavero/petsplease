@@ -70,6 +70,9 @@ class addon_ppPetSelector_admin extends addon_ppPetSelector_info
 					return;
 				}
 
+				// If you find that this section errors out without explanation it is probably
+				//  due to the file being sent being too big. We should try put a useful
+				//  error in here but not exactly sure how to go about that
 
 				$siteRoot = $_SERVER['DOCUMENT_ROOT'];
 				$uploads_url =  '/addons/ppPetSelector/images/';
