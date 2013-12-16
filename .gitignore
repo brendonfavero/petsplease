@@ -9,6 +9,8 @@ user_images
 
 config.php
 
+.project
+
 # Don't allow generated CSS files in our template to be added
 geo_templates/petsplease/external/css
 .sass-cache
