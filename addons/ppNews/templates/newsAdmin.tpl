@@ -1,4 +1,4 @@
-<link type="text/css" rel="stylesheet" href="jquery-ui/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/geo_templates/default_external/jquery-ui/jquery-ui.min.css" />
 <script type="text/javascript" src="/ps/jquery-1.9.1.min.js" ></script>
 <script>  jQuery.noConflict();	var $J = jQuery; </script>
 <script type="text/javascript" src="/js/jquery-ui.min.js" ></script>
