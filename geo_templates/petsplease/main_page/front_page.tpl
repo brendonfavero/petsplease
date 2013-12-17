@@ -152,52 +152,49 @@
 
 		<ul>
 			<li class="title">By Capital City</li>
-			<li><a href="{$location_url}&b[location]=Sydney, NSW 2000">Sydney</a></li>
-			<li><a href="{$location_url}&b[location]=Brisbane, QLD 4000">Brisbane</a></li>
-			<li><a href="{$location_url}&b[location]=Melbourne, VIC 3000">Melbourne</a></li>
-			<li><a href="{$location_url}&b[location]=Adelaide, SA 5000">Adelaide</a></li>
-			<li><a href="{$location_url}&b[location]=Perth, WA 6000">Perth</a></li>
-			<li><a href="{$location_url}&b[location]=Hobart, TAS 7000">Hobart</a></li>
-			<li><a href="{$location_url}&b[location]=Darwin, NT 800">Darwin</a></li>
-			<li><a href="{$location_url}&b[location]=Canberra, ACT 2600">Canberra</a></li>
+			<li><a href="{$location_url}&b[location]=Sydney,+NSW+2000">Sydney</a></li>
+			<li><a href="{$location_url}&b[location]=Brisbane,+QLD+4000">Brisbane</a></li>
+			<li><a href="{$location_url}&b[location]=Melbourne,+VIC+3000">Melbourne</a></li>
+			<li><a href="{$location_url}&b[location]=Adelaide,+SA+5000">Adelaide</a></li>
+			<li><a href="{$location_url}&b[location]=Perth,+WA+6000">Perth</a></li>
+			<li><a href="{$location_url}&b[location]=Hobart,+TAS+7000">Hobart</a></li>
+			<li><a href="{$location_url}&b[location]=Darwin,+NT+800">Darwin</a></li>
+			<li><a href="{$location_url}&b[location]=Canberra,+ACT+2600">Canberra</a></li>
 		</ul>
 
 		<ul class="float-li">
 			<li class="title" style="float:none">Other Major Towns</li>
-			<li>Orange</li>
-			<li>Townsville</li>
-			<li>Rockingham</li>
-			<li>Newcastle</li>
-			<li>Dubbo</li>
-			<li>Cairns</li>
-			<li>Mandurah</li>
-			<li>Central Coast</li>
-			<li>Lismore</li>
-			<li>Toowoomba</li>
-			<li>Bunbury</li>
-			<li>Wollongong</li>
-			<li>Bathurst</li>
-			<li>Rockhampton</li>
-			<li>Kalgoorlie</li>
-			<li>Albury</li>
-			<li>Coffs Harbour</li>
-			<li>Mackay</li>
-			<li>Geraldton</li>
-			<li>Maitland</li>
-			<li>Richmond</li>
-			<li>Bundaberg</li>
-			<li>Albany</li>
-			<li>Wagga Wagga</li>
-			<li>Nowra</li>
-			<li>Hervey Bay</li>
-			<li>Launceston</li>
-			<li>Port Macquarie</li>
-			<li>Gold Coast</li>
-			<li>Gladstone</li>
-			<li>Alice Springs</li>
-			<li>Tamworth</li>
-			<li>Sunshine Coast</li>
-			<li>Mount Gambier</li>
+			<li><a href="{$location_url}&b[location]=Orange, NSW 2800">Orange</li>
+			<li><a href="{$location_url}&b[location]=Townsville, QLD 4810">Townsville</li>
+			<li><a href="{$location_url}&b[location]=Rockingham">Rockingham</li>
+			<li><a href="{$location_url}&b[location]=Newcastle,+NSW+2300">Newcastle</li>
+			<li><a href="{$location_url}&b[location]=Dubbo,+NSW+2830">Dubbo</li>
+			<li><a href="{$location_url}&b[location]=Cairns,+QLD+4870">Cairns</li>
+			<li><a href="{$location_url}&b[location]=Mandurah,+WA+6210">Mandurah</li>
+			<li><a href="{$location_url}&b[location]=Lismore">Lismore</li>
+			<li><a href="{$location_url}&b[location]=Toowoomba,+QLD+4350">Toowoomba</li>
+			<li><a href="{$location_url}&b[location]=Bunbury,+SA+5266">Bunbury</li>
+			<li><a href="{$location_url}&b[location]=Wollongong,+NSW+2500">Wollongong</li>
+			<li><a href="{$location_url}&b[location]=Bathurst,+NSW+2795">Bathurst</li>
+			<li><a href="{$location_url}&b[location]=Rockhampton,+QLD+4700">Rockhampton</li>
+			<li><a href="{$location_url}&b[location]=Kalgoorlie,+WA+6430">Kalgoorlie</li>
+			<li><a href="{$location_url}&b[location]=Albury,+NSW+2640">Albury</li>
+			<li><a href="{$location_url}&b[location]=Coffs+Harbour,+NSW+2450">Coffs Harbour</li>
+			<li><a href="{$location_url}&b[location]=Mackay,+QLD+4740">Mackay</li>
+			<li><a href="{$location_url}&b[location]=Geraldton,+WA+6530">Geraldton</li>
+			<li><a href="{$location_url}&b[location]=Maitland">Maitland</li>
+			<li><a href="{$location_url}&b[location]=Richmond">Richmond</li>
+			<li><a href="{$location_url}&b[location]=Bundaberg,+QLD+4670">Bundaberg</li>
+			<li><a href="{$location_url}&b[location]=Albany,+WA+6330">Albany</li>
+			<li><a href="{$location_url}&b[location]=Wagga+Wagga,+NSW+2650">Wagga Wagga</li>
+			<li><a href="{$location_url}&b[location]=Nowra,+NSW+2541">Nowra</li>
+			<li><a href="{$location_url}&b[location]=Hervey+Bay,+QLD+4655">Hervey Bay</li>
+			<li><a href="{$location_url}&b[location]=Launceston,+TAS+7250">Launceston</li>
+			<li><a href="{$location_url}&b[location]=Port+Macquarie,+NSW+2444">Port Macquarie</li>
+			<li><a href="{$location_url}&b[location]=Gladstone">Gladstone</li>
+			<li><a href="{$location_url}&b[location]=Alice+Springs,+NT+870">Alice Springs</li>
+			<li><a href="{$location_url}&b[location]=Tamworth,+NSW+2340">Tamworth</li>
+			<li><a href="{$location_url}&b[location]=Mount+Gambier,+SA+5290">Mount Gambier</li>
 		</ul>
 	</div>
 
