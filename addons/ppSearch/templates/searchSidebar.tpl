@@ -123,7 +123,7 @@
 		</div>
 
 		<div id="search_adoption_container" class="check" data-showif="#search_subcategory=309,310" style="display:none">
-			<input type="checkbox" value="1" id="search_adoption" name="b[adoptable_only]">
+			<input type="checkbox" value="1" id="search_adoption" name="b[adoptable_only]"{if $search_parms.b.adoptable_only} checked="checked"{/if}>
 			<label for="search_adoption">Adoptable Pets Only</label>
 		</div>
 	{/if}
