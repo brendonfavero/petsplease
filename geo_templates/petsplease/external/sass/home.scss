@@ -15,12 +15,14 @@
 
 #homewelcome {
 	float: left;
+	position: relative;
 	background-color: $hotpink;
 	background-color: rgba(236,0,140,0.9);
 	color: white;
 	padding: $st_seperator $st_seperator 0;
 	margin: $st_seperator $st_seperator * 3;
 	width: 363px;
+	height: 304px;
 	font-size: 1.6em;
 
 	p {
@@ -34,6 +36,8 @@
 
 #homewelcome-buttons {
 	margin: $st_seperator (-$st_seperator) 0;
+	position: absolute;
+	bottom: 0;
 	@include buttonset-setwidth(411px, $st_seperator, 0, 1, 3);
 
 	a {
@@ -50,7 +54,7 @@
 
 #homesearch {
 	width: 353px;
-	height: 354px;
+	height: 280px;
 	float: left;
 	background-color: $bluegreen;
 	background-color: rgba(31,117,124,0.9);
