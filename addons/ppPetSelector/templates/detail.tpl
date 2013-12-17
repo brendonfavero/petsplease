@@ -40,14 +40,6 @@
 			{$detail.breed}
 		</h1>
 		<div class="content_box_1" style="padding:15px;">
-			{if $images}
-				<div class="petselector_images">
-					{foreach $images as $image}
-						<img src="{$image.image_url}">
-					{/foreach}
-				</div>
-			{/if}
-		
 			{if $detail.description neq ""}
 				<div class="field_set">
 					<span class="field_name">Description</span>
@@ -163,6 +155,14 @@
 							<div class="starrating" style="padding-right:{$detail.shedding * 20}%"></div>
 						</div>
 					</span>
+				</div>
+			{/if}
+
+			{if $images}
+				<div class="petselector_images">
+					{foreach $images as $image}
+						<img src="{$image.image_url}">
+					{/foreach}
 				</div>
 			{/if}
 		</div>
