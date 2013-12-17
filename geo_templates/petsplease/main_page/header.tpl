@@ -114,8 +114,11 @@
 			<a href="/index.php?a=19&c=318&b[subcategories_also]=1">Pet Services</a>
 		</li>
 
-		<li class="last">
+		<li>
 			<a href="/index.php?a=19&c=319&b[subcategories_also]=1">Pet Clubs</a>
+		</li>
+		<li class="last">
+			<a href="/index.php?a=ap&addon=ppNews">Pet Clubs</a>
 		</li>
 
 		<li><!-- 
