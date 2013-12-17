@@ -10,7 +10,8 @@ class addon_ppPetSelector_info
 	public $auth_tag = 'pp_addons';
 
 	public $pages = array(
-		'detail'
+		'detail',
+		'imageUploader'
 	);
 
 	public $tags = array (
