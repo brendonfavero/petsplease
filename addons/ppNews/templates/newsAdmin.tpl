@@ -1,9 +1,9 @@
-<link type="text/css" rel="stylesheet" href="/geo_templates/default_external/jquery-ui/jquery-ui.min.css" />
-<script type="text/javascript" src="/ps/jquery-1.9.1.min.js" ></script>
+<link type="text/css" rel="stylesheet" href="/geo_templates/default/external/jquery-ui/jquery-ui.min.css" />
+<script type="text/javascript" src="/js/jquery.min.js" ></script>
 <script>  jQuery.noConflict();	var $J = jQuery; </script>
 <script type="text/javascript" src="/js/jquery-ui.min.js" ></script>
-<script type="text/javascript" src="scripts/aAdmin.js"></script>
-<script type="text/javascript" src="scripts/tiny_mce/jquery.tinymce.js" ></script>
+<script type="text/javascript" src="{$pathAddon}/scripts/aAdmin.js"></script>
+<script type="text/javascript" src="{$pathAddon}/scripts/tiny_mce/jquery.tinymce.js" ></script>
 
 {literal}
 	<style>
