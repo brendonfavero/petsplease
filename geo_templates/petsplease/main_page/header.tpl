@@ -103,7 +103,7 @@
 		</li>
 
 		<li>
-			<a href="/index.php?a=19&c=411&b[subcategories_also]=1">Pet Friendly Accomodation</a>
+			<a href="/index.php?a=19&c=411&b[subcategories_also]=1" class="large">Pet Friendly Accomodation</a>
 		</li>
 
 		<li>

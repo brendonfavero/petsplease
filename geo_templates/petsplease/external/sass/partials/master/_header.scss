@@ -133,7 +133,7 @@ header.page {
 /** Main Page Navigation **/
 #header-nav {
 	font-size: 1.3em;
-	@include buttonset-setwidth(1052px, $st_seperator / 2, 0, 0, 7);
+	// @include buttonset-setwidth(1052px, $st_seperator / 2, 0, 0, 8);
 
 	li {
 		margin-right: 0;
@@ -142,8 +142,9 @@ header.page {
 	a {
 		color: white;
 		line-height: 1;
-		padding: ($st_seperator / 4) ($st_seperator / 4);
+		padding: ($st_seperator / 4) 0;
 		background-color: $navyblue;
+		width: 124px;
 		
 		@include background-image(linear-gradient(#3e7195, #3E4095));
 
@@ -151,6 +152,14 @@ header.page {
 			background-color: $bluegreen;
 			background-image: none;
 		}
+
+		&.large {
+			width: 182px;
+		}
+	}
+
+	li.last a {
+		width: 126px;
 	}
 }
 
