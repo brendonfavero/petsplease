@@ -1,5 +1,5 @@
 <link type="text/css" rel="stylesheet" href="/geo_templates/default/external/jquery-ui/jquery-ui.min.css" />
-<script type="text/javascript" src="/js/jquery.min.js" ></script>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js" ></script>
 <script>  jQuery.noConflict();	var $J = jQuery; </script>
 <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js" ></script>
 <script type="text/javascript" src="{$pathAddon}/scripts/aAdmin.js"></script>
