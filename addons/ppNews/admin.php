@@ -10,7 +10,7 @@ class addon_ppNews_admin
 	
 	public function init_pages ()
 	{		
-		menu_page::addonAddPage('addon_ppNews_tabs','','Manage','ppNews');				
+		menu_page::addonAddPage('addon_ppNews_news','','Manage','ppNews');				
 	}
 	
 
