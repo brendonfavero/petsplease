@@ -25,7 +25,7 @@ class addon_ppNews_pages extends addon_ppNews_info
 		if( $_REQUEST['article'] && intval($_REQUEST['article']) > 0 ) {
 			$articleId = intval($_REQUEST['article']);
 			$article = array();
-			$articleResult = $db->Execute("SELECT * FROM `ampse_addon_custom_news` WHERE `id` = '{$articleId}'");
+			$articleResult = $db->Execute("SELECT * FROM `petsplease_news` WHERE `id` = '{$articleId}'");
 			if( !$articleResult || !$articleResult->RecordCount() > 0 || $article != $articleResult->FetchRow() ) {
 				$status[] = "We can't find that article. Did you click on the link from our <a href='/news'>news</a> page?";
 			}
