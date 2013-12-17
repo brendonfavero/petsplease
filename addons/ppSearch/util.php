@@ -161,6 +161,14 @@ class addon_ppSearch_util extends addon_ppSearch_info
 			$query->where("EXISTS ($subQueryBreed1)");
 			$query->where("NOT EXISTS ($subQueryBreed2)");
 		}
+		
+		$adobtable_criteria = $searchClass->search_criteria["adoptable_only"];
+		if ($adobtable_criteria) {
+			
+			$sql = "SELECT 1 from geodesic_classifieds as shelters where shelters.category = 420 and shelters.seller = $classTable.seller";
+			$query->where("EXISTS ($sql)");
+			 
+		}
 
 		$this->handleLocationSearch(&$searchClass->search_criteria, &$query);
 	}
