@@ -10,7 +10,7 @@ class addon_ppNews_admin
 	
 	public function init_pages ()
 	{		
-		menu_page::addonAddPage('addon_ppNews_tabs','','Manage','ppNews');				
+		menu_page::addonAddPage('addon_ppNews_news','','Manage','ppNews');				
 	}
 	
 
@@ -42,7 +42,7 @@ class addon_ppNews_admin
 		
 		// handle actions
 		if( isset($_POST['create']) ){
-			$insertResult = $db->Execute("INSERT INTO `ampse_addon_custom_news` (`label`, `order`, `created`, `modified`, `status`) VALUES ('Untitled News Article', 9999, '" . time() . "', '" . time() . "', 0)");	
+			$insertResult = $db->Execute("INSERT INTO `petsplease_news` (`label`, `order`, `created`, `modified`, `status`) VALUES ('Untitled News Article', 9999, '" . time() . "', '" . time() . "', 0)");	
 			if( $insertResult ) {
 				echo $db->Insert_ID();
 			}
@@ -53,7 +53,7 @@ class addon_ppNews_admin
 		if( isset($_POST['update']) ){
 			$id = intval($_POST['update']);
 			$time = time();
-			$columnsResult = $db->Execute("DESCRIBE `ampse_addon_custom_news`");
+			$columnsResult = $db->Execute("DESCRIBE `petsplease_news`");
 			$result = array('success' => 0, 'status' => '', 'data' => array() );
 			if( $columnsResult ) {
 				$columns = $columnsResult->GetArray();
@@ -65,7 +65,7 @@ class addon_ppNews_admin
 						$values[$column['Field']] = $_POST[$column['Field']];
 					}									
 				}
-				$sql = 	"UPDATE `ampse_addon_custom_news` SET " . implode(", ",$keys) . " WHERE `id` = '" . $id . "'";
+				$sql = 	"UPDATE `petsplease_news` SET " . implode(", ",$keys) . " WHERE `id` = '" . $id . "'";
 				$updateResult = $db->Execute($sql, $values);
 				if( $updateResult ) {
 					$result['success'] = 1;
@@ -85,7 +85,7 @@ class addon_ppNews_admin
 			$ids = explode(',',$_POST['order']);
 			$order = 0;
 			foreach( $ids as $id) {
-				$db->Execute( "UPDATE `ampse_addon_custom_news` SET `order` = '" . $order . "' WHERE `id` = '" . $id . "'");
+				$db->Execute( "UPDATE `petsplease_news` SET `order` = '" . $order . "' WHERE `id` = '" . $id . "'");
 				$order++;
 			}
 			echo 1;
@@ -94,7 +94,7 @@ class addon_ppNews_admin
 		
 		if( isset($_POST['delete']) ) {
 			$id = intval( $_POST['delete'] );
-			$deleteResult = $db->Execute( sprintf( "UPDATE `ampse_addon_custom_news` SET `status` = '-1' WHERE `id` = '%d'",
+			$deleteResult = $db->Execute( sprintf( "UPDATE `petsplease_news` SET `status` = '-1' WHERE `id` = '%d'",
 												  $_POST['delete'] ));
 			if( $deleteResult ) {
 				echo "1";	
@@ -106,7 +106,7 @@ class addon_ppNews_admin
 		
 		// get  tabs
 		$vars['tabs'] = array();
-		$tabsResult = $db->Execute('SELECT * FROM `ampse_addon_custom_news` WHERE `status` >= 0 ORDER BY `order`');
+		$tabsResult = $db->Execute('SELECT * FROM `petsplease_news` WHERE `status` >= 0 ORDER BY `order`');
 		if( $tabsResult ) {
 			$vars['tabs'] = $tabsResult->GetArray();
 		}		

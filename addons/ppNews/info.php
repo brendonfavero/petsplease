@@ -16,7 +16,9 @@ class addon_ppNews_info
 	public $author = "Ardex Technology";
 	public $description = 'Pets Please News';
 	public $auth_tag = 'pp_addons';
-		
+	
+	var $tags = array ('latestList', 'latest');
+	
 	var $pages = array( 'latestFeed', 'news' );
 
 	
