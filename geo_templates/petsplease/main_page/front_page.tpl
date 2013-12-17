@@ -135,29 +135,31 @@
 	</div>
 
 	<div class="footer-quicklinks clearfix">
+		{assign "location_url" "{$search_url}&c=308&b[location_distance]=50"}
+
 		<h2>Quick Pet Location</h2>
 		<ul>
 			<li class="title">By State</li>
-			<li>New South Wales</li>
-			<li>Queensland</li>
-			<li>Victoria</li>
-			<li>South Australia</li>
-			<li>Western Australia</li>
-			<li>Tasmania</li>
-			<li>Northern Territory</li>
-			<li>Australian Capital Territory</li>
+			<li><a href="{$location_url}&b[location]=NSW">New South Wales</a></li>
+			<li><a href="{$location_url}&b[location]=QLD">Queensland</a></li>
+			<li><a href="{$location_url}&b[location]=VIC">Victoria</a></li>
+			<li><a href="{$location_url}&b[location]=SA">South Australia</a></li>
+			<li><a href="{$location_url}&b[location]=WA">Western Australia</a></li>
+			<li><a href="{$location_url}&b[location]=TAS">Tasmania</a></li>
+			<li><a href="{$location_url}&b[location]=NT">Northern Territory</a></li>
+			<li><a href="{$location_url}&b[location]=ACT">Australian Capital Territory</a></li>
 		</ul>
 
 		<ul>
 			<li class="title">By Capital City</li>
-			<li>Sydney</li>
-			<li>Brisbane</li>
-			<li>Melbourne</li>
-			<li>Adelaide</li>
-			<li>Perth</li>
-			<li>Hobart</li>
-			<li>Darwin</li>
-			<li>Canberra</li>
+			<li><a href="{$location_url}&b[location]=Sydney, NSW 2000">Sydney</a></li>
+			<li><a href="{$location_url}&b[location]=Brisbane, QLD 4000">Brisbane</a></li>
+			<li><a href="{$location_url}&b[location]=Melbourne, VIC 3000">Melbourne</a></li>
+			<li><a href="{$location_url}&b[location]=Adelaide, SA 5000">Adelaide</a></li>
+			<li><a href="{$location_url}&b[location]=Perth, WA 6000">Perth</a></li>
+			<li><a href="{$location_url}&b[location]=Hobart, TAS 7000">Hobart</a></li>
+			<li><a href="{$location_url}&b[location]=Darwin, NT 800">Darwin</a></li>
+			<li><a href="{$location_url}&b[location]=Canberra, ACT 2600">Canberra</a></li>
 		</ul>
 
 		<ul class="float-li">
