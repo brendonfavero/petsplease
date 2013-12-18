@@ -31,4 +31,4 @@ CKEDITOR.editorConfig = function( config )
 ];
 
 };
-CKEDITOR.plugins.addExternal('mediaembed', '/addons/ampseCustom/lib/ckeditor/plugins/mediaembed/')
+CKEDITOR.plugins.addExternal('mediaembed', '/addons/ppNews/lib/ckeditor/plugins/mediaembed/')
