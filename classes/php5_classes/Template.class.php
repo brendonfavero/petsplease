@@ -1093,7 +1093,7 @@ class geoTemplate extends Smarty {
 			return ($emptyOnFailure)? '' : $g_resource.$filename;
 		}
 		$filename=self::cleanFilename($filename);
-		return GEO_TEMPLATE_URL . "$t_set/" . self::EXTERNAL . "/{$g_resource}$filename";
+		return '/' . GEO_TEMPLATE_URL . "$t_set/" . self::EXTERNAL . "/{$g_resource}$filename";
 	}
 	
 	/**
