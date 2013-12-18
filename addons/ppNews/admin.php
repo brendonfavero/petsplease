@@ -357,6 +357,32 @@ class addon_ppNews_admin
 			return false;
 		}
 	}
+
+function filename_generator($filename, $prefix = "", $length = -1) {
+		$chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+		srand((double)microtime()*1000000);
+		$i = 0;
+		$rand = '' ;
+		// IF $length isn't specified, pick a number between 4 and 8.
+		if($length == -1 ) {
+			$length = rand(4,8);
+		}
+
+		// Build random string $rand
+		while ($i <= ($length - 1 )) {
+			$num = rand() % 33;
+			$tmp = substr($chars, $num, 1);
+			$rand = $rand . $tmp;
+			$i++;
+		}
+
+		// Explode extension and add prefix and random string then return imploded result
+		$filenameB = explode(".", $filename);
+		if($prefix != "") { $prefix = "_" . $prefix;}
+		$filenameB[count($filenameB)-2] .= $prefix . (($rand == "") ? "" : "_") . $rand;
+
+		return implode(".", $filenameB );
+	}
 	
 	
 
