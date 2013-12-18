@@ -167,33 +167,17 @@ class addon_ppNews_pages extends addon_ppNews_info
 
 			$v['mode'] = 'search'; 
 			$v['searchQuery'] = $searchQuery;
-
-			if (isset($_REQUEST['searchcat']) && $_REQUEST['searchcat']==49)  {
-				$sql = sprintf("SELECT SQL_CALC_FOUND_ROWS `n`.*, `c`.`hash` as `category_hash`, `c`.`label` as `category_label`, 
-				MATCH (`n`.heading, `n`.stripedarticle) AGAINST ('%s' IN BOOLEAN MODE) AS relevance FROM `petsplease_news` as `n`
-									LEFT JOIN `petsplease_news_categories` as `c`
-									ON `n`.`category` = `c`.`id`
-									 WHERE `n`.`status` = '1' AND MATCH (heading, stripedarticle) AGAINST ('%s' IN BOOLEAN MODE)
-									 AND `n`.`category` = 49
-									 ORDER BY relevance DESC, `n`.`published` DESC, `n`.`created` DESC LIMIT %d, %d",
-												$searchQuery,
-												$searchQuery,
-												($page < 1) ? 0 : ($page - 1) * $pageLength,
-												$pageLength );
-				$v['currentCategory'] = 49;
-			}
-			else {
-				$sql = sprintf("SELECT SQL_CALC_FOUND_ROWS `n`.*, `c`.`hash` as `category_hash`, `c`.`label` as `category_label`, 
-				MATCH (`n`.heading, `n`.stripedarticle) AGAINST ('%s' IN BOOLEAN MODE) AS relevance FROM `petsplease_news` as `n`
-									LEFT JOIN `petsplease_news_categories` as `c`
-									ON `n`.`category` = `c`.`id`
-									 WHERE `n`.`status` = '1' AND MATCH (heading, stripedarticle) AGAINST ('%s' IN BOOLEAN MODE)
-									 ORDER BY relevance DESC, `n`.`published` DESC, `n`.`created` DESC LIMIT %d, %d",
-												$searchQuery,
-												$searchQuery,
-												($page < 1) ? 0 : ($page - 1) * $pageLength,
-												$pageLength );
-			}
+			
+			$sql = sprintf("SELECT SQL_CALC_FOUND_ROWS `n`.*, `c`.`hash` as `category_hash`, `c`.`label` as `category_label`, 
+			MATCH (`n`.heading, `n`.stripedarticle) AGAINST ('%s' IN BOOLEAN MODE) AS relevance FROM `petsplease_news` as `n`
+								LEFT JOIN `petsplease_news_categories` as `c`
+								ON `n`.`category` = `c`.`id`
+								 WHERE `n`.`status` = '1' AND MATCH (heading, stripedarticle) AGAINST ('%s' IN BOOLEAN MODE)
+								 ORDER BY relevance DESC, `n`.`published` DESC, `n`.`created` DESC LIMIT %d, %d",
+											$searchQuery,
+											$searchQuery,
+											($page < 1) ? 0 : ($page - 1) * $pageLength,
+											$pageLength );
 			$articlesResult = $db->Execute($sql);
 			if( $articlesResult && $articlesResult->RecordCount() > 0 ) {
 				$v['data'] = $articlesResult->GetArray();

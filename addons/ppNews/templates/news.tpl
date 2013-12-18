@@ -164,9 +164,9 @@
     		</h4>
     		 <div class="psContentBoxBody">
 	    	<form action="/index.php?a=ap&addon=ppNews&page=news" method="get">
-	    		<!--<input type="hidden" name="a" value="ap" />
+	    		<input type="hidden" name="a" value="ap" />
 	    		<input type="hidden" name="addon" value="ppNews" />
-	    		<input type="hidden" name="page" value="news" />-->
+	    		<input type="hidden" name="page" value="news" />
 
 			    <input type="text" placeholder="Search" name="search" value="{$searchQuery}" style="width:206px; margin:10px 0 13px" />
 			    <button>Search</button>
