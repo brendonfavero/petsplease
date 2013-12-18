@@ -1,7 +1,7 @@
 $J(document).ready(function() {
 
 	$J.ajax({
-		url: 'http://www.horsezone.com.au/index.php?a=ap&addon=ppNews&page=twitter_feed',
+		url: 'http://www.horsezone.com.au/index.php?a=ap&addon=ampseNews&page=twitter_feed',
 		dataType: 'json',
 		success: function(data) {
 			var content = "";

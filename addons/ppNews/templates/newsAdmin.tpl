@@ -1,6 +1,12 @@
+<<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" ></script>
+<script>  jQuery.noConflict();	var $J = jQuery; </script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js" ></script>
+<script type="text/javascript" src="{$pathAddon}/scripts/aAdmin.js"></script>
+<script type="text/javascript" src="{$pathAddon}/lib/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="{$pathAddon}/lib/ckeditor/adapters/jquery.js"></script>
+<script type="text/javascript" src="{$pathAddon}/scripts/plupload/plupload.full.js"></script>
 <link type="text/css" rel="stylesheet" href="/geo_templates/default/external/jquery-ui/jquery-ui.min.css" />
 <script type="text/javascript" src="/js/jquery-1.9.1.min.js" ></script>
-<script>  jQuery.noConflict();	var $J = jQuery; </script>
 <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js" ></script>
 <script type="text/javascript" src="{$pathAddon}/scripts/aAdmin.js"></script>
 <script type="text/javascript" src="{$pathAddon}/scripts/tiny_mce/jquery.tinymce.js" ></script>
@@ -15,146 +21,331 @@
 		#aHeader button.add {
 			float:right;	
 		}
-		#news {
-			margin-top:10px;	
-			max-width:1050px;
+		
+		
+		div.fieldset {
+			margin:15px 0px 5px 0px;
+			padding:5px;
+			border:1px solid #AAA;
+			background:#FFF;
+			border-radius:5px;
+			-moz-border-radius:5px;
+			-webkit-border-radius:5px;	
 		}
-		#news .controls {
-			float:right;	
-		}
-		#news .controls .ui-button {
-			float:right;
-			border:1px solid #666;
-			margin:4px 0px 4px 8px;
-		}
-		#news .controls .update {
-			border-color:#393;	
-		}
-		#news .controls .delete {
-			border-color:#900;	
-		}
-		#news .control {
-			float:right;
-			padding:7px 10px 5px 5px;
-		}
-		#news div.toolbox {
-			float:right;
-			margin-top:10px;
-		}
-		#news div.toolbox a {
-			margin:3px;
-		}	
-		#news li input {
-			border:0px;
-			margin:-3px 1px 1px -4px;
-			padding:2px 0px 2px 4px;
-			background:none;
-			min-width:
-		}
-		#news li.ui-news-selected input {			
-
-		}
-		#news li.ui-news-selected input:hover {
-			margin:-3px 0 0 -4px;
-			background:none;
-			-webkit-box-shadow: rgba(0, 0, 0, 0.199219) 0px 1px 4px inset;
-			border: 1px solid #AAA;
-			border-radius: 3px 3px 3px 3px;
-			-moz-border-radius: 3px 3px 3px 3px;
-			-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.2) inset;
-		}
-		#statusSaving, #statusDeleting, #statusCreating {
-			color: #fff;
-			display:none;
-			padding:3px 18px 0px 0px;
-			margin-right:5px;
-			/* - {/literal} */
-			background: url( '{$pathAddon}/images/icons/working.gif' ) no-repeat right 2px transparent;
-			/* - {literal} - */
-		}
-
-		.stats {
-			padding:0px 0px 5px 5px;	
-		}
-		.stat {
-			font-size:10px;
+		div.fieldset div.legend {
 			float:left;
-			margin-right:15px;
-			padding-top:17px;
+			margin-top:-14px;
+			height:16px;
+			line-height:16px;
+			margin-left:-10px;
+			background:#DDD;
+			border:1px solid #AAA;
+			border-radius:3px;
+			-moz-border-radius:3px;
+			-webkit-border-radius:3px;	
+			padding:0px 10px;	
+			-moz-box-shadow: 1px 1px 3px #ccc;
+		  -webkit-box-shadow: 1px 1px 3px #ccc;
+		  box-shadow: 1px 1px 3px #ccc;
 		}
-		.stats .title {
+	
+    div.fieldset.half {
+      float:left;
+      margin-right: 2%;
+      width:45%;
+    }
+		/* new */
+		
+		 #ampse_container {
+			padding-left:200px;    
+			font-family:Arial;
+		}
+			
+			#ampse_categories {
+				float:left;
+				margin-left:-200px; 
+			}
+				#ampse_categories h2 {
+					text-align:center;
+					color:#444;
+					margin:0px;
+					padding:5px;
+					/* text-shadow: #AAA 1px 1px; */
+				}
+				#ampse_categories .toolbox {
+				  clear:both;
+				  border-top:1px solid #CCC;	
+				  margin-left:-5px;
+				}
+				#ampse_categories .toolbox button {
+					width:48px;
+					border:none;
+					background:none;
+				}
+				#ampse_categories .toolbox button:hover {
+					width:48px;
+					border:none;
+					background:#BBB;
+					cursor:pointer;
+				}
+				#ampse_categories .status > div{
+				  text-align:center;
+				  font-family:"Monaco", "Courier New", Courier, monospace;
+				  font-size:10px;
+				  padding:2px;
+				}
+				#ampse_categories ul {
+					list-style:none;  
+					padding:0px;
+					margin:0;
+					width:200px;
+				}
+				#ampse_categories ul li {
+					font-size:1em;
+					padding:5px 4px;
+					cursor:pointer;
+					border:1px solid #FFF;
+					border-right:none;
+				}
+				#ampse_categories ul li.ui-state-active {
+					border:1px solid #CCC;
+					border-right:none;	
+				}
+				#ampse_categories ul li.ui-state.hightlight {
+					border:1px solid #C60;
+					background:#FC6;	
+				}
+			
+				#ampse_categories ul li:first-child {
+					border-top:none;
+				}
+				#ampse_categories ul span.current {
+					display:none;  
+				}
+				#ampse_categories ul li.current {
+					background:#DDD;
+					color:#333;
+					font-weight:bold;
+					-webkit-border-top-left-radius: 5px;
+					-webkit-border-bottom-left-radius: 5px;
+					-moz-border-radius-topleft: 5px;
+					-moz-border-radius-bottomleft: 5px;
+					border-top-left-radius: 5px;
+					border-bottom-left-radius: 5px;
+				}
+				#ampse_categories ul li.current span.current {
+					float:right;
+					font-size:28px;
+					color:#FFF;
+					font-weight:bold;
+					display:block;
+					line-height:6px;
+				}
+			#ampse_articles {
+					border:4px solid #DDD;
+				-moz-border-radius:5px;
+				-webkit-border-radius:5px;
+				min-height:400px;
+				background:#F5F5F5;
+			}
+			#ampse_articles h2 {
+					background:#DDD;
+					text-align:center;
+					color:#666;
+					margin:0px;
+					padding:5px;
+					text-shadow: #333 1px 1px;
+					border-bottom:1px solid #AAA;
+				}
+				#ampse_articles h2 .toolbox {
+				  float:right;	
+				}
+			#ampse_articles div.article {
+				border:1px solid #f4cd92;
+				background-color:#FFF;
+				height:30px;
+				padding-left:40px;
+				margin:4px 4px 8px 4px;
+				-moz-border-radius:5px;
+				-webkit-border-radius:5px;
+			}
+			#ampse_articles div.article.pending {
+			  background-color: #f2e7d6;
+			}
+			#ampse_articles div.article.highlight {
+				background:#39F;
+				border-color:#C00;
+			}
+				#ampse_articles div.article h3 {
+				   margin:2px 0px 2px 0px;
+				   padding:0px;
+				   height:1.2em;
+				   overflow:hidden;	
+				   font-size:1em;
+				}
+				#ampse_articles div.article .preview {
+					float:right;
+					color:#777;
+					font-size:15px;	
+					text-decoration:none;
+					margin:5px;
+				}
+				#ampse_articles div.article .handle {
+					border-right:1px solid #FF9900;
+					background: #eed4ae;
+					color:#e1ba82;
+					width:30px;
+					margin-left:-40px;
+					height:30px;
+					float:left;
+					font-size:26px;
+					color:d78203;
+					text-shadow:#e09422 -1px 1px;
+					text-align:center;
+					cursor:move;
+				}
+				#ampse_articles div.article .created, #ampse_articles div.article .published {
+				    float:left; 
+					font-size:10px;
+					 font-family:"Monaco", "Courier New", Courier, monospace;
+					 margin-right:10px;
+					 margin-left:5px;
+				}
+
+		form .formTile {
+			width:204px;
+			float:left;	
+			text-align:right;
+			line-height:1.9em;
+			height:30px;
+		}
+		form .formTile label {
+			margin-left:5px;	
 			font-weight:bold;
-			float:left;
-			margin-right:5px;
 		}
-		.stats .content {
-			font-style:italic;
-			float:left;
+		form .formTile input[type=text] {
+			width:120px;
+			border:1px solid #AAA;
+			border-radius:3px;
+			-moz-border-radius:3px;
+			-webkit-border-radius:3px;	
 		}
+		form .formTile input[name="publish"] {
+			width: 65px;
+		}
+		form .formRow {
+			padding:5px;
+			border:1px solid #999;	
+			border-radius:5px;
+			-moz-border-radius:5px;
+			-webkit-border-radius:5px;	
+			font-size:1.5em;
+			margin:5px 0px;
+		}
+    form .formColumn {
+      width:48%;
+      padding:1%;
+      float:left;
+    }
+		form .formRow input[type=text] {
+			background:none;
+			border:none;
+			width:75%;
+			color:#444;
+			margin-left:20px;
+			margin-bottom:1px;
+		}
+		form .formRow input[type=text]:focus {
+			outline:none;
+			border-bottom:1px solid #AAA;
+			margin-bottom:0px;
+			background:#F9F9F9;	
+		}
+		form textarea.mce {
+			width:100%;
+			height:300px;	
+		}
+		#fileList {
+      list-style:none;
+      margin:0; padding:0;
+    }
+    #fileList li {
+      display:block;
+      margin:5px; padding:8px;
+      background:#EEE;
+      clear:left;
+    }
+    #fileList li .fileRemove {
+      color: #777;
+      font-weight:bold;
+      float:right;
+      display:block;
+      cursor: pointer;
+    }
+    #fileList li .fileRemove:hover {
+      color:#333;
+    }
+		#newsAddEditDialog .instructions {
+			padding:5px 0px; 
+			font-size:.8em;	
+		}
+		.code {
+			font-family: Monaco, "Courier New", Courier, monospace	;
+		}
+		.ui-datepicker-calendar {
+			background: #FFF;	
+		}
+
+		
     </style>
 {/literal}	
-<div id="aHeader">
-	<button class="add">Add New Article</button>
-	<h2>articles</h2>
-</div>
-<div id="news">
-	<div class="toolbox">
-        <div id="statusSaving"  > Saving </div>
-        <div id="statusDeleting"> Deleting </div>
-        <div id="statusCreating"> Creating </div>
-    	<!-- <a href="#new"><img src="{$pathAddon}/images/icons/medium/Add.png" /></a> -->
-    </div>
-    <ul id="articleBar">  
-       	{foreach from=$news item=article}
-        	<li id="article-{$article.id}"><a href="#news-{$article.id}">{$article.label}</a></li>
 
-        {/foreach}
-	</ul>
+<div id="ampse_container">
+
+	<div id="ampse_categories">
+		<h2>CATEGORIES</h2>
+        <ul>
+        	<li>Unfiled<input type="hidden" name="id" value="0" /></li>
+        	{foreach from=$categories item=category}
+            	<li>{$category.label}<input type="hidden" name="id" value="{$category.id}" /></li>
+            {/foreach}
+        </ul>
+        <div class="toolbox">
+        	<button name="add">Add</button><button name="edit">Edit</button><button name="delete">Delete</button><button name="order">Sort</button>
+        </div>
+        <div class="status">
+        	
+        </div>
+	</div>
     
-    {foreach from=$news item=article}
-        <div id="news-{$article.id}">
-            <div class="controls">
-            	<button class="update">Save Changes</button>
-                <button class="delete">Delete</button>
-                <div class="control">
-                	<input name="status" type="checkbox"  autocomplete="off" {if $article.status == 1}checked='true' {/if} /> Enabled
-                </div>
-                
-            </div>
-            <div class="stats">
-                <div class="stat created">
-                    <div class="title">Created On:</div>
-                    <div class="content">{$article.created|date_format:"%A, %B %e, %Y at %T"}</div>
-                </div>
-                <div class="stat modified">
-                    <div class="title">Last Modified On:</div>
-                    <div class="content">{$article.modified|date_format:"%A, %B %e, %Y at %T"}</div>
-                </div>
-            </div>
-            <br clear="all" />
-            
-            <textarea autocomplete="off" style="width:100%;height:400px;">{$article.data}</textarea>            
-            
-         </div>
+    
+	<div id="ampse_articles">
+     	<h2><span class="toolbox"><button name="add">Add</button></span>ARTICLES</h2>
+    	         
 
-    {/foreach}
-</div>
-
-<div class="instructions">
-	<ul>
-    	<li>To edit a article's label, double-click the article.</li>
-        <li>Drag and drop the news to re-order them</li>
-    </ul>
+    	<div id="ampse_articlesStatus">
+    	
+        </div>
+        
+        <div class="content">
+        
+        </div>
+       
+    </div>
+	
+    
+    
+	
 </div>
 
 {* templates *}
 <div style="display:none;">
-	<div id="articleContentTemplate">
+	<div id="tabContentTemplate">
             <div class="controls">
             	<button class="update">Save Changes</button>
                 <button class="delete">Delete</button>
                  <div class="control">
-                	<input name="status" type="checkbox"  autocomplete="off" {if $article.status == 1}checked='true' {/if} /> Enabled
+                	<input name="status" type="checkbox"  autocomplete="off" {if $tab.status == 1}checked='true' {/if} /> Enabled
                 </div>
             </div>
             <div class="stats">
@@ -175,13 +366,82 @@
 </div>
 
 {* dialogs *}
-<div id="aLoading">
-  <p align="center">Loading...</p>
-</div>	
+<div style="display:none;">
+	<div id="newsAddEditDialog" title="Format Article">
+    	<form>               
+            <div class="formRow">
+                Heading <input name="heading" type="text" />
+            </div>
+                
+            
+            
+            <textarea class="mce" name="raw"></textarea>
+            <div class="insructions">
+            	<p>The first portion of the article will be used automatically for preview. To specifcy an text block to use, surround it with the text <span class="code">[PREVIEW]</span> and <span class="code">[/PREVIEW]</span>. For example, the text "We have posted [PREVIEW]a new news article for you![/PREVIEW] Check it out!" will place "a new news article for you!" as the preview/leading text. If <span class="code">[PREVIEW]</span> is omitted, the begging of the article will be assumed.</p>
+                <p>The first image found will be used as the preview image. If you require a different image article be used, add the word "preview" to it's <i>Stylesheet Classes</i> option under the advanced tab of the image's properties. If you require that the image be used for preview, but NOT displayed in the article, add this text to the end of the <i>Style</i> option: <span class="code">display:none;</span></p>
+                <p>You can also use the thumbnail image by appending <span class="code">_tn</span> to the file name. (e.g. image_name.jpg becomes images_name_tn.jpg ) </p>
+                <p><a href="/ampse/training/newsAdmin.mov" target="training" onclick="alert('Upload pending');return false;">Or watch a video tutorial of how to operate this section</a></p>
+            </div>
+            
+      
+            <div class="fieldset half">
+            	<div class="legend">Options</div><br clear="left" />
+                <div class="formTile">
+                	<label>Publish <input type="text" name="publish" class="datePicker" /><input name="published" type="hidden" class="datePickerAlt" /></label> at 
+					
+					<select name="publishedtime">
+						{foreach from=$times item=time key=val}
+							<option value="{$val}">{$time}</option>
+						{/foreach}
+					</select>					
+                </div>
+                <div class="formTile">
+                	<label>Enabled <input type="radio" name="status" value="1" /></label>
+                    <label>Disabled <input type="radio" name="status" value="0" /></label>
+                </div>
+                <div class="formTile">
+                	Comments? 
+                    <label>Yes <input type="radio" name="comments" value="1" /></label>
+                    <label>No <input type="radio" name="comments" value="0" /></label>
+                     
+                </div>
+				<div class="formTile">
+                	Comments? 
+                    <label>Yes <input type="radio" name="comments" value="1" /></label>
+                    <label>No <input type="radio" name="comments" value="0" /></label>
+                     
+                </div>
+				<div class="formTile">
+                	Locale
+					<select name="locale">
+						<option value="0" selected="selected">ALL</option>
+						<option value="1">AU</option>
+						<option value="2">NZ</option>
+					</select>
+                </div>
+                <br clear="all" />
+            </div>
+            <input type="hidden" name="id" />
+          <div class="fieldset half">
+            	<div class="legend">Manage PDFs</div><br clear="left" />
+            <div id="fileContainer">
+                 <div id="filePending"></div>
+                 <button id="filePick">Select File(s)</button>
+                 <button id="fileUpload">Upload</button>
+                <h2>Attached PDFs</h2>
+                <ul id="fileList"></ul>
+            </div>
+            <br clear="all" />
+          </div>
+        </form>
+    </div>
+</div>
+
 
 
 
 {$status}
+
 <script>
 
 var svrStatus = '{$status}';
@@ -189,192 +449,522 @@ var svrUrl = '{$url}';
 var svrAddonUrl = '{$pathAddon}';
 	
 // {literal}	
-	ampse.news = { 
-					messages:{
-						deleteWarning: "Are you sure you want to delete this article?"		
-					}
-				 }; 
+	ampse.articles = { 
+		messages:{
+			deleteWarning: "Are you sure you want to delete this article?"		
+		}
+	 }; 
+	ampse.categories = {
+		messages: {
+			deleteWarning: "Are you sure you want to delete this category?",	
+		}
+	};
 				 
+				 
+	(function($){ 
 	
-	$J(function() {
-		ampse.generateCache(['news', 'articleBar', 'aLoading', 'statusSaving', 'statusDeleting', 'statusCreating']);
-		ampse.news.createEvents();	
-		ampse.cache.aLoading.dialog({
-			autoOpen: false,
-			hide: 'puff',
-			modal:true
+		
+		var $categories, $categoriesToolbox, $categoriesStatus,
+			$articlesStatus, $articles;
+			
+		
+		$(document).ready(function() {
+			// generate cache
+			$categories = $('#ampse_categories ul');
+			$categoriesToolbox = $('#ampse_categories .toolbox');
+			$categoriesStatus = $('#ampse_categories .status');
+			$articles = $('#ampse_articles .content');
+			$articlesStatus = $('#ampse_articlesStatus');
+			ampse.categories.initEvents();
+			ampse.articles.initEvents();
+			
+			$categories.find('li:first').click();
 		});
-		ampse.cache.articleBar
-			.sortable({
-				update: ampse.news.save	,
-				items: 'li',
-				containment: 'parent'
-			});
+		ampse.app = {};
+		ampse.app.com = function(data, callback, type) {
+			if ( type === undefined ){
+				 type = 'json';
+			}
+			$.post( svrUrl, data, callback, type );	
+		}
 		
-		ampse.cache.news.find('textarea').tinymce({
-				// General options
-				script_url: svrAddonUrl + '/scripts/tiny_mce/tiny_mce_gzip.php',
-				theme : "advanced",
-				plugins : "safari,style,layer,articlele,save,advhr,advimage,advlink,inlinepopups,insertdatetime,media,searchreplace,contextmenu,paste,xhtmlxtras,template",
+		ampse.categories.initEvents = function initEvents() {
+			// category buttons
+			$categoriesToolbox.find('button[name=add]').click( ampse.categories.add )
+				.end().find('button[name=edit]').click( ampse.categories.edit )
+				.end().find('button[name=delete]').click( ampse.categories.remove )
+				.end().find('button[name=order]').click( ampse.categories.order )
+				.end().find('button[name=saveOrder]').click( ampse.categories.saveOrder );
 			
-				// Theme options
-				theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,|,undo,redo,|,link,unlink,image,cleanup,code,|,insertdate,inserttime",
-				theme_advanced_buttons2 : "",
-				theme_advanced_buttons3 : "",
-				theme_advanced_buttons4 : "",
-				theme_advanced_toolbar_location : "top",
-				theme_advanced_toolbar_align : "left",
-				theme_advanced_statusbar_location : "bottom",
-				theme_advanced_resizing : true,
-				theme_advanced_path : false,
-			
-				// Example content CSS (should be your site CSS)
-				content_css : "/ps/global.css",
-
+			// category click/open	
+			$categories.delegate('li', 'click', ampse.articles.list );		
+			$categories.find('li').droppable({
+				hoverClass: "ui-state-active",
+				drop: ampse.categories.drop
 			});
-		ampse.initStyles();
-												
-
-	});
-	ampse.initStyles = function() {
-		$J('button.add').button({ 
-				icons: {
-					primary: 'ui-icon-plusthick'
-				}
-			});
-		$J('button.update').button({ 
-				icons: {
-					primary: 'ui-icon-check'
-				}
-			});
-		$J('button.delete').button({ 
-				icons: {
-					primary: 'ui-icon-trash'
-				}
-			});
-	};
-	
-	ampse.news.createEvents = function() {
-		$J('#aHeader button.add').click( ampse.news.create );
-		ampse.cache.articleBar.find('li a').on('dblclick', ampse.news.rename );
-		ampse.cache.news.find('div.controls button.delete').on('click', ampse.news.delete );
-		ampse.cache.news.find('div.controls button.update').on('click', ampse.news.update );
-		ampse.cache.news.find('div.controls input[name=status]').on('click', ampse.news.status );
-	};
-	
-	// new article
-	ampse.news.create = function() {
-		$J('#statusCreating').fadeIn('fast');
-		$J.post( svrUrl, {create: 1},
-			function(data) {
-				var newarticle = $J('#articleContentTemplate').clone().prop('id', 'news-'+data); //clone from template and make new id
-				ampse.cache.news.append(newarticle);
-				newarticle.find('textarea').prop('id', 'mce-'+data);
-				ampse.cache.news.news("add", "#news-"+data, "Untitled article").news('select',ampse.cache.news.news('length')-1); // add the article and select it
-				ampse.cache.news.find('a[href=#news-'+data+']').parent().prop('id', 'article-'+data);  // alter the new article's li id attr
-				tinyMCE.execCommand('mceAddControl', false, 'mce-'+data);
-				$J('#statusCreating').fadeOut('slow');
-			}, 'text');
+		};
 		
-	}; 	
-	
-	// save/update article
-	ampse.news.update = function() {
-		ampse.cache.statusSaving.fadeIn('fast');
-		var $article = $J(this).closest('.ui-news-panel');
-		var articleId = $article.prop('id').substring(5);
-		var articleContent = $article.find('textarea').html();
-		$J.post( svrUrl, {update: articleId, data: articleContent},
-			function(data) {
-				ampse.cache.statusSaving.fadeOut('slow');
-				if(data.success) {
-					$article.find('div.stat.modified .content').html(data.data.modified)
-						.animate({opacity: .2}, 500, 'swing', function() { $J(this).animate({opacity: 1}, 1000) });
-				}
-				
-				//animate modified
-			}, 'json');		
-	}
-	
-	// delete article
-	ampse.news.delete = function() {		
-		var articleIndex = ampse.cache.news.news('option', 'selected');
-		var articleId = $J(this).closest('.ui-news-panel').prop('id').substring(5);
-		
-		if( confirm(ampse.news.messages.deleteWarning) ){
-			$J('#statusDeleting').fadeIn('fast');
-			$J.post( svrUrl, { delete: articleId },
+		ampse.categories.add = function() {
+			var name = prompt('What should it be called?');
+			if( !name || name == "") {
+			   ampse.categories.status("Sorry, empty names not allowed.");
+			   return false;
+			}
+			$.post( svrUrl, { category_action: "add", label: name }, 
 				function(data) {
-					$J('#statusDeleting').fadeOut('slow');
-					if( data == 1) {
-						ampse.cache.news.news('remove', articleIndex).news('select', articleIndex-1);
+					if( data.result && parseInt(data.result) > 0){
+						$('<li>' + name + '<input type="hidden" name="id" value="' + data.result + '" /></li>')
+							.hide().appendTo($categories).slideDown();
+						
+					}
+				}, 'json');
+		};
+		
+		ampse.categories.drop =  function( event, ui ) {
+			var $this = $(this);
+			$this.addClass( "ui-state-highlight" , 500	);
+			setTimeout( function() { $this.removeClass( "ui-state-highlight", 500 ); }, 1000 );
+			var move = function move($elem) {
+				var id = $elem.find('input[name="id"]').val(),
+					category = $this.find('input[name="id"]').val();
+				ampse.app.com( { article_action: "move", id: id, category: category }, function(data) {
+					if( data.result ){
+						$elem.remove();	
 					}else {
-						alert(data);	
-					}					
-				}, 'text');
+						$elem.slideDown();
+						ampse.articles.status("Error moving article.");	
+					}
+				});
+			}
+			$( ui.draggable ).closest('.article').slideUp('fast', function() {				
+				move($(this));
+			});
+			
 		}
-	}
-	
-	//rename article
-	ampse.news.rename = function() {
-		var $a = $J(this);
-		var newLabel = prompt('article Label:', $a.text() );
-		if( newLabel.length > 0 ) {
-			var id = $a.parent().prop('id').substring(4);
-			$J('#statusSaving').fadeIn('fast');
-			$J.post( svrUrl, { update: id, label: newLabel},
+		ampse.categories.edit = function() {
+			var $li = $categories.find('li.current');
+				label = $li.clone().find('span.current').remove().end().text(),
+				id = $li.find('input[name=id]').val(),
+				newName = prompt('What should it be called?', label);
+		
+			if( newName && newName.length > 0) {
+				$.post( svrUrl, { category_action: "edit", label: newName, id: id }, 
 				function(data) {
-					$J('#statusSaving').fadeOut('slow');
-					$a.html(newLabel);
-				}, 'text');
-		}
-	}
-	
-	// save article order
-	ampse.news.save = function() {
-		$J('#statusSaving').fadeIn('fast');
-		var idResult = ampse.cache.articleBar.sorarticlele('toArray');
-		var ids = new Array();
-		$J.each(idResult, 
-			function(i,v) {
-				ids.push( v.substring(4) );		  
-			 })
-		$J.post(svrUrl, {order: ids.join(',')},
-			function(data) {
-				if(data != 1) {
-					alert(data);
-				}
-				$J('#statusSaving').fadeOut('slow');
-
-			}, 'text');
+					if( data.result ){
+						$li.html(newName + '<input type="hidden" name="id" value="' + id + '" /');
+						ampse.categories.status(name + ' saved.');						
+					}else {
+						ampse.categories.error(data);
+					}
+				}, 'json');
+			}else {
+				ampse.categories.status( "Sorry, empty names not allowed." );	
+			}
+			
+		};
 		
+		ampse.categories.remove = function() {
+			var $li = $categories.find('li.current'),
+				id = $li.find('input[name=id]').val(),
+				sure = false;
+			if( id ) {
+				sure = confirm('You sure?');
+			} else {
+			    ampse.categories.status('You gotta select one first..');
+		    }
 		
-	}
-	
-	// update status
-	ampse.news.status = function() {
-		ampse.cache.statusSaving.fadeIn('fast');
-		var $article = $J(this).closest('.ui-news-panel');
-		var articleId = $article.prop('id').substring(5);
-		var checkBox = $J(this);
-		var status = 0;
-		if( checkBox.prop('checked') ) {
-			status = 1;	
+			if( sure ) {
+				$.post( svrUrl, { category_action: "delete", id: id }, 
+				function(data) {
+					if( data.result ){
+						$li.slideUp( function() { $li.remove(); } );
+					}
+				}, 'json');
+			}
+		};
+		
+		ampse.categories.order = function() {
+			$categories.sortable({ containment: "parent", click: function(e) { 
+				e.stopPropagation();
+			 }});
+			$(this).prop('name', 'saveOrder').text('Save')
+				.unbind('click').click( ampse.categories.saveOrder );
+		};
+		
+		ampse.categories.error = function(data) {
+			if( data.messages ) {
+				$.each( data.messages, function() {
+					ampse.categories.status(this);	
+				});
+			}else {
+				ampse.categories.status("Error");	
+			}
 		}
-		$J.post( svrUrl, {update: articleId, status: status},
-			function(data) {
-				ampse.cache.statusSaving.fadeOut('slow');
-				if(data.success) {
-					$article.find('div.stat.modified .content').html(data.data.modified);
-					checkBox.parent().animate({opacity: .3}, 1000, 'swing', function() { $J(this).animate({opacity: 1}, 1000) });
-				}else{
-					checkBox.prop('checked', !checkBox.prop('checked'));
-				}
+		
+		ampse.categories.saveOrder = function() {
+			var order = $categories.find('li').map(function() { return $(this).find('input[name=id]').val() }).get().join(',');
+			$.post( svrUrl, { category_action: "reorder", order: order }, 
+				function(data) {
+					if( data.result ){
+						ampse.categories.status('Order Updated.');
+					}else {
+					   ampse.categories.error(data);	
+					}
+				}, 'json');
+			$categories.sortable('destroy');
+			$(this).prop('name', 'order').text('Sort')
+				.unbind('click').click( ampse.categories.order );;	
+		}
+		/** 
+		* displays status message for the category box
+		*/
+		ampse.categories.status = function(message) {
+			var $div = $('<div>' +  message + '</div>').hide()
+				.appendTo( $categoriesStatus )
+				.slideDown();
+			setTimeout( function() { $div.slideUp(function() { $(this).remove(); delete $div; }); }, 5000 );
+			return message;
+		}
+		
+		ampse.articles.initEvents = function() {
+			$('#ampse_articles .toolbox button[name=add]').click( ampse.articles.add );
+      $( '#newsAddEditDialog form' ).submit( function() { return false; });
+			$articles.delegate( "div.article", "dblclick", ampse.articles.edit );
+      ampse.articles.files.init();
+		}
+		
+		ampse.articles.list = function(id) {	
+			if( id > 0 ) {
+				// console.log(id);
+				var $li =  $('#ampse_categories input[name="id"][value="' + id + '"]').closest('li');
+			}else {
+				// console.log('omg', id);
+				var $li = this.tagName !== "LI" ? $('#ampse_categories li.current') : $(this);
+				id = $li.find('input[name=id]').val();
+			}
 				
-				//animate modified
-			}, 'json');		
-	};
+			$li.addClass('current').siblings('.current').removeClass('current');					
+			
+			// retreive categories contents and display
+			$.post( svrUrl, { article_action: "get", category: id }, 
+				function(data) {
+					if( data.result && data.result.length) {
+						// render articles
+						var articles = $.map( data.result, function(row, i) { 
+							return ampse.articles.make(row); 
+						});
+						/*var articles = [];
+						$.each( data.result, function(i,row) {							
+							articles.push(ampse.articles.make(row));
+						});*/
+						$articles.html(articles.join('')).find('.handle');
+						ampse.articles.makeDraggable( $articles );
+					}else {
+						$articles.html('');
+						ampse.articles.status('No articles in ' + $li.text().replace(/[^-a-zA-Z0-9_]/, '') );	
+					}
+				}, 'json' );
+				
+
+		};
+		
+		/** 
+		* displays status message for the category box
+		*/
+		ampse.articles.status = function(message) {
+			var $div = $('<div>' +  message + '</div>').hide()
+				.appendTo( $articlesStatus )
+				.slideDown();
+			setTimeout( function() { $div.slideUp(function() { $(this).remove(); delete $div; }); }, 5000 );
+			return message;
+		}
+		
+		ampse.articles.add = function() {
+			var category = $categories.find('li.current input[name="id"]').val() || 0;
+			ampse.app.com( { article_action: "add", category: category }, function(data) {
+				if( data.result && data.result.length ) {
+					var $a = $( ampse.articles.make( data.result[0] ) )
+							.addClass('highlight', 1000)
+							.prependTo( $articles );
+					ampse.articles.makeDraggable( $a );
+					setTimeout(function() { $a.removeClass('highlight', 4000); }, 3000);
+				}else {
+					ampse.articles.status('Problem with article add');	
+				}
+			});
+		}
+
+    ampse.articles.files = (function() {
+      var $fl;
+
+      return {
+        clear: function() {
+         $fl.empty();
+        },
+
+        add: function( file ){
+          $fl.append( '<li><span class="fileRemove">X</span><a target="hz_attach" href="/ampse/pdfs/' + file + '" data-href="' + file  + '">' + file + '</a></li>' );
+        },
+
+        remove: function( $li, id ) {
+          var file = $li.find('a').prop( 'data-href' );
+		    	ampse.app.com({ removeFile: file, id: id }, function(data) {
+            if ( data && data.result === true ) {
+              $li.remove();
+            }else {
+              alert( 'Error:' + ( data ? data.result : "Comm error - maybe you got logged out?" ) );
+            }
+          });
+        },
+
+        populate: function( filesJSON ) {
+          $fl.empty();
+          var files = filesJSON.length > 0 ? $.parseJSON( filesJSON ) : [];
+          $.each( files, function(i,v) {
+            ampse.articles.files.add( v );
+          });
+        },
+
+        init: function() {
+          $fl = $('#newsAddEditDialog').find( '#fileList' );
+          $fl.click( function(e) {
+            var $target = $(e.target),
+                id = $target.closest('form').find( 'input[name="id"]' ).val();
+            if ( /span/i.test( e.target.nodeName ) && $target.is( '.fileRemove' ) ) {
+              ampse.articles.files.remove( $target.closest( 'li' ), id );
+            }
+          });
+
+          // setup uploader
+          	var uploader = new plupload.Uploader({
+              runtimes : 'html5,flash,silverlight',
+              browse_button : 'filePick',
+              container : 'fileContainer',
+              max_file_size : '10mb',
+              url : '/admin/index.php?page=addon_ampseCustom_news&mc=addon_cat_ampseCustom&fileUpload=1&id=0',
+              flash_swf_url : svrAddonUrl + '/scripts/plupload/plupload.flash.swf',
+              silverlight_xap_url : svrAddonUrl + '/scripts/plupload/plupload.silverlight.xap',
+              filters : [
+                {title : "PDF", extensions : "pdf"}
+              ]
+            });
+            ampse.articles.uploader = uploader;
+
+            uploader.bind('Init', function(up, params) {
+              $fl.closest('#fileContainer').prop('title', 'Using: ' + params.runtime );
+            });
+            
+
+            $('#fileUpload').click(function(e) {
+              uploader.start();
+              e.preventDefault();
+            });
+
+
+            uploader.init();
+
+            uploader.bind('FilesAdded', function(up, files) {
+              $.each(files, function(i, file) {
+                $('#filePending').append(
+                  '<div id="' + file.id + '">' +
+                  file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
+                '</div>');
+              });
+
+              up.refresh(); // Reposition Flash/Silverlight
+            });
+
+            uploader.bind('UploadProgress', function(up, file) {
+              $('#' + file.id + " b").html(file.percent + "%");
+            });
+
+            uploader.bind('Error', function(up, err) {
+              $('#filePending').append("<div>Error: " + err.code +
+                ", Message: " + err.message +
+                (err.file ? ", File: " + err.file.name : "") +
+                "</div>"
+              );
+
+              up.refresh(); // Reposition Flash/Silverlight
+            });
+
+            uploader.bind('FileUploaded', function(up, file, res ) {
+              console.dir( res );
+              var response = $.parseJSON( res.response );
+              // it was successful and has a filename even!
+              if ( response && response.result &&  response.file.filename ) {
+                ampse.articles.files.add( response.file.filename );
+              }
+              $('#' + file.id).remove();
+            });
+
+        }
+      }
+    })();
+
+		ampse.articles.edit = function(e) {
+			var $dialog = $('#newsAddEditDialog'),
+				$row = $(this),
+				id = $row.find('input[name="id"]').val();
+
+      // change the id in the uploader
+      ampse.articles.uploader.settings.url = ampse.articles.uploader.settings.url.replace( /id=(\d+)(.*)?$/, "id=" + id + "$2" );
+      
+			if( !$dialog.is('.ui-dialog') ) {
+				$dialog.dialog({
+					autoOpen: false,
+					modal: true,
+					width: $(window).width() * .9,
+					height: $(window).height() * .93,
+					buttons: {
+						"Save Changes, Open Next" : function(e) { 	e.openNext = true;
+																	ampse.articles.save.call(this, e);
+						},
+					    "Save Changes" : ampse.articles.save,
+						//"Clear Form"   : ampse.articles.clearForm,
+						"Delete Article" : ampse.articles.remove
+					},
+					open: function() {
+						$(document.body).css('overflow', 'hidden');	
+
+					},
+					close: function() {
+						$(document.body).css('overflow', 'auto');	
+					}
+				})
+				.find('.datePicker').each(function() {
+					var $this = $(this);
+					$this.datepicker({ dateFormat: 'dd/mm/yy' , 
+														  showButtonPanel: true,
+														  altField: $this.siblings('.datePickerAlt'),
+														  altFormat: "@" });
+				}).end()
+				.find('textarea.mce').ckeditor({
+					filebrowserUploadUrl : svrUrl,
+					'stylesCombo_stylesSet' :'my_styles',
+					
+				});
+			}
+			
+			
+			// set time DD to current
+		
+			
+			// results
+			ampse.app.com({ article_action: "get", id: id }, function(data) {
+				if( data.result && data.result.length ) {
+          var article = data.result[0];
+					ampse.articles.clearForm(true, $dialog);
+					$dialog.find('form').populate( article );
+					$dialog.find('input[name="publish"]').datepicker('setDate', $.datepicker.formatDate( "dd/mm/yy", new Date( article.published * 1000 ) ));
+					if ( !article.publishedtime || !(+article.publishedtime) ) {
+						$dialog.find( 'select[name="publishedtime"]' ).val( ampse.util.fourDigitTime( 15 ) );
+					}
+          // file list
+          ampse.articles.files.populate( article.files );
+         	} else {
+					ampse.articles.status("Failed to retreive article - try logging out and back in");
+					$dialog.dialog('close');	
+				}
+			});
+			
+			$dialog.dialog('open').data('row', id);
+      ampse.articles.uploader.refresh();
+		}
+		
+		ampse.articles.save = function (e) {
+			var $dialog = $(this).closest('.ui-dialog-content');
+			
+			// console.log($dialog);
+			// todo validation
+			$dialog.find('.datePickerAlt').each(function() {
+				this.value = this.value / 1000;
+			});
+			ampse.app.com( $dialog.find('form').serializeObject({ article_action: "save" }), 
+				function(data) {
+					if( data.result ) {
+						ampse.articles.list();
+						ampse.articles.clearForm(true, $dialog);
+						$dialog.dialog('close');
+						if( e.openNext ) {
+						   $articles.find('input[name="id"][value="' + $dialog.data('row') + '"]').closest('div.article').next().dblclick();
+						}
+					}
+				}
+			);
+			
+		}
+		
+		ampse.articles.makeDraggable = function ($items) {
+			$items.find('.handle').draggable({ revert: "invalid" , helper: "clone"})
+		}
+		
+		ampse.articles.make = function ( row ) {
+			var	publishedClass = "pending",
+				published = "pending";
+				
+			if(  row.published ){
+				published = new Date(row.published * 1000).toDateString();
+			}
+			
+			if ( row.status && row.status !== "0" ) {
+			  publishedClass = "";
+			}
+			
+			
+			
+			var article = "<div class='article " + publishedClass + "'> \
+								<div class='preview'><a href='/news/" + row.hash + "' target='preview'>Preview</a></div> \
+								<div class='handle'>&#926;</div> \
+								<h3> " + row.heading + "</h3> \
+								<div class='created'>Created: " +  new Date(row.created * 1000).toDateString() + "</div> \
+								<div class='published'>Published: " + published + "</div> \
+								<input type='hidden' name='id' value='" + row.id + "' /> \
+							</div>";
+			return article;
+		}
+		ampse.articles.clearForm = function ( byPass, $dialog ) {
+			if( $dialog == undefined ) {
+				$dialog = $(this).closest('.ui-dialog-content');
+			}
+			var pass = byPass === true ? true : confirm('sure?');
+			if( pass ) {
+				$dialog.find('form')[0].reset();
+				$dialog.find('textarea.mce').val('');	
+			}
+			
+		}
+		
+		ampse.articles.remove = function() {
+			if( !confirm("Sure?") ) {
+				return false;	
+			}
+			var $dialog = $(this).closest('.ui-dialog-content').dialog('close'),
+				id = $dialog.find('input[name="id"]').val();
+			ampse.app.com( {article_action: "remove", id: id }, function() { 
+				$articles.find('input[name="id"][value="' + id + '"]').closest('.article').slideUp('slow', function() { $(this).remove() });
+			});
+		}
+
+$(function() {
+});
+
+		
+	})(jQuery);
 	
+	CKEDITOR.addStylesSet( 'my_styles',
+[
+    // Block Styles
+    { name : 'Image Left', element : 'img', attributes : { 'class' : 'image_left' }},
+    { name : 'Image Right' , element : 'img',attributes : { 'class' : 'image_right' } },
+
+  
+]);
+
+
+
+	
+	//config.stylesCombo_stylesSet = 'my_styles';
 	
 	
  
