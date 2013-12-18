@@ -156,9 +156,7 @@
 <!-- ---------->
 
 <div class="innerColumn right listingRight">
-    <a href="http://blog.horsezone.com.au/" target="hzblog" class="actionButton">Horsezone Blog</a>
-    <a href="http://www.youtube.com/horsezonetv" target="hztv" class="actionButton">Horsezone TV</a>
-
+    
     <div class="psContentBox">
     	{if $currentCategory == 49 }
     		<h4>
@@ -214,7 +212,7 @@
     <div class="fb">
         <g:plusone href="http://myurl.com"></g:plusone>
         <br /><br />
-        <iframe src="http://www.facebook.com/plugins/like.php?href=http://www.horsezone.com.au{$url}&amp;layout=standard&amp;show_faces=true&amp;width=213&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:213px; height:80px;clear:left;" allowTransparency="true"></iframe>
+       
     </div>
      {/if}
 </div>
@@ -223,11 +221,6 @@
     <div class="psContentBox">
         <h2 class="title">
             <span class="psContentBoxTick"></span>
-            {if $currentCategory == 49 }
-            	<a class="title" href="/news">Stallionzone News</a>
-            {else}
-            	<a class="title" href="/news">Horsezone News</a>
-            {/if}
         </h2>
         <div class="psContentBoxBody psListingDisplay" id="news">
             <div class="inner" id="news">
@@ -246,15 +239,10 @@
                 {$data.article}
                 <br clear="all" />
                 {if strlen( $data.files ) > 0 }
-                  {php}
-                    $data = $this->get_template_vars('data');
-                    $files = json_decode( $data['files'] );
-                    $this->assign( 'fileList', $files );
-                  {/php}
                 <div class="attachments">
                   <h3>Attachments</h3>
                   {foreach from=$fileList item=file}
-                    <div class="file"><a href="/ampse/pdfs/{$file}" target="hz_attach">{$file}</a></div>
+                    <div class="file"><a href="/addons/ppNews/pdfs/{$file}" target="hz_attach">{$file}</a></div>
                   {/foreach}
                 </div>
                 <br clear="all" />

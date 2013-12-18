@@ -328,7 +328,6 @@ class Article {
 			$srcLoc = strrpos($text, 'src="', $classLoc - strlen($text) ) + 5;
 			$src = substr( $text, $srcLoc , $classLoc - $srcLoc -2 );
 		}
-		$src = str_replace('http://content.horsezone.com.au', '', $src);
 		if( strpos($src, "_tn.") < 1 ) { 
 			$srcPieces = explode(".", $src);
 			$srcPieces[ count($srcPieces) - 2 ] .= "_tn";
