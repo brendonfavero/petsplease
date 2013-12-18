@@ -177,6 +177,7 @@
 	    
 	</div>
 
+
     <div class="psContentBox">
         <h4 class="title">
             <span class="psContentBoxTick"></span>
@@ -232,13 +233,7 @@
                 <br clear="all" />
                 {/if}
 
-                <div class="sponsor">
-                	Brought to you by 
-                	<br>
-                	<a href="http://www.horseware.com/ice-vibe/">
-                		<img src="/images/promo/icevibe.gif" width="140" />
-                	</a>
-                </div>
+                
 
                 <div class="comments">
 
