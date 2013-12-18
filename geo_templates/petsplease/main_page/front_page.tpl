@@ -99,11 +99,10 @@
 		</ul>
 
 		<ul>
-			<li class="title">Pet Selector - Choose a Dog</li>
-			<li class="title">Pet Selector - Choose a Cat</li>
+			<li class="title"><a href="?a=ap&addon=ppPetSelector&page=detail">Pet Selector - Choose a Cat/Dog</a></li>
 			<li class="title">Dogs and Puppies for Adoption</li>
 			<li class="title">Cats and Kittens for Adoption</li>
-			<li class="title">Wanted Pets</li>
+			<li class="title"><a href="{$search_url}&c=413">Wanted Pets</a></li>
 		</ul>
 	</div>
 
@@ -208,7 +207,6 @@
 			<li><a href="{$dogs_url}&b[breed]=Australian+Shepherd+Dog">Australian Shepherd Dog puppies for sale</a></li>
 			<li><a href="{$dogs_url}&b[breed]=Border+Collie">Border Collie puppies for sale</a></li>
 			<li><a href="{$dogs_url}&b[breed]=Cavalier+King+Charles+Spaniel">Cavalier King Charles Spaniel puppies for sale</a></li>
-			<li>Chihuahua puppies for sale</li>
 			<li><a href="{$dogs_url}&b[breed]=Cocker+Spaniel">Cocker Spaniel puppies for sale</a></li>
 			<li><a href="{$dogs_url}&b[breed]=Dalmatian">Dalmatian puppies for sale</a></li>
 			<li><a href="{$dogs_url}&b[breed]=German+Shepherd+Dog">German Shepherd puppies for sale</a></li>
@@ -241,17 +239,13 @@
 			{assign "birds_url" "{$search_url}&c=311"}
 			<li class="title"><a href="{$birds_url}">Birds for Sale</a></li>
 			<li><a href="{$birds_url}&b[question_value][186]=Hand+Raised">Hand Raised Birds for sale</a></li>
-			<li><a href="{$birds_url}&b[breed]=">Budgies for sale</a></li>
-			<li>Canaries for sale</li>
-			<li>Cockatiels for sale</li>
-			<li>Cockatoos for sale</li>
+			<li><a href="{$birds_url}&b[breed]=Cockatoos%2C+Cockatiels+and+Budgies">Cockatoos, Cockatiels and Budgies for sale</a></li>
+			<li><a href="{$birds_url}&b[breed]=Finches+and+Canaries">Finches and Canaries for sale</li>
 			<li><a href="{$birds_url}&b[breed]=Exotic+Parrots">Exotic Parrots for sale</a></li>
-			<li>Finches for sale</li>
-			<li>Lories for sale</li>
-			<li>Lorikeets for sale</li>
+			<li><a href="{$birds_url}&b[breed]=Lories+and+Lorikeets">Lories and Lorikeets for sale</a></li>
 			<li><a href="{$birds_url}&b[breed]=Native+Parrots">Native Parrots for sale</a></li>
-			<li>Pigeons for sale</li>
-			<li>Pheasants for sale</li>
+			<li><a href="{$birds_url}&b[breed]=Pigeons%2C+Doves+and+Soft-bills">Pigeons, Doves and Soft-bills for sale</li>
+			<li><a href="{$birds_url}&b[breed]=Pheasants+and+Quail">Pheasants and Quail for sale</li>
 			<li><a href="{$birds_url}&b[breed]=Poultry">Poultry for sale</a></li>
 		</ul>
 
@@ -265,11 +259,10 @@
 			<li><a href="{$fish_url}&b[breed]=Catfish">Catfish for sale</a></li>
 			<li><a href="{$fish_url}&b[breed]=Danio">Danio fish for sale</a></li>
 			<li><a href="{$fish_url}&b[breed]=Discus">Discus fish for sale</a></li>
-			<li>Fighter fish for sale</li>
+			<li><a href="{$fish_url}&b[breed]=Fighter+(Beta)">Fighter fish for sale</a></li>
 			<li><a href="{$fish_url}&b[breed]=Guppies">Guppies for sale</a></li>
 			<li><a href="{$fish_url}&b[breed]=Marine+Fish+(Salt+Water)">Marine fish for sale</a></li>
-			<li>Australian Native fish for sale</li>
-			<li>New Guinea Natives fish for sale</li>
+			<li><a href="{$fish_url}&b[breed]=Australian+and+New+Guinea+Natives">Australian and New Guinea Native fish for sale</a></li>
 			<li><a href="{$fish_url}&b[breed]=Yabby">Yabby for sale</a></li>
 		</ul>
 

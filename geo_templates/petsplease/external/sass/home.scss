@@ -118,6 +118,7 @@
 }
 
 
+/* Footer Links Section */
 .homepage-footer {
 	margin: auto;
 	width: 1028px;
@@ -176,10 +177,11 @@
 	}
 
 	&.fivecol ul {
-		width: 185px;
+		width: 180px;
+		padding-right: 5px;
 
 		&.double {
-			width: 288px;
+			width: 283px;
 		}
 	}
 }
