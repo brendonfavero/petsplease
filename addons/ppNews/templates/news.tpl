@@ -185,7 +185,7 @@
         <div class="psContentBoxBody news">
             <ul class="categories">
        			 {foreach from=$categories item=category}
-           			 <li class="{if $category.id == $currentCategory}selected{/if}"><a href="/news/{$category.hash}">{$category.label}</a></li>
+           			 <li class="{if $category.id == $currentCategory}selected{/if}"><a href="/index.php?a=ap&addon=ppNews&page=news&category={$category.hash}">{$category.label}</a></li>
         		{/foreach}
 		</ul>
         <br />
@@ -300,7 +300,7 @@
                         <div class="published">Published on {$article.published|date_format:"%d.%m.%Y"}{if $mode == 'home'} in <a href="/news/{$article.category_hash}">{$article.category_label}</a>{/if}</div>
 
                         <div class="preview">
-                        	{if strlen($article.thumb	) > 0 }<img src="{$article.thumb}" />{/if} {$article.preview} <div class="readmore"><a href="/news/{$article.hash}">Read Article</a></div> <br clear="left" />
+                        	{if strlen($article.thumb	) > 0 }<img src="{$article.thumb}" />{/if} {$article.preview} <div class="readmore"><a href="/index.php?a=ap&addon=ppNews&page=news&article={$article.hash}">Read Article</a></div> <br clear="left" />
                         </div>
                         <br clear="all" />
                     </div>
