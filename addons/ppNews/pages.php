@@ -260,9 +260,7 @@ class addon_ppNews_pages extends addon_ppNews_info
 			$v['categories'] = $categoriesResult->GetArray();	
 		}
 		
-		$data = $this->get_template_vars('data');
-        $files = json_decode( $data['files'] );
-        $v['fileList'] = $files;
+		
 		
 		// $v gets set as it's keys, so $v['mode'] will be $mode in the tpl
 		geoView::getInstance()->setBodyTpl('news.tpl','ppNews')->setBodyVar($v);

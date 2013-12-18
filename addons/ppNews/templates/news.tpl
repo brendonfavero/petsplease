@@ -158,36 +158,20 @@
 <div class="innerColumn right listingRight">
     
     <div class="psContentBox">
-    	{if $currentCategory == 49 }
-    		<h4>
-            	<a class="title" href="/news">Stallions News Search</a>
-        	</h4>
-        	 <div class="psContentBoxBody">
-	    	<form action="/news/1/" method="get">
-	    		<!--<input type="hidden" name="a" value="ap" />
-	    		<input type="hidden" name="addon" value="ampseCustom" />
-	    		<input type="hidden" name="page" value="news" />-->
-				<input type="hidden" name="searchcat" value="49" />
-			    <input type="text" placeholder="Search" name="search" value="{$searchQuery}" style="width:206px; margin:10px 0 13px" />
-			    <button>Search</button>
-			</form>
-		</div>
-        	
-        {else}
+    	
         	<h4 >
     			<span class="title">News Search</span>
     		</h4>
     		 <div class="psContentBoxBody">
 	    	<form action="/news/1/" method="get">
 	    		<!--<input type="hidden" name="a" value="ap" />
-	    		<input type="hidden" name="addon" value="ampseCustom" />
+	    		<input type="hidden" name="addon" value="ppNews" />
 	    		<input type="hidden" name="page" value="news" />-->
 
 			    <input type="text" placeholder="Search" name="search" value="{$searchQuery}" style="width:206px; margin:10px 0 13px" />
 			    <button>Search</button>
 			</form>
 		</div>
-        {/if}
        
     	
 	    
@@ -385,6 +369,3 @@
     </div>
     <!-- end content box -->
 </div>
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-  {lang: 'en-GB'}
-</script>
