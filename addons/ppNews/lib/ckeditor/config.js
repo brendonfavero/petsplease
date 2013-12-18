@@ -8,7 +8,7 @@ CKEDITOR.editorConfig = function( config )
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
-	config.contentsCss = '/ps/global.css';
+	config.contentsCss = '/geo_templates/petsplease/sass/master.css';
     config.extraPlugins = 'MediaEmbed';
 	
 	config.toolbar_Full =
