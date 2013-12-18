@@ -163,7 +163,7 @@
     			<span class="title">News Search</span>
     		</h4>
     		 <div class="psContentBoxBody">
-	    	<form action="/news/1/" method="get">
+	    	<form action="/index.php?a=ap&addon=ppNews&page=news" method="get">
 	    		<!--<input type="hidden" name="a" value="ap" />
 	    		<input type="hidden" name="addon" value="ppNews" />
 	    		<input type="hidden" name="page" value="news" />-->
