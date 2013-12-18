@@ -742,6 +742,8 @@ class ppExtraImage
 			if (function_exists("imagecreatetruecolor") && !$oldschool) {
 				//not a gif, imagecreatetruecolor works, and switch is not set to old school
 				$destImage = imagecreatetruecolor($endWidth, $endHeight);
+				$backgroundColor = imagecolorallocate($destImage, 251, 251, 251);
+				imagefill($destImage, 0, 0, $backgroundColor);
 			}
 			if (!$destImage) {
 				//attempt to use old school imagecreate
