@@ -271,8 +271,6 @@
                     {/if}
                 </div>
                 {literal}
-                <link href="/ps/css/jquery.lightbox-0.5.css" type="text/css" rel="stylesheet" />
-                <script src="/ps/jquery.lightbox-0.5.pack.js" type="text/javascript" ></script>
                 <script>
 					(function($) {
 						$(document).ready(function() {

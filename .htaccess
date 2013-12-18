@@ -1,0 +1,11 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteBase /
+
+#NEWS
+RewriteRule ^/?news/.*-([0-9]+)/?$ index.php?a=ap&addon=ppNews&page=news&article=$1 [L,NC,QSA] #article
+RewriteRule ^/?news/?$ index.php?a=ap&addon=ppNews&page=news [L,NC,QSA] #home
+RewriteRule ^/?news/([0-9]+)/?$ index.php?a=ap&addon=ppNews&page=news&paginate=$1 [L,NC,QSA] #home paginate
+RewriteRule ^/?news/(.*)/([0-9]+)/?$ index.php?a=ap&addon=ppNews&page=news&category=$1&paginate=$2 [L,NC,QSA] #category paginate
+RewriteRule ^/?news/([^/]+)/?$ index.php?a=ap&addon=ppNews&page=news&category=$1 [L,NC,QSA] #category paginate
