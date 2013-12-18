@@ -66,17 +66,6 @@
 			<li><a href="{$breeder_url}&b[specpettype]=other">Small Pets Breeders</a></li>
 		</ul>
 
-<!-- 		<ul>
-			{assign "service_url" "{$search_url}&c=318"}
-			<li class="title"><a href="{$service_url}">Pet Services</a></li>
-			<li>Dog Services</li>
-			<li>Cat Services</li>
-			<li>Bird Services</li>
-			<li>Fish Services</li>
-			<li>Reptile Services</li>
-			<li>Small Pets Services</li>
-		</ul> -->
-
 		<ul>
 			{assign "club_url" "{$search_url}&c=319"}
 			<li class="title"><a href="{$club_url}">Pet Clubs</a></li>
@@ -110,7 +99,7 @@
 		<h2>Pet Services</h2>
 		<ul class="float-li-service">
 			{assign "servicetype_url" "{$search_url}&c=318"}
-			<li class="title"><a href="{$servicetype_url}">All Services</a>
+			<li class="title"><a href="{$servicetype_url}">All Services</a></li>
 			<li><a href="{$servicetype_url}&b[service]=Aquarium+Maintenance">Aquarium Maintenance</a></li>
 			<li><a href="{$servicetype_url}&b[service]=Boarding+for+Cats">Boarding for Cats</a></li>
 			<li><a href="{$servicetype_url}&b[service]=Boarding+for+Other+Pets">Boarding for Other Pets</a></li>
@@ -163,37 +152,37 @@
 
 		<ul class="float-li">
 			<li class="title" style="float:none">Other Major Towns</li>
-			<li><a href="{$location_url}&b[location]=Orange, NSW 2800">Orange</li>
-			<li><a href="{$location_url}&b[location]=Townsville, QLD 4810">Townsville</li>
-			<li><a href="{$location_url}&b[location]=Rockingham">Rockingham</li>
-			<li><a href="{$location_url}&b[location]=Newcastle,+NSW+2300">Newcastle</li>
-			<li><a href="{$location_url}&b[location]=Dubbo,+NSW+2830">Dubbo</li>
-			<li><a href="{$location_url}&b[location]=Cairns,+QLD+4870">Cairns</li>
-			<li><a href="{$location_url}&b[location]=Mandurah,+WA+6210">Mandurah</li>
-			<li><a href="{$location_url}&b[location]=Lismore">Lismore</li>
-			<li><a href="{$location_url}&b[location]=Toowoomba,+QLD+4350">Toowoomba</li>
-			<li><a href="{$location_url}&b[location]=Bunbury,+SA+5266">Bunbury</li>
-			<li><a href="{$location_url}&b[location]=Wollongong,+NSW+2500">Wollongong</li>
-			<li><a href="{$location_url}&b[location]=Bathurst,+NSW+2795">Bathurst</li>
-			<li><a href="{$location_url}&b[location]=Rockhampton,+QLD+4700">Rockhampton</li>
-			<li><a href="{$location_url}&b[location]=Kalgoorlie,+WA+6430">Kalgoorlie</li>
-			<li><a href="{$location_url}&b[location]=Albury,+NSW+2640">Albury</li>
-			<li><a href="{$location_url}&b[location]=Coffs+Harbour,+NSW+2450">Coffs Harbour</li>
-			<li><a href="{$location_url}&b[location]=Mackay,+QLD+4740">Mackay</li>
-			<li><a href="{$location_url}&b[location]=Geraldton,+WA+6530">Geraldton</li>
-			<li><a href="{$location_url}&b[location]=Maitland">Maitland</li>
-			<li><a href="{$location_url}&b[location]=Richmond">Richmond</li>
-			<li><a href="{$location_url}&b[location]=Bundaberg,+QLD+4670">Bundaberg</li>
-			<li><a href="{$location_url}&b[location]=Albany,+WA+6330">Albany</li>
-			<li><a href="{$location_url}&b[location]=Wagga+Wagga,+NSW+2650">Wagga Wagga</li>
-			<li><a href="{$location_url}&b[location]=Nowra,+NSW+2541">Nowra</li>
-			<li><a href="{$location_url}&b[location]=Hervey+Bay,+QLD+4655">Hervey Bay</li>
-			<li><a href="{$location_url}&b[location]=Launceston,+TAS+7250">Launceston</li>
-			<li><a href="{$location_url}&b[location]=Port+Macquarie,+NSW+2444">Port Macquarie</li>
-			<li><a href="{$location_url}&b[location]=Gladstone">Gladstone</li>
-			<li><a href="{$location_url}&b[location]=Alice+Springs,+NT+870">Alice Springs</li>
-			<li><a href="{$location_url}&b[location]=Tamworth,+NSW+2340">Tamworth</li>
-			<li><a href="{$location_url}&b[location]=Mount+Gambier,+SA+5290">Mount Gambier</li>
+			<li><a href="{$location_url}&b[location]=Orange, NSW 2800">Orange</a></li>
+			<li><a href="{$location_url}&b[location]=Townsville, QLD 4810">Townsville</a></li>
+			<li><a href="{$location_url}&b[location]=Rockingham">Rockingham</a></li>
+			<li><a href="{$location_url}&b[location]=Newcastle,+NSW+2300">Newcastle</a></li>
+			<li><a href="{$location_url}&b[location]=Dubbo,+NSW+2830">Dubbo</a></li>
+			<li><a href="{$location_url}&b[location]=Cairns,+QLD+4870">Cairns</a></li>
+			<li><a href="{$location_url}&b[location]=Mandurah,+WA+6210">Mandurah</a></li>
+			<li><a href="{$location_url}&b[location]=Lismore">Lismore</a></li>
+			<li><a href="{$location_url}&b[location]=Toowoomba,+QLD+4350">Toowoomba</a></li>
+			<li><a href="{$location_url}&b[location]=Bunbury,+SA+5266">Bunbury</a></li>
+			<li><a href="{$location_url}&b[location]=Wollongong,+NSW+2500">Wollongong</a></li>
+			<li><a href="{$location_url}&b[location]=Bathurst,+NSW+2795">Bathurst</a></li>
+			<li><a href="{$location_url}&b[location]=Rockhampton,+QLD+4700">Rockhampton</a></li>
+			<li><a href="{$location_url}&b[location]=Kalgoorlie,+WA+6430">Kalgoorlie</a></li>
+			<li><a href="{$location_url}&b[location]=Albury,+NSW+2640">Albury</a></li>
+			<li><a href="{$location_url}&b[location]=Coffs+Harbour,+NSW+2450">Coffs Harbour</a></li>
+			<li><a href="{$location_url}&b[location]=Mackay,+QLD+4740">Mackay</a></li>
+			<li><a href="{$location_url}&b[location]=Geraldton,+WA+6530">Geraldton</a></li>
+			<li><a href="{$location_url}&b[location]=Maitland">Maitland</a></li>
+			<li><a href="{$location_url}&b[location]=Richmond">Richmond</a></li>
+			<li><a href="{$location_url}&b[location]=Bundaberg,+QLD+4670">Bundaberg</a></li>
+			<li><a href="{$location_url}&b[location]=Albany,+WA+6330">Albany</a></li>
+			<li><a href="{$location_url}&b[location]=Wagga+Wagga,+NSW+2650">Wagga Wagga</a></li>
+			<li><a href="{$location_url}&b[location]=Nowra,+NSW+2541">Nowra</a></li>
+			<li><a href="{$location_url}&b[location]=Hervey+Bay,+QLD+4655">Hervey Bay</a></li>
+			<li><a href="{$location_url}&b[location]=Launceston,+TAS+7250">Launceston</a></li>
+			<li><a href="{$location_url}&b[location]=Port+Macquarie,+NSW+2444">Port Macquarie</a></li>
+			<li><a href="{$location_url}&b[location]=Gladstone">Gladstone</a></li>
+			<li><a href="{$location_url}&b[location]=Alice+Springs,+NT+870">Alice Springs</a></li>
+			<li><a href="{$location_url}&b[location]=Tamworth,+NSW+2340">Tamworth</a></li>
+			<li><a href="{$location_url}&b[location]=Mount+Gambier,+SA+5290">Mount Gambier</a></li>
 		</ul>
 	</div>
 
@@ -240,12 +229,12 @@
 			<li class="title"><a href="{$birds_url}">Birds for Sale</a></li>
 			<li><a href="{$birds_url}&b[question_value][186]=Hand+Raised">Hand Raised Birds for sale</a></li>
 			<li><a href="{$birds_url}&b[breed]=Cockatoos%2C+Cockatiels+and+Budgies">Cockatoos, Cockatiels and Budgies for sale</a></li>
-			<li><a href="{$birds_url}&b[breed]=Finches+and+Canaries">Finches and Canaries for sale</li>
+			<li><a href="{$birds_url}&b[breed]=Finches+and+Canaries">Finches and Canaries for sale</a></li>
 			<li><a href="{$birds_url}&b[breed]=Exotic+Parrots">Exotic Parrots for sale</a></li>
 			<li><a href="{$birds_url}&b[breed]=Lories+and+Lorikeets">Lories and Lorikeets for sale</a></li>
 			<li><a href="{$birds_url}&b[breed]=Native+Parrots">Native Parrots for sale</a></li>
-			<li><a href="{$birds_url}&b[breed]=Pigeons%2C+Doves+and+Soft-bills">Pigeons, Doves and Soft-bills for sale</li>
-			<li><a href="{$birds_url}&b[breed]=Pheasants+and+Quail">Pheasants and Quail for sale</li>
+			<li><a href="{$birds_url}&b[breed]=Pigeons%2C+Doves+and+Soft-bills">Pigeons, Doves and Soft-bills for sale</a></li>
+			<li><a href="{$birds_url}&b[breed]=Pheasants+and+Quail">Pheasants and Quail for sale</a></li>
 			<li><a href="{$birds_url}&b[breed]=Poultry">Poultry for sale</a></li>
 		</ul>
 
