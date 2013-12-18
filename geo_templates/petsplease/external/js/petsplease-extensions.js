@@ -147,7 +147,7 @@
 
 					var newSelectedEl = newOptions.filter('[value="'+selectedVal+'"]')
 
-					if (newSelectedEl) {
+					if (newSelectedEl.length) {
 						newSelectedEl.prop('selected', true)
 					}
 					else {
