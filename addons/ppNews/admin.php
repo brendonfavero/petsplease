@@ -36,6 +36,8 @@ class addon_ppNews_admin
 	
 	public function display_addon_ppNews_news() {
 		$db = DataAccess::getInstance();
+		require_once( dirname(__FILE__) . '/lib/news/Article.php' );
+		require_once( dirname(__FILE__) . '/lib/news/Category.php' );
 		$category = new Category($db);
 		$article = new Article($db);
 		$article->admin = true;
