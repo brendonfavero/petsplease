@@ -54,24 +54,24 @@ class geoView implements Iterator
 	 */
 	protected $_jsLibraries = array (
 		'lib_prototype' => array (
-			'local' => 'js/prototype.js',
+			'local' => '/js/prototype.js',
 			'googleAPI' => '//ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js',
 			'version' => '1.7.1.0',
 		),
 		'lib_scriptaculous' => array (
-			'local' => 'js/scriptaculous/scriptaculous.js',
+			'local' => '/js/scriptaculous/scriptaculous.js',
 			'googleAPI' => '//ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js',
 			'version' => '1.9.0',
 		),
 		'lib_jquery' => array(
-			'local' => 'js/jquery.min.js',
+			'local' => '/js/jquery.min.js',
 			'googleAPI' => '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
 			'version' => '1.9.1',
 		),
 		'lib_jquery_ui' => array(
 			//NOTE: bundled version is not the full version provided in google 
 			//api, either option will work though
-			'local' => 'js/jquery-ui.min.js',
+			'local' => '/js/jquery-ui.min.js',
 			'googleAPI' => '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js',
 			'version' => '1.10.0',
 		),
@@ -83,7 +83,7 @@ class geoView implements Iterator
 	 */
 	protected $_cssLibraries = array (
 		'lib_jquery_ui_css' => array (
-			'local' => 'jquery-ui/jquery-ui.min.css',
+			'local' => '/jquery-ui/jquery-ui.min.css',
 			'googleAPI' => '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/ui-lightness/jquery-ui.css',
 			'version' => '1.10.0',
 			),
