@@ -94,13 +94,18 @@ class addon_ppNews_admin
 			}
 			exit;
 		}
-
-
-
-
+		
 		// first run stuff
 		$vars = array( 'pathAddon' => '/addons/ppNews', 'url' => $_SERVER['REQUEST_URI']); // returned template vars
 		$vars['categories'] = $category->getAll();
+		
+		$res = array();
+		for( $i = 15; $i < 1440; $i += 15 ) {
+			$hr = sprintf( "%02d", $i / 60 );
+			$min = sprintf( "%02d", $i % 60 );
+			$res[ "$hr$min" ] = "$hr:$min";
+		}
+		$vars['times'] = $res;
 
 		geoView::getInstance()->setBodyTpl('newsAdmin.tpl','ppNews');
 		geoView::getInstance()->setBodyVar($vars);
