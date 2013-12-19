@@ -5,6 +5,8 @@
 <script type="text/javascript" src="{$pathAddon}/lib/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="{$pathAddon}/lib/ckeditor/adapters/jquery.js"></script>
 <script type="text/javascript" src="{$pathAddon}/scripts/plupload/plupload.full.js"></script>
+<link type="text/css" rel="stylesheet" href="/geo_templates/petsplease/external/sass/master.scss" />
+
 {literal}
 	<style>
         .topIcons { display:none; }
