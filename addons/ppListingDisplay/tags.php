@@ -396,4 +396,41 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		return geoTemplate::loadInternalTemplate($params, $smarty, 'listingsEmbed.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);
 	}
+
+	public function headerImageClass($params, Smarty_Internal_Template $smarty) {
+		// Depending where on the site we are we output a different image to be shown in the header
+
+		// if we're searching and we're on a specific pet type, show it
+
+		// if we're on a listing (pet for sale) show pets image
+
+		// other wise show default
+
+		$listingid = $_REQUEST['a'] == 2 ? $_REQUEST['b'] : false; 
+		if ($listingid) {
+			$listing = geoListing::getListing($listingid);
+		}
+
+		if ($_REQUEST['c'] == 309 || ($listing && $listing->category == 309)) {
+			return "headerimg-dog";
+		} 
+		else if ($_REQUEST['c'] == 310 || ($listing && $listing->category == 310)) {
+			return "headerimg-cat";
+		}
+		else if ($_REQUEST['c'] == 311 || ($listing && $listing->category == 311)) {
+			return "headerimg-bird";
+		}
+		else if ($_REQUEST['c'] == 312 || ($listing && $listing->category == 312)) {
+			return "headerimg-fish";
+		}
+		else if ($_REQUEST['c'] == 313 || ($listing && $listing->category == 313)) {
+			return "headerimg-reptile";
+		}
+		else if ($_REQUEST['c'] == 314 || ($listing && $listing->category == 314)) {
+			return "headerimg-other";
+		}
+		else {
+			return "headerimg-allpets";
+		}
+	}
 }

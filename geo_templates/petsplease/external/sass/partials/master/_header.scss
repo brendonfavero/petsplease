@@ -3,7 +3,6 @@
 header.page {
 	width: 100%;
 	font-family: $font_special;
-	background: url(../images/all_pets.jpg) no-repeat 60% 34%;  
 }
 #logo {
 	display: block;
@@ -190,5 +189,30 @@ header.page {
 	}
 	.curveright {
 		@include border-top-right-radius(5px);
+	}
+}
+
+/* Header background images */
+header.page {
+	&.headerimg-dog {
+		background: url(../images/basset-hound.jpg) no-repeat 72% 31%;
+	}
+	&.headerimg-cat {
+		background: url(../images/orange-cat.jpg) no-repeat 72% 31%;
+	}
+	&.headerimg-bird {
+		background: url(../images/amazon-parrot.jpg) no-repeat 72% 31%;
+	}
+	&.headerimg-fish {
+
+	}
+	&.headerimg-reptile {
+
+	}
+	&.headerimg-other {
+
+	}
+	&.headerimg-allpets {
+		background: url(../images/all_pets.jpg) no-repeat 60% 34%;
 	}
 }

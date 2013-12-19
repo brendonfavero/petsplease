@@ -18,7 +18,7 @@
 	</nav>
 	<div class="disclaimer">
 		<h4>Copyright &copy;  {$smarty.now|date_format:"%Y"} <a href="http://petsplease.com.au/">Pets Please</a>.  All Rights Reserved.</h4>
-		<p>Pets Please is an Australian owned and managed business part of the Please Network.</p>
+		<p>Pets Please is an Australian owned and managed business part of the Please Network Pty Ltd.</p>
 	</div>
 
 	<div class="clr"></div>
