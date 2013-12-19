@@ -192,3 +192,28 @@ header.page {
 		@include border-top-right-radius(5px);
 	}
 }
+
+/* Header background images */
+header.page {
+	&.headerimg-dog {
+		background: url(../images/basset-hound.jpg) no-repeat 60% 34%;
+	}
+	&.headerimg-cat {
+
+	}
+	&.headerimg-bird {
+
+	}
+	&.headerimg-fish {
+
+	}
+	&.headerimg-reptile {
+
+	}
+	&.headerimg-other {
+
+	}
+	&.headerimg-allpets {
+		background: url(../images/all_pets.jpg) no-repeat 60% 34%;
+	}
+}
