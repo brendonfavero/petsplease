@@ -5,6 +5,7 @@
 <script type="text/javascript" src="{$pathAddon}/lib/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="{$pathAddon}/lib/ckeditor/adapters/jquery.js"></script>
 <script type="text/javascript" src="{$pathAddon}/scripts/plupload/plupload.full.js"></script>
+
 {literal}
 	<style>
         .topIcons { display:none; }
@@ -290,6 +291,18 @@
 			background: #FFF;	
 		}
 
+		.ui-dialog-buttonset {
+  position:absolute;
+  bottom:20px;
+  right:0;
+  
+}
+
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only {
+  width: 300px;
+  font-size: 15px;
+  height: 50px;
+}
 		
     </style>
 {/literal}	
@@ -892,7 +905,6 @@ var svrAddonUrl = '{$pathAddon}';
 			
 			
 			var article = "<div class='article " + publishedClass + "'> \
-								<div class='edit'><a id="editbutton" class="editbutton" style="cursor:pointer;">Edit</a></div>
 								<div class='preview'><a href='/news/" + row.hash + "' target='preview'>Preview</a></div> \
 								<div class='handle'>&#926;</div> \
 								<h3> " + row.heading + "</h3> \
