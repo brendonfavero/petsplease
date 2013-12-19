@@ -9,3 +9,23 @@ RewriteRule ^/?news/?$ index.php?a=ap&addon=ppNews&page=news [L,NC,QSA] #home
 RewriteRule ^/?news/([0-9]+)/?$ index.php?a=ap&addon=ppNews&page=news&paginate=$1 [L,NC,QSA] #home paginate
 RewriteRule ^/?news/(.*)/([0-9]+)/?$ index.php?a=ap&addon=ppNews&page=news&category=$1&paginate=$2 [L,NC,QSA] #category paginate
 RewriteRule ^/?news/([^/]+)/?$ index.php?a=ap&addon=ppNews&page=news&category=$1 [L,NC,QSA] #category paginate
+
+#PRODUCTS
+RewriteRule ^/?products/?$ index.php?a=19&c=315&b[subcategories_also]=1 [L,NC,QSA] #home
+
+#SHOPS
+RewriteRule ^/?shops/?$ index.php?a=19&c=412&b[subcategories_also]=1 [L,NC,QSA] #home
+
+#ACCOMODATION
+RewriteRule ^/?accomodation/?$ index.php?a=19&c=411&b[subcategories_also]=1 [L,NC,QSA] #home
+
+#BREEDERS
+RewriteRule ^/?breeders/?$ index.php?a=19&c=316&b[subcategories_also]=1 [L,NC,QSA] #home
+
+#SERVICES
+RewriteRule ^/?services/?$ index.php?a=19&c=318&b[subcategories_also]=1 [L,NC,QSA] #home
+
+#CLUBS
+RewriteRule ^/?clubs/?$ index.php?a=19&c=319&b[subcategories_also]=1 [L,NC,QSA] #home
+
+

@@ -95,30 +95,30 @@
 		</li>
 
 		<li>
-			<a href="/index.php?a=19&c=315&b[subcategories_also]=1">Pet Products</a>
+			<a href="/products">Pet Products</a>
 		</li>
 
 		<li>
-			<a href="/index.php?a=19&c=412&b[subcategories_also]=1">Pet Shops</a>
+			<a href="/shops">Pet Shops</a>
 		</li>
 
 		<li>
-			<a href="/index.php?a=19&c=411&b[subcategories_also]=1" class="large">Pet Friendly Accomodation</a>
+			<a href="/accomodation" class="large">Pet Friendly Accomodation</a>
 		</li>
 
 		<li>
-			<a href="/index.php?a=19&c=316&b[subcategories_also]=1">Pet Breeders</a>
+			<a href="/breeders">Pet Breeders</a>
 		</li>
 
 		<li>
-			<a href="/index.php?a=19&c=318&b[subcategories_also]=1">Pet Services</a>
+			<a href="/services">Pet Services</a>
 		</li>
 
 		<li>
-			<a href="/index.php?a=19&c=319&b[subcategories_also]=1">Pet Clubs</a>
+			<a href="/clubs">Pet Clubs</a>
 		</li>
 		<li class="last">
-			<a href="/index.php?a=ap&addon=ppNews&page=news">Pet News</a>
+			<a href="/news">Pet News</a>
 		</li>
 
 		<li><!-- 
