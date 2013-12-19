@@ -1,6 +1,6 @@
 
 {* The HTML at the top of each page used for menu, logo, top navigation, and user bar *}
-<header class="page">
+<header class="page {addon addon='ppListingDisplay' tag='headerImageClass'}">
 	<a href="/">
 		<img src="{external file='images/logo.png'}" width="261" height="170" id="logo" />
 	</a>
