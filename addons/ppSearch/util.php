@@ -26,6 +26,9 @@ class addon_ppSearch_util extends addon_ppSearch_info
 		
 		$query = $searchClass->db->getTableSelect(DataAccess::SELECT_SEARCH);
 
+		// Hide from results sellable products that have run out of stock
+		$query->where("($classTable.`optional_field_1` != 1 OR $classTable.`optional_field_2` > 0)");
+
 		// Is Sold?
 		$isSold = $searchClass->search_criteria["sold_displayed"];
 		if ($isSold) {
