@@ -606,7 +606,8 @@ var svrAddonUrl = '{$pathAddon}';
 		ampse.articles.initEvents = function() {
 			$('#ampse_articles .toolbox button[name=add]').click( ampse.articles.add );
       $( '#newsAddEditDialog form' ).submit( function() { return false; });
-			$articles.delegate( "div.article", "dblclick", ampse.articles.edit );
+      		$articles.delegate( "div.article", "dblclick", ampse.articles.edit );
+			$articles.delegate( "a.editbutton", "click", ampse.articles.edit );
       ampse.articles.files.init();
 		}
 		
@@ -891,6 +892,7 @@ var svrAddonUrl = '{$pathAddon}';
 			
 			
 			var article = "<div class='article " + publishedClass + "'> \
+								<div class='edit'><a id="editbutton" class="editbutton" style="cursor:pointer;">Edit</a></div>
 								<div class='preview'><a href='/news/" + row.hash + "' target='preview'>Preview</a></div> \
 								<div class='handle'>&#926;</div> \
 								<h3> " + row.heading + "</h3> \
