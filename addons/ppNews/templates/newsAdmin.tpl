@@ -1,4 +1,4 @@
-<<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" ></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" ></script>
 <script>  jQuery.noConflict();	var $J = jQuery; </script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js" ></script>
 <script type="text/javascript" src="{$pathAddon}/scripts/aAdmin.js"></script>
@@ -393,12 +393,6 @@
                 	<label>Enabled <input type="radio" name="status" value="1" /></label>
                     <label>Disabled <input type="radio" name="status" value="0" /></label>
                 </div>
-                <div class="formTile">
-                	Comments? 
-                    <label>Yes <input type="radio" name="comments" value="1" /></label>
-                    <label>No <input type="radio" name="comments" value="0" /></label>
-                     
-                </div>
 				<div class="formTile">
                 	Comments? 
                     <label>Yes <input type="radio" name="comments" value="1" /></label>
@@ -415,18 +409,7 @@
                 </div>
                 <br clear="all" />
             </div>
-            <input type="hidden" name="id" />
-          <div class="fieldset half">
-            	<div class="legend">Manage PDFs</div><br clear="left" />
-            <div id="fileContainer">
-                 <div id="filePending"></div>
-                 <button id="filePick">Select File(s)</button>
-                 <button id="fileUpload">Upload</button>
-                <h2>Attached PDFs</h2>
-                <ul id="fileList"></ul>
-            </div>
-            <br clear="all" />
-          </div>
+            <input type="hidden" name="id" />          
         </form>
     </div>
 </div>
