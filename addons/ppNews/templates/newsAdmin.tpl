@@ -5,7 +5,6 @@
 <script type="text/javascript" src="{$pathAddon}/lib/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="{$pathAddon}/lib/ckeditor/adapters/jquery.js"></script>
 <script type="text/javascript" src="{$pathAddon}/scripts/plupload/plupload.full.js"></script>
-<link type="text/css" rel="stylesheet" href="/geo_templates/petsplease/external/sass/partials/_newsadmin.scss" />
 
 {literal}
 	<style>
@@ -292,6 +291,18 @@
 			background: #FFF;	
 		}
 
+		.ui-dialog-buttonset {
+  position:absolute;
+  bottom:20px;
+  right:0;
+  
+}
+
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only {
+  width: 300px;
+  font-size: 15px;
+  height: 50px;
+}
 		
     </style>
 {/literal}	
