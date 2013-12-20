@@ -78,19 +78,20 @@
 		</ul>
 
 		<ul>
-			<li class="title">Pets News and Advice</li>
-			<li>Dog News and Advice</li>
-			<li>Cat News and Advice</li>
-			<li>Bird News and Advice</li>
-			<li>Fish News and Advice</li>
-			<li>Reptile News and Advice</li>
-			<li>Small Pets News and Advice</li>
+			{assign "news_url" "index.php?a=ap&addon=ppNews&page=news"}
+			<li class="title"><a href="{$news_url}">Pets News and Advice</a></li>
+			<li><a href="{$news_url}&category=news-and-advice-for-dogs-and-puppies">Dog News and Advice</a></li>
+			<li><a href="{$news_url}&category=news-and-advice-for-cats-and-kittens">Cat News and Advice</a></li>
+			<li><a href="{$news_url}&category=news-and-advice-for-birds">Bird News and Advice</a></li>
+			<li><a href="{$news_url}&category=news-and-advice-for-fish">Fish News and Advice</a></li>
+			<li><a href="{$news_url}&category=news-and-advice-for-reptiles">Reptile News and Advice</a></li>
+			<li><a href="{$news_url}&category=news-and-advice-for-other-pets">Small Pets News and Advice</a></li>
 		</ul>
 
 		<ul>
 			<li class="title"><a href="?a=ap&addon=ppPetSelector&page=detail">Pet Selector - Choose a Cat/Dog</a></li>
-			<li class="title">Dogs and Puppies for Adoption</li>
-			<li class="title">Cats and Kittens for Adoption</li>
+			<li class="title"><a href="{$search_url}&c=309&b[adoptable_only]=1">Shelter Dogs and Puppies</a></li>
+			<li class="title"><a href="{$search_url}&c=310&b[adoptable_only]=1">Shelter Cats and Kittens</a></li>
 			<li class="title"><a href="{$search_url}&c=413">Wanted Pets</a></li>
 		</ul>
 	</div>
