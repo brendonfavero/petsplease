@@ -3,12 +3,9 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 {
 	const SHOP_CATEGORY = 412;
 
-	// private $paypal_api_endpoint_pay = "http://www.google.com";
-	private $paypal_api_endpoint = "https://svcs.sandbox.paypal.com/";
-	private $paypal_payment_url = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment";
-	private $paypal_ipn_postback_url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //https://www.paypal.com/cgi-bin/webscr
-
-	private $paypal_api_caller_email = "chris+merchant@ardex.com.au";
+	private $paypal_api_endpoint = "https://svcs.sandbox.paypal.com/"; // https://svcs.paypal.com/ - Live
+	private $paypal_payment_url = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment"; //https://www.paypal.com/cgi-bin/webscr - Live
+	private $paypal_ipn_postback_url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //https://www.paypal.com/cgi-bin/webscr - Live
 
 	private $paypal_api_username = "chris+merchant_api1.ardex.com.au";
 	private $paypal_api_password = "1381449150";
