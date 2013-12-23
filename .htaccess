@@ -28,4 +28,15 @@ RewriteRule ^/?services/?$ index.php?a=19&c=318&b[subcategories_also]=1 [L,NC,QS
 #CLUBS
 RewriteRule ^/?clubs/?$ index.php?a=19&c=319&b[subcategories_also]=1 [L,NC,QSA] #home
 
+#PETSELECTOR
+RewriteRule ^/?petselector/?$ index.php?a=ap&addon=ppPetSelector&page=detail [L,NC,QSA] #home
+
+#USERACCOUNT
+RewriteRule ^/?favourites/?$ index.php?a=4&b=10 [L,NC,QSA] #home
+RewriteRule ^/?cart/?$ index.php?a=ap&addon=ppStoreSeller&page=merchantCart [L,NC,QSA] #home
+
+#SITE BROWSING
+RewriteRule ^/?(browse)/([0-9]+)/([-a-zA-Z0-9_]+)\.html$  index.php?a=19&c=$2&b[subcategories_also]=1 [L,QSA] ##category
+
+
 
