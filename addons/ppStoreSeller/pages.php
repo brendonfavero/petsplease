@@ -717,7 +717,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				$tpl->assign($mailVars);
 				$email_message = $tpl->fetch('emails/other_payment_order_received.tpl');
 				geoEmail::sendMail(geoString::fromDB($shop_listing->email), "Pets Please - Shop Order Received", $email_message, 
-					$db->get_site_setting('site_email'), "chris@ardex.com.au", 0, 'text/html');
+					$db->get_site_setting('site_email'), "brendon@ardex.com.au", 0, 'text/html');
 
 				// Subtract quantites now that order is done
 				foreach ($listings as $listing) {
@@ -732,7 +732,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$notify .= "raw output: " . $req . "\r\n";
 
 			// TODO: Change this to send to specific petsplease error mailbox
-			geoEmail::sendMail ("chris@ardex.com.au","IPN Delivered INVALID Payment notification", $notify);
+			geoEmail::sendMail ("brendon@ardex.com.au","IPN Delivered INVALID Payment notification", $notify);
 		}
 
 		geoView::getInstance()->setRendered(true); // don't bother loading templates

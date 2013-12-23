@@ -7,7 +7,8 @@ class addon_ppAds_tags extends addon_ppAds_info
 		1 => array('unitname' => 'Search-Left-1-Medrec', 'width' => 300, 'height' => 250),
 		2 => array('unitname' => 'Search-Left-2-Medrec', 'width' => 300, 'height' => 250),
 		3 => array('unitname' => 'Search-Centre-Results-Leaderboard', 'width' => 728, 'height' => 90),
-		4 => array('unitname' => 'petselector-left-medrec', 'width' => 300, 'height' => 250)
+		4 => array('unitname' => 'petselector-left-medrec', 'width' => 300, 'height' => 250),
+        5 => array('unitname' => 'petselector-news-left', 'width' => 300, 'height' => 250)
 	);
 
 	private $adsLoaded = array();

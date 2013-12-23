@@ -11,15 +11,7 @@
 	#news a {
 		text-decoration:underline;
 	}
-	#news h2 a {
-		color:#222;
-		font-weight:normal;
-		margin-bottom:0px;
-		padding-bottom:0px;
-		font-size:1.2em;
-		text-transform:uppercase;
-		text-decoration:none;
-	}
+	
 	#news { background:none; }
 	#news h2 {
 		margin:0px;
@@ -29,21 +21,6 @@
 		font-size: .8em;
 		margin-bottom:10px;
 		padding:1px;
-	}
-	#news div.article img{
-		padding:2px;
-		border:1px solid #CCC;
-
-		margin-right:5px;
-		margin-bottom:5px;
-		float:left;
-	}
-	#news div.article {
-		margin:2px;
-		margin-top:5px;
-		background: none;
-		border: 1px dotted #DEDEDE;
-		padding:10px;
 	}
 	#news div.article ul {
 		margin-left:10px;
@@ -155,34 +132,11 @@
 {/literal}
 <!-- ---------->
 
-<div class="innerColumn right listingRight">
+<div class="innerColumn left newsLeft">
     
-    <div class="psContentBox">
-    	
-        	<h4 >
-    			<span class="title">News Search</span>
-    		</h4>
-    		 <div class="psContentBoxBody">
-	    	<form action="/index.php?a=ap&addon=ppNews&page=news" method="get">
-	    		<input type="hidden" name="a" value="ap" />
-	    		<input type="hidden" name="addon" value="ppNews" />
-	    		<input type="hidden" name="page" value="news" />
-
-			    <input type="text" placeholder="Search" name="search" value="{$searchQuery}" style="width:206px; margin:10px 0 13px" />
-			    <button>Search</button>
-			</form>
-		</div>
-       
-    	
-	    
-	</div>
-
-
-    <div class="psContentBox">
-        <h4 class="title">
-            <span class="psContentBoxTick"></span>
-            <span class="title">Categories</span></h4>
-        <div class="psContentBoxBody news">
+    <div id = "browsing_search">
+    		<h4><span class="title">Browse Categories</span></h4>
+        <div class="newscats">
             <ul class="categories">
        			 {foreach from=$categories item=category}
            			 <li class="{if $category.id == $currentCategory}selected{/if}"><a href="/index.php?a=ap&addon=ppNews&page=news&category={$category.hash}">{$category.label}</a></li>
@@ -191,21 +145,34 @@
         <br />
 
 		</div>
+        	<h4 >
+    			<span class="title">News Search</span>
+    		</h4>
+    		 <div class="news_search">
+    		 
+	    	<form action="/index.php?a=ap&addon=ppNews&page=news" method="get">
+	    		<input type="hidden" name="a" value="ap" />
+	    		<input type="hidden" name="addon" value="ppNews" />
+	    		<input type="hidden" name="page" value="news" />
 
-    </div>
-    {if $mode == 'article'}
-    <div class="fb">
-        <g:plusone href="http://myurl.com"></g:plusone>
-        <br /><br />
+			    <input type="text" placeholder="Search" name="search" value="{$searchQuery}" style="width:206px; margin:10px 0 13px" />
+			    <button>Search</button>
+			</form>
+			
+		</div>
        
-    </div>
-     {/if}
+    	
+	    
+	</div>
+	{addon addon="ppAds" tag="adspot" aid=4}
+
+    
 </div>
 
-<div class="innerColumn center listingLeft">
+<div class="innerColumn center newsRight">
     <div class="psContentBox">
         <h2 class="title">
-            <span class="psContentBoxTick"></span>
+            PetsPlease News and Advice
         </h2>
         <div class="psContentBoxBody psListingDisplay" id="news">
             <div class="inner" id="news">
@@ -294,14 +261,21 @@
              {if $mode == 'category' || $mode == 'home' || $mode == 'search' }
              	{foreach from=$data item=article}
                     <div class="article">
-                        <h2><a href="/news/{$article.hash}">{$article.heading}</a></h2>
-                        <div class="published">Published on {$article.published|date_format:"%d.%m.%Y"}{if $mode == 'home'} in <a href="/news/{$article.category_hash}">{$article.category_label}</a>{/if}</div>
+                    	<h3><a class="articlecat" href="/news/{$article.category_hash}">{$article.category_label}</a></h3>
+                        
+                    	<div class="articlethumb">
+                    		{if strlen($article.thumb	) > 0 }<img src="{$article.thumb}" />{/if} 
+                    	</div>
+                    	<h2><a href="/news/{$article.hash}">{$article.heading}</a></h2>
+                        <div class="published">Published on {$article.published|date_format:"%d.%m.%Y"}{if $mode == 'home'} {/if}</div>
 
-                        <div class="preview">
-                        	{if strlen($article.thumb	) > 0 }<img src="{$article.thumb}" />{/if} {$article.preview} <div class="readmore"><a href="/index.php?a=ap&addon=ppNews&page=news&article={$article.hash}">Read Article</a></div> <br clear="left" />
+                        <div class="articlepreview">
+                        	{$article.preview} <div class="readmore"><a href="/index.php?a=ap&addon=ppNews&page=news&article={$article.hash}">Read Article</a></div> 
                         </div>
                         <br clear="all" />
-                    </div>
+                        
+                    </div>                    
+                    
                     <div>&nbsp;</div>
                 {/foreach}
              {/if}

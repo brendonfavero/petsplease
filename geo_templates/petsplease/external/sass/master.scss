@@ -1,24 +1,24 @@
-@import "partials/base";
+@import "partials/_base.scss";
 
-@import "partials/reset";
-@import "partials/util";
-@import "partials/buttonset-base";
+@import "partials/_reset.scss";
+@import "partials/_util.scss";
+@import "partials/_buttonset-base.scss";
 
-@import "partials/master/global.scss";
-@import "partials/master/header.scss";
-@import "partials/master/content.scss";
-@import "partials/master/footer.scss";
+@import "partials/master/_global.scss";
+@import "partials/master/_header.scss";
+@import "partials/master/_content.scss";
+@import "partials/master/_footer.scss";
 
-@import "partials/listings.scss";
-@import "partials/category_listings.scss";
+@import "partials/_listings.scss";
+@import "partials/_category_listings.scss";
 
-@import "partials/listing_collect_details.scss";
+@import "partials/_listing_collect_details.scss";
 
-@import "partials/cart.scss";
+@import "partials/_cart.scss";
 
-@import "partials/petselector.scss";
+@import "partials/_petselector.scss";
 
-@import "partials/newsadmin.scss";
+@import "partials/_news.scss";
 
 /* Ad spots */
 .adspot728x90 {
