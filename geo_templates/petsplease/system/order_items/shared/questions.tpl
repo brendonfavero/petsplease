@@ -1,9 +1,9 @@
 {* 6.0.7-3-gce41f93 *}
 {if count($questions) > 0}
 	{if $messages.131}
-		<h1 class="subtitle">
+		<h2 class="title">
 			{$messages.131}
-		</h1>
+		</h2>
 	{/if}
 	{if $messages.132}
 		<p class="page_instructions">
