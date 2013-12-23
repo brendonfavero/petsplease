@@ -76,7 +76,6 @@ class addon_ppPetSelector_pages extends addon_ppPetSelector_info
                 return;
             }
 
-              Now tell the db about it
             $sql = "INSERT INTO petsplease_petselector_images (breed_id, image_url, full_filename) VALUES (?, ?, ?)";
             $db->Execute($sql, array($vars['id'], $file_url, $file_name));
 
