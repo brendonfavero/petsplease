@@ -917,10 +917,8 @@
 	{/capture}
 
 	{if $additionalInfo|strip:'' !== ''}
-		<div class="content_box">
-			<h1 class="title">{$messages.500805}</h1>
-			{$additionalInfo}		
-		</div>
+			<h2 class="title">{$messages.500805}</h1>
+			{$additionalInfo}
 	{/if}
 {********************************************}
 	{if $session_variables.storeproduct != "true"}
