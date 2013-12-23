@@ -917,7 +917,6 @@
 	{/capture}
 
 	{if $additionalInfo|strip:'' !== ''}
-			<h2 class="title">{$messages.500805}</h1>
 			{$additionalInfo}
 	{/if}
 {********************************************}
