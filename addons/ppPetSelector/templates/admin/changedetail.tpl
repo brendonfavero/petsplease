@@ -32,11 +32,18 @@
 		<label>Pet Type</label>
 		<span>
 		{if $detail.pettype_id}
-			
+			{if $detail.pettype_id eq 1}Dog
+			{elseif $detail.pettype_id eq 2}Cat
+			{else}??
+			{/if}
 		{else}
 			<select name="d[pettype_id]">
 				<option value="1">Dog</option>
 				<option value="2">Cat</option>
+				<option value="3">Bird</option>
+				<option value="4">Fish</option>
+				<option value="5">Reptile</option>
+				<option value="6">Other</option>
 			</select>
 		{/if}
 		</span>
