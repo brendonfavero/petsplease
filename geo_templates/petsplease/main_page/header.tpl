@@ -64,7 +64,7 @@
 	</div> -->
 
 	<ul id="header-petnav" class="buttonset clearfix">
-		<li class="nav-dog">
+		<li class="nav-dog"> 
 			<a href="/index.php?a=19&c=309&b[subcategories_also]=1"><span>Dogs &amp;<br>Puppies</span></a>
 		</li>
 

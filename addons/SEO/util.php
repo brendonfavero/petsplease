@@ -551,7 +551,7 @@ class addon_SEO_util extends addon_SEO_info {
 		//trigger_error('DEBUG STATS: Re-writting URL '.$url);
 		//Now re-write each URL according to criteria.
 		
-		if (isset($get['a']) && $get['a'] == 5 && isset($get['b']) && (count($get) == 2 || (isset($get['page']) && count($get) == 3))) {
+		if (isset($get['a']) && $get['a'] == 19 && isset($get['c']) ) {
 			//a is 5, b is set and page may or may not be set.
 			//?a=5&b=##
 			
@@ -561,11 +561,18 @@ class addon_SEO_util extends addon_SEO_info {
 			$this->registry_id = "category$p_reg";
 			$tpl = $this->getUrlTemplate();
 			if ($tpl) {
-				$b = intval($get['b']);
+				$b = intval($get['c']);
 				
 				if (strpos($tpl,'(!CATEGORY_TITLE!)') !== false) {
 					$category_properties = geoCategory::getBasicInfo($b);
-					$tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles),$tpl);
+					if (isset($get['breed'])) {
+					    $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/' . $get['breed'],$tpl);
+					}
+                    else {
+                        $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles),$tpl);
+                    }
+                    
+					
 				}
 				$tpl = str_replace('(!CATEGORY_ID!)',$b,$tpl);
 				if ($page) {
@@ -574,6 +581,30 @@ class addon_SEO_util extends addon_SEO_info {
 				return $tpl.$anchor;
 			}
 		}
+		
+        if (isset($get['a']) && $get['a'] == 'ap' && isset($get['addon']) && $get['addon'] == 'ppPetSelector' && isset($get['id']) ) {
+            //a is 5, b is set and page may or may not be set.
+            //?a=5&b=##
+            
+            //Only use page if it's more than 1
+            $page = intval((isset($get['page']) && $get['page'] > 1)? $get['page']: 0);
+            $p_reg = ($page)? ' pages': '';
+            $this->registry_id = "category$p_reg";
+            $tpl = $this->getUrlTemplate();
+            if ($tpl) {
+                $b = intval($get['id']);
+                
+                if (strpos($tpl,'(!CATEGORY_TITLE!)') !== false) {
+                    $category_properties = geoCategory::getBasicInfo($b);
+                    $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles),$tpl);
+                }
+                $tpl = str_replace('(!CATEGORY_ID!)',$b,$tpl);
+                if ($page) {
+                    $tpl = str_replace('(!PAGE_ID!)',$page,$tpl);
+                }
+                return $tpl.$anchor;
+            }
+        }
 		
 		if (isset($get['a']) && $get['a'] == 8 && isset($get['b']) && (count($get) == 2 || (isset($get['page']) && count($get) == 3))) {
 			//Category featured ad pics / browse by pic 1st page

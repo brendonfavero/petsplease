@@ -1,7 +1,34 @@
+#SEO add-on
+
 Options +FollowSymlinks
 RewriteEngine On
-
 RewriteBase /
+
+RewriteRule ^/?geo_testunit$ index.php [L] ##URL Rewrite Test
+
+RewriteRule ^/?(Featured_Listings)/([0-9]+)\.html$  index.php?a=8&page=$2 [QSA,L] ##featured listings page
+RewriteRule ^/?(tag)/([^./\\"'?#]+)\.html$  index.php?a=tag&tag=$2 [QSA,L] ##browse tag
+RewriteRule ^/?(category)/([0-9]+)/([^./\\"'?#]+)/([^./\\"'?#]+)\.html$  index.php?a=19&c=$2&b[subcategories_also]=1&b[breed]=$4 [QSA,L] ##category
+RewriteRule ^/?(category)/([0-9]+)/([^./\\"'?#]+)\.html$  index.php?a=19&c=$2&b[subcategories_also]=1 [QSA,L] ##category
+RewriteRule ^/?(print)/([0-9]+)/(item)\.html$  index.php?a=14&b=$2 [QSA,L] ##print item
+RewriteRule ^/?(image)/([0-9]+)/(item)\.html$  index.php?a=15&b=$2 [QSA,L] ##images browsing
+RewriteRule ^/?(other)/([0-9]+)/(seller)\.html$  index.php?a=6&b=$2 [QSA,L] ##other seller
+RewriteRule ^/?(tag)/([^./\\"'?#]+)/([0-9]+)\.html$  index.php?a=tag&tag=$2&page=$3 [QSA,L] ##browse tag pages
+RewriteRule ^/?(category)/([0-9]+)/([^./\\"'?#]+)/([0-9]+)\.html$  index.php?a=5&b=$2&page=$4 [QSA,L] ##category pages
+RewriteRule ^/?(category)/(featured)/([0-9]+)/([^./\\"'?#]+)\.html$  index.php?a=8&b=$3 [QSA,L] ##category featured listing pics
+RewriteRule ^/?(new)/(1_day)/([0-9]+)/([^./\\"'?#]+)\.html$  index.php?a=11&b=$3&c=65&d=4 [QSA,L] ##category newest 1day
+RewriteRule ^/?(new)/(1_week)/([0-9]+)/([^./\\"'?#]+)\.html$  index.php?a=11&b=$3&c=65&d=1 [QSA,L] ##category newest 1week
+RewriteRule ^/?(new)/(2_weeks)/([0-9]+)/([^./\\"'?#]+)\.html$  index.php?a=11&b=$3&c=65&d=2 [QSA,L] ##category newest 2weeks
+RewriteRule ^/?(new)/(3_weeks)/([0-9]+)/([^./\\"'?#]+)\.html$  index.php?a=11&b=$3&c=65&d=3 [QSA,L] ##category newest 3weeks
+RewriteRule ^/?(category)/(featured)/([0-9]+)/([^./\\"'?#]+)/([0-9]+)\.html$  index.php?a=8&b=$3&page=$5 [QSA,L] ##category featured listing pics pages
+RewriteRule ^/?(new)/(1_day)/([0-9]+)/([^./\\"'?#]+)/([0-9]+)\.html$  index.php?a=11&b=$3&c=65&d=4&page=$5 [QSA,L] ##category newest 1day pages
+RewriteRule ^/?(new)/(1_week)/([0-9]+)/([^./\\"'?#]+)/([0-9]+)\.html$  index.php?a=11&b=$3&c=65&d=1&page=$5 [QSA,L] ##category newest 1week pages
+RewriteRule ^/?(new)/(2_weeks)/([0-9]+)/([^./\\"'?#]+)/([0-9]+)\.html$  index.php?a=11&b=$3&c=65&d=2&page=$5 [QSA,L] ##category newest 2weeks pages
+RewriteRule ^/?(new)/(3_weeks)/([0-9]+)/([^./\\"'?#]+)/([0-9]+)\.html$  index.php?a=11&b=$3&c=65&d=3&page=$5 [QSA,L] ##category newest 3weeks pages
+RewriteRule ^/?(other)/([0-9]+)/(seller)/(page)/([0-9]+)\.html$  index.php?a=6&b=$2&page=$5 [QSA,L] ##other seller page
+RewriteRule ^/?(category)/([0-9]+)/([^./\\"'?#]+)/(listings)/([0-9]+)/([^./\\"'?#]+)\.html$  index.php?a=2&b=$5 [QSA,L] ##listings
+
+#-end SEO addon-on 
 
 #NEWS
 RewriteRule ^/?news/.*-([0-9]+)/?$ index.php?a=ap&addon=ppNews&page=news&article=$1 [L,NC,QSA] #article
@@ -34,9 +61,6 @@ RewriteRule ^/?petselector/?$ index.php?a=ap&addon=ppPetSelector&page=detail [L,
 #USERACCOUNT
 RewriteRule ^/?favourites/?$ index.php?a=4&b=10 [L,NC,QSA] #home
 RewriteRule ^/?cart/?$ index.php?a=ap&addon=ppStoreSeller&page=merchantCart [L,NC,QSA] #home
-
-#SITE BROWSING
-RewriteRule ^/?(browse)/([0-9]+)/([-a-zA-Z0-9_]+)\.html$  index.php?a=19&c=$2&b[subcategories_also]=1 [L,QSA] ##category
 
 
 
