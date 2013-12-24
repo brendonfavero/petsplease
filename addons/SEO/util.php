@@ -565,31 +565,27 @@ class addon_SEO_util extends addon_SEO_info {
 				
 				if (strpos($tpl,'(!CATEGORY_TITLE!)') !== false) {
 					$category_properties = geoCategory::getBasicInfo($b);
-					if (isset($get['breed'])) {
-					    $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/?b[breed]=' . $get['breed'],$tpl);
-					}
-                    elseif (isset($get['specpettype'])) {
-                        $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/?b[specpettype]=' . $get['specpettype'],$tpl);
-                    }
-                    elseif (isset($get['adoptable_only'])) {
-                        $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/?b[adoptable_only]=' . $get['adoptable_only'],$tpl);
-                    }
-                    elseif (isset($get['service'])) {
-                        $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/?b[service]=' . $get['service'],$tpl);
-                    }
-                    elseif (isset($get['location'])) {
-                        $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/?b[location]=' . $get['location'],$tpl);
-                    }
-                    else {
-                        $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles),$tpl);
-                    }
-                    
-					
-				}
+					$tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles),$tpl);
+                }
 				$tpl = str_replace('(!CATEGORY_ID!)',$b,$tpl);
 				if ($page) {
 					$tpl = str_replace('(!PAGE_ID!)',$page,$tpl);
 				}
+                if (isset($get['breed'])) {
+                    $tpl = $tpl .'?b[breed]=' . $get['breed'];
+                }
+                elseif (isset($get['specpettype'])) {
+                        $tpl = $tpl .'?b[specpettype]=' . $get['specpettype'];                 
+                }
+                elseif (isset($get['adoptable_only'])) {
+                    $tpl = $tpl .'?b[adoptable_only]=' . $get['adoptable_only'];   
+                }
+                elseif (isset($get['service'])) {
+                    $tpl = $tpl .'?b[service]=' . $get['service'];   
+                }
+                elseif (isset($get['location'])) {
+                    $tpl = $tpl .'?b[location]=' . $get['location'];   
+                }
 				return $tpl.$anchor;
 			}
 		}
