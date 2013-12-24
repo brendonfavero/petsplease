@@ -8,7 +8,6 @@ RewriteRule ^/?geo_testunit$ index.php [L] ##URL Rewrite Test
 
 RewriteRule ^/?(Featured_Listings)/([0-9]+)\.html$  index.php?a=8&page=$2 [QSA,L] ##featured listings page
 RewriteRule ^/?(tag)/([^./\\"'?#]+)\.html$  index.php?a=tag&tag=$2 [QSA,L] ##browse tag
-RewriteRule ^/?(category)/([0-9]+)/([^./\\"'?#]+)/([^./\\"'?#]+)\.html$  index.php?a=19&c=$2&b[subcategories_also]=1&b[breed]=$4 [QSA,L] ##category
 RewriteRule ^/?(category)/([0-9]+)/([^./\\"'?#]+)\.html$  index.php?a=19&c=$2&b[subcategories_also]=1 [QSA,L] ##category
 RewriteRule ^/?(print)/([0-9]+)/(item)\.html$  index.php?a=14&b=$2 [QSA,L] ##print item
 RewriteRule ^/?(image)/([0-9]+)/(item)\.html$  index.php?a=15&b=$2 [QSA,L] ##images browsing
