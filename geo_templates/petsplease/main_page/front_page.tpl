@@ -58,12 +58,12 @@
 		<ul>
 			{assign "breeder_url" "{$search_url}&c=316"}
 			<li class="title"><a href="{$breeder_url}">Pet Breeders</a></li>
-			<li><a href="{$breeder_url}&b[specpettype]=dog">Dog Breeders</a></li>
-			<li><a href="{$breeder_url}&b[specpettype]=cat">Cat Breeders</a></li>
-			<li><a href="{$breeder_url}&b[specpettype]=bird">Bird Breeders</a></li>
-			<li><a href="{$breeder_url}&b[specpettype]=fish">Fish Breeders</a></li>
-			<li><a href="{$breeder_url}&b[specpettype]=reptile">Reptile Breeders</a></li>
-			<li><a href="{$breeder_url}&b[specpettype]=other">Small Pets Breeders</a></li>
+			<li><a href="{$breeder_url}&specpettype=dog">Dog Breeders</a></li>
+			<li><a href="{$breeder_url}&specpettype=cat">Cat Breeders</a></li>
+			<li><a href="{$breeder_url}&specpettype=bird">Bird Breeders</a></li>
+			<li><a href="{$breeder_url}&specpettype=fish">Fish Breeders</a></li>
+			<li><a href="{$breeder_url}&specpettype=reptile">Reptile Breeders</a></li>
+			<li><a href="{$breeder_url}&specpettype=other">Small Pets Breeders</a></li>
 		</ul>
 
 		<ul>
@@ -80,18 +80,18 @@
 		<ul>
 			{assign "news_url" "index.php?a=ap&addon=ppNews&page=news"}
 			<li class="title"><a href="{$news_url}">Pets News and Advice</a></li>
-			<li><a href="{$news_url}&category=news-and-advice-for-dogs-and-puppies">Dog News and Advice</a></li>
-			<li><a href="{$news_url}&category=news-and-advice-for-cats-and-kittens">Cat News and Advice</a></li>
-			<li><a href="{$news_url}&category=news-and-advice-for-birds">Bird News and Advice</a></li>
-			<li><a href="{$news_url}&category=news-and-advice-for-fish">Fish News and Advice</a></li>
-			<li><a href="{$news_url}&category=news-and-advice-for-reptiles">Reptile News and Advice</a></li>
-			<li><a href="{$news_url}&category=news-and-advice-for-other-pets">Small Pets News and Advice</a></li>
+			<li><a href="/news?category=news-and-advice-for-dogs-and-puppies">Dog News and Advice</a></li>
+			<li><a href="/news?category=news-and-advice-for-cats-and-kittens">Cat News and Advice</a></li>
+			<li><a href="/news?category=news-and-advice-for-birds">Bird News and Advice</a></li>
+			<li><a href="/news?category=news-and-advice-for-fish">Fish News and Advice</a></li>
+			<li><a href="/news?category=news-and-advice-for-reptiles">Reptile News and Advice</a></li>
+			<li><a href="/news?category=news-and-advice-for-other-pets">Small Pets News and Advice</a></li>
 		</ul>
 
 		<ul>
-			<li class="title"><a href="?a=ap&addon=ppPetSelector&page=detail">Pet Selector - Choose a Cat/Dog</a></li>
-			<li class="title"><a href="{$search_url}&c=309&b[adoptable_only]=1">Shelter Dogs and Puppies</a></li>
-			<li class="title"><a href="{$search_url}&c=310&b[adoptable_only]=1">Shelter Cats and Kittens</a></li>
+			<li class="title"><a href="/petselector">Pet Selector - Choose a Cat/Dog</a></li>
+			<li class="title"><a href="{$search_url}&c=309&adoptable_only=1">Shelter Dogs and Puppies</a></li>
+			<li class="title"><a href="{$search_url}&c=310&adoptable_only=1">Shelter Cats and Kittens</a></li>
 			<li class="title"><a href="{$search_url}&c=413">Wanted Pets</a></li>
 		</ul>
 	</div>
@@ -101,25 +101,25 @@
 		<ul class="float-li-service">
 			{assign "servicetype_url" "{$search_url}&c=318"}
 			<li class="title"><a href="{$servicetype_url}">All Services</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Aquarium+Maintenance">Aquarium Maintenance</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Boarding+for+Cats">Boarding for Cats</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Boarding+for+Other+Pets">Boarding for Other Pets</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Boarding+Kennels+Dog">Boarding Kennels Dog</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Dog+and+Cat+Washing,+Clipping+and+Grooming">Dog and Cat Washing, Clipping and Grooming</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Dog+Swimming+Lessons">Dog Swimming Lessons</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Dog+Training">Dog Training</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Natural+Therapies">Natural Therapies</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Pet+Cemeteries+and+Crematoriums">Pet Cemeteries and Crematoriums</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Pet+Day+Care">Pet Day Care</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Pet+Insurance">Pet Insurance</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Pet+Minding+in+the+Home">Pet Minding in the Home</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Pet+Nutrition+Advise">Pet Nutrition Advise</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Pet+Photography">Pet Photography</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Pet+Transport+Services">Pet Transport Services</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Puppy+Socialising">Puppy Socialising</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Veterinary+Surgeries+and+Hospotals">Veterinary Surgeries and Hospotals</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Walking">Walking</a></li>
-			<li><a href="{$servicetype_url}&b[service]=Other">Other</a></li>
+			<li><a href="{$servicetype_url}&service=Aquarium+Maintenance">Aquarium Maintenance</a></li>
+			<li><a href="{$servicetype_url}&service=Boarding+for+Cats">Boarding for Cats</a></li>
+			<li><a href="{$servicetype_url}&service=Boarding+for+Other+Pets">Boarding for Other Pets</a></li>
+			<li><a href="{$servicetype_url}&service=Boarding+Kennels+Dog">Boarding Kennels Dog</a></li>
+			<li><a href="{$servicetype_url}&service=Dog+and+Cat+Washing,+Clipping+and+Grooming">Dog and Cat Washing, Clipping and Grooming</a></li>
+			<li><a href="{$servicetype_url}&service=Dog+Swimming+Lessons">Dog Swimming Lessons</a></li>
+			<li><a href="{$servicetype_url}&service=Dog+Training">Dog Training</a></li>
+			<li><a href="{$servicetype_url}&service=Natural+Therapies">Natural Therapies</a></li>
+			<li><a href="{$servicetype_url}&service=Pet+Cemeteries+and+Crematoriums">Pet Cemeteries and Crematoriums</a></li>
+			<li><a href="{$servicetype_url}&service=Pet+Day+Care">Pet Day Care</a></li>
+			<li><a href="{$servicetype_url}&service=Pet+Insurance">Pet Insurance</a></li>
+			<li><a href="{$servicetype_url}&service=Pet+Minding+in+the+Home">Pet Minding in the Home</a></li>
+			<li><a href="{$servicetype_url}&service=Pet+Nutrition+Advise">Pet Nutrition Advise</a></li>
+			<li><a href="{$servicetype_url}&service=Pet+Photography">Pet Photography</a></li>
+			<li><a href="{$servicetype_url}&service=Pet+Transport+Services">Pet Transport Services</a></li>
+			<li><a href="{$servicetype_url}&service=Puppy+Socialising">Puppy Socialising</a></li>
+			<li><a href="{$servicetype_url}&service=Veterinary+Surgeries+and+Hospotals">Veterinary Surgeries and Hospotals</a></li>
+			<li><a href="{$servicetype_url}&service=Walking">Walking</a></li>
+			<li><a href="{$servicetype_url}&service=Other">Other</a></li>
 		</ul>
 	</div>
 
@@ -129,61 +129,61 @@
 		<h2>Quick Pet Location</h2>
 		<ul>
 			<li class="title">By State</li>
-			<li><a href="{$location_url}&b[location]=NSW">New South Wales</a></li>
-			<li><a href="{$location_url}&b[location]=QLD">Queensland</a></li>
-			<li><a href="{$location_url}&b[location]=VIC">Victoria</a></li>
-			<li><a href="{$location_url}&b[location]=SA">South Australia</a></li>
-			<li><a href="{$location_url}&b[location]=WA">Western Australia</a></li>
-			<li><a href="{$location_url}&b[location]=TAS">Tasmania</a></li>
-			<li><a href="{$location_url}&b[location]=NT">Northern Territory</a></li>
-			<li><a href="{$location_url}&b[location]=ACT">Australian Capital Territory</a></li>
+			<li><a href="{$location_url}&location=NSW">New South Wales</a></li>
+			<li><a href="{$location_url}&location=QLD">Queensland</a></li>
+			<li><a href="{$location_url}&location=VIC">Victoria</a></li>
+			<li><a href="{$location_url}&location=SA">South Australia</a></li>
+			<li><a href="{$location_url}&location=WA">Western Australia</a></li>
+			<li><a href="{$location_url}&location=TAS">Tasmania</a></li>
+			<li><a href="{$location_url}&location=NT">Northern Territory</a></li>
+			<li><a href="{$location_url}&location=ACT">Australian Capital Territory</a></li>
 		</ul>
 
 		<ul>
 			<li class="title">By Capital City</li>
-			<li><a href="{$location_url}&b[location]=Sydney,+NSW+2000">Sydney</a></li>
-			<li><a href="{$location_url}&b[location]=Brisbane,+QLD+4000">Brisbane</a></li>
-			<li><a href="{$location_url}&b[location]=Melbourne,+VIC+3000">Melbourne</a></li>
-			<li><a href="{$location_url}&b[location]=Adelaide,+SA+5000">Adelaide</a></li>
-			<li><a href="{$location_url}&b[location]=Perth,+WA+6000">Perth</a></li>
-			<li><a href="{$location_url}&b[location]=Hobart,+TAS+7000">Hobart</a></li>
-			<li><a href="{$location_url}&b[location]=Darwin,+NT+800">Darwin</a></li>
-			<li><a href="{$location_url}&b[location]=Canberra,+ACT+2600">Canberra</a></li>
+			<li><a href="{$location_url}&location=Sydney,+NSW+2000">Sydney</a></li>
+			<li><a href="{$location_url}&location=Brisbane,+QLD+4000">Brisbane</a></li>
+			<li><a href="{$location_url}&location=Melbourne,+VIC+3000">Melbourne</a></li>
+			<li><a href="{$location_url}&location=Adelaide,+SA+5000">Adelaide</a></li>
+			<li><a href="{$location_url}&location=Perth,+WA+6000">Perth</a></li>
+			<li><a href="{$location_url}&location=Hobart,+TAS+7000">Hobart</a></li>
+			<li><a href="{$location_url}&location=Darwin,+NT+800">Darwin</a></li>
+			<li><a href="{$location_url}&location=Canberra,+ACT+2600">Canberra</a></li>
 		</ul>
 
 		<ul class="float-li">
 			<li class="title" style="float:none">Other Major Towns</li>
-			<li><a href="{$location_url}&b[location]=Orange, NSW 2800">Orange</a></li>
-			<li><a href="{$location_url}&b[location]=Townsville, QLD 4810">Townsville</a></li>
-			<li><a href="{$location_url}&b[location]=Rockingham">Rockingham</a></li>
-			<li><a href="{$location_url}&b[location]=Newcastle,+NSW+2300">Newcastle</a></li>
-			<li><a href="{$location_url}&b[location]=Dubbo,+NSW+2830">Dubbo</a></li>
-			<li><a href="{$location_url}&b[location]=Cairns,+QLD+4870">Cairns</a></li>
-			<li><a href="{$location_url}&b[location]=Mandurah,+WA+6210">Mandurah</a></li>
-			<li><a href="{$location_url}&b[location]=Lismore">Lismore</a></li>
-			<li><a href="{$location_url}&b[location]=Toowoomba,+QLD+4350">Toowoomba</a></li>
-			<li><a href="{$location_url}&b[location]=Bunbury,+SA+5266">Bunbury</a></li>
-			<li><a href="{$location_url}&b[location]=Wollongong,+NSW+2500">Wollongong</a></li>
-			<li><a href="{$location_url}&b[location]=Bathurst,+NSW+2795">Bathurst</a></li>
-			<li><a href="{$location_url}&b[location]=Rockhampton,+QLD+4700">Rockhampton</a></li>
-			<li><a href="{$location_url}&b[location]=Kalgoorlie,+WA+6430">Kalgoorlie</a></li>
-			<li><a href="{$location_url}&b[location]=Albury,+NSW+2640">Albury</a></li>
-			<li><a href="{$location_url}&b[location]=Coffs+Harbour,+NSW+2450">Coffs Harbour</a></li>
-			<li><a href="{$location_url}&b[location]=Mackay,+QLD+4740">Mackay</a></li>
-			<li><a href="{$location_url}&b[location]=Geraldton,+WA+6530">Geraldton</a></li>
-			<li><a href="{$location_url}&b[location]=Maitland">Maitland</a></li>
-			<li><a href="{$location_url}&b[location]=Richmond">Richmond</a></li>
-			<li><a href="{$location_url}&b[location]=Bundaberg,+QLD+4670">Bundaberg</a></li>
-			<li><a href="{$location_url}&b[location]=Albany,+WA+6330">Albany</a></li>
-			<li><a href="{$location_url}&b[location]=Wagga+Wagga,+NSW+2650">Wagga Wagga</a></li>
-			<li><a href="{$location_url}&b[location]=Nowra,+NSW+2541">Nowra</a></li>
-			<li><a href="{$location_url}&b[location]=Hervey+Bay,+QLD+4655">Hervey Bay</a></li>
-			<li><a href="{$location_url}&b[location]=Launceston,+TAS+7250">Launceston</a></li>
-			<li><a href="{$location_url}&b[location]=Port+Macquarie,+NSW+2444">Port Macquarie</a></li>
-			<li><a href="{$location_url}&b[location]=Gladstone">Gladstone</a></li>
-			<li><a href="{$location_url}&b[location]=Alice+Springs,+NT+870">Alice Springs</a></li>
-			<li><a href="{$location_url}&b[location]=Tamworth,+NSW+2340">Tamworth</a></li>
-			<li><a href="{$location_url}&b[location]=Mount+Gambier,+SA+5290">Mount Gambier</a></li>
+			<li><a href="{$location_url}&location=Orange, NSW 2800">Orange</a></li>
+			<li><a href="{$location_url}&location=Townsville, QLD 4810">Townsville</a></li>
+			<li><a href="{$location_url}&location=Rockingham">Rockingham</a></li>
+			<li><a href="{$location_url}&location=Newcastle,+NSW+2300">Newcastle</a></li>
+			<li><a href="{$location_url}&location=Dubbo,+NSW+2830">Dubbo</a></li>
+			<li><a href="{$location_url}&location=Cairns,+QLD+4870">Cairns</a></li>
+			<li><a href="{$location_url}&location=Mandurah,+WA+6210">Mandurah</a></li>
+			<li><a href="{$location_url}&location=Lismore">Lismore</a></li>
+			<li><a href="{$location_url}&location=Toowoomba,+QLD+4350">Toowoomba</a></li>
+			<li><a href="{$location_url}&location=Bunbury,+SA+5266">Bunbury</a></li>
+			<li><a href="{$location_url}&location=Wollongong,+NSW+2500">Wollongong</a></li>
+			<li><a href="{$location_url}&location=Bathurst,+NSW+2795">Bathurst</a></li>
+			<li><a href="{$location_url}&location=Rockhampton,+QLD+4700">Rockhampton</a></li>
+			<li><a href="{$location_url}&location=Kalgoorlie,+WA+6430">Kalgoorlie</a></li>
+			<li><a href="{$location_url}&location=Albury,+NSW+2640">Albury</a></li>
+			<li><a href="{$location_url}&location=Coffs+Harbour,+NSW+2450">Coffs Harbour</a></li>
+			<li><a href="{$location_url}&location=Mackay,+QLD+4740">Mackay</a></li>
+			<li><a href="{$location_url}&location=Geraldton,+WA+6530">Geraldton</a></li>
+			<li><a href="{$location_url}&location=Maitland">Maitland</a></li>
+			<li><a href="{$location_url}&location=Richmond">Richmond</a></li>
+			<li><a href="{$location_url}&location=Bundaberg,+QLD+4670">Bundaberg</a></li>
+			<li><a href="{$location_url}&location=Albany,+WA+6330">Albany</a></li>
+			<li><a href="{$location_url}&location=Wagga+Wagga,+NSW+2650">Wagga Wagga</a></li>
+			<li><a href="{$location_url}&location=Nowra,+NSW+2541">Nowra</a></li>
+			<li><a href="{$location_url}&location=Hervey+Bay,+QLD+4655">Hervey Bay</a></li>
+			<li><a href="{$location_url}&location=Launceston,+TAS+7250">Launceston</a></li>
+			<li><a href="{$location_url}&location=Port+Macquarie,+NSW+2444">Port Macquarie</a></li>
+			<li><a href="{$location_url}&location=Gladstone">Gladstone</a></li>
+			<li><a href="{$location_url}&location=Alice+Springs,+NT+870">Alice Springs</a></li>
+			<li><a href="{$location_url}&location=Tamworth,+NSW+2340">Tamworth</a></li>
+			<li><a href="{$location_url}&location=Mount+Gambier,+SA+5290">Mount Gambier</a></li>
 		</ul>
 	</div>
 

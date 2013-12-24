@@ -566,8 +566,20 @@ class addon_SEO_util extends addon_SEO_info {
 				if (strpos($tpl,'(!CATEGORY_TITLE!)') !== false) {
 					$category_properties = geoCategory::getBasicInfo($b);
 					if (isset($get['breed'])) {
-					    $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/' . $get['breed'],$tpl);
+					    $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/?b[breed]=' . $get['breed'],$tpl);
 					}
+                    elseif (isset($get['specpettype'])) {
+                        $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/?b[specpettype]=' . $get['specpettype'],$tpl);
+                    }
+                    elseif (isset($get['adoptable_only'])) {
+                        $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/?b[adoptable_only]=' . $get['adoptable_only'],$tpl);
+                    }
+                    elseif (isset($get['service'])) {
+                        $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/?b[service]=' . $get['service'],$tpl);
+                    }
+                    elseif (isset($get['location'])) {
+                        $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles) . '/?b[location]=' . $get['location'],$tpl);
+                    }
                     else {
                         $tpl = str_replace('(!CATEGORY_TITLE!)',$this->revise($category_properties['category_name'], array(), false, $url_encode_titles),$tpl);
                     }
