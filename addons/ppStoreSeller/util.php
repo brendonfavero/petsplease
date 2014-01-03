@@ -26,7 +26,7 @@ class addon_ppStoreSeller_util extends addon_ppStoreSeller_info
 		
 		// Check if the listing falls under product category
 		$categories = geoCategory::getTree($listing->category);
-		$top_category = reset(&$categories);
+		$top_category = reset($categories);
 		if ($top_category['category_id'] != self::PRODUCT_CATEGORY) {
 			return false;
 		}

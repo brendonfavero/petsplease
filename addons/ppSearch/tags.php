@@ -16,7 +16,7 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 		$urlparts = parse_url('fake.com/' . $queryurl); // can't be bothered detecting if $queryurl has file included or not so just using this
 		$querystring = $urlparts['query'];
 		$search_parms = array();
-		parse_str($querystring, &$search_parms);
+		parse_str($querystring, $search_parms);
 
 		// Get all categories
 		$sql = "SELECT category_id, category_name, parent_id FROM geodesic_categories ORDER BY display_order, category_name";
