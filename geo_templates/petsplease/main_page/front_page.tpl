@@ -106,8 +106,8 @@
 			<li><a href="{$servicetype_url}&service=Boarding+for+Other+Pets">Boarding for Other Pets</a></li>
 			<li><a href="{$servicetype_url}&service=Boarding+Kennels+Dog">Boarding Kennels Dog</a></li>
 			<li><a href="{$servicetype_url}&service=Dog+and+Cat+Washing,+Clipping+and+Grooming">Dog and Cat Washing, Clipping and Grooming</a></li>
-			<li><a href="{$servicetype_url}&service=Dog+Swimming+Lessons">Dog Swimming Lessons</a></li>
-			<li><a href="{$servicetype_url}&service=Dog+Training">Dog Training</a></li>
+			<li><a href="{$servicetype_url}&service=Dog+Rehabilitation+and+Physical+Therapy">Dog Rehabilitation and Physical Therapy</a></li>
+			<li><a href="{$servicetype_url}&service=Dog+training+and+Puppy+Socialising">Dog Training and Puppy Socialising</a></li>
 			<li><a href="{$servicetype_url}&service=Natural+Therapies">Natural Therapies</a></li>
 			<li><a href="{$servicetype_url}&service=Pet+Cemeteries+and+Crematoriums">Pet Cemeteries and Crematoriums</a></li>
 			<li><a href="{$servicetype_url}&service=Pet+Day+Care">Pet Day Care</a></li>
@@ -116,9 +116,7 @@
 			<li><a href="{$servicetype_url}&service=Pet+Nutrition+Advise">Pet Nutrition Advise</a></li>
 			<li><a href="{$servicetype_url}&service=Pet+Photography">Pet Photography</a></li>
 			<li><a href="{$servicetype_url}&service=Pet+Transport+Services">Pet Transport Services</a></li>
-			<li><a href="{$servicetype_url}&service=Puppy+Socialising">Puppy Socialising</a></li>
-			<li><a href="{$servicetype_url}&service=Veterinary+Surgeries+and+Hospotals">Veterinary Surgeries and Hospotals</a></li>
-			<li><a href="{$servicetype_url}&service=Walking">Walking</a></li>
+			<li><a href="{$servicetype_url}&service=Veterinary+Surgeries+and+Hospitals">Veterinary Surgeries and Hospitals</a></li>
 			<li><a href="{$servicetype_url}&service=Other">Other</a></li>
 		</ul>
 	</div>
