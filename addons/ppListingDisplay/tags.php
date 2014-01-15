@@ -429,6 +429,24 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		else if ($_REQUEST['c'] == 314 || ($listing && $listing->category == 314)) {
 			return "headerimg-other";
 		}
+        else if ($_REQUEST['c'] == 320 || ($listing && $listing->category == 320)) {
+            return "headerimg-dogproduct";
+        }
+        else if ($_REQUEST['c'] == 321 || ($listing && $listing->category == 321)) {
+            return "headerimg-catproduct";
+        }
+        else if ($_REQUEST['c'] == 322 || ($listing && $listing->category == 322)) {
+            return "headerimg-birdproduct";
+        }
+        else if ($_REQUEST['c'] == 323 || ($listing && $listing->category == 323)) {
+            return "headerimg-fishproduct";
+        }
+        else if ($_REQUEST['c'] == 324 || ($listing && $listing->category == 324)) {
+            return "headerimg-reptileproduct";
+        }
+        else if ($_REQUEST['c'] == 326 || ($listing && $listing->category == 326)) {
+            return "headerimg-otherproduct";
+        }
 		else {
 			return "headerimg-allpets";
 		}

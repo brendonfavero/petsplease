@@ -215,4 +215,22 @@ header.page {
 	&.headerimg-allpets {
 		background: url(../images/all_pets.jpg) no-repeat 60% 34%;
 	}
+	&.headerimg-dogproduct {
+    background: url(../images/dog-toy.jpg) no-repeat 72% 31%;
+  }
+  &.headerimg-catproduct {
+    background: url(../images/cat-toy.jpg) no-repeat 72% 31%;
+  }
+  &.headerimg-birdproduct {
+    background: url(../images/bird-toy.jpg) no-repeat 72% 31%;
+  }
+  &.headerimg-fishproduct {
+    background: url(../images/aquarium.jpg) no-repeat 70% 31%;
+  }
+  &.headerimg-reptileproduct {
+    background: url(../images/bearded-dragon.jpg) no-repeat 70% 31%;
+  }
+  &.headerimg-otherproduct {
+    background: url(../images/bunny-shopping.jpg) no-repeat 70% 31%;
+  }
 }
