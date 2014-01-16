@@ -169,28 +169,28 @@
 
 	{else}
 		Select a type and breed below or on the left to view information.
-		<div style="width:50%">
+		<div style="width:50%; float:left">
 			<img src="/addons/ppPetSelector/images/110-1387781293.jpg"/>
 			<br/>
 			Labrador Retriever
 			<br/>
 			<a href="petselector?a=ap&addon=ppPetSelector&page=detail&id=110">Show More Detail</a>
 		</div>
-		<div style="width:50%">
+		<div style="width:50%; float:right">
 			<img src="/addons/ppPetSelector/images/27-1387781202.jpg">
 			<br/>
 			Border Collie
 			<br/>
 			<a href="petselector?a=ap&addon=ppPetSelector&page=detail&id=27">Show More Detail</a>
 		</div>
-		<div style="width:50%">
+		<div style="width:50%; float:left">
 			<img src="/addons/ppPetSelector/images/256-1387837605.jpg">
 			<br/>
 			Persian
 			<br/>
 			<a href="petselector?a=ap&addon=ppPetSelector&page=detail&id=256">Show More Detail</a>
 		</div>
-		<div style="width:50%">
+		<div style="width:50%; float:right">
 			<img src="/addons/ppPetSelector/images/265-1387837563.jpg">
 			<br/>
 			Siamese
