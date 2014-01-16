@@ -429,26 +429,37 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		else if ($_REQUEST['c'] == 314 || ($listing && $listing->category == 314)) {
 			return "headerimg-other";
 		}
-        else if ($_REQUEST['c'] == 320 || ($listing && $listing->category == 320)) {
+        else if ($_REQUEST['c'] == 320 || ($listing && self::getParentCategory($listing->category) == 320)) {
             return "headerimg-dogproduct";
         }
-        else if ($_REQUEST['c'] == 321 || ($listing && $listing->category == 321)) {
+        else if ($_REQUEST['c'] == 321 || ($listing && self::getParentCategory($listing->category) == 321)) {
             return "headerimg-catproduct";
         }
-        else if ($_REQUEST['c'] == 322 || ($listing && $listing->category == 322)) {
+        else if ($_REQUEST['c'] == 322 || ($listing && self::getParentCategory($listing->category) == 322)) {
             return "headerimg-birdproduct";
         }
-        else if ($_REQUEST['c'] == 323 || ($listing && $listing->category == 323)) {
+        else if ($_REQUEST['c'] == 323 || ($listing && self::getParentCategory($listing->category) == 323)) {
             return "headerimg-fishproduct";
         }
-        else if ($_REQUEST['c'] == 324 || ($listing && $listing->category == 324)) {
+        else if ($_REQUEST['c'] == 324 || ($listing && self::getParentCategory($listing->category) == 324)) {
             return "headerimg-reptileproduct";
         }
-        else if ($_REQUEST['c'] == 326 || ($listing && $listing->category == 326)) {
+        else if ($_REQUEST['c'] == 326 || ($listing && self::getParentCategory($listing->category) == 326)) {
             return "headerimg-otherproduct";
         }
 		else {
 			return "headerimg-allpets";
 		}
 	}
+
+    private function getParentCategory($category_id) {
+        $db = DataAccess::getInstance();
+    
+        $catSql = "SELECT parent_id as category_parent FROM geodesic_categories cat WHERE cat.category_id = " . $category_id;
+        $catResult = $db->Execute($catSql);
+    
+        if ($catResult && $catResult->RecordCount() > 0 && $listing = $catResult->FetchRow()) {
+            return $listing['category_parent'];
+        }
+    }
 }
