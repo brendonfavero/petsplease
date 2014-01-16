@@ -22,7 +22,7 @@
 	
 	<ul id="listing_categories">
 		{foreach from=$cat_data key=i item=cat}
-			<li class="element" style="width:{$column_width};">
+			<li class="element" style="width:50%;">
 				<a href="{$process_form_url}&amp;b={$cat.category_id}">
 					{if $display_cat_image ne 0 AND $cat.category_image ne ""}
 						<img src="{external file=$cat.category_image}" alt="" /> &nbsp;
