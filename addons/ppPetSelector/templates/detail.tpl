@@ -183,17 +183,14 @@
 			<br/>
 			<a href="petselector?a=ap&addon=ppPetSelector&page=detail&id=27">Show More Detail</a>
 		</div>
-		<br/>
-		<br/>
-		<br/>
-		<div style="width:50%; float:left">
+		<div style="width:50%; float:left; margin-top:50px">
 			<img src="/addons/ppPetSelector/images/256-1387837605.jpg">
 			<br/>
 			Persian
 			<br/>
 			<a href="petselector?a=ap&addon=ppPetSelector&page=detail&id=256">Show More Detail</a>
 		</div>
-		<div style="width:50%; float:right">
+		<div style="width:50%; float:right; margin-top:50px">
 			<img src="/addons/ppPetSelector/images/265-1387837563.jpg">
 			<br/>
 			Siamese
