@@ -48,9 +48,9 @@
 		</select>
 	</div>
 	
-	<div id="search_clubcategory_container" data-showif="#search_category=319" style="display:none">
+	<div id="search_pettype_container" data-showif="#search_category=319" style="display:none">
 		<label for="search_pettype">Pet Type</label>
-		<select id="search_pettype" name="b[specpettype]">
+		<select id="search_pettype" name="b[clubpettype]">
 			<option value="" class="showalways">All Pets</option>
 			{foreach from=$pettypes item=label key=key}
 				<option value="{$key}"{if $key eq $search_parms.b.specpettype} selected="selected"{/if}>{$label}</option>

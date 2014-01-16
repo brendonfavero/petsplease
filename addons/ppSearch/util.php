@@ -121,13 +121,14 @@ class addon_ppSearch_util extends addon_ppSearch_info
 				}
 			}
 		}
-
+        
+        //club pet types and breeds
         if ($searchClass->site_category == self::CATEGORY_CLUBS) {
-            $breeder_type = $searchClass->search_criteria["specpettype"];
+            $club_type = $searchClass->search_criteria["clubpettype"];
 
-            if ($breeder_type) {
+            if ($club_type) {
                 $columnToSearch = "";
-                switch ($breeder_type) {
+                switch ($club_type) {
                     case "dog":
                     $columnToSearch = self::BREEDER_DOG_BREEDS_COL;
                     break;
