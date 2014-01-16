@@ -183,6 +183,9 @@
 			<br/>
 			<a href="petselector?a=ap&addon=ppPetSelector&page=detail&id=27">Show More Detail</a>
 		</div>
+		<br/>
+		<br/>
+		<br/>
 		<div style="width:50%; float:left">
 			<img src="/addons/ppPetSelector/images/256-1387837605.jpg">
 			<br/>
