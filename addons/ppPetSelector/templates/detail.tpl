@@ -172,7 +172,8 @@
 		<div style="width:50%; float:left">
 			<img src="/addons/ppPetSelector/images/110-1387781293.jpg"/>
 			<br/>
-			<span class="breed">Labrador Retriever</span>
+			<span class="petselectorbreed">Labrador Retriever</span>
+			<br/>
 			<span class="field_name">Family Friendliness</span>
 			<span class="field_value">
 				<div class="starrating-bg" title="5 star/s">
@@ -184,7 +185,8 @@
 		<div style="width:50%; float:right">
 			<img src="/addons/ppPetSelector/images/27-1387781202.jpg">
 			<br/>
-			<span class="breed">Border Collie</span>
+			<span class="petselectorbreed">Border Collie</span>
+			<br/>
 			<span class="field_name">Trainability</span>
 			<span class="field_value">
 				<div class="starrating-bg" title="5 star/s">
@@ -196,7 +198,8 @@
 		<div style="width:50%; float:left; margin-top:50px">
 			<img src="/addons/ppPetSelector/images/256-1387837605.jpg">
 			<br/>
-			<span class="breed">Persian</span>
+			<span class="petselectorbreed">Persian</span>
+			<br/>
 			<span class="field_name">Grooming</span>
 			<span class="field_value">
 				<div class="starrating-bg" title="5 star/s">
@@ -208,7 +211,8 @@
 		<div style="width:50%; float:right; margin-top:50px">
 			<img src="/addons/ppPetSelector/images/265-1387837563.jpg">
 			<br/>
-			<span class="breed">Siamese</span>
+			<span class="petselectorbreed">Siamese</span>
+			<br/>
 			<span class="field_name">Energy Level</span>
 			<span class="field_value">
 				<div class="starrating-bg" title="5 star/s">
