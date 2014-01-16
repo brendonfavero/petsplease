@@ -48,15 +48,12 @@
 		</select>
 	</div>
 	
-	<div id="search_subcategory_container" data-showif="#search_category=308,315,413" style="display:none">
-		<label for="search_subcategory">Pet Type</label>
-		<select id="search_subcategory" data-childfilter="#search_category=?">
+	<div id="search_clubcategory_container" data-showif="#search_category=319" style="display:none">
+		<label for="search_pettype">Pet Type</label>
+		<select id="search_pettype" name="b[specpettype]">
 			<option value="" class="showalways">All Pets</option>
-
-			{foreach from=$categories item=category}
-				{foreach from=$category.subcategories item=subcategory}
-					<option value="{$subcategory.category_id}" data-parent="{$category.category_id}" {if $subcategory.category_id eq $subcat}selected="selected"{/if}>{$subcategory.category_name}</option>
-				{/foreach}
+			{foreach from=$pettypes item=label key=key}
+				<option value="{$key}"{if $key eq $search_parms.b.specpettype} selected="selected"{/if}>{$label}</option>
 			{/foreach}
 		</select>
 	</div>

@@ -9,6 +9,8 @@ class addon_ppSearch_util extends addon_ppSearch_info
 	const CATEGORY_PETSFORSALE_OTHER = 314;
 
 	const CATEGORY_BREEDER = 316;
+    
+    const CATEGORY_CLUBS = 319;
 
 	const BREEDER_DOG_BREEDS_COL = "optional_field_8";
 	const BREEDER_CAT_BREEDS_COL = "optional_field_9";
@@ -119,6 +121,53 @@ class addon_ppSearch_util extends addon_ppSearch_info
 				}
 			}
 		}
+
+        if ($searchClass->site_category == self::CATEGORY_CLUBS) {
+            $breeder_type = $searchClass->search_criteria["specpettype"];
+
+            if ($breeder_type) {
+                $columnToSearch = "";
+                switch ($breeder_type) {
+                    case "dog":
+                    $columnToSearch = self::BREEDER_DOG_BREEDS_COL;
+                    break;
+
+                    case "cat":
+                    $columnToSearch = self::BREEDER_CAT_BREEDS_COL;
+                    break;
+
+                    case "bird":
+                    $columnToSearch = self::BREEDER_BIRD_BREEDS_COL;
+                    break;
+
+                    case "fish":
+                    $columnToSearch = self::BREEDER_FISH_BREEDS_COL;
+                    break;
+
+                    case "reptile":
+                    $columnToSearch = self::BREEDER_REPTILE_BREEDS_COL;
+                    break;
+
+                    case "other":
+                    $columnToSearch = self::BREEDER_OTHER_BREEDS_COL;
+                    break;              
+                }
+
+                if ($columnToSearch != "") {
+                    if ($breed_criteria) {
+                        $query->where("$classTable.`$columnToSearch` LIKE \"%$urlencodedBreed%\"", "breeder_breed");
+                    }
+                    else {
+                        $query->where("$classTable.`$columnToSearch` <> ''", "breeder_breed");
+                    }
+                }
+                else {
+                    // If parameters are invalid we should show nothing
+                    $query->where("true = false", "breeder_breed");
+                    return;
+                }
+            }
+        }
 
 		// Service
 		$service_criteria = $searchClass->search_criteria["service"];
