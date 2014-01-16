@@ -33,9 +33,6 @@
 					{/if}
 				</a>
 			</li>
-			{if (($i+1) >= $colspan AND ((($i+1) % $colspan) eq 0))}
-				<li class="clr"></li>
-			{/if}
 		{/foreach}
 	</ul>
 	<div class="clr"><br /></div>
