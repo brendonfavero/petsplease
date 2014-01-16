@@ -47,7 +47,19 @@
 			{/foreach}
 		</select>
 	</div>
+	
+	<div id="search_subcategory_container" data-showif="#search_category=308,315,413" style="display:none">
+		<label for="search_subcategory">Pet Type</label>
+		<select id="search_subcategory" data-childfilter="#search_category=?">
+			<option value="" class="showalways">All Pets</option>
 
+			{foreach from=$categories item=category}
+				{foreach from=$category.subcategories item=subcategory}
+					<option value="{$subcategory.category_id}" data-parent="{$category.category_id}" {if $subcategory.category_id eq $subcat}selected="selected"{/if}>{$subcategory.category_name}</option>
+				{/foreach}
+			{/foreach}
+		</select>
+	</div>
 
 	<div id="search_pettype_container" data-showif="#search_category=316" style="display:none">
 		<label for="search_pettype">Pet Type</label>
