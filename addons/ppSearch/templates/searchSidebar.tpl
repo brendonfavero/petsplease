@@ -53,7 +53,7 @@
 		<select id="search_pettype" name="b[clubpettype]">
 			<option value="" class="showalways">All Pets</option>
 			{foreach from=$pettypes item=label key=key}
-				<option value="{$key}"{if $key eq $search_parms.b.specpettype} selected="selected"{/if}>{$label}</option>
+				<option value="{$key}"{if $key eq $search_parms.b.clubpettype} selected="selected"{/if}>{$label}</option>
 			{/foreach}
 		</select>
 	</div>
