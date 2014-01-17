@@ -16,7 +16,7 @@
 	{listing tag='notify_friend_link'}
 </div>
 <div class="icon_link_img">
-	<img alt="Add-to-Favorites" src="{external file='images/icons/favorite.png'}" title="Add-to-Favorites" />
+	<img alt="Add-to-Favourites" src="{external file='images/icons/favorite.png'}" title="Add-to-Favorites" />
 </div>
 <div class="icon_link">
 	{listing tag='favorites_link'}
