@@ -452,6 +452,54 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		}
 	}
 
+    public function headerTextClass($params, Smarty_Internal_Template $smarty) {
+        $listingid = $_REQUEST['a'] == 2 ? $_REQUEST['b'] : false; 
+        if ($listingid) {
+            $listing = geoListing::getListing($listingid);
+        }
+
+        if ($_REQUEST['c'] == 309 || ($listing && $listing->category == 309)) {
+            return "Dogs for Sale";
+        } 
+        else if ($_REQUEST['c'] == 310 || ($listing && $listing->category == 310)) {
+            return "Cats for Sale";
+        }
+        else if ($_REQUEST['c'] == 311 || ($listing && $listing->category == 311)) {
+            return "Birds for Sale";
+        }
+        else if ($_REQUEST['c'] == 312 || ($listing && $listing->category == 312)) {
+            return "Fish for Sale";
+        }
+        else if ($_REQUEST['c'] == 313 || ($listing && $listing->category == 313)) {
+            return "Reptiles for Sale";
+        }
+        else if ($_REQUEST['c'] == 314 || ($listing && $listing->category == 314)) {
+            return "Other Pets for Sale";
+        }
+        else if ($_REQUEST['c'] == 320 || ($listing && self::getParentCategory($listing->category) == 320)) {
+            return "Dog Products for Sale";
+        }
+        else if ($_REQUEST['c'] == 321 || ($listing && self::getParentCategory($listing->category) == 321)) {
+            return "Cat Products for Sale";
+        }
+        else if ($_REQUEST['c'] == 322 || ($listing && self::getParentCategory($listing->category) == 322)) {
+            return "Bird Products for Sale";
+        }
+        else if ($_REQUEST['c'] == 323 || ($listing && self::getParentCategory($listing->category) == 323)) {
+            return "Fish Products for Sale";
+        }
+        else if ($_REQUEST['c'] == 324 || ($listing && self::getParentCategory($listing->category) == 324)) {
+            return "Reptile Products for Sale";
+        }
+        else if ($_REQUEST['c'] == 326 || ($listing && self::getParentCategory($listing->category) == 326)) {
+            return "Other Pet Products for Sale";
+        }
+        else {
+            return "Pets and Products for Sale";
+        }
+    }
+    
+
     private function getParentCategory($category_id) {
         $db = DataAccess::getInstance();
     

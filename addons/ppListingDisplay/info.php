@@ -15,7 +15,8 @@ class addon_ppListingDisplay_info
 		'extraLeveledMutliCheckboxDisplay',
 		'extraLeveledMutliCheckboxSelect',
 
-		'headerImageClass'
+		'headerImageClass',
+		'headerTextClass'
 	);
 
 	public $listing_tags = array (

@@ -34,7 +34,7 @@
 	</div>
 
 	<div id="header-bytext2">
-		Pets and Products for Sale
+		{addon addon='ppListingDisplay' tag='headerTextClass'}
 	</div>
 
 
