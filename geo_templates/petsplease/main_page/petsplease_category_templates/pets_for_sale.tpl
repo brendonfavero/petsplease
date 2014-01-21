@@ -241,8 +241,17 @@
 				{/if}
 			</span>
 		{/if}
+		
 	</div>
-
+	{if $topcategory eq 315 and $optional_field_1 eq "1"}
+	<div class="stockimage">
+		{if $optional_field_2 > 1} {* If stock is available *}
+			<img width="56px" src="geo_templates/petsplease/external/images/instock.png"/>
+		{else} {* other this product is sold out *}
+				<img width="56px" src="geo_templates/petsplease/external/images/outofstock.png"/>
+		{/if}
+		</div>
+	{/if}
 	{listing tag='listingBannerImages' addon='ppListingImagesExtra'}
 
 
@@ -289,7 +298,13 @@
 	{/if}
 	{* End buyable product stuff}
 
-
+	{if $topcategory eq 412 and $optional_field_1 eq "1"}
+		<div class="content_box_1">
+			<p>
+				Flat shipping rate {$optional_field_20} (<br>				
+			</p>
+		</div>
+	{/if}
 
 	{* START DESCRIPTION *}
 		
