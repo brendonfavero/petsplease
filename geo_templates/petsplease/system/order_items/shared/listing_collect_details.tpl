@@ -330,6 +330,10 @@
 						{if $opt_info.error}
 							<span class="error_message">{$opt_info.error}</span>
 						{/if}
+						{if $i eq 19}
+						<br/>
+							(This is the domestic flat shipping & handling rate offered by your store regardless of number of items, leave as is to charge by item)
+						{/if}
 					</div>
 				{/if}
 			{/foreach}

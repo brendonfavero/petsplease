@@ -41,8 +41,6 @@
 							</select>
 							 {*$listing.cartqty*}<br>
 							Price: {$listing.price}<br>
-							Shipping: {$listing.shipping}<br>
-							<span class="bold">Total: {$listing.total_price}</span><br>
 							<br>
 							<a href="?a=ap&addon=ppStoreSeller&page=merchantcart&action=movetofavourites&b={$listing.id}">Move to Favourites</a><br>
 							<a href="?a=13&b={$listing.id}">Contact Shop Owner</a><br>
@@ -63,6 +61,7 @@
 
 			<div class="vendor_footer">
 				<div>
+					<span class="bold">Shipping: {$vendor.total_shipping_display}</span>
 					<span class="bold">Total: {$vendor.total_price_display}</span>
 					<a href="?a=ap&addon=ppStoreSeller&page=checkout&vendor={$vendor.shop_listing.seller}" class="button">Checkout</a>
 				</div>

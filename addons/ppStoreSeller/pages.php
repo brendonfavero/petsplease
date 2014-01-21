@@ -167,13 +167,23 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$listingdata['image_thumbnail'] = geoImage::getInstance()->display_thumbnail($listing->id);
 
 			$listingdata['price'] = geoString::displayPrice($listingdata['price']);
-			$listingdata['shipping'] = geoString::displayPrice($listingdata['optional_field_20']);
+			$data[$seller]['shipping_price'] += $listingdata['optional_field_20'];            
+            
+            $storeQuestions = geoListing::getExtraQuestions($vendor_info['shop_listing']['id']);
+            $flatShipping = $vendor_info['shop_listing']['optional_field_19'];
+            
+            if (isset($flatShipping) && $flatShipping > 0 && $flatShipping < $data[$seller]['shipping_price']) {
+                $data[$seller]['total_shipping_display'] = geoString::displayPrice($flatShipping);
+            }
+            else {
+                $data[$seller]['total_shipping_display'] = geoString::displayPrice($data[$seller]['shipping_price']);
+            }
 
 			// PRICE ? (base,shipping, total)
 			// total price = qty * (base + shipping)
 
 			$data[$seller]['listings'][] = $listingdata;
-		}
+		}        
 
 		$view->setBodyVar('cart_items', $data);
 
@@ -309,6 +319,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		}
 		
 		$data['total_price'] = 0;
+        $data['shipping_price'] = 0;
 		foreach ($cart_items as $cart_item) {
 			$listing = geoListing::getListing($cart_item['listing_id']);
 			$listingdata = $listing->toArray();
@@ -317,17 +328,32 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$listingdata['total_price'] = geoString::displayPrice($listing_price_total);
 
 			$data['total_price'] += $listing_price_total;
-			$data['total_price_display'] = geoString::displayPrice($data['total_price']);
+			$data['total_price_display'] = geoString::displayPrice($data['total_price']);			
 
 			$listingdata['cartqty'] = $cart_item['qty'];
 			$listingdata['image_thumbnail'] = geoImage::getInstance()->display_thumbnail($listing->id);
 
 			$listingdata['subtotal'] = geoString::displayPrice($listing_price_total);
 			$listingdata['price'] = geoString::displayPrice($listingdata['price']);
-			$listingdata['shipping'] = geoString::displayPrice($listingdata['optional_field_20']);
+            
+            $data['shipping_price'] += $listingdata['optional_field_20'];            
 
 			$data['listings'][] = $listingdata;
 		}
+        
+        $util = geoAddon::getInstance()->getUtil($this->name);
+        $shop_listing = $util->getUserStoreListing($vendor_id)->toArray();
+        $storeQuestions = geoListing::getExtraQuestions($shop_listing['id']);
+        $flatShipping = $storeQuestions[194]['value'];
+        
+        if (isset($flatShipping) && $flatShipping < $data['shipping_price']) {
+            $data['total_shipping_display'] = geoString::displayPrice($flatShipping);
+        }
+        else {
+            $data['total_shipping_display'] = geoString::displayPrice($data['shipping_price']);
+        }
+        
+        $view->setBodyVar('cart_items', $data);
 		$view->setBodyVar('order', $data); 
 		$view->setBodyVar('fielddata', $fielddata);
 

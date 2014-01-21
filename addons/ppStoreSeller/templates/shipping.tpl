@@ -229,5 +229,9 @@
 			<input type="submit" value="Submit Order" class="button" /><br /><br />
 			<a href="?a=ap&addon=ppStoreSeller&page=merchantCart" class="button">Back to Cart</a>
 		</div>
+		
+		<div class="center" style="font-style:italic">
+			You acknowledge that any transactions taken place on this website are strictly between the relevant parties to that transaction. Pets Please holds no responsibility or liability for the actual transactions effected through this website. You further acknowledge and agree that Pets Please merely provides the facilities through which You can participate in such transactions
+		</div>
 	</div>
 </form>
