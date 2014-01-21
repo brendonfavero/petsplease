@@ -5,6 +5,13 @@
 .listing_maincol {
 	overflow: hidden;
 	padding-left: 24px;
+	position:relative;
+}
+
+.stockimage {
+  position:absolute;
+  right:0;
+  top:0;  
 }
 
 .nav_breadcrumb {
