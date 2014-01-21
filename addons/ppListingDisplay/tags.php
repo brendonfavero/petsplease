@@ -447,6 +447,24 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         else if ($_REQUEST['c'] == 326 || ($listing && self::getParentCategory($listing->category) == 326)) {
             return "headerimg-otherproduct";
         }
+        else if ($_REQUEST['spectype'] == 'dog' || ($listing && isset($listing->optional_field_8))) {
+            return "headerimg-dogbreeders";
+        }
+        else if ($_REQUEST['spectype'] == 'cat' || ($listing && isset($listing->optional_field_9))) {
+            return "headerimg-catbreeders";
+        }
+        else if ($_REQUEST['spectype'] == 'bird' || ($listing && isset($listing->optional_field_10))) {
+            return "headerimg-birdbreeders";
+        }
+        else if ($_REQUEST['spectype'] == 'fish' || ($listing && isset($listing->optional_field_11))) {
+            return "headerimg-fishbreeders";
+        }
+        else if ($_REQUEST['spectype'] == 'reptile' || ($listing && isset($listing->optional_field_12))) {
+            return "headerimg-reptilebreeders";
+        }
+        else if ($_REQUEST['spectype'] == 'other' || ($listing && isset($listing->optional_field_13))) {
+            return "headerimg-otherbreeders";
+        }
 		else {
 			return "headerimg-allpets";
 		}
