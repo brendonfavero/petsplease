@@ -195,7 +195,7 @@
 			</span>
 			<a href="petselector?a=ap&addon=ppPetSelector&page=detail&id=27">Show More Detail</a>
 		</div>
-		<div style="width:50%; float:left; margin-top:50px">
+		<div style="width:50%; float:left; margin-top:50px; margin-bottom:50px">
 			<img src="/addons/ppPetSelector/images/256-1387837605.jpg">
 			<br/>
 			<span class="petselectorbreed">Persian</span>
@@ -208,7 +208,7 @@
 			</span>
 			<a href="petselector?a=ap&addon=ppPetSelector&page=detail&id=256">Show More Detail</a>
 		</div>
-		<div style="width:50%; float:right; margin-top:50px">
+		<div style="width:50%; float:right; margin-top:50px; margin-bottom:50px">
 			<img src="/addons/ppPetSelector/images/265-1387837563.jpg">
 			<br/>
 			<span class="petselectorbreed">Siamese</span>
@@ -222,4 +222,10 @@
 			<a href="petselector?a=ap&addon=ppPetSelector&page=detail&id=265">Show More Detail</a>
 		</div>
 	{/if}
+	
+	<div style="text-align:center;font-style:italic; margin-top:25px">
+		<strong style="font-weight:bold">Disclaimer:</strong> Every effort has been made to make the Site as accurate as possible. 
+		You acknowledge that any reliance upon any advice, opinion, statement, advertisement, or other information displayed or distributed through the Site is at Your sole risk and We are not responsible or labile for any loss or damage that results from the use of the information on the Site. 
+		We reserve the right in Our sole discretion and without notice to You to correct any errors or omissions in any portion of the Site. 
+	</div>
 </div>
