@@ -172,7 +172,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
             $storeQuestions = geoListing::getExtraQuestions($vendor_info['shop_listing']['id']);
             $flatShipping = $vendor_info['shop_listing']['optional_field_19'];
             
-            if (isset($flatShipping) && $flatShipping > 0 && $flatShipping < $data[$seller]['shipping_price']) {
+            if (isset($flatShipping) && $flatShipping > 0) {
                 $data[$seller]['total_shipping_display'] = geoString::displayPrice($flatShipping);
             }
             else {

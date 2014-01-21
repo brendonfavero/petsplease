@@ -289,7 +289,7 @@
 
 			<p>
 				Price: {$price}<br>
-				Shipping and handling: {$optional_field_20}<br>
+				Shipping and handling: {$optional_field_20} (Shipping within Australia, contact seller for international shipping)<br>
 				{if $optional_field_2 > 1}
 					Quantity available: {$optional_field_2}
 				{/if}
