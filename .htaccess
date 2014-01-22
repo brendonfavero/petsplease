@@ -54,6 +54,9 @@ RewriteRule ^/?services/?$ index.php?a=19&c=318&b[subcategories_also]=1 [L,NC,QS
 #CLUBS
 RewriteRule ^/?clubs/?$ index.php?a=19&c=319&b[subcategories_also]=1 [L,NC,QSA] #home
 
+#CLUBS
+RewriteRule ^/?shelters/?$ index.php?a=19&b%5Bsubcategories_also%5D=1&c=420 [L,NC,QSA] #home
+
 #PETSELECTOR
 RewriteRule ^/?petselector/?$ index.php?a=ap&addon=ppPetSelector&page=detail [L,NC,QSA] #home
 

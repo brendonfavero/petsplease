@@ -103,7 +103,7 @@
 		</li>
 
 		<li>
-			<a href="/accomodation" class="large">Pet Friendly Accomodation</a>
+			<a href="/accomodation" class="large">Pet Friendly Accommodation</a>
 		</li>
 
 		<li>
@@ -112,6 +112,10 @@
 
 		<li>
 			<a href="/services">Pet Services</a>
+		</li>
+		
+		<li>
+			<a href="/shelters">Pet Shelters</a>
 		</li>
 
 		<li>
