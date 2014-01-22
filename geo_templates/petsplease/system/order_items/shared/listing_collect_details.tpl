@@ -834,7 +834,9 @@
 
 				{elseif $topcat eq 315 and ($i eq 1 or $i eq 2)}
 					{* Product isSellable/Qty controls, just ignore *}
-
+					{if $opt_info.error}
+						<span class="error_message">{$opt_info.error}</span>
+					{/if}
 				{* END ARDEX Hide custom inputs *}
 
 				{elseif $opt_info.field->field_type=='cost'}
@@ -905,9 +907,6 @@
 								value="{$opt_info.value}" />
 						{/if}
 						
-						{if $i == 2}
-							<span class="error_message">(Required Field)</span>
-						{/if}
 						{if $opt_info.error}
 							<span class="error_message">{$opt_info.error}</span>
 						{/if}
