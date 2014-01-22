@@ -448,7 +448,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         else if ($_REQUEST['c'] == 326 || ($listing && self::getParentCategory($listing->category) == 326)) {
             return "headerimg-otherproduct";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'dog' || ($listing && isset($listingdata['optional_field_8']->optional_field_8))) {
+        else if ($_REQUEST['b']['specpettype'] == 'dog' || ($listing && isset($listingdata['optional_field_8']))) {
             return "headerimg-dogbreeders";
         }
         else if ($_REQUEST['b']['specpettype'] == 'cat' || ($listing && isset($listing->optional_field_9))) {
