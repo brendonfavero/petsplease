@@ -421,9 +421,12 @@
 
 		{* ARDEX Qty stuff *}
 		{if $session_variables.storeproduct == "true"}
-			<div>
+			<div class="{if $opt_field_info[2].error}field_error_row {/if}{cycle values='row_odd,row_even'}">
 				<label class="field_label">Product Qty:</label>
 				<input name="b[optional_field_2]" class="field" type="text" value="{$opt_field_info[2].value}" />
+				{if $opt_field_info[2]}
+					<span class="error_message">{$opt_field_info[2].error}</span>
+				{/if}
 			</div>
 		{/if}
 		{**}
@@ -834,9 +837,7 @@
 
 				{elseif $topcat eq 315 and ($i eq 1 or $i eq 2)}
 					{* Product isSellable/Qty controls, just ignore *}
-					{if $opt_info.error}
-						<span class="error_message">{$opt_info.error}</span>
-					{/if}
+					
 				{* END ARDEX Hide custom inputs *}
 
 				{elseif $opt_info.field->field_type=='cost'}
