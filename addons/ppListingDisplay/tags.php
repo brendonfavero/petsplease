@@ -475,6 +475,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         $listingid = $_REQUEST['a'] == 2 ? $_REQUEST['b'] : false; 
         if ($listingid) {
             $listing = geoListing::getListing($listingid);
+            $listingdata = $listing->toArray();
         }
 
         if ($_REQUEST['c'] == 309 || ($listing && $listing->category == 309)) {
@@ -513,22 +514,22 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         else if ($_REQUEST['c'] == 326 || ($listing && self::getParentCategory($listing->category) == 326)) {
             return "Other Pet Products for Sale";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'dog' || ($listing && isset($listing->optional_field_8))) {
+        else if ($_REQUEST['b']['specpettype'] == 'dog' || ($listing && isset($listingdata['optional_field_8']))) {
             return "Dog Breeders";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'cat' || ($listing && isset($listing->optional_field_9))) {
+        else if ($_REQUEST['b']['specpettype'] == 'cat' || ($listing && isset($listingdata['optional_field_9']))) {
             return "Cat Breeders";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'bird' || ($listing && isset($listing->optional_field_10))) {
+        else if ($_REQUEST['b']['specpettype'] == 'bird' || ($listing && isset($listingdata['optional_field_10']))) {
             return "Bird Breeders";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'fish' || ($listing && isset($listing->optional_field_11))) {
+        else if ($_REQUEST['b']['specpettype'] == 'fish' || ($listing && isset($listingdata['optional_field_11']))) {
             return "Fish Breeders";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'reptile' || ($listing && isset($listing->optional_field_12))) {
+        else if ($_REQUEST['b']['specpettype'] == 'reptile' || ($listing && isset($listingdata['optional_field_12']))) {
             return "Reptile Breeders";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'other' || ($listing && isset($listing->optional_field_13))) {
+        else if ($_REQUEST['b']['specpettype'] == 'other' || ($listing && isset($listingdata['optional_field_13']))) {
             return "Other Breeders";
         }
         else {
