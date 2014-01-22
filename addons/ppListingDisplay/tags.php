@@ -409,9 +409,8 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		$listingid = $_REQUEST['a'] == 2 ? $_REQUEST['b'] : false; 
 		if ($listingid) {
 			$listing = geoListing::getListing($listingid);
-		}
-        
-        $listingdata = $listing->toArray();
+            $listingdata = $listing->toArray();
+		}       
 
 		if ($_REQUEST['c'] == 309 || ($listing && $listing->category == 309)) {
 			return "headerimg-dog";
