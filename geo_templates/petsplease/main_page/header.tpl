@@ -103,7 +103,7 @@
 		</li>
 
 		<li>
-			<a href="/accomodation" class="large">Pet Friendly Accommodation</a>
+			<a href="/accommodation" class="large">Pet Friendly Accommodation</a>
 		</li>
 
 		<li>

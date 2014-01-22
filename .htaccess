@@ -43,7 +43,7 @@ RewriteRule ^/?products/?$ index.php?a=19&c=315&b[subcategories_also]=1 [L,NC,QS
 RewriteRule ^/?shops/?$ index.php?a=19&c=412&b[subcategories_also]=1 [L,NC,QSA] #home
 
 #ACCOMODATION
-RewriteRule ^/?accomodation/?$ index.php?a=19&c=411&b[subcategories_also]=1 [L,NC,QSA] #home
+RewriteRule ^/?accommodation/?$ index.php?a=19&c=411&b[subcategories_also]=1 [L,NC,QSA] #home
 
 #BREEDERS
 RewriteRule ^/?breeders/?$ index.php?a=19&c=316&b[subcategories_also]=1 [L,NC,QSA] #home
