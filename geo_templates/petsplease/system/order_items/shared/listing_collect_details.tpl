@@ -905,6 +905,9 @@
 								value="{$opt_info.value}" />
 						{/if}
 						
+						{if $i == 2}
+							<span class="error_message">(Required Field)</span>
+						{/if}
 						{if $opt_info.error}
 							<span class="error_message">{$opt_info.error}</span>
 						{/if}
