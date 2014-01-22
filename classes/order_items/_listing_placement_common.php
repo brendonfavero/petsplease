@@ -2482,7 +2482,7 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 		// ARDEX SPECIFIC BIT
 		//  fix for qty not being able to be updated since it pulls the old value when it was last edited
 		//  need to pull the current value from the listing itself
-		// $session_variables['optional_field_2'] = $listing->optional_field_2;
+		$session_variables['optional_field_2'] = $listing->optional_field_2;
 		// END ARDEX SPECIFIC BIT
 
 		self::$_sessionVarsFromListing[$listing_id][$allow_archive] = $session_variables;

@@ -904,8 +904,8 @@
 								maxlength="10" class="field dateInput"
 								value="{$opt_info.value}" />
 						{/if}
-				
-						{if $opt_info.error}
+						
+						{if $error_msgs.opt_info}
 							<span class="error_message">{$opt_info.error}</span>
 						{/if}
 					</div>
