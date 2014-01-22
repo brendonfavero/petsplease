@@ -1367,10 +1367,10 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 			);
 			$insertedDate = false;
 			for ($i=1;$i<21;$i++) {
-				if (!$errors['optional_field_'.$i]) {
-					//no error to show for this field -- clear the tpl var
-					$tpl_vars['opt_field_info'][$i]['error'] = '';	
-				}
+				// if (!$errors['optional_field_'.$i]) {
+					// //no error to show for this field -- clear the tpl var
+					// $tpl_vars['opt_field_info'][$i]['error'] = '';	
+				// }
 				$tpl_vars['opt_field_info'][$i]['filter_assoc'] = $field_config["optional_".$i."_filter_association"];
 				$tpl_vars['opt_field_info'][$i]['value'] = $cart->site->session_variables["optional_field_".$i];
 				$tpl_vars['opt_field_info'][$i]['other_box'] = (strpos($tpl_vars['opt_field_info'][$i]['field']->type_data,':use_other')!==false);

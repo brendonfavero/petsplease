@@ -905,8 +905,8 @@
 								value="{$opt_info.value}" />
 						{/if}
 						
-						{if $error_msgs.opt_info}
-							<span class="error_message">(Required Field)</span>
+						{if $opt_info.error}
+							<span class="error_message">{$opt_info.error}</span>
 						{/if}
 					</div>
 				{/if}
