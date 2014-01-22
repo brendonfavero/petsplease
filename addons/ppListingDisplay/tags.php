@@ -451,19 +451,19 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         else if ($_REQUEST['b']['specpettype'] == 'dog' || ($listing && isset($listingdata['optional_field_8']))) {
             return "headerimg-dogbreeders";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'cat' || ($listing && isset($listing->optional_field_9))) {
+        else if ($_REQUEST['b']['specpettype'] == 'cat' || ($listing && isset($listingdata['optional_field_9']))) {
             return "headerimg-catbreeders";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'bird' || ($listing && isset($listing->optional_field_10))) {
+        else if ($_REQUEST['b']['specpettype'] == 'bird' || ($listing && isset($listingdata['optional_field_10']))) {
             return "headerimg-birdbreeders";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'fish' || ($listing && isset($listing->optional_field_11))) {
+        else if ($_REQUEST['b']['specpettype'] == 'fish' || ($listing && isset($listingdata['optional_field_11']))) {
             return "headerimg-fishbreeders";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'reptile' || ($listing && isset($listing->optional_field_12))) {
+        else if ($_REQUEST['b']['specpettype'] == 'reptile' || ($listing && isset($listingdata['optional_field_12']))) {
             return "headerimg-reptilebreeders";
         }
-        else if ($_REQUEST['b']['specpettype'] == 'other' || ($listing && isset($listing->optional_field_13))) {
+        else if ($_REQUEST['b']['specpettype'] == 'other' || ($listing && isset($listingdata['optional_field_13']))) {
             return "headerimg-otherbreeders";
         }
 		else {
