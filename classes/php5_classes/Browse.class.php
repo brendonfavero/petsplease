@@ -98,6 +98,10 @@ class geoBrowse extends geoSite
 			return array();
 		}
 		
+        if ($data['postcurrency'] == 'POA') {
+            $data['price'] = '';    
+        }
+        
 		$formatted = $data;
 
 		// ARDEX CUSTOM CATEGORY CODE
