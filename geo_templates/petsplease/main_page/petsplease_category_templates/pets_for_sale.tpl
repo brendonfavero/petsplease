@@ -246,9 +246,17 @@
 	{if $topcategory eq 315 and $optional_field_1 eq "1"}
 	<div class="stockimage">
 		{if $optional_field_2 > 1} {* If stock is available *}
-			<img width="56px" src="geo_templates/petsplease/external/images/instock.png"/>
-		{else} {* other this product is sold out *}
-				<img width="56px" src="geo_templates/petsplease/external/images/outofstock.png"/>
+			<form action="index.php">
+				<input type="hidden" name="a" value="ap" />
+				<input type="hidden" name="addon" value="ppStoreSeller" />
+				<input type="hidden" name="page" value="merchantcart" />
+				<input type="hidden" name="action" value="additem" />
+				<input type="hidden" name="b" value="{$classified_id}" />
+
+				<label>Qty</label>
+				<input type="text" name="qty" value="1" />
+				<input type="submit" class="addtocart" value="Add to Cart" />
+			</form>
 		{/if}
 		</div>
 	{/if}
