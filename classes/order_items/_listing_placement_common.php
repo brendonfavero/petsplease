@@ -896,8 +896,11 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 		
 		$cat_img = ($cart->db->get_site_setting('display_cat_image_listing_process'))? ", $catTbl.category_image": '';
 		if ($parent_category == 0) {
-		    $order_by = ($cart->db->get_site_setting('order_choose_category_by_alpha'))? : "$catTbl.display_order";
-		}		
+		    $order_by = ($cart->db->get_site_setting('order_choose_category_by_alpha'))? "$langTbl.category_name" : "$catTbl.display_order, $langTbl.category_name";
+		}
+        else {
+            $order_by = "$langTbl.category_name";
+        }		
 		
 		$query->join($langTbl, "$catTbl.category_id = $langTbl.category_id", "$langTbl.category_name{$cat_img}, $langTbl.description")
 			->where("$catTbl.`parent_id` = '$parent_category'", 'parent_id')
