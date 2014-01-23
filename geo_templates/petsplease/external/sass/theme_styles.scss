@@ -575,10 +575,15 @@ input.editor_ok_button,
 input.editor_cancel_button
 {
 	/* have to specify this, or FF will use system-default font for text on HTML buttons */
-	font-family: Geneva,Arial,Helvetica,sans-serif;
-	background-color: #EA003A;
-	color: #FFFFFF;
+	font-family: Geneva,Arial,Helvetica,sans-serif;	
 }
+
+input.button.mainSubmit {
+    background-color: #EA003A;
+    color: #FFFFFF;
+}
+
+input.editor_cancel_button
 
 .edit {
 	border: 1px solid #cacbcc;
