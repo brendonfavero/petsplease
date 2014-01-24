@@ -23,7 +23,7 @@
 				<a href="{$cart_url}&amp;action=delete&amp;item={$k}" class="delete">{$messages.500261}</a>
 			{/if}
 			{if $item.canPreview}
-				<a href="{$cart_url}&amp;action=preview&amp;item={$k}" onclick="window.open(this.href,'previewWindow','scrollbars=yes,status=no,width=800,height=600'); return false;" class="preview">{$messages.500262}</a>
+				<a href="{$cart_url}&amp;action=preview&amp;item={$k}" onclick="window.open(this.href,'previewWindow','scrollbars=yes,status=no,width=1060,height=600'); return false;" class="preview">{$messages.500262}</a>
 			{/if}
 		</div>
 	{/if}
