@@ -451,6 +451,9 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         else if ($_REQUEST['c'] == 411 || ($listing && $listing->category == 411)) {
             return "headerimg-accommodation";
         }
+        else if ($_REQUEST['c'] == 412 || ($listing && $listing->category == 412)) {
+            return "headerimg-shops";
+        }
         else if ($_REQUEST['b']['specpettype'] == 'dog' || ($listing && isset($listingdata['optional_field_8']))) {
             return "headerimg-dogbreeders";
         }
@@ -520,6 +523,9 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         }
         else if ($_REQUEST['c'] == 411 || ($listing && $listing->category == 411)) {
             return "Pet Friendly Accommodation";
+        }
+        else if ($_REQUEST['c'] == 412 || ($listing && $listing->category == 412)) {
+            return "Pet Shops";
         }
         else if ($_REQUEST['b']['specpettype'] == 'dog' || ($listing && isset($listingdata['optional_field_8']))) {
             return "Dog Breeders";
