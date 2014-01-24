@@ -22,7 +22,7 @@
 		<div class="clr"><br /></div>
 		
 		<ul class="button_list">
-			<li><a href="{$previewUrl}" onclick="window.open(this.href,'previewWindow','scrollbars=yes,status=no,width=1060,height=600'); return false;" class="button">{$messages.500483}</a></li>
+			<li><a href="{$previewUrl}" onclick="window.open(this.href,'previewWindow','scrollbars=yes,status=no,width=1066,height=600'); return false;" class="button">{$messages.500483}</a></li>
 			<li><a href="{$cart_url}&amp;action=cancel" class="cancel">{$messages.500257}</a></li>
 		</ul>
 		
