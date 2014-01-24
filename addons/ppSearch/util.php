@@ -29,7 +29,7 @@ class addon_ppSearch_util extends addon_ppSearch_info
 		$query = $searchClass->db->getTableSelect(DataAccess::SELECT_SEARCH);
         
         $parentCategory = geoCategory::getParent($searchClass->site_category);
-        $topCategory = geoCategory::getParent($searchClass->$parentCategory);
+        $topCategory = geoCategory::getParent($parentCategory);
 		// Hide from results sellable products that have run out of stock
 		
 		$query->where("(($classTable.`sold_displayed` = 0 and $searchClass->site_category != 315 
