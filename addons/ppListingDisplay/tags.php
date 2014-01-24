@@ -448,6 +448,9 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         else if ($_REQUEST['c'] == 326 || ($listing && self::getParentCategory($listing->category) == 326)) {
             return "headerimg-otherproduct";
         }
+        else if ($_REQUEST['c'] == 411 || ($listing && self::getParentCategory($listing->category) == 411)) {
+            return "headerimg-accommodation";
+        }
         else if ($_REQUEST['b']['specpettype'] == 'dog' || ($listing && isset($listingdata['optional_field_8']))) {
             return "headerimg-dogbreeders";
         }
@@ -466,6 +469,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         else if ($_REQUEST['b']['specpettype'] == 'other' || ($listing && isset($listingdata['optional_field_13']))) {
             return "headerimg-otherbreeders";
         }
+        
 		else {
 			return "headerimg-allpets";
 		}
@@ -513,6 +517,9 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         }
         else if ($_REQUEST['c'] == 326 || ($listing && self::getParentCategory($listing->category) == 326)) {
             return "Other Pet Products for Sale";
+        }
+        else if ($_REQUEST['c'] == 411 || ($listing && self::getParentCategory($listing->category) == 411)) {
+            return "Pet Friendly Accommodation";
         }
         else if ($_REQUEST['b']['specpettype'] == 'dog' || ($listing && isset($listingdata['optional_field_8']))) {
             return "Dog Breeders";
