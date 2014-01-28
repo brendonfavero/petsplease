@@ -1,11 +1,6 @@
 {* 7.2beta1-2-gf9b32d7 *}
 
-{if $no_listings or !$listings}
-	<div class="no_results_box">
-		<strong>Your search returned no matching results. Please try modifying your search.</strong>
-	</div>
-{else}
-	{if $viewing_breed}
+{if $viewing_breed}
 		<h1 class="title">
 			<div style="float:right">
 				<a href="?a=ap&addon=ppPetSelector&page=detail&id={$viewing_breed.id}">View more info with the PetSelector</a>
@@ -16,6 +11,12 @@
 			{$viewing_breed.description}
 		</div>
 	{/if}
+{if $no_listings or !$listings}
+	<div class="no_results_box">
+		<strong>Your search returned no matching results. Please try modifying your search.</strong>
+	</div>
+{else}
+	
 
 	<div class="listing_set list">
 		{foreach $listings as $id=>$listing}

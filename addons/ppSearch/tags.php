@@ -21,11 +21,21 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 		// Get all categories
 		$sql = "SELECT category_id, category_name, parent_id FROM geodesic_categories ORDER BY display_order, category_name";
 		$result = $db->GetAll($sql);
-
-		$tpl_vars['categories'] = $this->buildCategoryChildren(0, $result);
-
+        
 		// Need to explicity define info about selected category
 		$selectedCategory = $search_parms['c'];
+        
+        $classifiedCategories = array(308, 315, 415);
+        $parentCat = geoCategory::getParent($selectedCategory);
+        $topCat = geoCategory::getParent($parentCat);
+        
+        if (in_array($selectedCategory, $classifiedCategories) || in_array($parentCat, $classifiedCategories) || in_array($topCat, $classifiedCategories)) {
+            $tpl_vars['categories'] = $this->buildCategoryChildren(421, $result);
+        }
+        else {
+            $tpl_vars['categories'] = $this->buildCategoryChildren(422, $result);
+        }
+        
 		if ($selectedCategory) {
 			foreach ($tpl_vars['categories'] as $topcat) {
 				if ($topcat['category_id'] == $selectedCategory) {
