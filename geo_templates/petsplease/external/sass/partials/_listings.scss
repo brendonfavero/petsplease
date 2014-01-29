@@ -25,6 +25,10 @@
 .listing_logo {
 	text-align: center;
 	margin-bottom: 24px;
+	img {
+	  max-width:225px;
+	}
+	
 }
 
 .listing_maincol .content_box_1, .listing_leftcol .content_box_1 {

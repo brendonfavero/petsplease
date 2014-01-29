@@ -74,7 +74,9 @@
 	}
 
 	&.featured {
-		border-color: red;
+		border-color: #ec008c;
+		background-image:url("../images/background.jpg");
+		background-repeat:no-repeat;
 		// background-color: $powderblue;
 		// @include background-image(linear-gradient(bottom right, rgb(84, 197, 208) 30%, rgb(90, 140, 250) 95%));
 	}

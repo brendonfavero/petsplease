@@ -29,12 +29,11 @@ class addon_ppSearch_tags extends addon_ppSearch_info
         $parentCat = geoCategory::getParent($selectedCategory);
         $topCat = geoCategory::getParent($parentCat);
         
-        if (in_array($selectedCategory, $classifiedCategories) || in_array($parentCat, $classifiedCategories) || in_array($topCat, $classifiedCategories)) {
-            $tpl_vars['categories'] = $this->buildCategoryChildren(421, $result);
-        }
-        else {
-            $tpl_vars['categories'] = $this->buildCategoryChildren(422, $result);
-        }
+        $categories['items'] = 421;
+        $categories['profiles'] = 422;
+        $categories['shop'] = 412;
+        
+        $tpl_vars['categories'] = $this->buildCategoryChildren($categories, $result);
         
 		if ($selectedCategory) {
 			foreach ($tpl_vars['categories'] as $topcat) {
@@ -184,9 +183,12 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 
 	private function buildCategoryChildren($parent_id, $all_categories) {
 		$categories = array();
-
 		foreach ($all_categories as $category) {
-			if ($category['parent_id'] == $parent_id) {
+		    if ($category['category_id'] == $parent_id['shop']) {
+		        $category['subcategories'] = $this->buildCategoryChildren($category['category_id'], $all_categories);
+                $categories[] = $category;
+		    }
+			if ($category['parent_id'] == $parent_id['items'] || $category['parent_id'] == $parent_id['profiles']) {
 				$category['subcategories'] = $this->buildCategoryChildren($category['category_id'], $all_categories);
 				$categories[] = $category;
 			}

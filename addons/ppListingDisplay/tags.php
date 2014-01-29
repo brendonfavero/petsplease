@@ -509,6 +509,15 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         else if ($_REQUEST['c'] == 314 || ($listing && $listing->category == 314)) {
             return "Other Pets for Sale";
         }
+        else if ($_REQUEST['c'] == 315 || ($listing && $listing->category == 315)) {
+            return "Pet Products for Sale";
+        }
+        else if ($_REQUEST['c'] == 316 || ($listing && $listing->category == 316)) {
+            return "Pet Breeders";
+        }
+        else if ($_REQUEST['c'] == 319 || ($listing && $listing->category == 319)) {
+            return "Pet Clubs";
+        }
         else if ($_REQUEST['c'] == 320 || ($listing && self::getParentCategory($listing->category) == 320)) {
             return "Dog Products for Sale";
         }
