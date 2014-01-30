@@ -91,6 +91,7 @@ class listing_extra_featured_level1OrderItem extends geoOrderItem {
 				}
 			} else {
 				if (!$order_item){
+				    $cart->site->session_variables['last_featured'] = time();
 					$order_item = new listing_extra_featured_level1OrderItem;
 					$order_item->setParent($cart->item);//this is a child of the parent
 					$order_item->setOrder($cart->order);

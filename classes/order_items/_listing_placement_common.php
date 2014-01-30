@@ -121,6 +121,7 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 		'reason_ad_ended' => 'toDB',
 		'location_address' => 'toDB',
 		'seller_buyer_data' => 'toDB',
+		'last_featured' => 'int'
 		//Like "live" - do not allow changing automatically as it messes things
 		//up when old removed order items come into play
 		//'order_item_id' => 'int',
