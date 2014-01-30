@@ -896,12 +896,7 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 		$query->from($catTbl, "$catTbl.category_id");
 		
 		$cat_img = ($cart->db->get_site_setting('display_cat_image_listing_process'))? ", $catTbl.category_image": '';
-		if ($parent_category == 0) {
-		    $order_by = "$catTbl.display_order";
-		}
-        else {
-            $order_by = "$langTbl.category_name";
-        }		
+	    $order_by = "$catTbl.display_order, $langTbl.category_name";
 		
 		$query->join($langTbl, "$catTbl.category_id = $langTbl.category_id", "$langTbl.category_name{$cat_img}, $langTbl.description")
 			->where("$catTbl.`parent_id` = '$parent_category'", 'parent_id')

@@ -188,7 +188,7 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 		        $category['subcategories'] = $this->buildCategoryChildren($category['category_id'], $all_categories);
                 $categories[] = $category;
 		    }
-			if ($category['parent_id'] == $parent_id['items'] || $category['parent_id'] == $parent_id['profiles']) {
+			if ($category['parent_id'] == $parent_id['items'] || $category['parent_id'] == $parent_id['profiles'] || $category['parent_id'] == $parent_id) {
 				$category['subcategories'] = $this->buildCategoryChildren($category['category_id'], $all_categories);
 				$categories[] = $category;
 			}

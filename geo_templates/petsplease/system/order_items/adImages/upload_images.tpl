@@ -40,7 +40,9 @@
 		<div id="adplopDropImageHere" style="display: none;">
 			{$messages.500710}
 		</div>
-		<div id="adimage_upload_instructions_box"><p class="page_note">{$adimages.description}</p></div>
+		<div id="adimage_upload_instructions_box"><p class="page_note">{$adimages.description}</p>
+		<br/>
+		<p>Note that images will be resized to a width of 728px, ideal image size is 728x90 pixels</div>
 		<div class="clr"></div>
 		
 		<div id="adimagesCapturedBox">
@@ -50,7 +52,7 @@
 		{* This is the new image/edit image box that will be put into place by JS,
 			or hidden if no empty slots *}
 		<div class="imageBox" id="adnewImageBox" style="display: none;">
-			<div class="imageBoxTitleNew" id="adimageUploadTitle">{$messages.500711}</div>
+			<div class="imageBoxTitleNew" id="adimageUploadTitle">New Banner Upload</div>
 			<div class="imagePreview emptyPreview" id="adimagePreview">{$messages.500712}</div>
 			<div class="progressContainer">
 				<div id="aduploadBar" style="width: 1%;"><img id="adbarAnimation" src="{if $in_admin}../{/if}{external file='images/animation_bar.gif'}" alt="Processing Image" style="display: none;" /></div>

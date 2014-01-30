@@ -22,17 +22,21 @@
 	
 	<ul id="listing_categories">
 		{foreach from=$cat_data key=i item=cat}
-			<li class="element" style="width:49%; padding-right:7px">
-				<a href="{$process_form_url}&amp;b={$cat.category_id}">
-					{if $display_cat_image ne 0 AND $cat.category_image ne ""}
-						<img src="{external file=$cat.category_image}" alt="" /> &nbsp;
-					{/if}
-					<span class="category_title">{$cat.category_name|fromDB}</span>
-					{if $display_cat_description && $cat.description}
-						<p class="category_description">{$cat.description|fromDB}</p>
-					{/if}
-				</a>
-			</li>
+			{if $cat.category_id eq 308 or $cat.category_id eq 315 or $cat.category_id eq 413}
+				<li class="element" style="width:100%; padding-right:7px">
+			{else}
+				<li class="element" style="width:49%; padding-right:7px">
+			{/if}
+					<a href="{$process_form_url}&amp;b={$cat.category_id}">
+						{if $display_cat_image ne 0 AND $cat.category_image ne ""}
+							<img src="{external file=$cat.category_image}" alt="" /> &nbsp;
+						{/if}
+						<span class="category_title">{$cat.category_name|fromDB}</span>
+						{if $display_cat_description && $cat.description}
+							<p class="category_description">{$cat.description|fromDB}</p>
+						{/if}
+					</a>
+				</li>
 		{/foreach}
 	</ul>
 	<div class="clr"><br /></div>
