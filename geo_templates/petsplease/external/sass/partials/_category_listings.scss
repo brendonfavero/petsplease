@@ -74,9 +74,24 @@
 	}
 
 	&.featured {
+	  border-bottom:10px solid #ec008c;
 		border-color: #ec008c;
 		background-image:url("../images/background.jpg");
 		background-repeat:no-repeat;
+		.list-listing-heading {
+      h1 {
+  
+        a {
+          color: #FBFBFB;
+        }
+      }
+      span {
+        font-size: 12px;
+        font-weight: bold;
+        color: #FBFBFB;
+      }
+    }
+    
 		// background-color: $powderblue;
 		// @include background-image(linear-gradient(bottom right, rgb(84, 197, 208) 30%, rgb(90, 140, 250) 95%));
 	}
