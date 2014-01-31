@@ -216,7 +216,12 @@
 
 	<div class="listing_heading">
 		<h1>{$title}</h1>
-
+		{if $subcategory eq 316 or $subcategory eq 319}
+			{listing tag='profileHeader' addon='ppListingDisplay' assign='profileLink'}
+			{if $profileLink}
+				{$profileLink}
+			{/if}
+		{/if}
 		{if $ex_breed}
 			<span class="breed">
 				{$ex_breed}
@@ -396,7 +401,7 @@
 			</div>
 		{/if}
 
-		{if $topcategory eq 316 or $topcategory eq 319}
+		{if $subcategory eq 316 or $subcategory eq 319}
 			{if $optional_field_8 neq ""} {* Breeding - Dog breeds *}
 				<div class="field_set">
 					<span class="field_name">Dog Breeds:</span>

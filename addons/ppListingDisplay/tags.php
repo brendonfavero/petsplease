@@ -288,6 +288,125 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 				geoTemplate::ADDON, $this->name, $tpl_vars);
 	}
 
+    public function profileHeader($params, Smarty_Internal_Template $smarty) {
+        $db = true;
+        require (GEO_BASE_DIR."get_common_vars.php");
+
+        $listing_id = $params['listing_id'];
+        $listing = geoListing::getListing($listing_id);
+
+        $seller = $listing->seller;
+
+        $util = geoAddon::getUtil($this->name);
+
+
+        $leadListing = null;
+        $listings = array();
+
+        $grab = function($category, $onlyFirst) use (&$util, $seller, $listing_id) {
+            $listings = $util->getUsersSpecialListings($seller, $category, $onlyFirst);
+
+            $extractor = function($listing) {
+                return array(
+                    'id' => $listing['id'],
+                    'title' => $listing['title'],
+                    'category' => $listing['category']
+                );
+            };
+
+            if ($onlyFirst && !!$listings && $listings['id'] != $listing_id) {
+                return $extractor($listings);           
+            }
+            else if (!$onlyFirst && !empty($listings)) {
+                $filtered = array_filter($listings, function($listing) use ($listing_id) 
+                    { return $listing['id'] != $listing_id; });
+                return array_map($extractor, $filtered);
+            }
+        };
+
+        // Shop listing
+        $parentCat = geoCategory::getParent($listing->category);
+        $topCat = geoCategory::getParent($parentCat);
+        if ($topCat== 315) {
+            $shopListing = $grab(412, true);
+            if ($shopListing) {
+                $shopUtil = geoAddon::getUtil('ppStoreSeller');
+                if($shopUtil->listingIsValidStoreProduct($listing_id, true) && !$leadListing) {
+                    $leadListing = $shopListing;
+                }
+                else {
+                    $listing = $shopListing;
+                }
+            }
+        }        
+
+        // // Shelters
+        // $shelterListing = $grab(420, true);
+        // if (!empty($shelterListing)) {
+            // // Is this a pet for sale?
+            // $categories = geoCategory::getTree($listing->category);
+            // $topcat = reset($categories);
+// 
+            // if ($topcat['category_id'] == 308 && !$leadListing) {
+                // // Shift the listing off so it wont be shown twice
+                // $leadListing = $shelterListing;
+            // }
+// 
+            // if (!empty($shelterListing)) {
+                // $listings[] = $shelterListing;
+            // }           
+        // }
+
+        // Breeders
+        if ($topCat == 308) {
+            $breederListings = $grab(316);
+            if (!empty($breederListings)) {
+                // Is this a pet for sale?
+                $categories = geoCategory::getTree($listing->category);
+    
+                if ($topCat == 308 && !$leadListing) {
+                    // Shift the listing off so it wont be shown twice
+                    $leadListing = array_shift($breederListings);
+                }
+    
+                if (!empty($breederListings)) {
+                    $listing = $breederListings[0];
+                }
+            }
+        }
+
+        // // Accomodation
+        // $ls = $grab(411);
+        // if (!empty($ls)) $listings = array_merge($listings, $ls); 
+// 
+        // // Services
+        // $ls = $grab(318);
+        // if (!empty($ls)) $listings = array_merge($listings, $ls); 
+// 
+        // // Clubs
+        // $ls = $grab(319);
+        // if (!empty($ls)) $listings = array_merge($listings, $ls); 
+
+
+        if (!$leadListing && empty($listings)) {
+            return '';
+        }
+
+        if ($leadListing) {
+            $ppImagesUtil = geoAddon::getUtil('ppListingImagesExtra');
+            $leadListing['logo'] = $ppImagesUtil->listingLogoImage($leadListing['id']);
+        }
+
+        $tpl_vars = array(
+            'lead' => $leadListing,
+            'listing' => $listing
+        );
+
+        return geoTemplate::loadInternalTemplate($params, $smarty, 'profileHeader.tpl',
+                geoTemplate::ADDON, $this->name, $tpl_vars);
+
+    }
+
 
 	public function storeCategories($params, Smarty_Internal_Template $smarty)
 	{		
