@@ -456,7 +456,7 @@
 	{* END DESCRIPTION *}
 
 
-	{if $topcategory eq 316 or $topcategory eq 420}
+	{if $subcategory eq 316 or $subcategory eq 420}
 		{listing addon='ppListingDisplay' tag='listingsEmbed' category=308}
 	{/if}
 

@@ -39,7 +39,7 @@
 					{* Question value will be from user input, which is already html escaped *}
 					{if $key eq 173 or $key eq 174}
 						<select name="b[question_value][{$key}]" id="b[question_value][{$key}]" class="field">
-							{for $i=1 to 10}
+							{for $i=0 to 10}
 								<option>{$i}</option>
 							{/for}
 						</select>

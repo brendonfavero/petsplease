@@ -971,21 +971,23 @@ class Search_classifieds extends geoBrowse
 			
 			$this->browse_type = (isset($browseType["param"]))? $browseType["param"]: 0;
 			
-			if (isset($orderBy["param"]) && strlen(trim($orderBy["param"])) > 0) { 
-				//if function is called with a parameter
-				$query->order($orderBy["param"]);
-			} else if (isset($orderBy["legacy"]) && $orderBy["legacy"]) {
-				//if site admin has not yet run admin > browse form, we are in legacy display mode
-				$query->order($orderBy["legacy"]);
-			} else {
-				//follow site defaults
-				if (!geoMaster::is('classifieds')) {
-					$query->order($orderBy['auction']);
-				} else {
-					//use classified if classified only or classauctions
-					$query->order($orderBy['classified']);
-				}
-			}
+			// if (isset($orderBy["param"]) && strlen(trim($orderBy["param"])) > 0) { 
+				// //if function is called with a parameter
+				// $query->order($orderBy["param"]);
+			// } else if (isset($orderBy["legacy"]) && $orderBy["legacy"]) {
+				// //if site admin has not yet run admin > browse form, we are in legacy display mode
+				// $query->order($orderBy["legacy"]);
+			// } else {
+				// //follow site defaults
+				// if (!geoMaster::is('classifieds')) {
+					// $query->order($orderBy['auction']);
+				// } else {
+					// //use classified if classified only or classauctions
+					// $query->order($orderBy['classified']);
+				// }
+			// }
+			$query->order("case featured_ad when 0 then 0 else last_featured end desc, date desc");
+            
 			$page = $this->page_result = (isset($_GET['page']) && $_GET['page']>0)? (int)$_GET['page'] : 1;
 			$adsToShow = (int)$this->configuration_data['number_of_ads_to_display'];
 			$start = ($page-1)*$adsToShow;

@@ -43,7 +43,7 @@ that it will corrupt the smarty tags!
 {/if}
 
 <article class="list {$listing.css} clearfix{if $listing.featured_ad eq '1'} featured{/if}">
-	<div class="list-listing-heading">
+	<div class="list-listing-heading" style="position:relative">
 
 		{if $cfg.cols.edit or $cfg.cols.delete}
 			<div style="float:right; padding-left: 10px;">
@@ -65,6 +65,16 @@ that it will corrupt the smarty tags!
 			{if $listing.icons.sold && $cfg.icons.sold}<img src="{$cfg.icons.sold}" alt="" />{/if}
 			<a href="{$cfg.listing_url}{$id}">{$listing.title}</a>
 		</h1>
+		{if $listing.featured_ad eq '1'}
+		<p style="
+		    color: white;
+		    font-weight: bold;
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    font-size: 16px;
+		">Featured</p>
+		{/if}
 		{if $ex_breed}
 			<span class="breed">
 				{$ex_breed}
