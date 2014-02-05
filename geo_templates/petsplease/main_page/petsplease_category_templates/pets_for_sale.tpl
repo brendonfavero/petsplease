@@ -216,11 +216,12 @@
 
 	<div class="listing_heading">
 		<h1>{$title}</h1>
-		{if $subcategory eq 316 or $subcategory eq 319}
-			{listing tag='profileHeader' addon='ppListingDisplay' assign='profileLink'}
+		{listing tag='profileHeader' addon='ppListingDisplay' assign='profileLink'}
 			{if $profileLink}
 				{$profileLink}
 			{/if}
+		{if $subcategory eq 316 or $subcategory eq 319}
+			
 		{/if}
 		{if $ex_breed}
 			<span class="breed">
@@ -487,6 +488,11 @@
 	{/if}
 	
 	{* END GOOGLE MAPS *}
+	
+	{listing tag='otherAds' addon='ppListingDisplay' assign='other'}
+	{if $other}
+		<div class="content_box_1">{$other}</div>
+	{/if}
 </div>
 
 <!-- END CENTER COLUMN -->

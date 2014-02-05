@@ -288,6 +288,43 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 				geoTemplate::ADDON, $this->name, $tpl_vars);
 	}
 
+    public function otherAds($params, Smarty_Internal_Template $smarty)
+    {       
+        $db = true;
+        require (GEO_BASE_DIR."get_common_vars.php");
+
+        $listing_id = $params['listing_id'];
+        $listing = geoListing::getListing($listing_id);
+
+        $seller = $listing->seller;
+
+        $util = geoAddon::getUtil($this->name);
+
+
+        $leadListing = null;
+        $listings = array();
+        $listings = $util->getUsersOtherListings($seller);
+
+        $extractor = function($listing) {
+            return array(
+                'id' => $listing['id'],
+                'title' => $listing['title'],
+                'category' => $listing['category_name']
+            );
+        };
+        
+        if (empty($listings)) {
+            return '';
+        }
+
+        $tpl_vars = array(
+            'listings' => $listings
+        );
+
+        return geoTemplate::loadInternalTemplate($params, $smarty, 'specialListingBox.tpl',
+                geoTemplate::ADDON, $this->name, $tpl_vars);
+    }
+
     public function profileHeader($params, Smarty_Internal_Template $smarty) {
         $db = true;
         require (GEO_BASE_DIR."get_common_vars.php");
@@ -327,16 +364,10 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         // Shop listing
         $parentCat = geoCategory::getParent($listing->category);
         $topCat = geoCategory::getParent($parentCat);
-        if ($topCat== 315) {
+        if ($topCat== 315 || $parentCat == 315 || $listing->category == 315) {
             $shopListing = $grab(412, true);
             if ($shopListing) {
-                $shopUtil = geoAddon::getUtil('ppStoreSeller');
-                if($shopUtil->listingIsValidStoreProduct($listing_id, true) && !$leadListing) {
-                    $leadListing = $shopListing;
-                }
-                else {
-                    $listing = $shopListing;
-                }
+                $leadListing = $shopListing;
             }
         }        
 
@@ -358,20 +389,12 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         // }
 
         // Breeders
-        if ($topCat == 308) {
+        if ($topCat == 308 || $parentCat == 308 || $listing->category == 308) {
             $breederListings = $grab(316);
             if (!empty($breederListings)) {
                 // Is this a pet for sale?
-                $categories = geoCategory::getTree($listing->category);
-    
-                if ($topCat == 308 && !$leadListing) {
                     // Shift the listing off so it wont be shown twice
-                    $leadListing = array_shift($breederListings);
-                }
-    
-                if (!empty($breederListings)) {
-                    $listing = $breederListings[0];
-                }
+                $leadListing = array_shift($breederListings);               
             }
         }
 
@@ -398,8 +421,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         }
 
         $tpl_vars = array(
-            'lead' => $leadListing,
-            'listing' => $listing
+            'lead' => $leadListing
         );
 
         return geoTemplate::loadInternalTemplate($params, $smarty, 'profileHeader.tpl',
@@ -685,6 +707,9 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         else if ($_REQUEST['b']['specpettype'] == 'other' || ($listing && isset($listingdata['optional_field_13']))) {
             return "Other Breeders";
         }
+        else if ($_REQUEST['addon'] == 'ppPetSelector') {
+            return "Pet Selector";
+        }        
         else {
             return "Pets and Products for Sale";
         }

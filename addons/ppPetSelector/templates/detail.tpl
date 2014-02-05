@@ -33,8 +33,10 @@
 	{addon addon="ppAds" tag="adspot" aid=4}
 </div>
 
-<div class="col_right">
+<div class="col_right">	
 	{if $detail}
+		<a class="button" style="background: #2e3192; color: white;" href="index.php?a=19&b[subcategories_also]=1&c=309&breed={$detail.breed}">View {$detail.breed} Classifieds on Pets Please</a>
+		<br/><br/>
 		<h1 class="title">
 			<div style="float:right">{$pettypes[$detail.pettype_id]}</div>
 			{$detail.breed}
@@ -168,7 +170,12 @@
 		</div>
 
 	{else}
-		Select a type and breed below or on the left to view information.
+		<p>The Pets Please Pet Selector lists various details about different breeds of pets to help you in your search to find the ideal pet for you on Pets Please.
+		On each Pet Selector page you can find a description and information about important stats such size, life span, colour, coat length as well as ratings
+		in 5 fields (family friendlyness, trainability, energy level, grooming and hair shedding) to allow you to find the best pet for you and your family.
+		<br/><br/>
+		Click show more detail from one of the popular breeds below or select a breed from the list below. Then click on View classifieds on Pets Please to
+		see the current classifieds available on the Pets Please website for that breed.</p>
 		<div style="width:50%; float:left">
 			<img src="/addons/ppPetSelector/images/110-1387781293.jpg"/>
 			<br/>

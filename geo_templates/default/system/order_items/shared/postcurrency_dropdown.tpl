@@ -9,7 +9,12 @@
 			var pre = '';
 			var post = '';
 			var currency_id = jQuery('#currency_type').val();
-			{foreach $currencies as $currency}
+			jQuery('#price').show();
+			
+			if (currency_id == 27) {
+					jQuery('#price').hide();
+			}
+			{foreach $currencies as $currency}				
 				if (currency_id == {$currency.type_id}) {
 					pre='{$currency.precurrency}';
 					post='{$currency.postcurrency}';

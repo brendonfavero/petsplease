@@ -1172,7 +1172,7 @@ class Register extends geoSite {
 		$tpl_vars['password'] = $password;
 		
 		if ($this->registration_configuration->USE_USER_AGREEMENT_FIELD) {
-			$eula['checked'] = strlen($this->registered_variables['agreement']) ? $this->registered_variables['agreement'] : "no";
+			$eula['checked'] = strlen($this->registered_variables['agreement']) ? $this->registered_variables['agreement'] : "yes";
 			if ($this->error['yes_to_agreement']) {
 				$eula['error'] = true;
 			}			
