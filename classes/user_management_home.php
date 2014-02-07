@@ -540,7 +540,7 @@ class User_management_home extends geoSite
 		$current_info = $this->messages[422];
 		$place_ad = $this->messages[423];
 		$ad_filters = $this->messages[424];
-		$favorites = $this->messages[427];
+		$favourites = $this->messages[427];
 		$comm = $this->messages[425];
 		$comm_config = $this->messages[426];
 		$signs = geoAddon::getUtil('signs_flyers');
@@ -573,7 +573,7 @@ class User_management_home extends geoSite
 		$expired_ads = (($bitmask & 1) == 1) ? $expired_ads : '';
 		$comm = (($bitmask & 2) == 2) ? $comm : '';
 		$comm_config = (($bitmask & 2) == 2) ? $comm_config : '';
-		$favorites = (($bitmask & 4) == 4) ? $favorites : '';
+		$favourites = (($bitmask & 4) == 4) ? $favourites : '';
 		$ad_filters = (($bitmask & 8) == 8) ? $ad_filters : '';}
 		
 		$view->section_title = $section_title;
@@ -585,7 +585,7 @@ class User_management_home extends geoSite
 		$view->current_info = $current_info;
 		$view->place_ad = $place_ad;
 		$view->ad_filters = $ad_filters;
-		$view->favorites = $favorites;
+		$view->favourites = $favourites;
 		$view->communications = $comm;
 		$view->communications_config = $comm_config;
 		$view->signs_and_flyers = $signs_flyers;

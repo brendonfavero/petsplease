@@ -26,7 +26,8 @@ class addon_ppListingDisplay_info
 		'storeCategories',
 		'listingsEmbed',
 		'specialListingBox',
-		'profileHeader'
+		'profileHeader',
+		'otherAds'
 	);
 
 	public $core_events = array ('notify_Display_ad_display_classified_after_vars_set');

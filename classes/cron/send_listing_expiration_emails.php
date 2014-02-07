@@ -59,12 +59,12 @@ foreach ($noticeSettings as $setting => $info) {
 	$noticeTable = $cTable;
 	
 	if ($info['fav']) {
-		//reminder about a favorite...
-		//combine with check in favorites
-		$noticeTable = geoTables::favorites_table;
-		$columns = array ('`favorite_id`','`user_id`','`expiration_notice`','`expiration_last_sent`');
+		//reminder about a favourite...
+		//combine with check in favourites
+		$noticeTable = geoTables::favourites_table;
+		$columns = array ('`favourite_id`','`user_id`','`expiration_notice`','`expiration_last_sent`');
 		$query->join($noticeTable, "$noticeTable.`classified_id`=$cTable.`id` OR $noticeTable.`auction_id`=$cTable.`id`",$columns);
-		//checking fav's, order by user id of favorite
+		//checking fav's, order by user id of favourite
 		$query->order("$noticeTable.`user_id`");
 	} else {
 		//not checking fav's, order by seller
@@ -109,8 +109,8 @@ foreach ($noticeSettings as $setting => $info) {
 	//NOrmally we group by seller (sIndex = seller index)
 	$sIndex = 'seller';
 	if ($info['fav']) {
-		//but if it is a favorite, we group by user id...  That is column from
-		//the favorites table
+		//but if it is a favourite, we group by user id...  That is column from
+		//the favourites table
 		$sIndex = 'user_id';
 	}
 	while($show = $send_expiration_result->FetchRow()) {
@@ -144,9 +144,9 @@ foreach ($noticeSettings as $setting => $info) {
 		$tpl->assign('expireLabel', $msgs[502143]);
 	}
 	$tpl->assign('listingURLs', $listingURLs);
-	//let template know if this is a favorite listing notice or not, to allow
+	//let template know if this is a favourite listing notice or not, to allow
 	//for easier customizations
-	$tpl->assign('is_favorite_notice', $info['fav']);
+	$tpl->assign('is_favourite_notice', $info['fav']);
 	
 	foreach($sellers as $seller => $expiring) {
 		//make sure to mark listings "at same time" as sending out each
@@ -162,7 +162,7 @@ foreach ($noticeSettings as $setting => $info) {
 		if ($info['fav']) {
 			$where = "($where OR `auction_id` IN (".implode(', ',$ids)."))";
 			//need to also only update the rows for that user, otherwise other users
-			//that have a listing favorited may not get their notice
+			//that have a listing favourited may not get their notice
 			$where .= " AND `user_id` = $seller";
 		}
 		

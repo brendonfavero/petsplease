@@ -417,7 +417,7 @@ class Auction_bid extends geoSite {
 		$view->categoryLink = $db->get_site_setting('classifieds_file_name')."?a=5&b=".$this->auction->category;
 		$view->auctionLink = $db->get_site_setting('classifieds_file_name')."?a=2&b=".$this->auction_id;
 		
-		$this->insert_favorite($this->db, $this->auction_id);
+		$this->insert_favourite($this->db, $this->auction_id);
 
 		$view->setBodyTpl('bidding/bid_successful.tpl','','auctions');
 		$this->display_page($db);

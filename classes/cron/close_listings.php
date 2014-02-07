@@ -61,8 +61,8 @@ foreach ($rows as $row) {
 		}
 	}
 	
-	//remove from all favorites
-	$sql = "delete from ".$this->db->geoTables->favorites_table."
+	//remove from all favourites
+	$sql = "delete from ".$this->db->geoTables->favourites_table."
 		where classified_id = ".$listing->id;
 	$delete_result = $this->db->Execute($sql);
 	$this->log($sql."<br/>\n",__line__);

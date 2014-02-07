@@ -473,29 +473,29 @@ switch ($_REQUEST["a"]) {
 				break;
 
 			case 10:
-				//view and delete favorite
-				include_once(CLASSES_DIR."user_management_favorites.php");
-				$user_management = new User_management_favorites($db,$language_id,$user_id,$product_configuration);
-				$user_management->expire_old_favorites($db);
+				//view and delete favourite
+				include_once(CLASSES_DIR."user_management_favourites.php");
+				$user_management = new User_management_favourites($db,$language_id,$user_id,$product_configuration);
+				$user_management->expire_old_favourites($db);
 				switch ($_REQUEST["c"])
 				{
 					case 1:
-						//delete favorite
+						//delete favourite
 						if (is_numeric($_REQUEST["d"]))
 						{
-							if (!$user_management->delete_favorite($db,$_REQUEST["d"]))
+							if (!$user_management->delete_favourite($db,$_REQUEST["d"]))
 								$user_management->site_error();
-							elseif (!$user_management->display_all_favorites($db))
+							elseif (!$user_management->display_all_favourites($db))
 								$user_management->site_error();
 						}
-						elseif (!$user_management->display_all_favorites($db))
+						elseif (!$user_management->display_all_favourites($db))
 							$user_management->site_error();
 						break;
 
 					default:
 						
 						//view all filters
-						if (!$user_management->display_all_favorites($db))
+						if (!$user_management->display_all_favourites($db))
 							$user_management->site_error();
 				}
 				break;
@@ -1133,16 +1133,16 @@ switch ($_REQUEST["a"]) {
 		break;
 
 	case 20:
-		//add to favorites
+		//add to favourites
 		if ($user_id)
 		{
 			if (($_REQUEST["b"]) && (is_numeric($_REQUEST["b"])))
 			{
-				include_once(CLASSES_DIR."user_management_favorites.php");
-				$user_management = new User_management_favorites($db,$language_id,$user_id,$product_configuration);
-				if (!$user_management->insert_favorite($db,$_REQUEST["b"]))
+				include_once(CLASSES_DIR."user_management_favourites.php");
+				$user_management = new User_management_favourites($db,$language_id,$user_id,$product_configuration);
+				if (!$user_management->insert_favourite($db,$_REQUEST["b"]))
 					$user_management->site_error();
-				elseif (!$user_management->display_all_favorites($db))
+				elseif (!$user_management->display_all_favourites($db))
 					$user_management->site_error();
 			}
 			else

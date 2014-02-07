@@ -221,6 +221,9 @@ header.page {
 	&.headerimg-allpets {
 		background: url(../images/all_pets.jpg) no-repeat 60% 34%;
 	}
+	&.headerimg-products {
+    background: url(../images/bulldog.jpg) no-repeat 72% 31%;
+  }
 	&.headerimg-dogproduct {
     background: url(../images/shepherd.jpg) no-repeat 72% 31%;
   }
@@ -262,5 +265,23 @@ header.page {
   }
   &.headerimg-shelters {
     background: url(../images/labpups.jpg) no-repeat 70% 31%;
+  }
+  &.headerimg-dognews {
+    background: url(../images/bookdog.jpg) no-repeat 72% 31%;
+  }
+  &.headerimg-catnews {
+    background: url(../images/catglobe.jpg) no-repeat 72% 31%;
+  }
+  &.headerimg-birdnews {
+    background: url(../images/parakeet.jpg) no-repeat 72% 31%;
+  }
+  &.headerimg-fishnews {
+    background: url(../images/goldfish.jpg) no-repeat 70% 31%;
+  }
+  &.headerimg-reptilenews {
+    background: url(../images/turtle.jpg) no-repeat 70% 31%;
+  }
+  &.headerimg-othernews {
+    background: url(../images/rabbit.jpg) no-repeat 70% 31%;
   }
 }

@@ -661,7 +661,7 @@ class Admin_pages extends Admin_site{
 			'expired_ads' => 'Link to the users recently expired listings.',
 			'current_info' => 'Link to the users information.',
 			'place_ad' => 'Link to List an Item.',
-			'favorites' => 'Link to users favorite listings.',
+			'favourites' => 'Link to users favourite listings.',
 			'communications' => 'Link to user\'s communications.',
 			'communications_config' => 'Link to user\'s communication configuration.',
 			'signs_and_flyers' => 'Link to signs and flyers page.',

@@ -120,7 +120,7 @@
 					{$messages.783}: {$listing.forwarded}<br />
 					{$messages.784}: {$listing.responded}<br />
 					{$messages.785}: {$listing.viewed}<br />
-					{$messages.502045}: {$listing.favorited}
+					{$messages.502045}: {$listing.favourited}
 				</td>			
 							
 				

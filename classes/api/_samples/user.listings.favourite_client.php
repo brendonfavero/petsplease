@@ -1,5 +1,5 @@
 <?php
-//_samples/user.listings.favorite_client.php
+//_samples/user.listings.favourite_client.php
 /**************************************************************************
 Geodesic Classifieds & Auctions Platform 7.1
 Copyright (c) 2001-2013 Geodesic Solutions, LLC
@@ -14,8 +14,8 @@ see license attached to distribution
 ## 
 ##################################
 
-//Sample API client, that uses the core.user.listings.favorite api call to get a
-//list of favorite listings for a specific user
+//Sample API client, that uses the core.user.listings.favourite api call to get a
+//list of favourite listings for a specific user
 
 
 /*
@@ -142,7 +142,7 @@ $data = $params;
 $data['api_key'] = $api_key;
 
 //call the user list api.
-if (!$client->query('core.user.listings.favorite',$data)){
+if (!$client->query('core.user.listings.favourite',$data)){
 	die('<span style="color: red;">An error occurred</span> :<br /><strong>'.$client->getErrorCode()."</strong> : ".$client->getErrorMessage().'<br /><br /><em>Check the settings at the top of this sample script to make sure they are correct.</em>');
 }
 

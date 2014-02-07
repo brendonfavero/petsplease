@@ -24,7 +24,7 @@
 261,15,1,"website url address","label for website url address field in registration page 1 form","Website URL Address:<br /> <span style=""font-family:Arial, Helvetica, sans-serif; font-size:smaller; color:#999999;"">[format: http://www.site.com]</span>"
 320,18,1,"Page Title",,Congratulations!
 325,18,1,"registration success instructions","notification of successful registration instructions","Your registration is now complete. <a href=""index.php"">CLICK HERE</a> to start browsing..."
-360,30,1,"delete favorites text link","This text appears in the favorites list as a link to the delete the adjacent listing from the favorites list","Delete Favorite"
+360,30,1,"delete favourites text link","This text appears in the favourites list as a link to the delete the adjacent listing from the favourites list","Delete favourite"
 361,30,1,"User Management Home Link Text","link text linking to the usermanagement home from various pages within the user management section","My Account"
 371,26,1,"User Management Home Link Text","link text linking to the usermanagement home from various pages within the user management section","My Account"
 381,27,1,delete,"in the display listing filters page","Delete Filter"
@@ -46,7 +46,7 @@
 Filters</a>"
 425,43,1,communications,"in user management menu","<a href=""index.php?a=4&amp;b=8"">My Messages</a>"
 426,43,1,"communication configuration","in user management menu","<a href=""index.php?a=4&amp;b=7"">Message Settings</a>"
-427,43,1,"Favorites List Link","link text appearing the user management home menu linking to this users favorites","<a href=""index.php?a=4&amp;b=10"">My Favorites</a>"
+427,43,1,"favourites List Link","link text appearing the user management home menu linking to this users favourites","<a href=""index.php?a=4&amp;b=10"">My favourites</a>"
 436,28,1,"User Management Home Link Text","link text linking to the usermanagement home from various pages within the user management section","My Account"
 440,23,1,"You currently have no expired listings","This message appears when a user clicks to view their expired listings but have none.","You have no expired listings."
 444,23,1,"view expired listing link","This is the text linking to the expired listing of the current user","View Listing"
@@ -208,7 +208,7 @@ Filters</a>"
 500446,10205,1,"Subscription Renewal Cancel link text",,"Cancel Renewal Process"
 500459,10208,1,"My Active Listings - Icon",,
 500461,10208,1,"My Expired Listings - Icon",,
-500463,10208,1,"My Favorites - Icon",,
+500463,10208,1,"My favourites - Icon",,
 500465,10208,1,"My Listing Filters - Icon",,
 500467,10208,1,"My Current Bids - Icon",,
 500469,10208,1,"Feedback Management - Icon",,

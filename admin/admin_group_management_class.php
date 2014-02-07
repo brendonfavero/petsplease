@@ -325,7 +325,7 @@ class Group_management extends Admin_site {
 			if (!geoPC::is_ent()) $restrictions += 1+2+4+8+16+32;
 			if($group_info["restrict_1"] == 'on') $restrictions += 1; // create listing
 			if($group_info["restrict_2"] == 'on') $restrictions += 2; // messaging
-			if($group_info["restrict_4"] == 'on') $restrictions += 4; // favorites
+			if($group_info["restrict_4"] == 'on') $restrictions += 4; // favourites
 			if($group_info["restrict_8"] == 'on') $restrictions += 8; // filters
 			if($group_info["restrict_16"] == 'on') $restrictions += 16; // white/blacklists
 			if($group_info["restrict_32"] == 'on') $restrictions += 32; // feedback
@@ -1028,7 +1028,7 @@ class Group_management extends Admin_site {
 			Text[6] = [\"display listing checkbox template\", \"Choose a template used on this group affiliate site within the listing display template to display the checkbox based category specific questions using this language.  If no template is chosen for this category the default template set in the PAGES > BROWSING PAGES > EXTRA CHECKBOXES will be used.  Enter all templates through the template administration.\"]\n
 			Text[10] = [\"Create Listing\", \"Uncheck this box to remove New Listing, My Active Listings, and My Expired Listings from this usergroup's User Management Home Page.\"]\n
 			Text[11] = [\"Messaging\", \"Uncheck this box to remove My Messages and Message Settings from this usergroup's User Management Home Page.\"]\n
-			Text[12] = [\"Favorites\", \"Uncheck this box to remove My Favorites from this usergroup's User Management Home Page.\"]\n
+			Text[12] = [\"favourites\", \"Uncheck this box to remove My favourites from this usergroup's User Management Home Page.\"]\n
 			Text[13] = [\"Filters\", \"Uncheck this box to remove My Listing Filters from this usergroup's User Management Home Page.\"]\n
 			Text[14] = [\"Black List/Invited List\", \"Uncheck this box to remove Black Listed Buyers and Invited List of Buyers from this usergroup's User Management Home Page.\"]\n
 			Text[15] = [\"Feedback\", \"Uncheck this box to remove Feedback Management from this usergroup's User Management Home Page.\"]\n
@@ -1357,7 +1357,7 @@ class Group_management extends Admin_site {
 					$restrictions = array();
 					$restrictions['create_listing'] = (($bitmask & 1) == 1) ? 'checked="checked"' : '';
 					$restrictions['messaging'] = (($bitmask & 2) == 2) ? 'checked="checked"' : '';
-					$restrictions['favorites'] = (($bitmask & 4) == 4) ? 'checked="checked"' : '';
+					$restrictions['favourites'] = (($bitmask & 4) == 4) ? 'checked="checked"' : '';
 					$restrictions['filters'] = (($bitmask & 8) == 8) ? 'checked="checked"' : '';
 					$restrictions['black_white'] = (($bitmask & 16) == 16) ? 'checked="checked"' : '';
 					$restrictions['feedback'] = (($bitmask & 32) == 32) ? 'checked="checked"' : '';
@@ -1384,8 +1384,8 @@ class Group_management extends Admin_site {
 					$this->row_count++;
 					$this->body .= "
 					<tr class=\"".$this->get_row_color()."\">
-						<td align=\"right\" class=\"medium_font\" style=\"font-weight: bold;\">Favorites: ".$this->show_tooltip(12,1)."</td>
-						<td align=\"left\"><input type=\"checkbox\" name=\"d[restrict_4]\" ".$restrictions['favorites']." /></td>
+						<td align=\"right\" class=\"medium_font\" style=\"font-weight: bold;\">favourites: ".$this->show_tooltip(12,1)."</td>
+						<td align=\"left\"><input type=\"checkbox\" name=\"d[restrict_4]\" ".$restrictions['favourites']." /></td>
 					</tr>";
 					$this->row_count++;
 					$this->body .= "
@@ -1517,7 +1517,7 @@ function validate_inputs()
 			Text[6] = [\"display listing checkbox template\", \"Choose a template used on this group affiliate site within the listing display template to display the checkbox based category specific questions using this language.  If no template is chosen for this category the default template set in the PAGES > BROWSING PAGES > EXTRA CHECKBOXES will be used.  Enter all templates through the template administration.\"]\n
 			Text[10] = [\"Create Listing\", \"Uncheck this box to remove New Listing, My Active Listings, and My Expired Listings from this usergroup's User Management Home Page.\"]\n
 			Text[11] = [\"Messaging\", \"Uncheck this box to remove My Messages and Message Settings from this usergroup's User Management Home Page.\"]\n
-			Text[12] = [\"Favorites\", \"Uncheck this box to remove My Favorites from this usergroup's User Management Home Page.\"]\n
+			Text[12] = [\"favourites\", \"Uncheck this box to remove My favourites from this usergroup's User Management Home Page.\"]\n
 			Text[13] = [\"Filters\", \"Uncheck this box to remove My Listing Filters from this usergroup's User Management Home Page.\"]\n
 			Text[14] = [\"Black List/Invited List\", \"Uncheck this box to remove Black Listed Buyers and Invited List of Buyers from this usergroup's User Management Home Page.\"]\n
 			Text[15] = [\"Feedback\", \"Uncheck this box to remove Feedback Management from this usergroup's User Management Home Page.\"]\n
@@ -1974,7 +1974,7 @@ Cut and paste your html template into the space below.';
 		$this->row_count++;
 		$this->body .= "
 				<div class=\"".$this->get_row_color()."\">
-					<div class=\"leftColumn\"><label for=\"d[restrict_4]\">Favorites</label></div>
+					<div class=\"leftColumn\"><label for=\"d[restrict_4]\">favourites</label></div>
 					<div class=\"rightColumn\"><input type=\"checkbox\" id=\"d[restrict_4]\" name=\"d[restrict_4]\" checked=\"checked\" /></div>
 					<div style=\"clear:both; height: 1px;\"></div>
 				</div>";
@@ -2175,7 +2175,7 @@ Cut and paste your html template into the space below.';
 					if (!geoPC::is_ent()) $restrictions += 1+2+4+8+16+32;
 					if($group_info["restrict_1"] == 'on') $restrictions += 1; // create listing
 					if($group_info["restrict_2"] == 'on') $restrictions += 2; // messaging
-					if($group_info["restrict_4"] == 'on') $restrictions += 4; // favorites
+					if($group_info["restrict_4"] == 'on') $restrictions += 4; // favourites
 					if($group_info["restrict_8"] == 'on') $restrictions += 8; // filters
 					if($group_info["restrict_16"] == 'on') $restrictions += 16; // white/blacklists
 					if($group_info["restrict_32"] == 'on') $restrictions += 32; // feedback

@@ -1,5 +1,5 @@
 <?php 
-//user_management_favorites.php
+//user_management_favourites.php
 /**************************************************************************
 Geodesic Classifieds & Auctions Platform 7.1
 Copyright (c) 2001-2013 Geodesic Solutions, LLC
@@ -14,13 +14,13 @@ see license attached to distribution
 ## 
 ##################################
 
-class User_management_favorites extends geoSite
+class User_management_favourites extends geoSite
 {
-	var $debug_favorites = 0;
+	var $debug_favourites = 0;
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	function display_all_favorites()
+	function display_all_favourites()
 	{
 		if (!$this->userid) {
 			return false;
@@ -37,13 +37,13 @@ class User_management_favorites extends geoSite
 				
 		$tpl->assign('use_time_left', ((geoMaster::is('auctions') && $fields['auction_time_left']) || (geoMaster::is('classifieds') && $fields['classified_time_left'])));
 		
-		$this->sql_query = "select * from ".$this->classifieds_table.",".$this->favorites_table." where ".$this->favorites_table.".classified_id = ".$this->classifieds_table.".id and ".$this->favorites_table.".user_id = ".$this->userid." order by ".$this->classifieds_table.".ends asc";
+		$this->sql_query = "select * from ".$this->classifieds_table.",".$this->favourites_table." where ".$this->favourites_table.".classified_id = ".$this->classifieds_table.".id and ".$this->favourites_table.".user_id = ".$this->userid." order by ".$this->classifieds_table.".ends asc";
 		$result = $this->db->Execute($this->sql_query);
 		if (!$result) {
 			$this->site_error($this->db->ErrorMsg());
 			return false;
 		} elseif ($result->RecordCount() > 0) {
-			$tpl->assign('showFavorites', true);
+			$tpl->assign('showfavourites', true);
 			$tpl->assign('helpLink', $this->display_help_link(354));
 
 			$favs = array();
@@ -170,34 +170,34 @@ class User_management_favorites extends geoSite
 						$time_left = '-';
 					}
 					$favs[$i]['time_left'] = $time_left;
-					$favs[$i]['removeLink'] = $this->configuration_data['classifieds_file_name']."?a=4&amp;b=10&amp;c=1&amp;d=".$show_list->FAVORITE_ID;
+					$favs[$i]['removeLink'] = $this->configuration_data['classifieds_file_name']."?a=4&amp;b=10&amp;c=1&amp;d=".$show_list->favourite_ID;
 				}
 			}
 			$tpl->assign('favs', $favs);
 		} else {
-			//there are no favorites for this user
-			$tpl->assign('showFavorites', false);
+			//there are no favourites for this user
+			$tpl->assign('showfavourites', false);
 		}
 		$tpl->assign('userManagementHomeLink', $this->configuration_data['classifieds_file_name']."?a=4");
-		$this->body = $tpl->fetch('favorites/display_all.tpl');
+		$this->body = $tpl->fetch('favourites/display_all.tpl');
 		$this->display_page();
 		return true;
 	}
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	function delete_favorite($db,$favorite_id)
+	function delete_favourite($db,$favourite_id)
 	{
 		if ($this->userid)
 		{
-			if ($favorite_id)
+			if ($favourite_id)
 			{
-				$this->sql_query = "delete from ".$this->favorites_table." where favorite_id = ".$favorite_id;
+				$this->sql_query = "delete from ".$this->favourites_table." where favourite_id = ".$favourite_id;
 				$result = $this->db->Execute($this->sql_query);
-				if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+				if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 				if (!$result)
 				{
-					if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+					if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 					return false;
 				}
 				return true;
@@ -212,36 +212,36 @@ class User_management_favorites extends geoSite
 		else
 			return false;
 
-	} //end of function delete_favorite
+	} //end of function delete_favourite
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	function insert_favorite($db,$favorite_id)
+	function insert_favourite($db,$favourite_id)
 	{
 		if ($this->userid)
 		{
-			if ($favorite_id)
+			if ($favourite_id)
 			{
-				$this->sql_query = "select * from ".$this->favorites_table."
-					where classified_id = ".$favorite_id." and user_id = ".$this->userid;
+				$this->sql_query = "select * from ".$this->favourites_table."
+					where classified_id = ".$favourite_id." and user_id = ".$this->userid;
 				$result = $this->db->Execute($this->sql_query);
-				if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+				if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 				if (!$result)
 				{
-					if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+					if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 					return false;
 				}
 				if ($result->RecordCount() == 0)
 				{
-					$this->sql_query = "insert into ".$this->favorites_table."
+					$this->sql_query = "insert into ".$this->favourites_table."
 						(user_id,classified_id,date_inserted)
 						values
-						(".$this->userid.",".$favorite_id.",".geoUtil::time().")";
+						(".$this->userid.",".$favourite_id.",".geoUtil::time().")";
 					$result = $this->db->Execute($this->sql_query);
-					if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+					if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 					if (!$result)
 					{
-						if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+						if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 						return false;
 					}
 				}
@@ -249,7 +249,7 @@ class User_management_favorites extends geoSite
 			}
 			else
 			{
-				//no favorite_id
+				//no favourite_id
 				$this->error_message = $this->data_missing_error_message;
 				return false;
 			}
@@ -260,21 +260,21 @@ class User_management_favorites extends geoSite
 			return false;
 		}
 
-	} //end of function insert_favorite
+	} //end of function insert_favourite
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	function expire_old_favorites($db)
+	function expire_old_favourites($db)
 	{
 		if ($this->userid)
 		{
-			$this->sql_query = "select * from ".$this->favorites_table."
+			$this->sql_query = "select * from ".$this->favourites_table."
 				where user_id = ".$this->userid;
 			$result = $this->db->Execute($this->sql_query);
-			if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+			if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 			if (!$result)
 			{
-				if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+				if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 				return false;
 			}
 			if ($result->RecordCount() > 0)
@@ -284,22 +284,22 @@ class User_management_favorites extends geoSite
 					$this->sql_query = "select * from ".$this->classifieds_table."
 						where id = ".$show->CLASSIFIED_ID;
 					$classified_result = $this->db->Execute($this->sql_query);
-					if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+					if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 					if (!$classified_result)
 					{
-						if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+						if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 						return false;
 					}
 					elseif ($classified_result->RecordCount() ==0)
 					{
-						//expire all favorites with this classified id
-						$this->sql_query = "delete from ".$this->favorites_table."
+						//expire all favourites with this classified id
+						$this->sql_query = "delete from ".$this->favourites_table."
 							where classified_id = ".$show->CLASSIFIED_ID;
 						$delete_result = $this->db->Execute($this->sql_query);
-						if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+						if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 						if (!$delete_result)
 						{
-							if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+							if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 							return false;
 						}
 					}
@@ -313,7 +313,7 @@ class User_management_favorites extends geoSite
 			return false;
 		}
 
-	} //end of function delete_favorite
+	} //end of function delete_favourite
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 }

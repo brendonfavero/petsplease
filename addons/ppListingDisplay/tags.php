@@ -303,7 +303,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 
         $leadListing = null;
         $listings = array();
-        $listings = $util->getUsersOtherListings($seller);
+        $listings = $util->getUsersOtherListings($seller, $listing_id);
 
         $extractor = function($listing) {
             return array(
@@ -321,7 +321,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
             'listings' => $listings
         );
 
-        return geoTemplate::loadInternalTemplate($params, $smarty, 'specialListingBox.tpl',
+        return geoTemplate::loadInternalTemplate($params, $smarty, 'otherAds.tpl',
                 geoTemplate::ADDON, $this->name, $tpl_vars);
     }
 
@@ -547,11 +547,20 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 
 		// other wise show default
 
-		$listingid = $_REQUEST['a'] == 2 ? $_REQUEST['b'] : false; 
-		if ($listingid) {
-			$listing = geoListing::getListing($listingid);
+		 $db = true;
+        require (GEO_BASE_DIR."get_common_vars.php");
+        
+        $listingid = $_REQUEST['a'] == 2 ? $_REQUEST['b'] : false; 
+        if ($listingid) {
+            $listing = geoListing::getListing($listingid);
             $listingdata = $listing->toArray();
-		}       
+        }
+        
+        $articleId = $_REQUEST['article'];
+        if ($articleId) {
+            $sql = "SELECT * FROM petsplease_news where id = ?";
+            $article = $db->GetRow($sql, array($articleId));          
+        }    
 
 		if ($_REQUEST['c'] == 309 || ($listing && $listing->category == 309)) {
 			return "headerimg-dog";
@@ -571,6 +580,9 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		else if ($_REQUEST['c'] == 314 || ($listing && $listing->category == 314)) {
 			return "headerimg-other";
 		}
+        else if ($_REQUEST['c'] == 315 || ($listing && $listing->category == 315)) {
+            return "headerimg-products";
+        }
         else if ($_REQUEST['c'] == 320 || ($listing && self::getParentCategory($listing->category) == 320)) {
             return "headerimg-dogproduct";
         }
@@ -619,22 +631,55 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         else if ($_REQUEST['b']['specpettype'] == 'other' || ($listing && isset($listingdata['optional_field_13']))) {
             return "headerimg-otherbreeders";
         }
-        
+        else if ($_REQUEST['category'] == 'news-and-advice-for-dogs-and-puppies' || ($article && $article['category'] == 8)) {
+            return "headerimg-dognews";
+        }
+        else if ($_REQUEST['category'] == 'news-and-advice-for-cats-and-kittens' || ($article && $article['category'] == 9)) {
+            return "headerimg-catnews";
+        }
+        else if ($_REQUEST['category'] == 'news-and-advice-for-birds' || ($article && $article['category'] == 10)) {
+            return "headerimg-birdnews";
+        }
+        else if ($_REQUEST['category'] == 'news-and-advice-for-fish' || ($article && $article['category'] == 11)) {
+            return "headerimg-fishnews";
+        }
+        else if ($_REQUEST['category'] == 'news-and-advice-for-reptiles' || ($article && $article['category'] == 12)) {
+            return "headerimg-reptilenews";
+        }
+        else if ($_REQUEST['category'] == 'news-and-advice-for-other-pets' || ($article && $article['category'] == 13)) {
+            return "headerimg-othernews";
+        }
+        else if ($_REQUEST['a'] == 4 && $_REQUEST['b'] == 10) {
+            return "headerimg-favourites";
+        }        
 		else {
 			return "headerimg-allpets";
 		}
 	}
 
     public function headerTextClass($params, Smarty_Internal_Template $smarty) {
+        
+        $db = true;
+        require (GEO_BASE_DIR."get_common_vars.php");
+        
         $listingid = $_REQUEST['a'] == 2 ? $_REQUEST['b'] : false; 
         if ($listingid) {
             $listing = geoListing::getListing($listingid);
             $listingdata = $listing->toArray();
         }
+        
+        $articleId = $_REQUEST['article'];
+        if ($articleId) {
+            $sql = "SELECT * FROM petsplease_news where id = ?";
+            $article = $db->GetRow($sql, array($articleId));          
+        }
 
         if ($_REQUEST['c'] == 309 || ($listing && $listing->category == 309)) {
             return "Dogs for Sale";
         } 
+        else if ($_REQUEST['c'] == 308 || ($listing && $listing->category == 308)) {
+            return "Pets for Sale";
+        }
         else if ($_REQUEST['c'] == 310 || ($listing && $listing->category == 310)) {
             return "Cats for Sale";
         }
@@ -706,10 +751,34 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         }
         else if ($_REQUEST['b']['specpettype'] == 'other' || ($listing && isset($listingdata['optional_field_13']))) {
             return "Other Breeders";
+        }        
+        else if ($_REQUEST['category'] == 'news-and-advice-for-dogs-and-puppies' || ($article && $article['category'] == 8)) {
+            return "Dog News and Advice";
         }
+        else if ($_REQUEST['category'] == 'news-and-advice-for-cats-and-kittens' || ($article && $article['category'] == 9)) {
+            return "Cat News and Advice";
+        }
+        else if ($_REQUEST['category'] == 'news-and-advice-for-birds' || ($article && $article['category'] == 10)) {
+            return "Bird News and Advice";
+        }        
+        else if ($_REQUEST['category'] == 'news-and-advice-for-fish' || ($article && $article['category'] == 11)) {
+            return "Fish News and Advice";
+        }
+        else if ($_REQUEST['category'] == 'news-and-advice-for-reptiles' || ($article && $article['category'] == 12)) {
+            return "Reptiles News and Advice";
+        }
+        else if ($_REQUEST['category'] == 'news-and-advice-for-other-pets' || ($article && $article['category'] == 13)) {
+            return "Other Pets News and Advice";
+        }           
         else if ($_REQUEST['addon'] == 'ppPetSelector') {
             return "Pet Selector";
-        }        
+        }
+        else if ($_REQUEST['page'] == 'news' ) {
+            return "Pet News and Advice";
+        }
+        else if ($_REQUEST['a'] == 4 && $_REQUEST['b'] == 10) {
+            return "My Favourites";
+        }         
         else {
             return "Pets and Products for Sale";
         }

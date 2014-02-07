@@ -60,7 +60,7 @@ class geoSite
 	//var $site_auction_configuration_table = "geodesic_auctions_configuration";
 	var $choices_table = "geodesic_choices";
 	var $images_urls_table = "geodesic_classifieds_images_urls";
-	var $favorites_table = "geodesic_favorites";
+	var $favourites_table = "geodesic_favourites";
 	var $file_types_table = "geodesic_file_types";
 	var $groups_table = "geodesic_groups";
 	var $group_questions_table = "geodesic_classifieds_group_questions";
@@ -2447,32 +2447,32 @@ class geoSite
 		return $this->db->get_site_setting($setting);
 	}
 
-	function insert_favorite($db,$favorite_id)
+	function insert_favourite($db,$favourite_id)
 	{
 		if ($this->userid)
 		{
-			if ($favorite_id)
+			if ($favourite_id)
 			{
-				$this->sql_query = "select * from ".$this->favorites_table."
-					where classified_id = ".$favorite_id." and user_id = ".$this->userid;
+				$this->sql_query = "select * from ".$this->favourites_table."
+					where classified_id = ".$favourite_id." and user_id = ".$this->userid;
 				$result = $db->Execute($this->sql_query);
-				if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+				if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 				if (!$result)
 				{
-					if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+					if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 					return false;
 				}
 				if ($result->RecordCount() == 0)
 				{
-					$this->sql_query = "insert into ".$this->favorites_table."
+					$this->sql_query = "insert into ".$this->favourites_table."
 						(user_id,classified_id,date_inserted)
 						values
-						(".$this->userid.",".$favorite_id.",".geoUtil::time().")";
+						(".$this->userid.",".$favourite_id.",".geoUtil::time().")";
 					$result = $db->Execute($this->sql_query);
-					if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+					if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 					if (!$result)
 					{
-						if ($this->debug_favorites) echo $this->sql_query."<br />\n";
+						if ($this->debug_favourites) echo $this->sql_query."<br />\n";
 						return false;
 					}
 				}
@@ -2480,7 +2480,7 @@ class geoSite
 			}
 			else
 			{
-				//no favorite_id
+				//no favourite_id
 				$this->error_message = $this->data_missing_error_message;
 				return false;
 			}
@@ -2491,5 +2491,5 @@ class geoSite
 			return false;
 		}
 
-	} //end of function insert_favorite	
+	} //end of function insert_favourite	
 } //end of class geoSite

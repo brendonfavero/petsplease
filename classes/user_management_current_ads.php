@@ -230,8 +230,8 @@ class User_management_current_ads extends geoSite
 				}
 			}
 			
-			//get the number of favorites for this listing
-			$listings[$key]['favorited'] = $this->db->GetOne("SELECT COUNT(user_id) FROM ".geoTables::favorites_table." WHERE classified_id = ? OR auction_id = ?", array($listing['id'], $listing['id']));
+			//get the number of favourites for this listing
+			$listings[$key]['favourited'] = $this->db->GetOne("SELECT COUNT(user_id) FROM ".geoTables::favourites_table." WHERE classified_id = ? OR auction_id = ?", array($listing['id'], $listing['id']));
 		}
 		$view->listings = $listings;
 		

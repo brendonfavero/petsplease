@@ -356,7 +356,7 @@ class geoListingDisplay
 	}
 	
 	/**
-	 * This is the link text allowing the user to add the current listing to their favorites list in their user home page.
+	 * This is the link text allowing the user to add the current listing to their favourites list in their user home page.
 	 *
 	 * @category general
 	 * @param geoListing $listing Listing object
@@ -364,7 +364,7 @@ class geoListingDisplay
 	 * @param Smarty_Internal_Template $smarty
 	 * @return string
 	 */
-	public static function favorites_link (geoListing $listing, $params, Smarty_Internal_Template $smarty)
+	public static function favourites_link (geoListing $listing, $params, Smarty_Internal_Template $smarty)
 	{
 		if (!$listing->live) {
 			//don't show fav link if not live
@@ -374,7 +374,7 @@ class geoListingDisplay
 			'listing_id' => $listing->id,
 			'messages' => DataAccess::getInstance()->get_text(true, 1),
 		);
-		return geoTemplate::loadInternalTemplate($params, $smarty, 'favorites_link.tpl',
+		return geoTemplate::loadInternalTemplate($params, $smarty, 'favourites_link.tpl',
 				geoTemplate::SYSTEM, 'listing_details', $tpl_vars);
 	}
 	

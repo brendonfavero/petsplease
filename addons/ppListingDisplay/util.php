@@ -35,18 +35,18 @@ class addon_ppListingDisplay_util extends addon_ppListingDisplay_info
 		return $result;
 	}
     
-    public function getUsersOtherListings($user_id) {
+    public function getUsersOtherListings($user_id, $listing_id) {
         $db = true;
         require (GEO_BASE_DIR."get_common_vars.php");
 
         if ($user_id == 0) return false;
 
-        $sql = "SELECT c.id, c.title, cat.category_name, iu.thumb_url FROM petsplease.geodesic_classifieds c 
+        $sql = "SELECT c.id, c.title, cat.category_name, iu.thumb_url, c.price FROM petsplease.geodesic_classifieds c 
                     JOIN geodesic_categories cat ON c.category = cat.category_id
                     JOIN geodesic_classifieds_images_urls iu ON c.id = iu.classified_id
-                    WHERE seller = ? AND live = 1 AND iu.display_order = 1
+                    WHERE seller = ? AND live = 1 AND iu.display_order = 1 AND c.id != ?
                     ORDER BY RAND() LIMIT 3";
-        $result = $db->GetAll($sql, array($user_id));
+        $result = $db->GetAll($sql, array($user_id, $listing_id));
         
         if (!$result || empty($result))
             return null;

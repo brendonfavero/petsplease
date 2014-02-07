@@ -67,7 +67,7 @@ class metaDbTables
 	const site_configuration_table = "`geodesic_classifieds_configuration`";
 	const choices_table = "`geodesic_choices`";
 	const images_urls_table = "`geodesic_classifieds_images_urls`";
-	const favorites_table = "`geodesic_favorites`";
+	const favourites_table = "`geodesic_favourites`";
 	const file_types_table = "`geodesic_file_types`";
 	const groups_table = "`geodesic_groups`";
 	const group_questions_table = "`geodesic_classifieds_group_questions`";

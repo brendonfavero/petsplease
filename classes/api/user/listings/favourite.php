@@ -1,5 +1,5 @@
 <?php
-//favorite.php
+//favourite.php
 /**************************************************************************
 Geodesic Classifieds & Auctions Platform 7.1
 Copyright (c) 2001-2013 Geodesic Solutions, LLC
@@ -19,7 +19,7 @@ if (!defined('IN_GEO_API')){
 }
 
 //generic error to give in any situation where user/pass/token is not working.
-$generic_error = 'The username or user token was incorrect or was not specified, or user is not active; request to get user\'s favorite listings has failed.';
+$generic_error = 'The username or user token was incorrect or was not specified, or user is not active; request to get user\'s favourite listings has failed.';
 
 //get the user based on the username and token
 if (!isset($args['username']) || !trim($args['username']) || !isset($args['token']) || !trim($args['token'])) {
@@ -48,7 +48,7 @@ if ($user->id <= 1 || !$user->status) {
 
 //get list of active listings placed by user
 $classT = geoTables::classifieds_table;
-$favT = geoTables::favorites_table;
+$favT = geoTables::favourites_table;
 $query = new geoTableSelect($classT);
 
 $query->where("$classT.`live`=1", 'live')

@@ -36,7 +36,7 @@ that it will corrupt the smarty tags!
 				<img src="{external file='images/icons/camera_sml.png'}" alt="" />&nbsp;:&nbsp;<a href="{$cfg.listing_url}{$id}">{listing tag='number_images'}</a>&nbsp;|&nbsp;
 				<img src="{external file='../images/icons/camera_video_sml.png'}" alt="" />&nbsp;:&nbsp;<a href="{$cfg.listing_url}{$id}">{listing tag='number_videos'}</a>
 				<!-- &nbsp;|&nbsp;
-				<img src="{external file='../images/icons/heart_sml.png'}" alt="" />&nbsp;:&nbsp;{listing tag='favorites_link'}
+				<img src="{external file='../images/icons/heart_sml.png'}" alt="" />&nbsp;:&nbsp;{listing tag='favourites_link'}
 				-->
 			</div>
 		</div>

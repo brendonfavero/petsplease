@@ -139,7 +139,7 @@ e-mails to be sent.</p>';
 			);
 		}
 		$exp_settings['fav_expire_email'] = array (
-			'label' => 'Favorite Expires Soon',
+			'label' => 'favourite Expires Soon',
 			'page_id' => 10212,
 		);
 		

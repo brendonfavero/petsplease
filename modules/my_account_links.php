@@ -120,7 +120,7 @@ if($bitmask & 2) {
 }
 
 if($bitmask & 4) {
-	$links['favorites'] = array('link' => $url_base . "?a=4&amp;b=10", 'label' => $page->messages[500462], 'icon' => $page->messages[500463]);	
+	$links['favourites'] = array('link' => $url_base . "?a=4&amp;b=10", 'label' => $page->messages[500462], 'icon' => $page->messages[500463]);	
 }
 
 if($bitmask & 8) {
@@ -216,7 +216,7 @@ if($_REQUEST['b'] && is_numeric($_REQUEST['b'])) {
 			$links['ad_filters']['active'] = true;
 			break;
 		case 10:
-			$links['favorites']['active'] = true;
+			$links['favourites']['active'] = true;
 			break;
 		case 12: //break intentionally omitted
 		case 13:

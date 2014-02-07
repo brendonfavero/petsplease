@@ -1545,7 +1545,7 @@ class _templateOrderItem extends geoOrderItem
 	 * **Used:** in file classes/cron/close_listings.php
 	 * 
 	 * This is called for each listing that is being closed.  Note that the following things are
-	 * automatically done: the "live" column is set to 0, and user favorites for the listing
+	 * automatically done: the "live" column is set to 0, and user favourites for the listing
 	 * are removed.  Anything beyond that is up to being done in this function.
 	 *
 	 * @param array $vars Associative array, array('listing' => geoListing object)
@@ -1575,7 +1575,7 @@ class _templateOrderItem extends geoOrderItem
 	 * 
 	 * This is called when a buy now auction is being closed.  Note
 	 * that the following things are automatically done: the "live"
-	 * column is set to 0, and user favorites for the listing
+	 * column is set to 0, and user favourites for the listing
 	 * are removed, auction feedback inserted into db.  Anything
 	 * beyond that is up to being done in this function.
 	 *

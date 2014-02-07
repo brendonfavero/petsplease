@@ -270,11 +270,11 @@
 			<only></only>
 			<desc>This is the link allowing the client to send a message to the seller of the listing.</desc>
 		</message_to_seller_link>
-		<favorites_link>
+		<favourites_link>
 			<type>tag</type>
 			<only></only>
-			<desc>This is the link text allowing the user to add the current listing to their favorites list in their user home page.</desc>
-		</favorites_link>
+			<desc>This is the link text allowing the user to add the current listing to their favourites list in their user home page.</desc>
+		</favourites_link>
 		<sellers_other_ads_link>
 			<type>tag</type>
 			<only></only>

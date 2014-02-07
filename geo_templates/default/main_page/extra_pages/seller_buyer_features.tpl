@@ -84,7 +84,7 @@
 				<strong>&quot;My Account&quot;</strong> pages allow you to edit your account settings any time you wish...day or night.
 			</li>
 			<li>
-				<strong>&quot;Listing Favorites&quot;</strong> allows you to keep a list of your &quot;Listings to Watch&quot;. Add as many listings to 
+				<strong>&quot;Listing favourites&quot;</strong> allows you to keep a list of your &quot;Listings to Watch&quot;. Add as many listings to 
 				your list as you wish and delete them any time within your personal account pages.
 			</li>
 			<li>

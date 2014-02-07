@@ -16,10 +16,10 @@
 	{listing tag='notify_friend_link'}
 </div>
 <div class="icon_link_img">
-	<img alt="Add-to-Favourites" src="{external file='images/icons/favorite.png'}" title="Add-to-Favorites" />
+	<img alt="Add-to-Favourites" src="{external file='images/icons/favourite.png'}" title="Add-to-favourites" />
 </div>
 <div class="icon_link">
-	{listing tag='favorites_link'}
+	{listing tag='favourites_link'}
 </div>
 {if $enabledAddons.contact_us}
 	<div class="icon_link_img">

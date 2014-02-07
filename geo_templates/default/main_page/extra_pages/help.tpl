@@ -25,8 +25,8 @@
 	</ul>
 	
 	<h1 class="subtitle">Can I save items to revisit later?</h1>
-	<p style="padding: 0 15px;">Yes. You can maintain your own "favorites" list within your account. Each listing on
-	our site has an "add to favorites" link.  Simply click that link and we will add that item to your favorites list. </p>
+	<p style="padding: 0 15px;">Yes. You can maintain your own "favourites" list within your account. Each listing on
+	our site has an "add to favourites" link.  Simply click that link and we will add that item to your favourites list. </p>
 	
 	<h1 class="subtitle">What if I can't find what I am looking for?</h1>
 	<p style="padding: 0 15px;">You can set up search filters within your account area. Our site will

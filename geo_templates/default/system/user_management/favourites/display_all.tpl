@@ -5,7 +5,7 @@
 	<h1 class="subtitle">{$messages.352} {$helpLink}</h1>
 	<p class="page_instructions">{$messages.353}</p>
 
-	{if $showFavorites}
+	{if $showfavourites}
 		<table style="width: 100%;">
 			<tr class="column_header">
 				<td class="title">{$messages.358}</td>

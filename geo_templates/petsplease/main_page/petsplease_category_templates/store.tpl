@@ -171,7 +171,7 @@
 	<div class="content_box_1">
 		<ul class="option_list">
 			<li>{listing tag='notify_friend_link'}</li>
-			<li>{listing tag='favorites_link'}</li>
+			<li>{listing tag='favourites_link'}</li>
 			{if $enabledAddons.contact_us}
 				<li>
 					<a href="{$classifieds_file_name}?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse={$classified_id}" class="lightUpLink">{$additional_text_10}</a>

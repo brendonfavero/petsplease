@@ -419,7 +419,7 @@ class Notify_seller extends geoBrowse {
 			geoEmail::sendMail($db->get_site_setting('admin_email_bcc'), $message["subject"], $message["message"],$from,0,0,'text/html');
 		}
 		
-		$this->insert_favorite($db, $classified_id);
+		$this->insert_favourite($db, $classified_id);
 		
 		return true;
 		
