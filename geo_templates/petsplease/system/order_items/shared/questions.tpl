@@ -92,6 +92,17 @@
 					{$question.help}
 					<input type="hidden" name="b[question_display_order][{$key}]" value="{$display_order}" />
 			</div>
+			{if $key eq 192}
+				Pet Shops are part of the market place and have the ability to accept direct payment through PayPal including credit cards, just by having a PayPal account.
+				<br/><br/>
+				PayPal is loved by buyers for it’s convenience and security, you get your payment fast and secure.
+				<br/><br/>
+				PayPal helps safeguard eligible sellers from losses due to customer claims, chargebacks and payment reversals. Please read the PayPal Seller Protection Policy.
+				<br/><br/>
+				Once the payment has been made, you will receive an email with all the sale details, all you need to do is sent the product to the customer, it is the easiest way to sell.
+				<br/><br/>
+			
+			{/if}
 		{/foreach}
 	{/foreach}
 {/if}

@@ -40,7 +40,9 @@
 		<div id="adlogoplopDropImageHere" style="display: none;">
 			{$messages.500710}
 		</div>
-		<div id="adlogo_upload_instructions_box"><p class="page_note">{$adlogo.description}</p></div>
+		<div id="adlogo_upload_instructions_box"><p class="page_note">Use this section to upload you logo to be shown in your listing. 
+		Upload by selecting the file to upload, enter the file title (if one is desired), then click the upload button. </p>
+		</div>
 		<div class="clr"></div>
 		
 		<div id="adlogoCapturedBox">

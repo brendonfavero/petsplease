@@ -97,24 +97,46 @@
 		{/if}
 		
 		{if $sell_type == 1 && $fields->price->is_enabled}
-			<div class="{if $error_msgs.price}field_error_row {/if}{cycle values='row_odd,row_even'}">
-				<label for="price" class="field_label">{$messages.134}</label>
-				
-				{if $editCheck || $fields->price->can_edit}
-					<span class="precurrency">{$session_variables.precurrency}</span>
-					<input type="text" id="price" class="field" name="b[price]"
+			{if $category_tree[0]['category_id'] eq 411}
+				<div class="{cycle values='row_odd,row_even'}">
+					<label for="from_price" class="field_label">From Price:</label>
+					<span class="precurrency">$</span>
+					<input type="text" id="from_price" class="field" name="b[from_price]"
 						size="{if $fields->price->text_length > 12}12{else}{$fields->price->text_length}{/if}"
 						maxlength="{$fields->price->text_length}"
-						value="{$session_variables.price|displayPrice:"":""}" />
-					{include file="shared/postcurrency_dropdown.tpl"}
-				{else}
-					{$session_variables.price|displayPrice:$session_variables.precurrency:$session_variables.postcurrency}
-				{/if}
+						value="{$session_variables.from_price|displayPrice:"":""}" />
+					{include file="shared/postcurrency_dropdown.tpl"}					
+				</div>
+				<div class="{cycle values='row_odd,row_even'}">
+					<label for="from_price" class="field_label">To Price:</label>
+					<span class="precurrency">$</span>
+					<input type="text" id="to_price" class="field" name="b[to_price]"
+						size="{if $fields->price->text_length > 12}12{else}{$fields->price->text_length}{/if}"
+						maxlength="{$fields->price->text_length}"
+						value="{$session_variables.to_price|displayPrice:"":""}" />
+					{include file="shared/postcurrency_dropdown.tpl"}					
+				</div>
 				
-				{if $error_msgs.price}
-					<span class="error_message">{$messages.642}</span>
-				{/if}
-			</div>
+			{else}
+				<div class="{if $error_msgs.price}field_error_row {/if}{cycle values='row_odd,row_even'}">
+					<label for="price" class="field_label">{$messages.134}</label>
+					
+					{if $editCheck || $fields->price->can_edit}
+						<span class="precurrency">{$session_variables.precurrency}</span>
+						<input type="text" id="price" class="field" name="b[price]"
+							size="{if $fields->price->text_length > 12}12{else}{$fields->price->text_length}{/if}"
+							maxlength="{$fields->price->text_length}"
+							value="{$session_variables.price|displayPrice:"":""}" />
+						{include file="shared/postcurrency_dropdown.tpl"}
+					{else}
+						{$session_variables.price|displayPrice:$session_variables.precurrency:$session_variables.postcurrency}
+					{/if}
+					
+					{if $error_msgs.price}
+						<span class="error_message">{$messages.642}</span>
+					{/if}
+				</div>
+			{/if}
 		{/if}
 		
 		{if $sell_type == 2 && $editAuctionPrices}
@@ -332,7 +354,7 @@
 						{/if}
 						{if $i eq 19}
 						<br/>
-							(This is the domestic flat shipping & handling rate offered by your store regardless of number of items, leave as is to charge by item)
+							(This is the Australian domestic flat shipping & handling rate offered by your store regardless of number of items purchased from your store, leave blank if you are charging postage by item, you will be able to set this when placing an item listing.)
 						{/if}
 					</div>
 				{/if}
@@ -391,10 +413,11 @@
 				{else}
 					{$session_variables.paypal_id}
 				{/if}
-			
+				
 				{if $error_msgs.paypal_id}
 					<span class="error_message">{$messages.3281}</span>
 				{/if}
+				
 			</div>
 		{/if}
 		

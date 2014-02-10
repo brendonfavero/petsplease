@@ -40,9 +40,18 @@
 		<div id="adplopDropImageHere" style="display: none;">
 			{$messages.500710}
 		</div>
-		<div id="adimage_upload_instructions_box"><p class="page_note">{$adimages.description}</p>
+		<div id="adimage_upload_instructions_box"><p class="page_note">Use this section to upload a banner to be shown at the top of your listing. 
+		Upload one banner at a time, by selecting the file to upload, enter the file title (if one is desired), then click the upload button. </p>
+
+		<p><strong style="font-weight:bold">Note:</strong> The banner in the first slot will be the banner that appears first, 
+		the three banners will rotate from one banner to the next or you can just choose to have one banner. </p>
+		
+		<p><strong style="font-weight:bold">Tip:</strong> You can change the order of the banners by clicking and dragging on the title bar for that image slot.
 		<br/>
-		<p>Note that images will be resized to a width of 728px, ideal image size is 728x90 pixels</div>
+		Each banner size is 728mm wide and 90mm high
+		<br/>
+		Note that images will be resized to a width of 728px, ideal image size is 728x90 pixels </p>
+		</p></div>
 		<div class="clr"></div>
 		
 		<div id="adimagesCapturedBox">
