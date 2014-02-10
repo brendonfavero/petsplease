@@ -22,7 +22,7 @@
 	
 	<ul id="listing_categories">
 		{foreach from=$cat_data key=i item=cat}
-			{if $cat.category_id eq 308 or $cat.category_id eq 315 or $cat.category_id eq 413}
+			{if $parent_cat_id eq 0}
 				<li class="element" style="width:100%; padding-right:7px">
 			{else}
 				<li class="element" style="width:49%; padding-right:7px">

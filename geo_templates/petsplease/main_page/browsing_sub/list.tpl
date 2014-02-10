@@ -89,8 +89,8 @@ that it will corrupt the smarty tags!
 
 		{if $cfg.cols.price and $listing.price}
 			<span>
-				{if $listing.topcategory eq 411}
-					Starting from {$listing.price}/night
+				{if $listing.subcategory eq 411}
+					Prices from {$listing.from_price}/night to {$listing.to_price}/night
 				{else}
 					{$listing.price}
 					{if $ex_males + $ex_females gt 1}

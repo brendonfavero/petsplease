@@ -112,7 +112,7 @@
 		</div>
 		
 		<div class="center">
-			<input type="submit" value="{$messages.500399}" class="button" /><br /><br />
+			<input style="background-color:#EA003A; color:#FFFFFF" type="submit" value="{$messages.500399}" class="button" /><br /><br />
 			<a href="{$cart_url}&amp;step=cart" class="button">{$messages.500281}</a>
 		</div>
 	</div>

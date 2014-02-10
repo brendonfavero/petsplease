@@ -284,4 +284,10 @@ header.page {
   &.headerimg-othernews {
     background: url(../images/rabbit.jpg) no-repeat 70% 31%;
   }
+  &.headerimg-favourites {
+    background: url(../images/favourites.jpg) no-repeat 70% 31%;
+  }
+  &.headerimg-cart {
+    background: url(../images/bunny-shopping.jpg) no-repeat 70% 31%;
+  }
 }

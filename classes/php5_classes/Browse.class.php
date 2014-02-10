@@ -401,6 +401,8 @@ class geoBrowse extends geoSite
 		}
 		$formatted['precurrency'] = geoString::fromDB($data['precurrency']);
 		$formatted['postcurrency'] = geoString::fromDB($data['postcurrency']);
+        $formatted['from_price'] = geoString::displayPrice($data['from_price'], $data['precurrency'], $data['postcurrency'], 'listing');
+        $formatted['to_price'] = geoString::displayPrice($data['to_price'], $data['precurrency'], $data['postcurrency'], 'listing');
 		$formatted['price'] = geoString::displayPrice($price, $data['precurrency'], $data['postcurrency'], 'listing');
 		$formatted['minimum_bid'] = geoString::displayPrice($data['minimum_bid'], $data['precurrency'], $data['postcurrency'], 'listing');
 		$formatted['starting_bid'] = geoString::displayPrice($data['starting_bid'], $data['precurrency'], $data['postcurrency'], 'listing');

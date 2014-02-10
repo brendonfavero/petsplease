@@ -489,6 +489,10 @@ class Display_ad extends geoBrowse {
 				$view->price_label = ($printFriendly)? $this->messages[1085]: $this->messages[15];
 				$display_amount = geoString::displayPrice($show["price"],$precurrency,$postcurrency, 'listing');
 				$view->price = $display_amount;
+                $from_amount = geoString::displayPrice($show["from_price"],$precurrency,$postcurrency, 'listing');
+                $view->from_price = $from_amount;
+                $to_amount = geoString::displayPrice($show["to_price"],$precurrency,$postcurrency, 'listing');
+                $view->to_price = $to_amount;
 			}
 		}
 

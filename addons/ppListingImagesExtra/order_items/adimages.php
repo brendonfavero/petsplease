@@ -117,7 +117,7 @@ class adimagesOrderItem extends geoOrderItem {
 		$msgs = $db->get_text(true, 10202);
 		$return = array (
 			'css_class' => '',
-			'title' => $msgs[500319], 
+			'title' => 'Banners', 
 			'canEdit' => $can_edit, //whether can edit it or not
 			'canDelete' => $can_delete, //whether can remove from cart or not
 			'canPreview' => false, //whether can preview the item or not

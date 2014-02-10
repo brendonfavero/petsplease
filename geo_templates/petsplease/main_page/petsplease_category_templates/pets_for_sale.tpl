@@ -238,7 +238,7 @@
 		{if $price}
 			<span>
 				{if $topcategory eq 411}
-					Starting from {$price}/night
+					Prices from {$from_price}/night to {$to_price}/night
 				{else}
 					{$price}
 					{if $ex_males + $ex_females gt 1}

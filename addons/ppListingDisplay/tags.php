@@ -651,6 +651,9 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         }
         else if ($_REQUEST['a'] == 4 && $_REQUEST['b'] == 10) {
             return "headerimg-favourites";
+        }
+        else if ($_REQUEST['page'] == "merchantCart") {
+            return "headerimg-cart";
         }        
 		else {
 			return "headerimg-allpets";
@@ -778,7 +781,10 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         }
         else if ($_REQUEST['a'] == 4 && $_REQUEST['b'] == 10) {
             return "My Favourites";
-        }         
+        }
+        else if ($_REQUEST['page'] == "merchantCart") {
+            return "Shopping Cart";
+        }             
         else {
             return "Pets and Products for Sale";
         }
