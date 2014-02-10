@@ -64,5 +64,7 @@ RewriteRule ^/?petselector/?$ index.php?a=ap&addon=ppPetSelector&page=detail [L,
 RewriteRule ^/?favourites/?$ index.php?a=4&b=10 [L,NC,QSA] #home
 RewriteRule ^/?cart/?$ index.php?a=ap&addon=ppStoreSeller&page=merchantCart [L,NC,QSA] #home
 
+RewriteRule ^/?competition/?$ index.php?a=ap&addon=ppCompetition&page=competition [L,NC,QSA] #home
+
 
 

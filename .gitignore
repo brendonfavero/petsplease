@@ -18,3 +18,5 @@ geo_templates/petsplease/external/css
 # Don't allow pet selector images into the repo
 !addons/ppPetSelector/images/.gitempty
 addons/ppPetSelector/images
+
+addons/ppCompetition/images

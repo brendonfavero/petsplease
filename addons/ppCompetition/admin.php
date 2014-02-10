@@ -3,7 +3,7 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
 {
 	public function init_pages ($menuName)
 	{
-		menu_page::addonAddPage('addon_Competition_settings', '', 'Breed Settings', 'ppCompetition', '');
+		menu_page::addonAddPage('addon_Competition_settings', '', 'Competition Settings', 'ppCompetition', '');
 	}
 
 	public function display_addon_Competition_settings() {
@@ -12,40 +12,24 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
 		$view = geoView::getInstance();
 		$view->setBodyVar('messages', geoAdmin::getInstance()->message());
 
-		$breedId = $_REQUEST['edit_id'];
+		$id = $_REQUEST['edit_id'];
 
 		$db->Execute("set names 'utf8'"); 
 
 		if ($_REQUEST['action'] == "images") {
 			// Get info about breed
-			$sql = "SELECT * FROM petsplease_Competition_breed WHERE id = ?";
-			$result = $db->GetRow($sql, array($breedId));
-			$view->setBodyVar('detail', $result);
+			$sql = "SELECT * FROM petsplease_competition WHERE id = ?";
+			$result = $db->GetRow($sql, array($id));
+			$view->setBodyVar('competition', $result);
 
-			// Get existing images
-			$sql = "SELECT * FROM petsplease_Competition_images WHERE breed_id = ?";
-			$result = $db->GetAll($sql, array($breedId));
-			$view->setBodyVar('images', $result);
-
-			$view->setBodyTpl('admin/images.tpl', $this->name);
+			$view->setBodyTpl('admin/upload.tpl', $this->name);
 		}
 		else {
-			if ($breedId) {
-				if ($breedId != "new") {
-					$sql = "SELECT * FROM petsplease_Competition_breed WHERE id = ?";
-					$result = $db->GetRow($sql, array($breedId));
-					$view->setBodyVar('detail', $result);
-				}
-
-				$view->setBodyTpl('admin/changedetail.tpl', $this->name);
-			}
-			else {
-				$sql = "SELECT id, pettype_id, breed FROM petsplease_Competition_breed ORDER BY pettype_id, breed";
+				$sql = "SELECT * FROM petsplease_competition_breed ORDER BY endDate desc";
 				$result = $db->GetAll($sql);
 
-				$view->setBodyVar('breeds', $result);
-				$view->setBodyTpl('admin/breedlist.tpl', $this->name);
-			}
+				$view->setBodyVar('pets', $result);
+				$view->setBodyTpl('admin/petlist.tpl', $this->name);			
 		}
 	}
 
@@ -97,7 +81,7 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
 				}
 
 				// Now tell the db about it
-				$sql = "INSERT INTO petsplease_Competition_images (breed_id, image_url, full_filename) VALUES (?, ?, ?)";
+				$sql = "INSERT INTO petsplease_competition_images (breed_id, image_url, full_filename) VALUES (?, ?, ?)";
 				$db->Execute($sql, array($vars['id'], $file_url, $file_name));
 
 				if (!$db->ErrorMsg()) {
@@ -113,7 +97,7 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
 				$image_id = $_REQUEST['deleteimage'];
 
 				// get info on file so we can delete it
-				$sql = "SELECT * FROM petsplease_Competition_images WHERE image_id = ?";
+				$sql = "SELECT * FROM petsplease_competition_images WHERE image_id = ?";
 				$result = $db->GetRow($sql, array($image_id));
 
 				$siteRoot = $_SERVER['DOCUMENT_ROOT'];
@@ -121,7 +105,7 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
 				unlink($siteRoot . $image_path);
 
 				// now delete from db
-				$sql = "DELETE FROM petsplease_Competition_images WHERE image_id = ?";
+				$sql = "DELETE FROM petsplease_competition_images WHERE image_id = ?";
 				$db->Execute($sql, array($image_id));
 
 				if (!$db->ErrorMsg()) {
@@ -135,7 +119,7 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
 		else {
 			if ($vars['id']) {
 				if ($_REQUEST['dodelete'] == true) {
-					$sql = "DELETE FROM petsplease_Competition_breed WHERE id = ?";
+					$sql = "DELETE FROM petsplease_competition_breed WHERE id = ?";
 					$db->Execute($sql, array($vars['id']));
 
 					if (!$db->ErrorMsg()) {
@@ -151,7 +135,7 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
 						return "$col = '" . addslashes($vars[$col]) . "'";
 					}, $cols);
 
-					$sql = "UPDATE petsplease_Competition_breed SET " . implode(",", $sets) . " WHERE id = " . $vars['id'];
+					$sql = "UPDATE petsplease_competition_breed SET " . implode(",", $sets) . " WHERE id = " . $vars['id'];
 					$db->Execute($sql);
 
 					if (!$db->ErrorMsg()) {
@@ -164,7 +148,7 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
 			}
 			else {
 				// Insert new row
-				$sql = "INSERT INTO petsplease_Competition_breed (" . implode(",", $cols) . ") VALUES ";
+				$sql = "INSERT INTO petsplease_competition_breed (" . implode(",", $cols) . ") VALUES ";
 
 				$sets = array_map(function($col) use ($vars)  {
 					return "'" . addslashes($vars[$col]) . "'";
