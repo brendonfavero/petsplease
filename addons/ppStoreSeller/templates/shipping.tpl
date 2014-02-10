@@ -226,7 +226,7 @@
 		</div>
 		
 		<div class="center">
-			<input type="submit" value="Submit Order" class="button" /><br /><br />
+			<input style="background-color:#EA003A; color:#FFFFFF" type="submit" value="Submit Order" class="button" /><br /><br />
 			<a href="?a=ap&addon=ppStoreSeller&page=merchantCart" class="button">Back to Cart</a>
 		</div>
 		

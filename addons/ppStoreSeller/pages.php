@@ -156,11 +156,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$listing = geoListing::getListing($cart_item['listing_id']);
 			$listingdata = $listing->toArray();
 
-			$listing_price_total = $cart_item['qty'] * ($listingdata['price'] + $listingdata['optional_field_20']);
-			$listingdata['total_price'] = geoString::displayPrice($listing_price_total);
-
-			$data[$seller]['total_price'] += $listing_price_total;
-			$data[$seller]['total_price_display'] = geoString::displayPrice($data[$seller]['total_price']);
+			$listing_price_total = $cart_item['qty'] * ($listingdata['price']);
+			$listingdata['total_price'] = geoString::displayPrice($listing_price_total);			
 
 			$listingdata['qtyavailable'] = $listingdata['optional_field_2'];
 			$listingdata['cartqty'] = $cart_item['qty'];
@@ -173,11 +170,16 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
             $flatShipping = $vendor_info['shop_listing']['optional_field_19'];
             
             if (isset($flatShipping) && $flatShipping > 0) {
+                $shippingTotal = $flatShipping;
                 $data[$seller]['total_shipping_display'] = geoString::displayPrice($flatShipping);
             }
             else {
+                $shippingTotal = $data[$seller]['shipping_price'];
                 $data[$seller]['total_shipping_display'] = geoString::displayPrice($data[$seller]['shipping_price']);
             }
+            
+            $data[$seller]['total_price'] += $listing_price_total;
+            $data[$seller]['total_price_display'] = geoString::displayPrice($data[$seller]['total_price'] + $shippingTotal );
 
 			// PRICE ? (base,shipping, total)
 			// total price = qty * (base + shipping)
