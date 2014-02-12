@@ -1,37 +1,80 @@
-{$messages}
 
 <style>
-.selector_image {
-	float:left;
-	margin-left: 10px;
+#change_detail_form div {
+	margin-bottom: 7px;
 }
-.selector_image img {
-	display:block;
+#change_detail_form label {
+	display: inline-block;
+	width: 120px;
+}
+#change_detail_form textarea {
+	vertical-align: top
 }
 </style>
-<div>
-	<a href="?page=addon_petselector_settings&mc=addon_cat_ppPetSelector">Back to list</a>
-	<h2>Images for {$detail.breed}</h2>
+<link rel="stylesheet" type="text/css" href="/js/jquery.datepick.css"> 
+<script type="text/javascript" src="/js/jquery.datepick.js"></script>
+<script type="text/javascript" src="/js/jquery.datepick.ext.js"></script>
 
-	{foreach $images as $image}
-		<div class="selector_image">
-			<img src="{$image.image_url}">
-			<a href="?page=addon_petselector_settings&mc=addon_cat_ppPetSelector&auto_save=1&edit_id={$detail.id}&action=images&deleteimage={$image.image_id}">Remove</a>
-		</div>
-	{foreachelse}
-		No images have been uploaded for this breed
-	{/foreach}
+<form method="post" enctype="multipart/form-data" action="?page=addon_Competition_settings&mc=addon_cat_ppCompetition" id="change_detail_form">
+	
+	<div>
+		<label>ID</label>
+		<span>
+		{if $detail.id}
+			{$detail.id}
+		{else}
+			New
+		{/if}
+		</span>
+	</div>	
 
-	<div style="clear:both;height:0"></div>
-</div>
+	<div>
+		<label for="pet_name">Pet Name</label>
+		<input type="text" name="d[name]" id="pet_name" value="{$detail.name}" />
+	</div>
 
-<div style="margin-top:24px;">
-	<b>Upload new image:</b>
-	<form method="post" enctype="multipart/form-data">
-		<input type="hidden" name="d[id]" value="{$detail.id}">
+	<div>
+		<label for="pet_week">Week</label>
+		<input type="text" name="d[week]" class="selectWeekPicker" /><img src="/addons/ppCompetition/img/calendar-green.gif" alt="Popup" class="trigger datepick-trigger"> 
+		Click on the week number.
+	</div>
+	
+	<div style="margin-top:24px;">
+		<label for="image">Upload Image</label>
+	
+			<input type="file" name="imagefile">
+			<br>
+	</div>
+	
+	<div style="margin-top:24px;">
+		<label for="current">Current Week? </label>
+	
+			<input type="checkbox" checked="checked" name="formCurrent" value="Yes" />
+			<br>
+	</div>
+	
+	
 
-		<input type="file" name="imagefile">
-		<br>
-		<input type="submit" name="auto_save" value="Upload Image">
-	</form>
-</div>
+	<input type="submit" name="auto_save" value="Save" />
+	
+	
+
+</form>
+
+
+
+<script type="text/javascript">
+		jQuery(function() {
+			jQuery('.selectWeekPicker').datepick({ 
+			    renderer: jQuery.datepick.weekOfYearRenderer, 
+			    firstDay: 1, showOtherMonths: true, rangeSelect: true, 
+			    onShow: jQuery.datepick.selectWeek, showTrigger: '#calImg'});
+		});
+		
+		</script>
+
+
+
+
+
+

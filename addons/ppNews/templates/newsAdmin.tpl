@@ -299,9 +299,10 @@
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only {
-  width: 300px;
+  width: 75%;
   font-size: 15px;
   height: 50px;
+  float:right;
 }
 		
     </style>

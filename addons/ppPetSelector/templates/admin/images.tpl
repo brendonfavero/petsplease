@@ -28,7 +28,6 @@
 <div style="margin-top:24px;">
 	<b>Upload new image:</b>
 	<form method="post" enctype="multipart/form-data">
-		<input type="hidden" name="d[id]" value="{$detail.id}">
 
 		<input type="file" name="imagefile">
 		<br>

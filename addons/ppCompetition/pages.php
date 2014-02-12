@@ -14,19 +14,13 @@ class addon_ppCompetition_pages extends addon_ppCompetition_info
 		$pettypes = array("1" => "Dog", "2" => "Cat");
 		$view->setBodyVar("pettypes", $pettypes);
 
-		$sql = "SELECT id FROM petsplease_competition ";
-		$nav = $db->GetAll($sql);
-		$view->setBodyVar('nav', $nav);
-
-		if ($breedID) {
-			// Get detailed info
-			$sql = "SELECT * FROM petsplease_competition WHERE id = ?";
-			$detail = $db->GetRow($sql, array($breedID));
-			$view->setBodyVar('detail', $detail);
-
-			$sql = "SELECT * FROM petsplease_competition";
-			$view->setBodyVar('images', $images);
-		}
+		$sql = "SELECT * FROM petsplease_competition where current = 1 LIMIT 1";
+		$current = $db->GetAll($sql);
+		$view->setBodyVar('current', $current);		
+        
+        $sql = "SELECT * FROM petsplease_competition where current = 0 ORDER BY RAND()";
+        $competitions = $db->GetAll($sql);
+        $view->setBodyVar('competitions', $competitions); 
 
 		$view->setBodyTpl('competition.tpl', $this->name);
 	}

@@ -9,6 +9,7 @@
 				of {$charset}"  *}ta http-equiv="Content-Type" content="text/html; charset={$charset}" />{/if}
 		
 		{header_html}
+		
 		<script type="text/javascript">
 			jQuery(document).ready(function () {
 				gjUtil.inAdmin = true;

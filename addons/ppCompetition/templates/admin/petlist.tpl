@@ -1,36 +1,31 @@
 {$messages}
 
-<a href="?page=addon_petselector_settings&mc=addon_cat_ppPetSelector&edit_id=new">New Breed</a><br>
+<a href="?page=addon_Competition_settings&mc=addon_cat_ppCompetition&edit_id=new">Add New Pet of the Week</a><br>
 <br>
 
 <style>
-	#breedlist th {
+	#petlist th {
 		text-align:left;
 	}
-	#breedlist td {
-		padding: 4px;
+	#petlist td {
+		padding: 30px;
 	}
 </style>
 
-<table id="breedlist">
+<table id="petlist">
 	<tr>
-		<th>Pet Type</th>
-		<th>Breed</th>
-		<th>Action</th>
+		<th>Week</th>
+		<th>Pet</th>
+		<th>Image</th>
 	</tr>
 
-	{foreach $breeds as $breed}
+	{foreach $pets as $pet}
 		<tr>
-			<td>
-				{if $breed.pettype_id eq 1}Dog
-				{elseif $breed.pettype_id eq 2}Cat
-				{else}??
-				{/if}
+			<td>{$pet.week}
 			</td>
-			<td>{$breed.breed}</td>
+			<td>{$pet.petname}</td>
 			<td>
-				<a href="?page=addon_petselector_settings&mc=addon_cat_ppPetSelector&edit_id={$breed.id}">Edit</a> |
-				<a href="?page=addon_petselector_settings&mc=addon_cat_ppPetSelector&edit_id={$breed.id}&action=images">Images</a>
+			<img src="{$pet.thumb_url}"/>
 			</td>
 		</tr>
 	{/foreach}

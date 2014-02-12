@@ -42,7 +42,7 @@
 
 	<div class="header-navpre">
 		<div style="float: right">
-			<a href="#" class="curveleft pink">Pet Competition</a>
+			<a href="/competition" class="curveleft pink">Pet Competition</a>
 			<a href="/petselector">Pet Selector</a>
 			<a href="/favourites">My Favourites</a>
 			<a href="/cart">Shopping Cart</a>
