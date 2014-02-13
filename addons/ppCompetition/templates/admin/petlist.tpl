@@ -17,6 +17,7 @@
 		<th>Week</th>
 		<th>Pet</th>
 		<th>Image</th>
+		<th>Actions</th>
 	</tr>
 
 	{foreach $pets as $pet}
@@ -27,6 +28,7 @@
 			<td>
 			<img src="{$pet.thumb_url}"/>
 			</td>
+			<td><a href="#">Edit</a>|<a href="#">Delete</a></td>
 		</tr>
 	{/foreach}
 </table>

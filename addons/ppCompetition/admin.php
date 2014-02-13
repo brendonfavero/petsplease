@@ -210,9 +210,10 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
                     $current = 1;
                 }
                 // Insert new row
-                $sql = "INSERT INTO petsplease_competition (week, thumb_url, full_url, petname, current) VALUES ";
+                $sql = "INSERT INTO petsplease_competition (week, thumb_url, full_url, petname, sender_name, current) VALUES ";
 
-				$sql .= "('" . $_REQUEST['d']['week'] . "', '" . $thumb_url . "', '" . $full_url . "', '" . $_REQUEST['d']['name']. "', " . $current . ")";
+				$sql .= "('" . $_REQUEST['d']['week'] . "', '" . $thumb_url . "', '" . $full_url . "'"; 
+				$sql .= ", '" . $_REQUEST['d']['name'] . "', '" . $_REQUEST['submitter'] . "', " . $current . ")";
 
 				$db->Execute($sql);
 
