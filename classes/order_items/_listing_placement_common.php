@@ -1640,7 +1640,7 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 			}
 		}
 		
-		$cart->site->display_classified($cart->site->classified_id);
+		$cart->site->display_classified($cart->site->classified_id, false, $this->get('session_variables'));
 	}
 	
 	public static function geoCart_payment_choicesProcess ($sell_type)

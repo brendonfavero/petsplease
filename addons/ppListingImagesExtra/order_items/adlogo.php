@@ -40,7 +40,7 @@ class adlogoOrderItem extends geoOrderItem {
 		//get the listing id
 		$listingId = $this->getParent()->get('listing_id',0);
 		$images_captured = $this->get('adlogo_captured',array());
-		
+		self::_updateImageListingId($this->get('adlogo_captured'), $listingId );
 		$ids = array();
 		foreach ($images_captured as $info) {
 			$ids[] = (int)$info['id'];
@@ -1312,7 +1312,7 @@ class adlogoOrderItem extends geoOrderItem {
 		$tpl = new geoTemplate('admin');
 		$tpl->assign('images', $images);
 		$tpl->assign('current_color', geoHTML::adminGetRowColor());
-		return $tpl->fetch('order_items/adlogo/item_details.tpl');
+		return $tpl->fetch('order_items/images/item_details.tpl');
 	}
 	
 	/**

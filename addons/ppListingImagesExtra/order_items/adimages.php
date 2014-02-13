@@ -15,7 +15,7 @@ class adimagesOrderItem extends geoOrderItem {
 	const upgrade = 2;
 
 	const max_banners = 3; // Number of banners they can upload
-	public static $allowedCategories = array(318, 319, 316, 412); // Categories that are can have banner ads
+	public static $allowedCategories = array(318, 319, 316, 412, 420); // Categories that are can have banner ads
 	const extraimages_table = "petsplease_classifieds_extraimages_urls";
 	const extraimage_type = 1; // Each listing can have seperate types of extra images which are handled seperately
 	const max_width = 710;
@@ -40,10 +40,12 @@ class adimagesOrderItem extends geoOrderItem {
 		//get the listing id
 		$listingId = $this->getParent()->get('listing_id',0);
 		$images_captured = $this->get('adimages_captured',array());
-		
+        //bit of a hack to display banner in preview
+		self::_updateImageListingId($this->get('adimages_captured'), $listingId );
 		$ids = array();
 		foreach ($images_captured as $info) {
 			$ids[] = (int)$info['id'];
+            self::_updateImageListingId($info, $listingId);
 		}
 		
 		$sql = "SELECT * FROM ".self::extraimages_table." WHERE `image_id` IN (".implode(', ',$ids).") ORDER BY FIELD(`image_id`, ".implode(',',$ids).")";
@@ -1312,7 +1314,7 @@ class adimagesOrderItem extends geoOrderItem {
 		$tpl = new geoTemplate('admin');
 		$tpl->assign('images', $images);
 		$tpl->assign('current_color', geoHTML::adminGetRowColor());
-		return $tpl->fetch('order_items/adImages/item_details.tpl');
+		return $tpl->fetch('order_items/images/item_details.tpl');
 	}
 	
 	/**

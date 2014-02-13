@@ -43,9 +43,7 @@
 				<label for="classified_length" class="field_label">
 					{$messages.125}<br />{$messages.126}
 				</label>
-				<select disabled class="field" id="classified_length" name="b[classified_length]">
 					{$duration_dropdown}
-				</select>
 			</div>
 		{/if}
 		{if $fields->title->is_enabled}

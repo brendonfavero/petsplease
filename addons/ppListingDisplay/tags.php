@@ -654,7 +654,10 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         }
         else if ($_REQUEST['page'] == "merchantCart") {
             return "headerimg-cart";
-        }        
+        } 
+        else if ($_REQUEST['page'] == "competition") {
+            return "headerimg-competition";
+        }         
 		else {
 			return "headerimg-allpets";
 		}
@@ -784,7 +787,38 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         }
         else if ($_REQUEST['page'] == "merchantCart") {
             return "Shopping Cart";
-        }             
+        }
+        else if ($_REQUEST['page'] == "competition") {
+            return "Pet Competition";
+        }
+        else if ($_REQUEST['a'] == "cart") {
+            $cart = geoCart::getInstance();
+            if ($cart && $cart->item) {
+                $category = $cart->item->getCategory();
+            }            
+            
+            if ($_REQUEST['b'] == 316 || $category == 316) {
+                return "Create a Breeder Page";
+            }
+            else if ($_REQUEST['b'] == 411 || $category == 411) {
+                return "Create an Accommodation Page";
+            }
+            else if ($_REQUEST['b'] == 420 || $category == 420) {
+                return "Create a Shelter Page";
+            }
+            else if ($_REQUEST['b'] == 412 || $category == 412) {
+                return "Create a Shop Page";
+            }
+            else if ($_REQUEST['b'] == 318 || $category == 318) {
+                return "Create a Service Page";
+            }
+            else if ($_REQUEST['b'] == 319 || $category == 319) {
+                return "Create a Club Page";
+            }
+            else {
+                return "Create Your Ad";
+            }
+        }               
         else {
             return "Pets and Products for Sale";
         }
