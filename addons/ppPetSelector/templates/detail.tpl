@@ -174,7 +174,7 @@
 		On each Pet Selector page you can find a description and information about important stats such size, life span, colour, coat length as well as ratings
 		in 5 fields (family friendlyness, trainability, energy level, grooming and hair shedding) to allow you to find the best pet for you and your family.
 		<br/><br/>
-		Click show more detail from one of the popular breeds below or select a breed from the list below. Then click on View classifieds on Pets Please to
+		Click show more detail from one of the popular breeds below or select a breed from the list on the left. Then click on View classifieds on Pets Please to
 		see the current classifieds available on the Pets Please website for that breed.</p>
 		<div style="width:50%; float:left">
 			<img src="/addons/ppPetSelector/images/110-1387781293.jpg"/>

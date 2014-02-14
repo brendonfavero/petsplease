@@ -634,12 +634,20 @@
 	{* Ardex Custom Clubs/Breeds Stuff *}
 	{if $category_tree[0]['category_id'] eq 316 or $category_tree[0]['category_id'] eq 319}
 		<h2 class="title">Dog Breeds</h2>
+		Select All Dog Breeds<input type="checkbox" class="alldogs">
 		<div class="content_box clearfix" style="width: 100%">
 			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=42 value=$opt_field_info[8].value listingfield='optional_field_8'}
 			<input type="hidden" name="b[optional_field_8]" value="{$opt_field_info[8].value}" />
 
 			<script>
 				jQuery(function() {
+					jQuery(".alldogs").click(function () {
+				        jQuery("[name='optional_field_8_check'").prop('checked', jQuery(this).prop('checked'));
+				        var combined = jQuery("input[name='optional_field_8_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_8]']").val(combined)
+				    });
+				    
 					jQuery("input[name='optional_field_8_check']").on('click', function() {
 						var combined = jQuery("input[name='optional_field_8_check']:checked")
 							.map(function() { return jQuery(this).val()}).toArray().join(";")
@@ -652,12 +660,19 @@
 
 
 		<h2 class="title">Cat Breeds</h2>
+		Select All Cat Breeds<input type="checkbox" class="allcats">
 		<div class="content_box clearfix" style="width: 100%">
 			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=43 value=$opt_field_info[9].value listingfield='optional_field_9'}
 			<input type="hidden" name="b[optional_field_9]" value="{$opt_field_info[9].value}" />
 
 			<script>
 				jQuery(function() {
+					jQuery(".allcats").click(function () {
+				        jQuery("[name='optional_field_9_check'").prop('checked', jQuery(this).prop('checked'));
+				        var combined = jQuery("input[name='optional_field_9_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_9]']").val(combined)
+				    });
 					jQuery("input[name='optional_field_9_check']").on('click', function() {
 						var combined = jQuery("input[name='optional_field_9_check']:checked")
 							.map(function() { return jQuery(this).val()}).toArray().join(";")
@@ -670,12 +685,19 @@
 
 
 		<h2 class="title">Bird Breeds</h2>
+		Select All Bird Breeds<input type="checkbox" class="allbirds">
 		<div class="content_box clearfix" style="width: 100%">
 			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=45 value=$opt_field_info[10].value listingfield='optional_field_10'}
 			<input type="hidden" name="b[optional_field_10]" value="{$opt_field_info[10].value}" />
 
 			<script>
 				jQuery(function() {
+					jQuery(".allbirds").click(function () {
+				        jQuery("[name='optional_field_10_check'").prop('checked', jQuery(this).prop('checked'));
+				        var combined = jQuery("input[name='optional_field_10_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_10]']").val(combined)
+				    });
 					jQuery("input[name='optional_field_10_check']").on('click', function() {
 						var combined = jQuery("input[name='optional_field_10_check']:checked")
 							.map(function() { return jQuery(this).val()}).toArray().join(";")
@@ -688,6 +710,7 @@
 
 
 		<h2 class="title">Fish Breeds</h2>
+		Select All Fish Breeds<input type="checkbox" class="allfish">
 		<div class="content_box clearfix" style="width: 100%">
 			{addon author='pp_addons' addon='ppListingDisplay' tag='extraLeveledMutliCheckboxSelect' typeid=5 value=$opt_field_info[11].value listingfield='optional_field_11'}
 			<input type="hidden" name="b[optional_field_11]" value="{$opt_field_info[11].value}" />
@@ -695,6 +718,12 @@
 			<script>
 			{literal}
 				jQuery(function() {
+					jQuery(".allfish").click(function () {
+				        jQuery("[name='optional_field_11_check'").prop('checked', jQuery(this).prop('checked'));
+				        var combined = jQuery("input[name='optional_field_11_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_11]']").val(combined)
+				    });
 					jQuery("input[name='optional_field_11_check']").on('click', function() {
 						var checked = jQuery("input[name='optional_field_11_check']:checked")
 						var groups = {}
@@ -719,12 +748,19 @@
 
 
 		<h2 class="title">Reptile Types</h2>
+		Select All Reptile Types<input type="checkbox" class="allreptiles">
 		<div class="content_box clearfix" style="width: 100%">
 			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=46 value=$opt_field_info[12].value listingfield='optional_field_12'}
 			<input type="hidden" name="b[optional_field_12]" value="{$opt_field_info[12].value}" />
 
 			<script>
 				jQuery(function() {
+					jQuery(".allreptiles").click(function () {
+				        jQuery("[name='optional_field_12_check'").prop('checked', jQuery(this).prop('checked'));
+				        var combined = jQuery("input[name='optional_field_12_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_12]']").val(combined)
+				    });
 					jQuery("input[name='optional_field_12_check']").on('click', function() {
 						var combined = jQuery("input[name='optional_field_12_check']:checked")
 							.map(function() { return jQuery(this).val()}).toArray().join(";")
@@ -737,12 +773,19 @@
 
 
 		<h2 class="title">Other Pet Types</h2>
+		Select All Other Pets<input type="checkbox" class="allother">
 		<div class="content_box clearfix" style="width: 100%">
 			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=47 value=$opt_field_info[13].value listingfield='optional_field_13'}
 			<input type="hidden" name="b[optional_field_13]" value="{$opt_field_info[13].value}" />
 
 			<script>
 				jQuery(function() {
+					jQuery(".allother").click(function () {
+				        jQuery("[name='optional_field_13_check'").prop('checked', jQuery(this).prop('checked'));
+				        var combined = jQuery("input[name='optional_field_13_check']:checked")
+							.map(function() { return jQuery(this).val()}).toArray().join(";")
+						jQuery("input[name='b[optional_field_13]']").val(combined)
+				    });
 					jQuery("input[name='optional_field_13_check']").on('click', function() {
 						var combined = jQuery("input[name='optional_field_13_check']:checked")
 							.map(function() { return jQuery(this).val()}).toArray().join(";")

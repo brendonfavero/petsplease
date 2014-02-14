@@ -1,4 +1,19 @@
 <script type="text/javascript" src="/js/jquery-jcarousellite.js"></script>
+<script type="text/javascript" src="/js/fancybox/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+
+<style>
+	.competitiontitle {
+		font-size:20px; 
+		font-weight:bold; 
+		margin-bottom:20px; 
+		margin-left:1%;
+		text-align:center;
+		color:#2e3192;		
+	}
+	
+</style>
 
 <h1 class="title">Pet of the Week competition.</h1>
 
@@ -6,27 +21,32 @@
 <br/><br/>
 If you would like your pet to be Pet Of The Week and appear on  Pets Please website and  Social media please send your photo’s to <a href="mailto:natasha@petsplease.com.au">natasha@petsplease.com.au</a> All Pet of the week winners will receive a prize.</p>
 
+<h1 class="title">Current Pet of the Week</h1>
 {foreach $current as $c}
-	<div style="margin:0 20%; text-align:center;" id="petoftheweek">
-		<h1 style="font-size:16px; font-weight:bold">Current Pet of the Week</h1>
+	<div class="content_box_1" style="margin:auto; text-align:center;" id="petoftheweek">
+		
 		<img src="{$c.full_url}">
 		<br/>
 		<p style="font-weight:bold; font-size:15px">{$c.petname}</p>
+		<p style="font-weight:bold; font-size:15px">Submitted By: {$c.sender_name}</p>
 	</div>
 {/foreach}
+<h1 style="margin-top:20px" class="title">Past Pets of the Week</h1>
 
-<div id="pastpets" class="petcarousel" style="padding-top:15px; text-align:center; ">
-	<h1 style="font-size:16px; font-weight:bold">Past Pets of the Week</h1>
+<div id="pastpets" class="content_box_1 petcarousel" style="text-align:center; ">
+	
 	<ul>
 		{foreach $competitions as $competition}
-				<li><img src="{$competition.thumb_url}">
+				<li><a class="popupimage" href="{$competition.full_url}"><img src="{$competition.thumb_url}"></a>
 				<br/>
 				{$competition.petname}
+				<br/>
+				Submitted By: {$competition.sender_name}
 			</li>
 		{/foreach}
 	</ul>
-	<button class="prev">Prev</button>
-    <button class="next">Next</button>
+	<button style="float:left" class="prev"><<<</button>
+    <button style="float:right" class="next">>>></button>
 </div>
 
 <script>
@@ -36,4 +56,11 @@ If you would like your pet to be Pet Of The Week and appear on  Pets Please webs
 		auto: 3000,
    	    speed: 1000
 	});
+	
+	jQuery(".popupimage").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false});
 </script>

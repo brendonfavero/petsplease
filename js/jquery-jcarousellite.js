@@ -240,11 +240,11 @@ $.fn.jCarouselLite = function(o) {
         ul.css({margin: "0", padding: "0", position: "relative", "list-style-type": "none", "z-index": "1"});
         div.css({overflow: "hidden", position: "relative", "z-index": "2", left: "0px"});
 
-        var liSize = o.vertical ? 200 : 300;   // Full li size(incl margin)-Used for animation
+        var liSize = o.vertical ? 200 : 348;   // Full li size(incl margin)-Used for animation
         var ulSize = liSize * itemLength;                   // size of full ul(total length, not just for the visible items)
         var divSize = liSize * v;                           // size of entire div(total length for just the visible items)
 
-        li.css({width: "300px", height: "250px"});
+        li.css({width: "348px", height: "250px"});
         ul.css(sizeCss, ulSize+"px").css(animCss, -(curr*liSize));
 
         div.css(sizeCss, divSize+"px");                     // Width of the DIV. length of visible images

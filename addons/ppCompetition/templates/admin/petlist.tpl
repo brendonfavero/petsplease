@@ -5,10 +5,13 @@
 
 <style>
 	#petlist th {
-		text-align:left;
+		text-align:center;
 	}
 	#petlist td {
 		padding: 30px;
+	}
+	#petlist a {
+		padding: 0 10px;
 	}
 </style>
 
@@ -22,13 +25,14 @@
 
 	{foreach $pets as $pet}
 		<tr>
-			<td>{$pet.week}
+			<td>{if $pet.current eq 1}Current{else}{$pet.week}{/if}
 			</td>
 			<td>{$pet.petname}</td>
 			<td>
 			<img src="{$pet.thumb_url}"/>
 			</td>
-			<td><a href="#">Edit</a>|<a href="#">Delete</a></td>
+			<td><a href="?page=addon_Competition_settings&mc=addon_cat_ppCompetition&edit_id={$pet.id}">Edit</a>|
+			<a href="?page=addon_Competition_settings&mc=addon_cat_ppCompetition&auto_save=1&d[id]={$pet.id}&dodelete=true">Delete</a></td>
 		</tr>
 	{/foreach}
 </table>

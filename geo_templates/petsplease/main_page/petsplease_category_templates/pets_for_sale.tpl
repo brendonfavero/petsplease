@@ -27,6 +27,36 @@
 	{listing tag='specialListingBox' addon='ppListingDisplay' assign='special'}
 	{if $special}
 		<div class="content_box_1">{$special}</div>
+	{/if}	
+	
+	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=200} {* Shelter,News = 201 *}
+	{if $shelter_news}
+		<h1 class="title">Breeder News</h1>
+		<div class="content_box_1">{$shelter_news}</div>
+	{/if}
+	
+	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=202} {* Shelter,News = 201 *}
+	{if $shelter_news}
+		<h1 class="title">Accomodation News</h1>
+		<div class="content_box_1">{$shelter_news}</div>
+	{/if}
+	
+	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=203} {* Shelter,News = 201 *}
+	{if $shelter_news}
+		<h1 class="title">Service News</h1>
+		<div class="content_box_1">{$shelter_news}</div>
+	{/if}
+	
+	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=204} {* Shelter,News = 201 *}
+	{if $shelter_news}
+		<h1 class="title">Club News</h1>
+		<div class="content_box_1">{$shelter_news}</div>
+	{/if}
+	
+	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=201} {* Shelter,News = 201 *}
+	{if $shelter_news}
+		<h1 class="title">Shelter News</h1>
+		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
 
 	<h1 class="title">{$seller_label}</h1>
