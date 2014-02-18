@@ -73,6 +73,9 @@
 			{/if}
 		{/if}
 		
+			{if $error_msgs}
+				<span class="error_message">{$error_msgs}</span>{/if}
+		
 		{if !$display_description_last_in_form && ($editCheck || $fields->description->can_edit)}
 			{include file="shared/details_description_box.tpl"}
 		{/if}
@@ -324,8 +327,12 @@
 								size="{if $opt_info.field->text_length>12}12{else}{$opt_info.field->text_length}{/if}"
 								maxlength="{$opt_info.field->text_length}" class="field"
 								value="{$opt_info.value|displayPrice:'':''}" />
+								Pickup Only <input type="checkbox" name="pickup">
 						{else}
 							{$opt_info.value|displayPrice:'':''}
+						{/if}
+						{if $i eq 20}
+								
 						{/if}
 						{if $opt_info.error}
 							<span class="error_message">{$opt_info.error}</span>
@@ -665,7 +672,7 @@
 							<input type="text" name="b[optional_field_{$i}]" id="optional_field_{$i}"
 								size="{if $opt_info.field->text_length > 30}30{else}{$opt_info.field->text_length}{/if}"
 								maxlength="{$opt_info.field->text_length}" class="field"
-								value="{$opt_info.value}" />
+								value="{$opt_info.value}" />							
 						{elseif $opt_info.field->field_type=='textarea'}
 							{* textarea type *}
 							<textarea rows="6" cols="30" name="b[optional_field_{$i}]" id="optional_field_{$i}" class="field">{$opt_info.value}</textarea>

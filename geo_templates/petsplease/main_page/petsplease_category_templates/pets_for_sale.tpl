@@ -281,7 +281,7 @@
 	</div>
 	{if $topcategory eq 315 and $optional_field_1 eq "1"}
 	<div class="stockimage">
-		{if $optional_field_2 > 1} {* If stock is available *}
+		{if $optional_field_2 > 0} {* If stock is available *}
 			<form action="index.php">
 				<input type="hidden" name="a" value="ap" />
 				<input type="hidden" name="addon" value="ppStoreSeller" />
@@ -311,7 +311,7 @@
 	{* Start buyable product stuff *}
 	{if $topcategory eq 315 and $optional_field_1 eq "1"}
 		<div class="content_box_1">
-			{if $optional_field_2 > 1} {* If stock is available *}
+			{if $optional_field_2 > 0} {* If stock is available *}
 				<p>
 					<form action="index.php">
 						<input type="hidden" name="a" value="ap" />
@@ -325,7 +325,7 @@
 						<input type="submit" value="Add to Cart" />
 					</form>
 				</p>
-			{else} {* other this product is sold out *}
+			{elseif $optional_field_2 neq ''} {* other this product is sold out *}
 				<p style="font-weight: bold">
 					This product has run out of stock. Please check back later.
 				</p>
@@ -333,8 +333,12 @@
 
 			<p>
 				Price: {$price}<br>
-				Shipping and handling: {$optional_field_20} (Shipping within Australia, contact seller for international shipping)<br>
-				{if $optional_field_2 > 1}
+				{if $optional_field_20 eq '$91,234.56 AUD'}<br/>
+					Pick-Up Only				
+				{else}
+					Shipping and handling: {$optional_field_20} (Shipping within Australia, contact seller for international shipping)<br>
+				{/if}
+				{if $optional_field_2 > 0}
 					Quantity available: {$optional_field_2}
 				{/if}
 			</p>

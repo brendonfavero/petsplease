@@ -3,14 +3,14 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 {
 	const SHOP_CATEGORY = 412;
 
-	private $paypal_api_endpoint = "https://svcs.sandbox.paypal.com/"; // https://svcs.paypal.com/ - Live
-	private $paypal_payment_url = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment"; //https://www.paypal.com/cgi-bin/webscr - Live
-	private $paypal_ipn_postback_url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //https://www.paypal.com/cgi-bin/webscr - Live
+	private $paypal_api_endpoint = "https://svcs.paypal.com/"; //"https://svcs.sandbox.paypal.com/"; // - Live
+	private $paypal_payment_url = "https://www.paypal.com/cgi-bin/webscr"; //"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment"; // - Live
+	private $paypal_ipn_postback_url = "https://www.paypal.com/cgi-bin/webscr"; // "https://www.sandbox.paypal.com/cgi-bin/webscr"; // - Live
 
-	private $paypal_api_username = "chris+merchant_api1.ardex.com.au";
-	private $paypal_api_password = "1381449150";
-	private $paypal_api_signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31A5sNxRo0m.YXuBMy5XrIgGIiL0iW";
-	private $paypal_api_applicationid = "APP-80W284485P519543T"; // this is the sandbox application id
+	private $paypal_api_username = "natasha_api1.petsplease.com.au";
+	private $paypal_api_password = "Z3PQMDKG3F688FCP";
+	private $paypal_api_signature = "AiPC9BjkCyDFQXbSkoZcgqH3hpacA.lnuVBb7kSxe-Vn9U6iIuhsvBs5";
+	private $paypal_api_applicationid = "APP-6A514625UE341384J"; // this is the sandbox application id
 
 	private $success_url = "?a=ap&addon=ppStoreSeller&page=success";
 	private $paypal_api_cancelbaseurl = "?a=ap&addon=ppStoreSeller&page=merchantCart";
@@ -162,7 +162,11 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$listingdata['qtyavailable'] = $listingdata['optional_field_2'];
 			$listingdata['cartqty'] = $cart_item['qty'];
 			$listingdata['image_thumbnail'] = geoImage::getInstance()->display_thumbnail($listing->id);
-
+            
+            if ($listingdata['optional_field_20'] == 91234.56) {
+                $listingdata['optional_field_20'] = 0;    
+            }
+            
 			$listingdata['price'] = geoString::displayPrice($listingdata['price']);
 			$data[$seller]['shipping_price'] += $listingdata['optional_field_20'];            
             

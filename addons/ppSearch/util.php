@@ -32,8 +32,7 @@ class addon_ppSearch_util extends addon_ppSearch_info
         $topCategory = geoCategory::getParent($parentCategory);
 		// Hide from results sellable products that have run out of stock
 		
-		$query->where("(($classTable.`sold_displayed` = 0 and $searchClass->site_category != 315 
-		          and $parentCategory != 315 and $topCategory != 315) OR $classTable.`optional_field_2` > 0)");
+		$query->where("(($classTable.`sold_displayed` = 0 and optional_field_2 = '') OR $classTable.`optional_field_2` > 0)");
 
 		// Is Sold?
 		$isSold = $searchClass->search_criteria["sold_displayed"];

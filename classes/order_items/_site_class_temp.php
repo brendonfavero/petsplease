@@ -1036,7 +1036,10 @@ class tempSiteClass extends geoSite {
 					if ($field->field_type == 'number' || $field->field_type == 'cost') {
 						//trim it, it's a number
 						$this->session_variables[$fieldName] = trim($this->session_variables[$fieldName]);
-						if (strlen($this->session_variables[$fieldName])>0 && !preg_match('/^[0-9.,]+$/',$this->session_variables[$fieldName])) {
+                        if ($i == 20 && $this->session_variables['pickup'] == 1) {
+                            $this->session_variables[$fieldName] = 91234.56;
+                        }
+                        else if (strlen($this->session_variables[$fieldName])>0 && !preg_match('/^[0-9.,]+$/',$this->session_variables[$fieldName])) {
 							//if it is a number field, (and does not add cost) it must be a positive number, NOT 0
 							//echo "error in number only optional 1<br />\n";
 							$this->error++;
@@ -1059,10 +1062,12 @@ class tempSiteClass extends geoSite {
 						}
 					}
 					if ($field->is_required) {
-						if (strlen(trim($this->session_variables[$fieldName]))== 0) {
-							$this->error++;
-							$this->error_variables[$fieldName] = "error";
-						}
+					    if (($i == 2 && $this->session_variables['storeproduct']) || $i != 2) {
+					        if (strlen(trim($this->session_variables[$fieldName]))== 0) {
+                                $this->error++;
+                                $this->error_variables[$fieldName] = "error";
+                            }
+					    }                        	
 					}
 				}
 			}//end optional fields for loop
@@ -1492,10 +1497,10 @@ class tempSiteClass extends geoSite {
 		}
 
 
-		trigger_error('DEBUG SITE_CLASS: '.$this->error." is the error count");
+		error_log('DEBUG SITE_CLASS: '.$this->error." is the error count");
 		reset($this->error_variables);
 		foreach ($this->error_variables as $key => $value) {
-			trigger_error('DEBUG SITE_CLASS: '. $key." is the key to ".$value."");
+			error_log('DEBUG SITE_CLASS: '. $key." is the key to ".$value."");
 		}
 
 		trigger_error('DEBUG SITE_CLASS: '."END OF CLASSIFIED_DETAIL_CHECK");

@@ -347,6 +347,9 @@
 						{else}
 							{$opt_info.value|displayPrice:'':''}
 						{/if}
+						{if $i eq 20}
+							<input type="checkbox" name="b[pickup]" value="1"/> Pickup Only 
+						{/if}
 						{if $opt_info.error}
 							<span class="error_message">{$opt_info.error}</span>
 						{/if}

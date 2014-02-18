@@ -16,15 +16,7 @@
 		{foreach from=$order_questions item="question"}
 			{assign var="key" value=$question.key}
 
-			{if $key eq 181}{continue}{/if} {* Suppress female input - handled elsewhere *}
-
-			{if $key eq 180}
-				<label for="b[question_value][{$key}]" class="field_label">
-					{$question.name|fromDB}
-				</label>
-
-				{continue}
-			{/if}
+			
 
 			<div>
 					<label for="b[question_value][{$key}]" class="field_label">
@@ -37,7 +29,7 @@
 				
 				{if $question.type == 'none' || $question.type == 'url' || $question.type == 'number'}
 					{* Question value will be from user input, which is already html escaped *}
-					{if $key eq 173 or $key eq 174}
+					{if $key eq 173 or $key eq 174 or $key eq 180 or $key eq 181}
 						<select name="b[question_value][{$key}]" id="b[question_value][{$key}]" class="field">
 							{for $i=0 to 10}
 								<option>{$i}</option>

@@ -924,6 +924,7 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 	public static function detailsCheckVars ($save_session_vars = true)
 	{
 		$cart = geoCart::getInstance();
+		trigger_error('TESTING');
 		
 		if (!(isset($_REQUEST['b']) && is_array($_REQUEST['b']))){
 			//nothing submitted
