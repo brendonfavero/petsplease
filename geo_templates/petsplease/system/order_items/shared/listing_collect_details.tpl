@@ -336,8 +336,12 @@
 		{if $is_ent && $add_cost_at_top && ($sell_type != 2 || $editAuctionPrices)}
 			{foreach from=$opt_field_info item='opt_info' key='i'}
 				{if $opt_info.field->field_type=='cost'}
+					
 					<div class="{if $opt_info.error}field_error_row {/if}{cycle values='row_odd,row_even'}">
-						<label class="field_label">{$opt_info.label}</label>
+					<label class="field_label">{$opt_info.label}</label>
+					{if $session_variables.storeproduct && $i eq 20 && $flat_rate > 0}
+						<p style="padding-left:205px">You have set up a flat shipping rate of ${$flat_rate} in your store. This is the amount that all of your purchased listings will be charged. You can alter the flat shipping rate in your store listing or set it to 0 to charge by item.<br/><br/></p>
+					{else}						
 						<span class="precurrency">{$precurrency}</span>
 						{if $editCheck || $opt_info.field->can_edit}
 							<input type="text" name="b[optional_field_{$i}]" id="optional_field_{$i}"
@@ -349,14 +353,19 @@
 						{/if}
 						{if $i eq 20}
 							<input type="checkbox" name="b[pickup]" value="1"/> Pickup Only 
-						{/if}
+						{/if}						
 						{if $opt_info.error}
 							<span class="error_message">{$opt_info.error}</span>
+						{/if}
+						{if $session_variables.storeproduct && $i eq 20}
+							<br/>
+							Please note that you can set up a flat shipping rate by editing your store listing. This is the Australia flat shipping rate that your store will charge regardless of number of items purchased from your store.
 						{/if}
 						{if $i eq 19}
 						<br/>
 							(This is the Australian domestic flat shipping & handling rate offered by your store regardless of number of items purchased from your store, leave blank if you are charging postage by item, you will be able to set this when placing an item listing.)
 						{/if}
+					{/if}
 					</div>
 				{/if}
 			{/foreach}

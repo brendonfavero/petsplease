@@ -806,7 +806,7 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 			$tpl_vars['step'] = $cart->current_step;
 			$category_counter = 0;
 			
-	        if ( $cart->db->get_site_setting('cat_alpha_across_columns') ) {
+	        if ( $cart->db->get_site_setting('cat_alpha_across_columns') || $parent_category == 0) {
 	            $tpl_vars['cat_data'] =  $categories;
 	        } else {
 	            //Need to re-arrange everything so it's in the different order.
@@ -1401,6 +1401,16 @@ abstract class _listing_placement_commonOrderItem extends geoOrderItem {
 				}
 			}
 		}
+
+        $storeUtil = geoAddon::getUtil('ppStoreSeller');
+        if ($storeUtil->userHasStoreListing()) {
+            $user_id = geoSession::getInstance()->getUserId();
+            $store = $storeUtil->getUserStoreListing($user_id)->toArray();
+            $flat_rate = $store['optional_field_19'];
+            $tpl_vars['flat_rate'] = $flat_rate;        
+        }
+            
+            
 		if (self::_editCheck($field_config['editable_category_specific'])) {
 			//get and display category questions
 			$cart->site->get_questions($cart->site->terminal_category, $cart->user_data['group_id']);
