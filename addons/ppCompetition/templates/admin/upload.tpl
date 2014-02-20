@@ -41,7 +41,7 @@
 	
 	<div>
 		<label for="submitter">Submitted By</label>
-		<input type="text" name="sender" id="submitter" value="{$detail.sender_name}" />
+		<input type="text" name="submitter" id="submitter" value="{$detail.sender_name}" />
 	</div>
 	
 	<div style="margin-top:24px;">

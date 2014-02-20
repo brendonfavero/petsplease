@@ -53,7 +53,7 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
             "colours", "coatlength", "housing", "familyfriendly", "trainability", "energy", "grooming", "shedding");
         $week = $_REQUEST['week'];
         $name = $_REQUEST['name'];
-        $sender = $_REQUEST['sender'];
+        $sender = $_REQUEST['submitter'];
         $full_url = $_REQUEST['full_url'];
         $thumb_url = $_REQUEST['thumb_url'];
         
@@ -125,7 +125,7 @@ class addon_ppCompetition_admin extends addon_ppCompetition_info
 			else {
 
 				$sql = "UPDATE petsplease_competition SET week = '$week', petname = '$name', thumb_url = '$thumb_url',";
-				$sql .= " full_url = '$full_url', current = $current WHERE id = " . $vars['id'];
+				$sql .= " full_url = '$full_url', sender_name = '$sender', current = $current WHERE id = " . $vars['id'];
 				$db->Execute($sql);
 
 				if (!$db->ErrorMsg()) {
