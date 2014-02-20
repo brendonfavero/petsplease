@@ -145,6 +145,8 @@ class addon_email_sendDirect_util {
 				}
 			}
 		}
+        
+    
 		
 		//to cc and bcc
 		if (isset($message_data['to']) && !is_array($message_data['to']) && strlen(trim($message_data['to'])) > 0){
@@ -202,6 +204,15 @@ class addon_email_sendDirect_util {
 			}
 		}
 		trigger_error('DEBUG SENDMAIL: Message data used after all processing: '.print_r($message_data,1));
+        
+        $tpl = new geoTemplate('addon','ppEmails');
+                $tpl->subject = $message_data['subject']; 
+                $tpl->byline = "";
+        $mailVars['message'] = $message_data['content'];        
+        $tpl->assign($mailVars);
+        
+        $message_data['content'] = $tpl->fetch('email_singleColumn.tpl');
+        
 		//add to queue
 		$this->queue[] = $message_data;
 		//make sure we are connected.
