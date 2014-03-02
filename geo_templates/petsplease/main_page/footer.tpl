@@ -5,11 +5,11 @@
 			<ul>
 				<li><a href="/">Home</a></li>
 				<!-- <li><a href="/?a=19">Search</a></li> -->
-				<li><a href="#">Contact Us</a></li>
+				<li><a href="?a=28&b=136">Contact Us</a></li>
 				<li><a href="#">About Us</a></li>
 				<!-- <li><a href="#">Register</a></li>
 				<li><a href="#">Login</a></li> -->
-				<li><a href="/?a=1">Create Your Ad</a></li>
+				<li><a href="/?a=1">Create Your Listing</a></li>
 				<li><a href="/?a=28&b=140">Terms of Use</a></li>	
 				<li><a href="/?a=28&b=144">Advertise</a></li>			
 			</ul>

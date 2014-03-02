@@ -15,7 +15,14 @@ if (isset($_POST['password']) && isset($_POST['username'])) {
     } else {
         die ('Incorrect password');
     }
-} 
+}
+else if (isset($_REQUEST['password']) && isset($_REQUEST['username'])) {
+    if (sha1($_REQUEST['password']) == $password && $_REQUEST['username'] == $username) {
+        $_SESSION['loggedIn'] = true;
+    } else {
+        die ('Incorrect password');
+    }
+}
 
 if (!$_SESSION['loggedIn']): ?>
 

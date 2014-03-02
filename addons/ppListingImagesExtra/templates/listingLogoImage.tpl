@@ -1,1 +1,1 @@
-<img src="{$logo.image_url}" />
+<img style="max-width:250px" src="{$logo.image_url}" />

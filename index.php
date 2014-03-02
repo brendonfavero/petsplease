@@ -16,7 +16,7 @@ see license attached to distribution
 
 //main loader
 
-require('access.php');
+
 
 //set a constant to show that we've started from the main entry point
 define('GEO_INDEX', 1);

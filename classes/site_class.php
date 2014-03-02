@@ -1953,7 +1953,7 @@ class geoSite
 		}
 			
 		//send mail after adding to db in case of mail errors
-		geoEmail::sendMail($messageTarget, $subject, $message, $message_from, $message_from, 0, 'text/html');
+		geoEmail::sendMail($messageTarget, $subject, $message, 0, 0, 0, 'text/html');
 		return true;
 	} //end of function send_communication
 

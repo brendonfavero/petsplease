@@ -30,31 +30,31 @@
 	{/if}	
 	
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=200} {* Shelter,News = 201 *}
-	{if $shelter_news}
+	{if $shelter_news && $topcategory eq 316}
 		<h1 class="title">Breeder News</h1>
 		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
 	
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=202} {* Shelter,News = 201 *}
-	{if $shelter_news}
+	{if $shelter_news && $topcategory eq 411}
 		<h1 class="title">Accomodation News</h1>
 		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
 	
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=203} {* Shelter,News = 201 *}
-	{if $shelter_news}
+	{if $shelter_news && $topcategory eq 318}
 		<h1 class="title">Service News</h1>
 		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
 	
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=204} {* Shelter,News = 201 *}
-	{if $shelter_news}
+	{if $shelter_news && $topcategory eq 319}
 		<h1 class="title">Club News</h1>
 		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
 	
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=201} {* Shelter,News = 201 *}
-	{if $shelter_news}
+	{if $shelter_news && $topcategory eq 420}
 		<h1 class="title">Shelter News</h1>
 		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
@@ -64,9 +64,11 @@
 		User: {listing tag='seller'}<br>
 		Member Since: {listing field='member_since'}<br>
 		<br>
-		Ph: {$phone_data} <br>
+		{if $phone1_data}
+			Ph: {$phone_data} <br>
+		{/if}
 		{if $phone2_data}
-			{$phone2_label} {$phone2_data}<br />
+			Mobile: {$phone2_data}<br />
 		{/if}
 		{if $fax_data}
 			{$fax_label} {$fax_data}<br />
@@ -336,7 +338,7 @@
 				{if $optional_field_20 eq '$91,234.56 AUD'}<br/>
 					Pick-Up Only				
 				{else}
-					Shipping and handling: {$optional_field_20} (Shipping within Australia, contact seller for international shipping)<br>
+					Shipping and handling: {if $flat_rate > 0}${$flat_rate} AUD (store flat shipping rate){else}{$optional_field_20}{/if} (Shipping within Australia, contact seller for international shipping)<br>
 				{/if}
 				{if $optional_field_2 > 0}
 					Quantity available: {$optional_field_2}
@@ -436,7 +438,7 @@
 			</div>
 		{/if}
 
-		{if $subcategory eq 316 or $subcategory eq 319}
+		{if $topcategory eq 316 or $topcategory eq 319}
 			{if $optional_field_8 neq ""} {* Breeding - Dog breeds *}
 				<div class="field_set">
 					<span class="field_name">Dog Breeds:</span>
@@ -496,7 +498,7 @@
 	{* END DESCRIPTION *}
 
 
-	{if $subcategory eq 316 or $subcategory eq 420}
+	{if $topcategory eq 316 or $topcategory eq 420}
 		{listing addon='ppListingDisplay' tag='listingsEmbed' category=308}
 	{/if}
 

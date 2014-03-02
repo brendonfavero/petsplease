@@ -1,4 +1,4 @@
-You have received a new order through <a href="{$baseUrl}?a=2&b={$shoplisting.id}">your shop</a> on Petsplease.com.au<br>
+You have compeleted a purchase through <a href="{$baseUrl}?a=2&b={$shoplisting.id}">{$shoplisting.title}</a> on Petsplease.com.au<br>
 <br>
 Below are the details of the order:<br>
 <br>
@@ -35,7 +35,7 @@ Below are the details of the order:<br>
 
 {if $paypalPaid}
 	<b>PAID FOR IN FULL THROUGH PAYPAL</b><br>
-	Please log in to your Paypal account and check that the payment has been received<br>
+	Please log in to your Paypal account and check that the payment has been Sent<br>
 	<br>
 {/if}
 
@@ -71,7 +71,5 @@ Postcode: {$fielddata.shipping.zip}<br>
 <br>
 <b>Selected payment method:</b><br>
 {$fielddata.payment_type}<br>
-<br>
-We ask that you please notify the buyer of any updates to the order.<br>
 <br>
 Petsplease.com.au

@@ -29,7 +29,6 @@
 					<li>Personal Admin Pages</li>
 					<li>Auto-Alert Feature</li>
 					<li>Add-to-Favourites</li>
-					<li>Signs &amp; Flyers Feature</li>
 					<li>Personal Messaging System</li>
 					<li>Advanced Search Features</li>
 					<li>Attention Getters!!</li>

@@ -205,7 +205,7 @@ class Display_ad extends geoBrowse {
 				$time = $show['date'];
 			}
 		}
-		if (!(($show['live']==1 && $show['item_type']==1) || $show['item_type']==2 || $preview === 'preview_only')) {
+		if (($show['live']==0 && $show['item_type']<>1) ||  ($show['optional_field_2']==0 && $show['optional_field_2']<>'')|| $show['item_type']==2 || $preview === 'preview_only') {
 			$this->browse_error();
 			return true;
 		}

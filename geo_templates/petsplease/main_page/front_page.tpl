@@ -5,7 +5,7 @@
 	<div class="content_shell home">
 		<div id="homewelcome">
 			<p class="large">Advertise your Pet or Product for free</p>
-			<p>Place your ad today it is easy</p>
+			<p>Place your listing today it is easy</p>
 			<ul>
 				<li>Up to 20 photos</li>
 				<li>Upload your Youtube video</li>
@@ -13,9 +13,9 @@
 			</ul>
 
 			<ul id="homewelcome-buttons" class="buttonset clearfix">
-				<li><a href="/?a=10">Register</a></li>
-				<li><a href="/?a=10">Login</a></li>
-				<li class="last"><a href="/?a=10">Create Your Ad</a></li>
+				<li><a style="width:112px" href="/?a=10">Register</a></li>
+				<li><a style="width:112px" href="/?a=10">Login</a></li>
+				<li class="last"><a style="width:113px" href="/?a=10">Create Your Listing</a></li>
 			</ul>
 		</div>
 

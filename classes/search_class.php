@@ -964,10 +964,7 @@ class Search_classifieds extends geoBrowse
 				}
 			}
 			
-			$orderBy = array();
-			foreach ($browseType as $key => $value) {
-				$orderBy[$key] = $this->getOrderByString($value);
-			}
+			$orderBy = $this->getOrderByString($_GET['order']);
 			
 			$this->browse_type = (isset($browseType["param"]))? $browseType["param"]: 0;
 			
@@ -986,7 +983,7 @@ class Search_classifieds extends geoBrowse
 					// $query->order($orderBy['classified']);
 				// }
 			// }
-			$query->order("case featured_ad when 0 then 0 else last_featured end desc, date desc");
+			$query->order($orderBy);
             
 			$page = $this->page_result = (isset($_GET['page']) && $_GET['page']>0)? (int)$_GET['page'] : 1;
 			$adsToShow = (int)$this->configuration_data['number_of_ads_to_display'];
@@ -1135,6 +1132,34 @@ class Search_classifieds extends geoBrowse
 			return false;
 		}
 	}
+
+    public function getOrderByString($value) {
+        switch ($value)
+        {
+            case 0: //nothing
+                $order_by = " case featured_ad when 0 then 0 else last_featured end desc, better_placement desc,date desc ";
+                break;
+            case 1: //price desc
+                $order_by = " price asc, current_bid desc, better_placement desc ";
+                break;
+            case 2: //price asc
+                $order_by = " price desc, current_bid asc, better_placement desc ";
+                break;
+            case 3: //date earliest to latest
+                $order_by = " date asc, better_placement desc ";
+                break;
+            case 4: //date latest to earliest
+                $order_by = " date desc, better_placement desc ";
+                break;
+            case 5: //title asc
+                $order_by = " title asc, better_placement desc ";
+                break;
+            default:
+                $order_by = " case featured_ad when 0 then 0 else last_featured end desc, better_placement desc, date desc ";
+                break;
+        }
+        return $order_by;
+    }
 	
 	public function display_browse_result ($browse_result)
 	{

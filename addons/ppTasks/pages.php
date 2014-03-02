@@ -11,7 +11,7 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                JOIN `geodesic_userdata` as `u` ON `c`.`seller` = `u`.`id`
                JOIN `geodesic_order_item_registry` as `o` ON `c`.`order_item_id` = `o`.`order_item` 
               WHERE `c`.`featured_ad` > 0 AND `o`.`index_key` = 'session_variables' 
-                AND (`c`.`last_featured` + 1209600 ) < " . time() );
+                AND (`c`.`last_featured` + 2592000 ) < " . time() );
                 
     
         echo $featureds->RecordCount() . " records found to unfeature<br />";
@@ -37,9 +37,9 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                         $message =  $emailMessage->fetch('emailBody_featureExpire.tpl');
 
                         geoEmail::sendMail( 
-                            'brendon@ardex.com.au', 
+                            $row['email'], 
                             "Pets Please Featured Listing Expired", 
-                            $message, 'brendon@ardex.com.au');
+                            $message, 'natasha@petsplease.com.au');
                     }
                 }
             }

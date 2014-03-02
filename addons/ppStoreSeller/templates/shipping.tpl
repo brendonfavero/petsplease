@@ -153,22 +153,24 @@
 		<div class="box_pad">
 			<table style="width:100%" class="summary_table">
 				<tr>
-					<th>Product</th>
+					<th colspan="2">Product</th>
 					<th>Price</th>
-					<th>Shipping</th>
 					<th>Qty</th>
 					<th>Subtotal</th>
 				</tr>
 				
 				{foreach $order.listings as $listing}
 					<tr>
-						<td>{$listing.title|urldecode}</td>
+						<td colspan="2">{$listing.title|urldecode}</td>
 						<td>{$listing.price}</td>
-						<td>{$listing.shipping}</td>
 						<td>{$listing.cartqty}</td>
 						<td>{$listing.subtotal}</td>
 					</tr>
 				{/foreach}
+				<tr class="shipping">
+					<td colspan="4">Shipping & Handling</td>
+					<td>{$order.shipping_price}</td>
+				</tr>
 
 				<tr class="grandtotal">
 					<td colspan="4">Grand Total</td>

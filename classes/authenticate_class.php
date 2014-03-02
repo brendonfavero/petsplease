@@ -292,7 +292,7 @@ class Auth extends geoSite {
 		$login_data = $this->product_configuration->verify_credentials($username, $password, false, true, true);
 		if ($login_data === false){
 			//username and password do not match!
-			$this->auth_messages["login"] = $this->messages[341];
+			$this->auth_messages["login"] = 'Username and Password do not match';
 	        return false;
 		}
 		//To fix str case of username
@@ -623,7 +623,8 @@ class Auth extends geoSite {
 				//going back to the page that referred user to login process
 				$destination = geoString::fromDB($_COOKIE['login_trackback']);
 				header("Location: ".$destination);
-			} elseif ($session->get('jit_suspend')) {
+			} 
+            elseif ($session->get('jit_suspend')) {
 				//kill value
 				$session->set('jit_suspend',false);
 				//redirect to cart

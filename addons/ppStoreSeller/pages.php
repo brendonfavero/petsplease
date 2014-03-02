@@ -4,7 +4,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 	const SHOP_CATEGORY = 412;
 
 	private $paypal_api_endpoint = "https://svcs.paypal.com/"; //"https://svcs.sandbox.paypal.com/"; // - Live
-	private $paypal_payment_url = "https://www.paypal.com/cgi-bin/webscr"; //"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment"; // - Live
+	private $paypal_payment_url = "https://www.paypal.com/cgi-bin/webscr?cmd=_ap-payment"; //"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment"; // - Live
 	private $paypal_ipn_postback_url = "https://www.paypal.com/cgi-bin/webscr"; // "https://www.sandbox.paypal.com/cgi-bin/webscr"; // - Live
 
 	private $paypal_api_username = "natasha_api1.petsplease.com.au";
@@ -23,7 +23,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		// need to be logged in
 		$user_id = geoSession::getInstance()->getUserId();
 		if ($user_id == 0) {
-			header("Location: /?a=10");
+			header("Location: /?a=10&login_trackback=1");
 			exit;
 		}
 
@@ -327,37 +327,42 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$data['total_price'] = 0;
         $data['shipping_price'] = 0;
 		foreach ($cart_items as $cart_item) {
+		    
+            $seller = $cart_item['seller'];
+            $vendor_info['shop_listing'] = $util->getUserStoreListing($seller)->toArray();           
+            
 			$listing = geoListing::getListing($cart_item['listing_id']);
 			$listingdata = $listing->toArray();
+			
+			if ($listingdata['optional_field_20'] == 91234.56) {
+                $listingdata['optional_field_20'] = 0;    
+            }
+            
+            $flatShipping = $vendor_info['shop_listing']['optional_field_19'];   
+            
+            if (isset($flatShipping) && $flatShipping > 0) {
+                $shipping_total = $flatShipping;
+                $data['shipping_price'] = geoString::displayPrice($flatShipping);
+            }
+            else {
+                $shipping_total += $listingdata['optional_field_20'];
+                $data['shipping_price'] = geoString::displayPrice($shipping_total);   
+            }                         
 
-			$listing_price_total = $cart_item['qty'] * ($listingdata['price'] + $listingdata['optional_field_20']);
+			$listing_price_total = ($cart_item['qty'] * $listingdata['price']);
 			$listingdata['total_price'] = geoString::displayPrice($listing_price_total);
 
 			$data['total_price'] += $listing_price_total;
-			$data['total_price_display'] = geoString::displayPrice($data['total_price']);			
+			$data['total_price_display'] = geoString::displayPrice($data['total_price'] + $shipping_total);			
 
 			$listingdata['cartqty'] = $cart_item['qty'];
 			$listingdata['image_thumbnail'] = geoImage::getInstance()->display_thumbnail($listing->id);
 
 			$listingdata['subtotal'] = geoString::displayPrice($listing_price_total);
-			$listingdata['price'] = geoString::displayPrice($listingdata['price']);
-            
-            $data['shipping_price'] += $listingdata['optional_field_20'];            
+			$listingdata['price'] = geoString::displayPrice($listingdata['price']);                                 
 
 			$data['listings'][] = $listingdata;
-		}
-        
-        $util = geoAddon::getInstance()->getUtil($this->name);
-        $shop_listing = $util->getUserStoreListing($vendor_id)->toArray();
-        $storeQuestions = geoListing::getExtraQuestions($shop_listing['id']);
-        $flatShipping = $storeQuestions[194]['value'];
-        
-        if (isset($flatShipping) && $flatShipping < $data['shipping_price']) {
-            $data['total_shipping_display'] = geoString::displayPrice($flatShipping);
-        }
-        else {
-            $data['total_shipping_display'] = geoString::displayPrice($data['shipping_price']);
-        }
+		}       
         
         $view->setBodyVar('cart_items', $data);
 		$view->setBodyVar('order', $data); 
@@ -421,29 +426,45 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$total_shipping = 0;
 		$grand_total = 0;
 		foreach ($cart_items as $cart_item) {
+		    $seller = $cart_item['seller'];
+            $vendor_info['shop_listing'] = $util->getUserStoreListing($seller)->toArray();
+                
 			$listing = geoListing::getListing($cart_item['listing_id']);
 			$listingdata = $listing->toArray();
 
 			$listingdata['cartqty'] = $cart_item['qty'];
+			
+			if ($listingdata['optional_field_20'] == 91234.56) {
+                $listingdata['optional_field_20'] = 0;    
+            } 
 
 			$listingdata['price'] = $listingdata['price'];
 			$listingdata['shipping'] = $listingdata['optional_field_20'];
-
+            
+            $flatShipping = $vendor_info['shop_listing']['optional_field_19'];
+            
+            if (isset($flatShipping) && $flatShipping > 0) {
+                $shippingTotal = $flatShipping;
+                $total_shipping = $flatShipping;
+            }
+            else {
+                $shippingTotal = $listingdata['cartqty'] * $listingdata['shipping'];
+                $total_shipping += $shippingTotal;
+            }                     
+            
 			$listing_total_price = $listingdata['cartqty'] * $listingdata['price'];
-			$listing_total_shipping = $listingdata['cartqty'] * $listingdata['shipping'];
-			$listing_sub_total = $listing_total_price + $listing_total_shipping;
+			$listing_sub_total = $listing_total_price;
 
 			$total_price += $listing_total_price;
-			$total_shipping += $listing_total_shipping;
-			$grand_total += $listing_sub_total;
+			
+			$grand_total += $listing_sub_total;		
 
 			$listingdata['price_total'] = $listing_total_price;
-			$listingdata['shipping_total'] = $listing_total_shipping; 
 			$listingdata['subtotal'] = $listing_sub_total;
 
 			$listingdata['subtotal_display'] = geoString::displayPrice($listingdata['subtotal']);
 			$listingdata['price_display'] = geoString::displayPrice($listingdata['price']);
-			$listingdata['shipping_display'] = geoString::displayPrice($listingdata['shipping']);
+			$listingdata['shipping_display'] = geoString::displayPrice($shippingTotal);
 
 			$listings[] = $listingdata;
 		}
@@ -451,7 +472,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 		// Create the order
 		$sql = "INSERT INTO petsplease_merchant_order (buyer, seller, `date`, total_price) VALUES (?, ?, ?, ?)";
-		$db->Execute($sql, array($user_id, $vendor_id, time(), $grand_total));
+		$db->Execute($sql, array($user_id, $vendor_id, time(), $grand_total + $total_shipping));
 		$orderid = $db->Insert_Id();
 
 		// Now create the order items
@@ -476,7 +497,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$vendorPaypal = str_replace(' ', '+', $vendorPaypal);
 
 			// Create payment
-			$payKey = $this->api_createPayment($vendorPaypal, $grand_total, $orderid);
+			$payKey = $this->api_createPayment($vendorPaypal, $grand_total + $total_shipping, $orderid);
 
 			// Now add extra info to payment
 			$params = array();
@@ -494,7 +515,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				$params['senderOptions']['shippingAddress']['street2'] = $fielddata['shipping']['address2'];
 
 			$params['displayOptions']['businessName'] = "Pets Please";
-			$params['receiverOptions'][0]['customId'] = $orderid;
+            $params['receiverOptions'][0]['customId'] = $orderid;
 			$params['receiverOptions'][0]['description'] = $fielddata['additional_info'];
 			$params['receiverOptions'][0]['receiver']['email'] = $vendorPaypal;
 			$params['receiverOptions'][0]['invoiceData']['totalShipping'] = $total_shipping;	
@@ -503,7 +524,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				$params['receiverOptions'][0]['invoiceData']['item'][] = array(
 					'name' => urldecode($listing['title']),
 					'identifier' => $listing['id'],
-					'price' => $listing['price_total'],
+					'price' => $listing['subtotal'],
 					'itemPrice' => $listing['price'],
 					'itemCount' => $listing['cartqty']
 				);
@@ -515,10 +536,14 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 			// if we're here update to order to include the paykey
 			$sql = "UPDATE petsplease_merchant_order SET paypal_status=?, paypal_paykey=? WHERE order_id=?";
-			$db->Execute($sql, array("started", $payKey, $orderid));
-
+			
+			$db->Execute($sql, array("started", $payKey, $orderid));            
+            if ($payKey) {
+                
+            }
 			// if successful redirect user to paypal to complete payment
-			header('Location: ' . $this->paypal_payment_url . '&paykey=' . $payKey);
+			header('Location: ' . $this->paypal_payment_url . '&paykey=' . $payKey);         
+                
 			exit;
 
 		}
@@ -533,7 +558,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$mailVars['baseUrl'] = $db->get_site_setting('classifieds_url');
 			$tpl->assign($mailVars);
 			$email_message = $tpl->fetch('emails/other_payment_order_received.tpl');
-			geoEmail::sendMail(geoString::fromDB($shop_listing->email), "Pets Please - Shop Order Received", $email_message, 
+			geoEmail::sendMail(geoString::fromDB($shop_listing['email']), "Pets Please - Shop Order Received", $email_message, 
 				$db->get_site_setting('site_email'), 0, 0, 'text/html');
 
 			// For non-paypal payments we consider this point for our part of the order chain to be finished, so subtract item quantities
@@ -566,7 +591,8 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$params["requestEnvelope"]["detailLevel"] = "ReturnAll";
 
 		$api_result = $this->api_callPaypalClassicAPI("AdaptivePayments/Pay", $params);
-
+        
+        
 		return $api_result->payKey;
 	}
 
@@ -590,10 +616,10 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			"X-PAYPAL-SECURITY-USERID: " . $this->paypal_api_username,
 			"X-PAYPAL-SECURITY-PASSWORD: " . $this->paypal_api_password,
 			"X-PAYPAL-SECURITY-SIGNATURE: " . $this->paypal_api_signature,
-			"X-PAYPAL-APPLICATION-ID: APP-80W284485P519543T",
+			"X-PAYPAL-APPLICATION-ID: " . $this->paypal_api_applicationid,
 			"X-PAYPAL-REQUEST-DATA-FORMAT: JSON",
 			"X-PAYPAL-RESPONSE-DATA-FORMAT: JSON"
-		);
+		);	
 
 		$headers_cmd = "";
 		foreach ($headers as $header) {
@@ -602,8 +628,10 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 		$output = array();
 		$api_cmd = "curl -s " . $headers_cmd . " " . $this->paypal_api_endpoint . $call . " -d \"" . $payload . "\"";
+        
+        geoEmail::sendMail('brendon@ardex.com.au', 'test', $api_cmd, 0);
 		exec($api_cmd, $output);
-
+                
 		$result = json_decode($output[0]);
 		return $result;
 	}
@@ -620,6 +648,9 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		$listing = $db->GetRow($sql, array($listing_id));
 
 		if ($listing['stock'] < 1) {
+		    $sql = "UPDATE geodesic_classifieds SET live = 0 WHERE id = ?";
+            $db->Execute($sql, array($listing_id));
+            
 			$util = geoAddon::getInstance()->getUtil($this->name);
 			$shop_listing = $util->getUserStoreListing($listing['seller'])->toArray();
 
@@ -630,8 +661,10 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$mailVars['listing_title'] = $listing['title'];
 			$tpl->assign($mailVars);
 			$email_message = $tpl->fetch('emails/out_of_stock.tpl');
-			geoEmail::sendMail(geoString::fromDB($shop_listing->email), "Pets Please - Shop Order Received", $email_message, 
+			geoEmail::sendMail(geoString::fromDB($shop_listing['email']), "Pets Please - Shop Order Received", $email_message, 
 				$db->get_site_setting('site_email'), 0, 0, 'text/html');
+			geoEmail::sendMail('brendon@ardex.com.au', "Pets Please - Shop Order Received", $email_message, 
+                $db->get_site_setting('site_email'), 0, 0, 'text/html');
 		}
 	}
 
@@ -640,6 +673,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 		// Adapting code from: https://developer.paypal.com/webapps/developer/docs/classic/ipn/ht_ipn/
 		// Step 1: read post data
+		geoEmail::sendMail('brendon@ardex.com.au', 'IPN-Notify', $api_cmd, 0);
 		$raw_post_data = file_get_contents('php://input');
 		$raw_post_array = explode('&', $raw_post_data);
 		
@@ -666,6 +700,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 		// Step 2: post the data back to paypal for verification
 		$output = array();
 		$api_cmd = "curl -s -H \"Connection: Close\" " . $this->paypal_ipn_postback_url . " -d \"" . $req . "\"";
+        geoEmail::sendMail('brendon@ardex.com.au', 'IPN api cmd', $api_cmd, 0);
 		exec($api_cmd, $output);
 		$res = $output[0];
 
@@ -678,7 +713,7 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 			$pay_key = $_POST['pay_key'];
 
 			// $notify .= "raw output: " . $req . "\r\n";
-			// geoEmail::sendMail ("chris@ardex.com.au","IPN Delivered Payment notification", '<pre>' . print_r($notify, true) . '</pre>');
+			geoEmail::sendMail ("brendon@ardex.com.au","IPN Delivered Payment notification", '<pre>' . print_r($notify, true) . '</pre>');
 
 			if (strcasecmp($payment_status, "completed") == 0) {
 				$sql = "SELECT * FROM petsplease_merchant_order WHERE paypal_paykey=? AND paypal_status <> 'paid'";
@@ -710,10 +745,11 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				$total_price = 0;
 				$total_shipping = 0;
 				$grand_total = 0;
-				foreach ($order_items as $order_item) {
+				foreach ($order_items as $order_item) {				    
+                    
 					$listing = geoListing::getListing($order_item['listing_id']);
 					$listingdata = $listing->toArray();
-
+                    
 					$listingdata['cartqty'] = $order_item['qty'];
 
 					$listingdata['price'] = $order_item['unit_price'];
@@ -721,11 +757,21 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 					$listing_total_price = $listingdata['cartqty'] * $listingdata['price'];
 					$listing_total_shipping = $listingdata['cartqty'] * $listingdata['shipping'];
-					$listing_sub_total = $listing_total_price + $listing_total_shipping;
+					$listing_sub_total = $listing_total_price;
 
 					$total_price += $listing_total_price;
-					$total_shipping += $listing_total_shipping;
 					$grand_total += $listing_sub_total;
+                    
+                    $flatShipping = $shop_listing['optional_field_19'];
+            
+                    if (isset($flatShipping) && $flatShipping > 0) {
+                        $shippingTotal = $flatShipping;
+                        $total_shipping = $flatShipping;
+                    }
+                    else {
+                        $shippingTotal = $listingdata['cartqty'] * $listingdata['shipping'];
+                        $total_shipping += $shippingTotal;
+                    }   
 
 					$listingdata['price_total'] = $listing_total_price;
 					$listingdata['shipping_total'] = $listing_total_shipping; 
@@ -741,16 +787,23 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 				$tpl = new geoTemplate('addon', 'ppStoreSeller');
 				$mailVars['listings'] = $listings;
 				$mailVars['grand_total'] = $grand_total;
-				$mailVars['grand_total_display'] = geoString::displayPrice($grand_total);
+				$mailVars['grand_total_display'] = geoString::displayPrice($grand_total + $total_shipping);
+                $mailVars['shipping_total'] = $total_shipping;
+                $mailVars['shipping_display'] = geoString::displayPrice($total_shipping);
 				$mailVars['fielddata'] = $fielddata;
 				$mailVars['shoplisting'] = $shop_listing;
 				$mailVars['baseUrl'] = $db->get_site_setting('classifieds_url');
 				$mailVars['paypalPaid'] = true;
 				$tpl->assign($mailVars);
 				$email_message = $tpl->fetch('emails/other_payment_order_received.tpl');
-				geoEmail::sendMail(geoString::fromDB($shop_listing->email), "Pets Please - Shop Order Received", $email_message, 
-					$db->get_site_setting('site_email'), "brendon@ardex.com.au", 0, 'text/html');
-
+				geoEmail::sendMail(geoString::fromDB($shop_listing['email']), "Pets Please - Shop Order Received", $email_message, 
+					$db->get_site_setting('site_email'), 0, 0, 'text/html');
+                geoEmail::sendMail('brendon@ardex.com.au', "Pets Please - Shop Order Received", $email_message, 
+                    $db->get_site_setting('site_email'), 0, 0, 'text/html');
+                    
+                $email_message = $tpl->fetch('emails/other_payment_order_sent.tpl');
+                geoEmail::sendMail(geoString::fromDB($fielddata['billing']['email']), "Pets Please - Shop Order Complete", $email_message, 
+                    $db->get_site_setting('site_email'), 0, 0, 'text/html');
 				// Subtract quantites now that order is done
 				foreach ($listings as $listing) {
 					$this->subtractQuantityFromProduct($listing['id'], $listing['cartqty']);
@@ -772,21 +825,21 @@ class addon_ppStoreSeller_pages extends addon_ppStoreSeller_info
 
 	public function success() {
 		$db = true;
-		require (GEO_BASE_DIR."get_common_vars.php");
+        require (GEO_BASE_DIR."get_common_vars.php");
 
-		$orderid = $_REQUEST['o'];
-		$user_id = geoSession::getInstance()->getUserId();
+        $orderid = $_REQUEST['o'];
+        $user_id = geoSession::getInstance()->getUserId();
 
-		// If we reach this page then we can clear the relevant items out of the cart
-		$sql = "SELECT listing_id FROM petsplease_merchant_orderitem WHERE order_id=?";
-		$listing_ids = $db->GetCol($sql, array($orderid));
+        // If we reach this page then we can clear the relevant items out of the cart
+        $sql = "SELECT listing_id FROM petsplease_merchant_orderitem WHERE order_id=?";
+        $listing_ids = $db->GetCol($sql, array($orderid));
 
-		if (!empty($listing_ids)) {
-			$sql = "DELETE FROM petsplease_merchant_cart WHERE user_id=? AND listing_id IN (" . implode(',', $listing_ids) . ")";
-			$db->Execute($sql, array($user_id));
-		}
-
-		$view = geoView::getInstance();
-		$view->setBodyTpl('success.tpl', $this->name);
+        if (!empty($listing_ids)) {
+            $sql = "DELETE FROM petsplease_merchant_cart WHERE user_id=? AND listing_id IN (" . implode(',', $listing_ids) . ")";
+            $db->Execute($sql, array($user_id));
+        }
+        
+        $view = geoView::getInstance();
+        $view->setBodyTpl('success.tpl', $this->name);
 	}
 }

@@ -413,10 +413,10 @@ class Notify_seller extends geoBrowse {
 			$message['message'] = $tpl->fetch('communication/notify_seller.tpl');
 		}
 		
-		geoEmail::sendMail($mailto, $message["subject"], $message["message"],$from,0,0,'text/html');
+		geoEmail::sendMail($mailto, $message["subject"], $message["message"],0,$from,0,'text/html');
 
 		if (strlen(trim($db->get_site_setting('admin_email_bcc'))) > 0 && geoPC::is_ent()) {
-			geoEmail::sendMail($db->get_site_setting('admin_email_bcc'), $message["subject"], $message["message"],$from,0,0,'text/html');
+			geoEmail::sendMail($db->get_site_setting('admin_email_bcc'), $message["subject"], $message["message"],0,$from,0,'text/html');
 		}
 		
 		$this->insert_favourite($db, $classified_id);

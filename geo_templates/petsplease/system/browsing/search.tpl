@@ -18,6 +18,9 @@
 </div>
 
 <div class="col_right">
+	{if $pagination}
+		{$pagination}
+	{/if}
 	{if $multiple_locations_found}
 		<div class="no_results_box">
 			<p>The location you entered matched multiple areas, but only the first was chosen. Your results may not be from your area. Below are other possible matches:</p>
@@ -36,8 +39,9 @@
 	{/if}
 
 	{include file=$browse_tpl}
+	
+	{if $pagination}
+		{$pagination}
+	{/if}
 </div>
 
-{if $pagination}
-	{$pagination}
-{/if}

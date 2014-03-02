@@ -111,7 +111,7 @@
 		
 		
 		<div class="center">
-			<input style="background-color: #EA003A;" type="submit" name="submit" value="{$messages.278}" class="button" />
+			<input style="background-color: #EA003A; color:white" type="submit" name="submit" value="{$messages.278}" class="button" />
 			
 			<br /><br />
 			<a href="{$registration_url}?b=4" class="cancel">{$messages.241}</a>

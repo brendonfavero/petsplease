@@ -32,7 +32,7 @@
 					{if $key eq 173 or $key eq 174 or $key eq 180 or $key eq 181}
 						<select name="b[question_value][{$key}]" id="b[question_value][{$key}]" class="field">
 							{for $i=0 to 10}
-								<option>{$i}</option>
+								<option {if $session_variables.question_value.$key|strip == $i}selected{/if}>{$i}</option>
 							{/for}
 						</select>
 					{else}
@@ -54,10 +54,10 @@
 						{if $session_variables.question_value.$key}checked="checked"{/if} />
 				{else}
 					{if $key eq 191} {* Dog - Is Dog or Litter *}
-						<input type="radio" name="b[question_value][{$key}]" value="0" id="islitter_single" />
+						<input type="radio" {if $session_variables.question_value.$key|strip == 0}checked{/if} name="b[question_value][{$key}]" value="0" id="islitter_single" />
 						<label for="islitter_single">Dog</label>
 
-						<input type="radio" name="b[question_value][{$key}]" value="1" id="islitter_litter" />
+						<input type="radio" {if $session_variables.question_value.$key|strip == 1}checked{/if} name="b[question_value][{$key}]" value="1" id="islitter_litter" />
 						<label for="islitter_litter">Puppy or Litter</label>
 
 					{else}

@@ -438,10 +438,20 @@ class User_management_home extends geoSite
 			if(count($class['table'])) {
 				$sql = "SELECT count(id) FROM ".geoTables::classifieds_table." WHERE `seller` = ?
 					 AND `sold_displayed` = 1 AND `item_type` = 1 AND `ends` > ?";
-				$classCount = $this->db->GetOne($sql, array($this->user_id, $recent));
+				$classCount = $this->db->GetOne($sql, array($this->user_id, $recent));            
+                
 				$class['label'] = $this->messages[500564].intval(count($class['table'])).$this->messages[500556].$classCount;
 			} else {
-				$class['label'] = $this->messages[500564].'0';
+			    $sql = "SELECT count(*) FROM petsplease_merchant_order WHERE `seller` = ?
+                     AND paypal_status='paid' AND `date` > ?";
+                $classCount = $this->db->GetOne($sql, array($this->user_id, $recent));
+                
+                if ($classCount > 0) {
+                    $class['label'] = $this->messages[500564].$classCount;
+                }
+                else {
+                    $class['label'] = $this->messages[500564].'0';
+                }				
 			}
 			if($this->messages[500564]) $sold['rows'][] = $class;
 			

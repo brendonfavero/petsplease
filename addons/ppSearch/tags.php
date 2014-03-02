@@ -164,6 +164,10 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 			  ORDER BY display_order, value";
 		$result = $db->GetCol($sql);
 		$tpl_vars['productTypes'] = $result;
+        
+        $sql = "SELECT title from geodesic_classifieds where category = 412 order by title asc";
+        $result = $db->GetCol($sql);
+        $tpl_vars['stores'] = $result;
 
 		// Sort options
 		$tpl_vars['sort_options'] = array(

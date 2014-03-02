@@ -7,7 +7,7 @@
 	
 	<ul id="header-buttons" class="buttonset">
 		<li class="first"><span class="right-divider">Welcome to Pets Please</span></li>
-		<li><a href="/?a=cart&action=new&main_type=classified" class="right-divider">Create Your Ad</a></li>
+		<li><a href="/?a=cart&action=new&main_type=classified" class="right-divider">Create Your Listing</a></li>
 		<li><a href="/?a=4" class="right-divider">My PetsPlease</a></li>
 		{if not $logged_in}
 			<li><a href="/?a=10" class="right-divider">Register</a></li>
@@ -16,7 +16,7 @@
 			<li><a href="/?a=17" class="right-divider">Logout</a></li>
 		{/if}
 		<li><a href="http://facebook.com/Petsplease" target="_blank" class="icon-link right-divider"><div class="icon-facebook" title="Facebook"></div></a></li>
-		<li class="last"><a href="http://instagram.com/" target="_blank" class="icon-link"><div class="icon-instagram" title="Instagram"></div></a></li>
+		<li class="last"><a href="http://instagram.com/petspleaseau" target="_blank" class="icon-link"><div class="icon-instagram" title="Instagram"></div></a></li>
 	</ul>
 
 	<div id="header-bytext">
@@ -65,27 +65,27 @@
 
 	<ul id="header-petnav" class="buttonset clearfix">
 		<li class="nav-dog"> 
-			<a href="/index.php?a=19&c=309&b[subcategories_also]=1"><span>Dogs &amp;<br>Puppies</span></a>
+			<h1><a href="/index.php?a=19&c=309&b[subcategories_also]=1"><span>Dogs &amp;<br>Puppies</span></a></h1>
 		</li>
 
 		<li class="nav-cat">
-			<a href="/index.php?a=19&c=310&b[subcategories_also]=1"><span>Cats &amp;<br>Kittens</span></a>
+			<h1><a href="/index.php?a=19&c=310&b[subcategories_also]=1"><span>Cats &amp;<br>Kittens</span></a></h1>
 		</li>
 
 		<li class="nav-bird">
-			<a href="/index.php?a=19&c=311&b[subcategories_also]=1"><span>Birds</span></a>
+			<h1><a href="/index.php?a=19&c=311&b[subcategories_also]=1"><span>Birds</span></a></h1>
 		</li>
 
 		<li class="nav-fish">
-			<a href="/index.php?a=19&c=312&b[subcategories_also]=1"><span>Fish</span></a>
+			<h1><a href="/index.php?a=19&c=312&b[subcategories_also]=1"><span>Fish</span></a></h1>
 		</li>
 
 		<li class="nav-reptile">
-			<a href="/index.php?a=19&c=313&b[subcategories_also]=1"><span>Reptiles</span></a>
+			<h1><a href="/index.php?a=19&c=313&b[subcategories_also]=1"><span>Reptiles</span></a></h1>
 		</li>
 
 		<li class="nav-other last">
-			<a href="/index.php?a=19&c=314&b[subcategories_also]=1"><span>Other Pets</span></a>
+			<h1><a href="/index.php?a=19&c=314&b[subcategories_also]=1"><span>Other Pets</span></a></h1>
 		</li>
 	</ul>
 
@@ -99,27 +99,27 @@
 		</li>
 
 		<li>
-			<a href="/shops">Pet Shops</a>
+			<h1><a href="/shops">Pet Shops</a></h1>
 		</li>
 
 		<li>
-			<a href="/accommodation" class="large">Pet Friendly Accommodation</a>
+			<h1><a href="/accommodation" class="large">Pet Friendly Accommodation</a></h1>
 		</li>
 
 		<li>
-			<a href="/breeders">Pet Breeders</a>
+			<h1><a href="/breeders">Pet Breeders</a></h1>
 		</li>
 
 		<li>
-			<a href="/services">Pet Services</a>
+			<h1><a href="/services">Pet Services</a></h1>
 		</li>
 		
 		<li>
-			<a href="/shelters">Pet Shelters</a>
+			<h1><a href="/shelters">Pet Shelters</a></h1>
 		</li>
 
 		<li>
-			<a href="/clubs">Pet Clubs</a>
+			<h1><a href="/clubs">Pet Clubs</a></h1>
 		</li>
 		<li class="last">
 			<a href="/news">Pet News</a>

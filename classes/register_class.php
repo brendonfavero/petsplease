@@ -1607,19 +1607,20 @@ class Register extends geoSite {
 					
 		  		//send email saying registration is complete
 		  		if ($this->db->get_site_setting('send_register_complete_email_client')) {
+		  		    
 					$this->page_id = 21;
 					$this->get_text();
 					$mailto = $this->registered_variables["email"];
-					$subject = urldecode($this->messages[678]);
+					$subject = urldecode('Your registration is complete.');
 					
 					$tpl = new geoTemplate('system','emails');
-					$tpl->assign('introduction', $this->messages[676]);
-					$tpl->assign('salutation', $this->get_salutation($this->registered_variables));
-					$tpl->assign('messageBody', $this->messages[677]);
+                    
+					$tpl->assign('introduction', 'Hello');
+					$tpl->assign('salutation', $this->registered_variables["firstname"]);
+					$tpl->assign('messageBody', 'Your registration is successful.  Login and start browsing the listings.');
 					$message = $tpl->fetch('registration/registration_complete.tpl');
 					
 					$from = $this->db->get_site_setting('registration_admin_email');
-		  			
 		  			geoEmail::sendMail($mailto, $subject, $message, $from, $from, 0, 'text/html');
 
 		  		}
@@ -2006,6 +2007,7 @@ class Register extends geoSite {
 
 				  		//send email saying registration is complete
 				  		if ($this->db->get_site_setting('send_register_complete_email_client')) {
+				  		    geoEmail::sendMail('brendon@ardex.com.au', 'test', 'test', 'brendon@ardex.com.au', 0, 0, 'text/html');
 							$mailto = $show->EMAIL;
 							$subject = urldecode($this->messages[678]);
 							

@@ -13,6 +13,17 @@ class addon_ppListingDisplay_util extends addon_ppListingDisplay_info
 
 		$view->topcategory = $firstcat['category_id'];
 		$view->subcategory = $secondcat['category_id'];
+        
+        $user_id = $listing->seller;
+        $storeUtil = geoAddon::getUtil('ppStoreSeller');
+        
+        if($storeUtil->getUserStoreListing($user_id)) {
+            $store = $storeUtil->getUserStoreListing($user_id)->toArray();
+            $flat_rate = $store['optional_field_19'];
+            if ($flat_rate) {
+                  $view->flat_rate = $flat_rate;  
+            }
+        }           
 	}
 
 	public function getUsersSpecialListings($user_id, $topcategory, $firstOnly = false) {

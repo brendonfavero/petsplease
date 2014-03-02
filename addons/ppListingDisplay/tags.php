@@ -17,7 +17,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		else {
 			return $extra_question['value'];
 		}
-	}
+	}  
 
 	public function extraCheckboxValue($params, Smarty_Internal_Template $smarty)
 	{		
@@ -66,6 +66,19 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		return geoTemplate::loadInternalTemplate($params, $smarty, 'multicheckDisplay.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);
 	}
+    
+    public function petSelectorLink($params, Smarty_Internal_Template $smarty)
+    {       
+        $listing_id = $params['listing_id'];
+        $breed= $params['breed'];
+        $default_value = $params['default'];
+        
+        $sql = "SELECT id from petsplease_petselector_breed where breed = '" . $breed . "'";
+        
+        return geoTemplate::loadInternalTemplate($params, $smarty, 'petSelectorLink.tpl',
+                geoTemplate::ADDON, $this->name, $tpl_vars);
+         
+    }
 
 	public function extraMultiCheckboxSelect($params, Smarty_Internal_Template $smarty)
 	{		
@@ -816,7 +829,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
                 return "Create a Club Page";
             }
             else {
-                return "Create Your Ad";
+                return "Create Your Listing";
             }
         }               
         else {

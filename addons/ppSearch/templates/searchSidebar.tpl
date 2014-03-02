@@ -90,6 +90,17 @@
 			{/foreach}
 		</select>
 	</div>
+	
+	<div id="search_store_container" data-showif="#search_category=412" style="display: none">
+		<label for="search_services">Pet Shop</label>
+		<select id="search_services" name="b[store]">
+			<option value="" class="showalways">All Shops</option>
+
+			{foreach from=$stores item=store}
+				<option{if $store eq $search_parms.b.store} selected="selected"{/if}>{$store}</option>
+			{/foreach}
+		</select>
+	</div>
 
 	{if !$simplesearch}
 		<div id="search_dog_size_container" data-showif="#search_subcategory=309" style="display:none">
