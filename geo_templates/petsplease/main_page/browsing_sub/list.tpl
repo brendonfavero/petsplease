@@ -75,6 +75,9 @@ that it will corrupt the smarty tags!
 		    font-size: 16px;
 		">Featured</p>
 		{/if}
+		{if $listing.shelter eq '1'}
+			<p style="color:#EC008C; font-size:14px; font-weight:bold">Shelter Pet</p>
+		{/if}
 		{if $ex_breed}
 			<span class="breed">
 				{$ex_breed}

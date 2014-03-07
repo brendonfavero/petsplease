@@ -64,7 +64,7 @@
 		User: {listing tag='seller'}<br>
 		Member Since: {listing field='member_since'}<br>
 		<br>
-		{if $phone1_data}
+		{if $phone_data}
 			Ph: {$phone_data} <br>
 		{/if}
 		{if $phone2_data}

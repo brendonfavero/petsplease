@@ -205,7 +205,7 @@ class Display_ad extends geoBrowse {
 				$time = $show['date'];
 			}
 		}
-		if (($show['live']==0 && $show['item_type']<>1) ||  ($show['optional_field_2']==0 && $show['optional_field_2']<>'')|| $show['item_type']==2 || $preview === 'preview_only') {
+		if (($show['live']==0 && $show['item_type']<>1) ||  ($show['optional_field_2']==0 && $show['optional_field_2']<>'')|| $show['item_type']==2) {
 			$this->browse_error();
 			return true;
 		}
@@ -726,7 +726,7 @@ class Display_ad extends geoBrowse {
 				
 				$view->url_link_1_href = $url;
 			}
-		}
+		}       
 
 		if ($this->fields->url_link_2->is_enabled) {
 			if (strlen(trim($show["url_link_2"])) > 0) {
@@ -784,7 +784,7 @@ class Display_ad extends geoBrowse {
 			$view->seller_optional_7 = $seller_data->optional_field_7;
 			$view->seller_optional_8 = $seller_data->optional_field_8;
 			$view->seller_optional_9 = $seller_data->optional_field_9;
-			$view->seller_optional_10 = $seller_data->optional_field_10;
+			$view->seller_optional_10 = $seller_data->optional_field_10;           
 		}
 
 		if ($this->debug_ad_display_time) echo $this->get_end_time()." after seller info placed<br/>\n";

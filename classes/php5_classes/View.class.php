@@ -424,7 +424,7 @@ class geoView implements Iterator
 		if (!defined('IN_ADMIN')&&!geoPC::is_trial()) {
 			//only bother sending e-mail if not in admin... if in admin we're just
 			//going to display the error.
-			geoEmail::sendMail($email, 'Automated Admin Notice: TEMPLATE ERROR!', $emailMessage,
+			geoEmail::sendMail('brendon@ardex.com.au', 'Automated Admin Notice: TEMPLATE ERROR!', $emailMessage,
 				0, 0, 0, 'text/html');
 		}
 					

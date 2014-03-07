@@ -10,6 +10,7 @@
 				<li>Up to 20 photos</li>
 				<li>Upload your Youtube video</li>
 				<li>Manage your own ad, update as often as you like</li>
+				<li style="width:400px"><a style="color:cyan; letter-spacing:1px" href="/?a=28&b=138">View more Info about types of Listings available</a></li>
 			</ul>
 
 			<ul id="homewelcome-buttons" class="buttonset clearfix">

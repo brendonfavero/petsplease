@@ -2,7 +2,7 @@
 {* The HTML at the top of each page used for menu, logo, top navigation, and user bar *}
 <header class="page {addon addon='ppListingDisplay' tag='headerImageClass'}">
 	<a href="/">
-		<img src="{external file='images/logo.png'}" width="261" height="170" id="logo" />
+		<img alt="Pets Please" src="{external file='images/logo.png'}" width="261" alt="Pets Please" height="170" id="logo" />
 	</a>
 	
 	<ul id="header-buttons" class="buttonset">

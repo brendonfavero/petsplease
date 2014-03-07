@@ -24,6 +24,7 @@
 			<td>
 				{if $breed.pettype_id eq 1}Dog
 				{elseif $breed.pettype_id eq 2}Cat
+				{elseif $breed.pettype_id eq 3}Bird
 				{else}??
 				{/if}
 			</td>

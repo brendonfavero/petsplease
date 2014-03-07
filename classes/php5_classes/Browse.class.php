@@ -92,6 +92,8 @@ class geoBrowse extends geoSite
 	 */
 	public function commonBrowseData ($data, $text, $featured=false, $tabular=true)
 	{
+	    $db = DataAccess::getInstance();
+        
 		if (!is_array($data)) {
 			//no data given...can't do anything
 			trigger_error('DEBUG BROWSE: no data');
@@ -121,6 +123,8 @@ class geoBrowse extends geoSite
 		$formatted['viewed_count'] = $data['viewed'];
 		//seller info
 		$formatted['seller_id'] = (int)$data['seller'];
+        
+        
 		if ($data['seller'] && $seller = geoUser::getUser($data['seller'])) {
 			$formatted['seller_username'] = $seller->username;
 			$formatted['seller_first_name'] = $seller->firstname;
@@ -162,6 +166,14 @@ class geoBrowse extends geoSite
 			$formatted['date_started'] = $this->messages[500225];
 		}
 		$formatted['address_data'] = ucwords(geoString::fromDB($data["location_address"]));
+        
+        $sql = "SELECT 1 from geodesic_classifieds as shelters where shelters.category = 420 and shelters.seller = " . $data['seller'] ;
+        
+        $shelter = $db->getRow($sql);
+        
+        if ($shelter) {
+            $formatted['shelter'] = 1;
+        }
 		
 		//Get city data
 		$overrides = geoRegion::getLevelsForOverrides();
