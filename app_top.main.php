@@ -48,7 +48,6 @@ if ($db->get_site_setting('site_on_off')) {
 
 if (isset($_GET['c']) && is_numeric($_GET['c']) && $_GET['c'] > 0 && $db->get_site_setting('noindex_sorted')) {
 	//add nofollow meta info if this is a page with sorted results
-	geoView::getInstance()->addTop('<meta name="robots" content="noindex,nofollow" />');
 }
 
 //see if we should switch to SSL or to NON-SSL

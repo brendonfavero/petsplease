@@ -45,6 +45,11 @@
 					{* Question value will be from user input, which is already html escaped *}
 					<textarea name="b[question_value][{$key}]" id="b[question_value][{$key}]" cols="60" rows="15" class="field"
 						{if $field_config.textarea_wrap}style="white-space: pre;"{/if}>{$session_variables.question_value.$key}</textarea>
+						{if $key eq 182 or $key eq 183}
+						<br/>
+						In the state of Victoria a business or a private seller, selling a Dog, Puppy, Cat or Kitten must include the full Microchip Identification Number in your Listing, it is an offence to advertise in Victoria without the Microchip numbers. Not including these numbers may result in your Listing being removed.
+						It is also a requirement of some other Australian States/Territories to have your pet Microchipped, it is the pet owners responsibility to understand and keep up to date with your State/Territory Laws.
+					{/if}
 				{elseif $question.type == "check"}
 					{* Question value will be from DB value, which is NOT already html escaped,
 						DO NOT remove the HTML escape for this specific type of question! *}
@@ -52,6 +57,10 @@
 						name="b[question_value][{$key}]"
 						value="{$question.name|escape}"
 						{if $session_variables.question_value.$key}checked="checked"{/if} />
+					{if $key eq 205}
+						<br/>
+						(Yes I have a Reptile Keepers Licence and I understand the laws about keeping/breeding and selling a Reptile/Amphibian in my State/Territory, and will abide by these laws when placing my Listing. Any Listing that fails to comply with State/Territory or Commonwealth laws may be removed, and the person who has posted the Listing will be liable for any action taken by relevant authorities.)
+					{/if}
 				{else}
 					{if $key eq 191} {* Dog - Is Dog or Litter *}
 						<input type="radio" {if $session_variables.question_value.$key|strip == 0}checked{/if} name="b[question_value][{$key}]" value="0" id="islitter_single" />

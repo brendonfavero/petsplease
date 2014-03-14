@@ -106,7 +106,7 @@
 					{include file="shared/postcurrency_dropdown.tpl"}					
 				</div>
 				<div class="{cycle values='row_odd,row_even'}">
-					<label for="from_price" class="field_label">To Price:</label>
+					<label for="to_price" class="field_label">To Price:</label>
 					<span class="precurrency">$</span>
 					<input type="text" id="to_price" class="field" name="b[to_price]"
 						size="{if $fields->price->text_length > 12}12{else}{$fields->price->text_length}{/if}"

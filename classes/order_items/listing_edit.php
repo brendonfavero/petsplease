@@ -1525,7 +1525,9 @@ class listing_editOrderItem extends _listing_placement_commonOrderItem {
 			'auction_minimum',
 			'auction_reserve',
 			'auction_buy_now',
-			'location'
+			'location',
+			'from_price',
+			'to_price'
 			
 		);
 		if (geoPC::is_ent()) {

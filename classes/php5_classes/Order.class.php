@@ -354,6 +354,7 @@ class geoOrder {
 			$subject = $msgs[500347];
 			$message = $email->fetch('order_complete.tpl');
 			geoEmail::sendMail($user->email,$subject,$message, 0, 0, 0, 'text/html');
+            geoEmail::sendMail($db->get_site_setting('site_email'),$subject,$message, 0, 0, 0, 'text/html');
 		}
 		if ($sendEmailNotices && $db->get_site_setting('admin_notice_item_approval') && $approvalItems) {
 			//send e-mail to admin about items awaiting approval
