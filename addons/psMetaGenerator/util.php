@@ -183,30 +183,7 @@ class addon_psMetaGenerator_util
       $this->head .= "       <meta property=\"og:$prop\" content=\"$content\" />\n";
     }
     $this->head .= '       <meta property="fb:admins" content="751771807" />';
-	$this->head .= "<script type='text/javascript'>
-var googletag = googletag || {};
-googletag.cmd = googletag.cmd || [];
-(function() {
-var gads = document.createElement('script');
-gads.async = true;
-gads.type = 'text/javascript';
-var useSSL = 'https:' == document.location.protocol;
-gads.src = (useSSL ? 'https:' : 'http:') + 
-'//www.googletagservices.com/tag/js/gpt.js';
-var node = document.getElementsByTagName('script')[0];
-node.parentNode.insertBefore(gads, node);
-})();
-</script>
-<script type='text/javascript'>
-googletag.cmd.push(function() {
-googletag.defineSlot('/1065533/HZ_Stallionzone_med_rec', [300, 250], 'div-gpt-ad-1369803107377-0').addService(googletag.pubads());
-googletag.defineSlot('/1065533/HZ_Stallionzone_Med_Rec_bottom', [300, 250], 'div-gpt-ad-1369803260799-0').addService(googletag.pubads());
-googletag.defineSlot('/1065533/horsezone_other_top', [728, 90], 'horsezone_other_top').addService(googletag.pubads());
-googletag.defineSlot('/1065533/horsezone_other_left', [160, 600], 'horsezone_other_left').addService(googletag.pubads());
-googletag.defineSlot('/1065533/horsezone_other_bottom', [728, 90], 'horsezone_other_bottom').addService(googletag.pubads());
-googletag.enableServices();
-});
-</script>";
+	
   }
 
   public function cleanText( $txt ) {
