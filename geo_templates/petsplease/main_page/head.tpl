@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>Pets, pet breeders and pet shop classifieds on Pets Please{if {module tag='module_title'} neq ""} - {module tag='module_title'}{/if}</title>
+	<title>Pets, breeders and pet shop classifieds in Australia - Pets Please{if {module tag='module_title'} neq ""} - {module tag='module_title'}{/if}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 	<meta name="Keywords" content="Pets Please, pet breeders, pomeranian, Dogs, Cats, Birds, Fish, Reptiles, Puppies, Kittens, Rabbits" />
