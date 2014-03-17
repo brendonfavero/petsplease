@@ -167,7 +167,7 @@ class addon_ppSearch_tags extends addon_ppSearch_info
         
         $sql = "SELECT title from geodesic_classifieds where category = 412 order by title asc";
         $result = $db->GetCol($sql);
-        $tpl_vars['stores'] = $result;
+        $tpl_vars['stores'] = geoString::fromDB($result);
 
 		// Sort options
 		$tpl_vars['sort_options'] = array(
