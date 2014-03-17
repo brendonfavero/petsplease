@@ -2,11 +2,11 @@
 <html>
 <head>
 
-	<title>Pets Please{if {module tag='module_title'} neq ""} - {module tag='module_title'}{/if}</title>
+	<title>Pets, pet breeders and pet shop classifieds on Pets Please{if {module tag='module_title'} neq ""} - {module tag='module_title'}{/if}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
-	<meta name="Keywords" content="Pets Please, Dogs, Cats, Classifieds, Birds, Fish, Reptiles, Puppies, Kittens, Rabbits" />
-	<meta name="Description" content="PET CLASSIFIED WEBSITE" />
+	<meta name="Keywords" content="Pets Please, pet breeders, pomeranian, Dogs, Cats, Birds, Fish, Reptiles, Puppies, Kittens, Rabbits" />
+	<meta name="Description" content="Pets Please is a classified website that has listings for all kinds of pets including, dogs, cats, birds and fish" />
 	<meta name="google-site-verification" content="Z5pMM5JDfpcOkzKn-LCEM9f3KqjCdAcnZnMrF--r61w" />
 	{header_html}
 	{if $alt_css}
