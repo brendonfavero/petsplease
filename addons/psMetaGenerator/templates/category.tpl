@@ -10,10 +10,9 @@ Note to template designers:
 	my_template_set/addons/example/hello_world_admin.tpl
 
  *}
- <link type="text/css" rel="stylesheet" href="/ps/custom-theme/jquery-ui-1.8.custom.css" />
-<script type="text/javascript" src="/ps/jquery-1.9.1.min.js" ></script>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js" ></script>
 <script>  jQuery.noConflict();	var $J = jQuery; </script>
-<script type="text/javascript" src="/ps/jquery-ui-1.9.2.custom.min.js" ></script>
+<script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js" ></script>
 <script type="text/javascript" src="{$pathAddon}/scripts/tiny_mce/jquery.tinymce.js" ></script>
 <div>{$status}</div>
 {literal}
