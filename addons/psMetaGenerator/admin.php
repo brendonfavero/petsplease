@@ -31,7 +31,7 @@ class addon_psMetaGenerator_admin
 		geoView::getInstance()->setBodyTpl('page.tpl','psMetaGenerator');
 
 		
-		$vars = array( 'pathAddon' => '/addons/ampseCustom', 'url' => $_SERVER['REQUEST_URI']); // returned template vars
+		$vars = array( 'pathAddon' => '/addons/psMetaGenerator', 'url' => $_SERVER['REQUEST_URI']); // returned template vars
 		 $vars ['status'] = '';
 		 $vars['addonPath'] = GEO_BASE_DIR."addons/psMetaGenerator";
 
@@ -154,7 +154,7 @@ class addon_psMetaGenerator_admin
 		geoView::getInstance()->setBodyTpl('category.tpl','psMetaGenerator');
 
 		
-		$vars = array( 'pathAddon' => '/addons/ampseCustom', 'url' => $_SERVER['REQUEST_URI']); // returned template vars
+		$vars = array( 'pathAddon' => '/addons/psMetaGenerator', 'url' => $_SERVER['REQUEST_URI']); // returned template vars
 		 $vars ['status'] = '';
 		 $vars['addonPath'] = GEO_BASE_DIR."addons/psMetaGenerator";
 
