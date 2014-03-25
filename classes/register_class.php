@@ -1376,8 +1376,37 @@ class Register extends geoSite {
 			}
 			if ($this->db->get_site_setting('send_register_attempt_email_admin')) {
 				$mailto = $this->db->get_site_setting('registration_admin_email');
-				$subject = "NOTIFY ".$this->site_name." Registration attempt";
-				$message ="Username : ".$this->username."\nE-Mail : ".$this->registered_variables['email']."\n\n";
+                $subject = "registration complete for ".$this->registered_variables["username"];
+                $message = "registration code: ".$this->registered_variables["registration_code"]."\n";
+                $message .= "just registered: ".$this->registered_variables["username"]."\n";
+                $message .= "user_id: ".$this->user_id."\n";
+                $message .= "username: ".$this->registered_variables["username"]."\n";
+                $message .= "email: ".$this->registered_variables["email"]."\n";
+                $message .= "email2: ".$this->registered_variables["email2"]."\n";
+                $message .= "company name: ".$this->registered_variables["company_name"]."\n";
+                $message .= "business type: ".$business_type."\n";
+                $message .= "first name: ".$this->registered_variables["firstname"]."\n";
+                $message .= "last name: ".$this->registered_variables["lastname"]."\n";
+                $message .= "address: ".$this->registered_variables["address"]."\n";
+                $message .= "address line 2: ".$this->registered_variables["address_2"]."\n";
+                $message .= "city: ".$this->registered_variables["city"]."\n";
+                $message .= "state: ".$this->registered_variables["state"]."\n";
+                $message .= "zip: ".$this->registered_variables["zip"]."\n";
+                $message .= "country: ".$this->registered_variables["country"]."\n";
+                $message .= "phone: ".$this->registered_variables["phone"]."\n";
+                $message .= "phone 2: ".$this->registered_variables["phone_2"]."\n";
+                $message .= "fax: ".$this->registered_variables["fax"]."\n";
+                $message .= "url: ".$this->registered_variables["url"]."\n";
+                $message .= "optional field 1: ".$this->registered_variables["optional_field_1"]."\n";
+                $message .= "optional field 2: ".$this->registered_variables["optional_field_2"]."\n";
+                $message .= "optional field 3: ".$this->registered_variables["optional_field_3"]."\n";
+                $message .= "optional field 4: ".$this->registered_variables["optional_field_4"]."\n";
+                $message .= "optional field 5: ".$this->registered_variables["optional_field_5"]."\n";
+                $message .= "optional field 6: ".$this->registered_variables["optional_field_6"]."\n";
+                $message .= "optional field 7: ".$this->registered_variables["optional_field_7"]."\n";
+                $message .= "optional field 8: ".$this->registered_variables["optional_field_8"]."\n";
+                $message .= "optional field 9: ".$this->registered_variables["optional_field_9"]."\n";
+                $message .= "optional field 10: ".$this->registered_variables["optional_field_10"]."\n";
 
 				$from = $this->db->get_site_setting('registration_admin_email');
 				$ip = $_SERVER['REMOTE_ADDR'];
@@ -2007,7 +2036,6 @@ class Register extends geoSite {
 
 				  		//send email saying registration is complete
 				  		if ($this->db->get_site_setting('send_register_complete_email_client')) {
-				  		    geoEmail::sendMail('brendon@ardex.com.au', 'test', 'test', 'brendon@ardex.com.au', 0, 0, 'text/html');
 							$mailto = $show->EMAIL;
 							$subject = urldecode($this->messages[678]);
 							
@@ -2135,6 +2163,18 @@ class Register extends geoSite {
 		$this->get_text();
 		geoView::getInstance()->setBodyTpl('confirmation_instructions.tpl','','registration');
 		$this->display_page();
+        
+        $mailto = $this->registered_variables['email'];
+        $subject = "Registration Pending Approval";
+        $message ="Thank you for registering on Pets Please. <br/><br/>
+                Your registration is currently being processed for approval. This process will be completed shortly.
+                Once your registration is completed you will receive an email confirming your registration and allowing access to your Pets Please account.
+                        ";
+
+        $from = $this->db->get_site_setting('registration_admin_email');
+       
+        geoEmail::sendMail($mailto, $subject, $message, $from, $from, 0, 'text/plain');
+        trigger_error('DEBUG STATS: Sending Admin E-Mail: POST');
 		return true;
 	} //end of function confirm
 

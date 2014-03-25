@@ -16,7 +16,7 @@
 		{foreach from=$order_questions item="question"}
 			{assign var="key" value=$question.key}
 
-			
+			{if $key neq 206}
 
 			<div>
 					<label for="b[question_value][{$key}]" class="field_label">
@@ -102,6 +102,8 @@
 				<br/><br/>
 				Once the payment has been made, you will receive an email with all the sale details, all you need to do is sent the product to the customer, it is the easiest way to sell.
 				<br/><br/>
+			
+			{/if}
 			
 			{/if}
 		{/foreach}

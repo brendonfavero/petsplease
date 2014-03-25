@@ -93,7 +93,8 @@ that it will corrupt the smarty tags!
 		{if $cfg.cols.price and $listing.price}
 			<span>
 				{if $listing.topcategory eq 411}
-					Prices from {$listing.from_price}/night to {$listing.to_price}/night
+					{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_charge' qid=206}
+					Prices from {$listing.from_price}  to {$listing.to_price} {$ex_charge}
 				{else}
 					{$listing.price}
 					{if $ex_males + $ex_females gt 1}

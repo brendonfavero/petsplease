@@ -115,6 +115,22 @@
 					{include file="shared/postcurrency_dropdown.tpl"}					
 				</div>
 				
+				{foreach from=$questions key="display_order" item="order_questions"}
+					{foreach from=$order_questions item="question"}
+						{assign var="key" value=$question.key}						
+						{if $key eq 206}
+							Accommodation Price Charge
+							<select class="field" name="b[question_value][{$key}]" id="b[question_value][{$key}]">
+								{foreach from=$question.choices item="choice"}
+									<option{if $session_variables.question_value.$key|strip == $choice.value|strip} selected="selected"{/if}>
+										{$choice.value}
+									</option>
+								{/foreach}
+							</select>
+							{$question.help}
+						{/if}
+					{/foreach}
+				{/foreach}			
 			{else}
 				<div class="{if $error_msgs.price}field_error_row {/if}{cycle values='row_odd,row_even'}">
 					<label for="price" class="field_label">{$messages.134}</label>

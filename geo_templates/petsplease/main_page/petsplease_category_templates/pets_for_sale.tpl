@@ -270,7 +270,8 @@
 		{if $price}
 			<span>
 				{if $topcategory eq 411}
-					Prices from {$from_price}/night to {$to_price}/night
+					{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_charge' qid=206}
+					Prices from {$from_price}  to {$to_price} {$ex_charge}
 				{else}
 					{$price}
 					{if $ex_males + $ex_females gt 1}
