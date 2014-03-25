@@ -35,9 +35,20 @@ class addon_ppPetSelector_admin extends addon_ppPetSelector_info
 					$sql = "SELECT * FROM petsplease_petselector_breed WHERE id = ?";
 					$result = $db->GetRow($sql, array($breedId));
 					$view->setBodyVar('detail', $result);
+                    $pettype = $result['pettype_id'];
 				}
-
-				$view->setBodyTpl('admin/changedetail.tpl', $this->name);
+                
+                if (isset($pettype)) {
+                    if ($pettype == 3) {
+                        $view->setBodyTpl('admin/birddetail.tpl', $this->name);
+                    }
+                    else {
+                        $view->setBodyTpl('admin/changedetail.tpl', $this->name);
+                    }
+                }
+                else {
+                    $view->setBodyTpl('admin/changedetail.tpl', $this->name);
+                }			
 			}
 			else {
 				$sql = "SELECT id, pettype_id, breed FROM petsplease_petselector_breed ORDER BY pettype_id, breed";
@@ -56,7 +67,7 @@ class addon_ppPetSelector_admin extends addon_ppPetSelector_info
 		$vars = $_REQUEST['d'];
 
 		$cols = array("pettype_id", "breed", "description", "height", "weight", "size", "lifespan", "hypoallergenic", 
-			"colours", "coatlength", "housing", "familyfriendly", "trainability", "energy", "grooming", "shedding");
+			"colours", "coatlength", "housing", "familyfriendly", "trainability", "energy", "grooming", "shedding", "sexing");
 
 		if ($_REQUEST['action'] == "images") {
 			if (@is_uploaded_file($_FILES['imagefile']['tmp_name'])) {

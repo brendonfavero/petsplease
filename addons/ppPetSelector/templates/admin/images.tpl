@@ -10,6 +10,7 @@
 }
 </style>
 <div>
+	
 	<a href="?page=addon_petselector_settings&mc=addon_cat_ppPetSelector">Back to list</a>
 	<h2>Images for {$detail.breed}</h2>
 
@@ -28,7 +29,8 @@
 <div style="margin-top:24px;">
 	<b>Upload new image:</b>
 	<form method="post" enctype="multipart/form-data">
-
+		<input type="hidden" name="d[id]" value="{$detail.id}">
+		
 		<input type="file" name="imagefile">
 		<br>
 		<input type="submit" name="auto_save" value="Upload Image">
