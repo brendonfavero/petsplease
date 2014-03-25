@@ -1017,7 +1017,9 @@ class Search_classifieds extends geoBrowse
 					$c = 0;
 				}
 				$c=($c)? "&amp;order=$c" : '';
-				$url = $this->search_link."$c&amp;page=";
+                
+                $url = $this->search_link."$c&action=search&amp;page=";
+                
 				$css = "browsing_result_page_links";
 				$tpl_vars['pagination'] = geoPagination::getHTML($numPages, $this->page_result, $url, $css);
 			}

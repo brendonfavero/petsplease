@@ -97,7 +97,7 @@
 			<option value="" class="showalways">All Shops</option>
 
 			{foreach from=$stores item=store}
-				<option{if $store eq $search_parms.b.store} selected="selected"{/if}>{$store}</option>
+				<option{if $store eq $search_parms.b.store} selected="selected"{/if}>{$store|replace:'+':' '}</option>
 			{/foreach}
 		</select>
 	</div>

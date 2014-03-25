@@ -181,6 +181,14 @@ class addon_ppSearch_util extends addon_ppSearch_info
 
 			$query->where("$classTable.`optional_field_1` LIKE \"%$urlencodedService%\"", "services_service");
 		}
+        
+        $store_criteria = $searchClass->search_criteria["store"];
+        if ($store_criteria) {
+            $store_criteria = mysql_real_escape_string($store_criteria);
+            $urlencodedStore = urlencode($store_criteria);
+
+            $query->where("$classTable.`title` LIKE \"%$urlencodedStore%\"", "stores_store");
+        }
 
 		// Dog Size
 		$dogsize_criteria = $searchClass->search_criteria["dog_size"];
