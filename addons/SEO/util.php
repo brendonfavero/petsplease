@@ -551,7 +551,7 @@ class addon_SEO_util extends addon_SEO_info {
 		//trigger_error('DEBUG STATS: Re-writting URL '.$url);
 		//Now re-write each URL according to criteria.
 		
-		if (isset($get['a']) && $get['a'] == 19 && isset($get['c']) ) {
+		if (isset($get['a']) && $get['a'] == 19 && isset($get['c']) && (!isset($get['action']) || $get['action'] != 'search')) {
 			//a is 5, b is set and page may or may not be set.
 			//?a=5&b=##
 			

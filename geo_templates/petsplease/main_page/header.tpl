@@ -65,27 +65,27 @@
 
 	<ul id="header-petnav" class="buttonset clearfix">
 		<li class="nav-dog"> 
-			<h1><a href="/index.php?a=19&c=309&b[subcategories_also]=1"><span>Dogs &amp;<br>Puppies</span></a></h1>
+			<h3><a href="/index.php?a=19&c=309&b[subcategories_also]=1"><span>Dogs &amp;<br>Puppies</span></a></h3>
 		</li>
 
 		<li class="nav-cat">
-			<h1><a href="/index.php?a=19&c=310&b[subcategories_also]=1"><span>Cats &amp;<br>Kittens</span></a></h1>
+			<h3><a href="/index.php?a=19&c=310&b[subcategories_also]=1"><span>Cats &amp;<br>Kittens</span></a></h3>
 		</li>
 
 		<li class="nav-bird">
-			<h1><a href="/index.php?a=19&c=311&b[subcategories_also]=1"><span>Birds</span></a></h1>
+			<h3><a href="/index.php?a=19&c=311&b[subcategories_also]=1"><span>Birds</span></a></h3>
 		</li>
 
 		<li class="nav-fish">
-			<h1><a href="/index.php?a=19&c=312&b[subcategories_also]=1"><span>Fish</span></a></h1>
+			<h3><a href="/index.php?a=19&c=312&b[subcategories_also]=1"><span>Fish</span></a></h3>
 		</li>
 
 		<li class="nav-reptile">
-			<h1><a href="/index.php?a=19&c=313&b[subcategories_also]=1"><span>Reptiles</span></a></h1>
+			<h3><a href="/index.php?a=19&c=313&b[subcategories_also]=1"><span>Reptiles</span></a></h3>
 		</li>
 
 		<li class="nav-other last">
-			<h1><a href="/index.php?a=19&c=314&b[subcategories_also]=1"><span>Other Pets</span></a></h1>
+			<h3><a href="/index.php?a=19&c=314&b[subcategories_also]=1"><span>Other Pets</span></a></h3>
 		</li>
 	</ul>
 
@@ -99,27 +99,27 @@
 		</li>
 
 		<li>
-			<h1><a href="/shops">Pet Shops</a></h1>
+			<h3><a href="/shops">Pet Shops</a></h3>
 		</li>
 
 		<li>
-			<h1><a href="/accommodation" class="large">Pet Friendly Accommodation</a></h1>
+			<h3><a href="/accommodation" class="large">Pet Friendly Accommodation</a></h3>
 		</li>
 
 		<li>
-			<h1><a href="/breeders">Pet Breeders</a></h1>
+			<h3><a href="/breeders">Pet Breeders</a></h3>
 		</li>
 
 		<li>
-			<h1><a href="/services">Pet Services</a></h1>
+			<h3><a href="/services">Pet Services</a></h3>
 		</li>
 		
 		<li>
-			<h1><a href="/shelters">Pet Shelters</a></h1>
+			<h3><a href="/shelters">Pet Shelters</a></h3>
 		</li>
 
 		<li>
-			<h1><a href="/clubs">Pet Clubs</a></h1>
+			<h1><a href="/clubs">Pet Clubs</a></h3>
 		</li>
 		<li class="last">
 			<a href="/news">Pet News</a>
