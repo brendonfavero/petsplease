@@ -31,35 +31,35 @@
 	
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=200} {* Shelter,News = 201 *}
 	{if $shelter_news && $topcategory eq 316}
-		<h1 class="title">Breeder News</h1>
+		<h2 class="title">Breeder News</h2>
 		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
 	
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=202} {* Shelter,News = 201 *}
 	{if $shelter_news && $topcategory eq 411}
-		<h1 class="title">Accomodation News</h1>
+		<h2 class="title">Accomodation News</h2>
 		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
 	
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=203} {* Shelter,News = 201 *}
 	{if $shelter_news && $topcategory eq 318}
-		<h1 class="title">Service News</h1>
+		<h2 class="title">Service News</h2>
 		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
 	
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=204} {* Shelter,News = 201 *}
 	{if $shelter_news && $topcategory eq 319}
-		<h1 class="title">Club News</h1>
+		<h2 class="title">Club News</h2>
 		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
 	
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='shelter_news' qid=201} {* Shelter,News = 201 *}
 	{if $shelter_news && $topcategory eq 420}
-		<h1 class="title">Shelter News</h1>
+		<h2 class="title">Shelter News</h2>
 		<div class="content_box_1">{$shelter_news}</div>
 	{/if}
 
-	<h1 class="title">{$seller_label}</h1>
+	<h2 class="title">{$seller_label}</h2>
 	<div class="content_box_1">
 		User: {listing tag='seller'}<br>
 		Member Since: {listing field='member_since'}<br>
@@ -247,7 +247,7 @@
 	{/if}
 
 	<div class="listing_heading">
-		<h1>{$title}</h1>
+		<h2>{$title}</h2>
 		{listing tag='profileHeader' addon='ppListingDisplay' assign='profileLink'}
 			{if $profileLink}
 				{$profileLink}
@@ -359,7 +359,7 @@
 
 	{* START DESCRIPTION *}
 		
-	<h1 class="title">Details</h1>
+	<h2 class="title">Details</h2>
 	<div class="content_box_1">
 		{if $ex_size}
 			<div class="field_set">
@@ -506,7 +506,7 @@
 
 	{listing tag='offsite_videos_block' assign='offsite_videos_block'}
 	{if $offsite_videos_block}
-		<h1 class="title">{$offsite_videos_title}</h1>
+		<h2 class="title">{$offsite_videos_title}</h2>
 		<div class="content_box_1">		
 			{$offsite_videos_block}
 			<div class="clr"><br /></div>
@@ -516,7 +516,7 @@
 	{* START GOOGLE MAPS *}
 	{addon author='geo_addons' addon='google_maps' tag='listing_map' assign='map'}
 	{if $map}
-		<h1 class="title">{$additional_text_18}</h1>
+		<h2 class="title">{$additional_text_18}</h2>
 		<div class="content_box_1 cntr">
 			{* Make sure map is centered in the box *}
 			<div style="display: inline-block;">{$map}</div>

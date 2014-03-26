@@ -24,7 +24,7 @@
 	{/if}
 
 	<!-- SHOP CATEGORIES BEGIN -->
-	<h1 class="title">Categories</h1>
+	<h2 class="title">Categories</h2>
 	<div class="content_box_1">
 		{listing tag='storeCategories' addon='ppListingDisplay'}
 	</div>
@@ -33,14 +33,14 @@
 	<!-- SHOP NEWS BEGIN -->
 	{listing tag='extraQuestionValue' addon='ppListingDisplay' assign='ex_news' qid=190} {* Shop,News = 190 *}
 	{if $ex_news}
-		<h1 class="title">News</h1>
+		<h2 class="title">News</h2>
 		<div class="content_box_1">{$ex_news}</div>
 	{/if}
 	<!-- SHOP NEWS END -->
 
 
 	<!-- SELLER INFO BEGIN -->						
-	<h1 class="title">{$seller_label}</h1>
+	<h2 class="title">{$seller_label}</h2>
 	<div class="content_box_1">
 		User: {listing tag='seller'}<br>
 		Member Since: {listing field='member_since'}<br>
@@ -193,7 +193,7 @@
 
 <div class="listing_maincol">
 	<div class="listing_heading">
-		<h1>{$title}</h1>
+		<h2>{$title}</h2>
 	</div>
 
 	{listing tag='listingBannerImages' addon='ppListingImagesExtra'}
@@ -202,7 +202,7 @@
 
 	{* START DESCRIPTION *}
 		
-	<h1 class="title">Details</h1>
+	<h2 class="title">Details</h2>
 	<div class="content_box_1">
 		<div class="field_set">
 			<span class="field_name">Description:</span>
@@ -215,7 +215,7 @@
 	{* START GOOGLE MAPS *}
 	{addon author='geo_addons' addon='google_maps' tag='listing_map' assign='map'}
 	{if $map}
-		<h1 class="title">{$additional_text_18}</h1>
+		<h2 class="title">{$additional_text_18}</h2>
 		<div class="content_box_1 cntr">
 			{* Make sure map is centered in the box *}
 			<div style="display: inline-block;">{$map}</div>
