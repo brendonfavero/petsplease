@@ -46,7 +46,7 @@ that it will corrupt the smarty tags!
 		{if $cfg.cols.title}
 			<div class="title">
 				{if $listing.icons.sold && $cfg.icons.sold}<img src="{$cfg.icons.sold}" alt="" />{/if}
-				<h1><a href="{$cfg.listing_url}{$id}">{$listing.title}</a></h1>
+				<h2><a href="{$cfg.listing_url}{$id}">{$listing.title}</a></h2>
 				{if $listing.icons.verified && $cfg.icons.verified}<div><img src="{$cfg.icons.verified}" class="verified_icon" alt="" /></div>{/if}
 				{if $listing.icons.buy_now && $cfg.icons.buy_now}<div><img src="{$cfg.icons.buy_now}" class="buy_now_icon" alt="" /></div>{/if}
 				{if $listing.icons.reserve_met && $cfg.icons.reserve_met}<div><img src="{$cfg.icons.reserve_met}" class="reserve_met_icon" alt="" /></div>{/if}

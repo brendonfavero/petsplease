@@ -61,10 +61,10 @@ that it will corrupt the smarty tags!
 			</div>
 		{/if}
 
-		<h1>
+		<h2>
 			{if $listing.icons.sold && $cfg.icons.sold}<img src="{$cfg.icons.sold}" alt="" />{/if}
 			<a href="{$cfg.listing_url}{$id}">{$listing.title}</a>
-		</h1>
+		</h2>
 		{if $listing.featured_ad eq '1'}
 		<p style="
 		    color: white;
