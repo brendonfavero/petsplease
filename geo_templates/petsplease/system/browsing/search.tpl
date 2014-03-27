@@ -18,6 +18,10 @@
 </div>
 
 <div class="col_right">
+	<h1 class="title">
+		{$current_category_name}
+	</h1>
+	<br/><br/>
 	{if $pagination}
 		{$pagination}
 	{/if}

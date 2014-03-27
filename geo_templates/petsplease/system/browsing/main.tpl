@@ -23,6 +23,9 @@
 </div>
 
 <div class="col_right">
+	<h1 class="title">
+		{$messages.28} {$current_category_name}
+	</h1>
 	{if $pagination}
 		{$messages.757} {$pagination}
 	{/if}

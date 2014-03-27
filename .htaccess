@@ -80,6 +80,9 @@ Options +FollowSymlinks
 RewriteEngine On
 RewriteBase /
 
+RewriteCond %{HTTP_HOST} ^www\.petsplease\.com\.au$ [NC]
+RewriteRule ^(.*)$ http://petsplease.com.au/$1 [L,R=301]
+
 RewriteRule ^/?geo_testunit$ index.php [L] ##URL Rewrite Test
 
 RewriteRule ^/?(Featured_Listings)/([0-9]+)\.html$  index.php?a=8&page=$2 [QSA,L] ##featured listings page

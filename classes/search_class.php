@@ -327,8 +327,7 @@ class Search_classifieds extends geoBrowse
 		$tooltip[4] = $this->display_help_link(586);
 		$tpl_vars['tooltip'] = $tooltip;
 		$tpl_vars['category_dropdown'] = $category_dropdown;
-		$tpl_vars['queryFields'] = $fields;
-		
+		$tpl_vars['queryFields'] = $fields;         
 		
 		//body for errors because any error messages from a failed Search()
  		//will already be held in $this->body.
@@ -1122,6 +1121,12 @@ class Search_classifieds extends geoBrowse
 			$tpl_vars['browse_sort_url'] = $this->search_link."&amp;order=";
 			$tpl_vars['browse_view_url'] = $tpl_vars['browse_sort_url'].$this->browse_type.'&amp;browse_view=';
 			
+            if ($this->site_category) {
+                $current_category_name = geoCategory::getName($this->site_category);
+                $parent_id = $this->site_category;
+            }
+            
+            $tpl_vars['current_category_name'] = $current_category_name->CATEGORY_NAME;
 			
 			$view->setBodyTpl('search.tpl', '', 'browsing')
 				->setBodyVar($tpl_vars);

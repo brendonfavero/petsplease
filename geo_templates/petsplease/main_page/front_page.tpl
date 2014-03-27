@@ -4,7 +4,7 @@
 	{include file='header.tpl'}
 	<div class="content_shell home">
 		<div id="homewelcome">
-			<p class="large">Advertise your Pet or Product for free</p>
+			<h1 class="large">Advertise your Pet or Product for free</h1>
 			<p>Place your listing today it is easy</p>
 			<ul>
 				<li>Up to 20 photos</li>

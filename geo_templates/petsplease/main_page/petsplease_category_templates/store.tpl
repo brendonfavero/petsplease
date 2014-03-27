@@ -193,7 +193,7 @@
 
 <div class="listing_maincol">
 	<div class="listing_heading">
-		<h2>{$title}</h2>
+		<h1>{$title}</h1>
 	</div>
 
 	{listing tag='listingBannerImages' addon='ppListingImagesExtra'}

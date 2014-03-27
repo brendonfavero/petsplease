@@ -247,7 +247,7 @@
 	{/if}
 
 	<div class="listing_heading">
-		<h2>{$title}</h2>
+		<h1>{$title}</h1>
 		{listing tag='profileHeader' addon='ppListingDisplay' assign='profileLink'}
 			{if $profileLink}
 				{$profileLink}

@@ -24,173 +24,186 @@ class addon_psMetaGenerator_util
   // render that into the document (after the <head> tag)
   // 2011-08 adding the ability to parse filters for a particular page
   // to render sprintf input.
-	public function core_notify_display_page ($vars)
-	{
-		$view = geoView::getInstance();
+    public function core_notify_display_page ($vars)
+    {
 
-		$db = DataAccess::getInstance();
-		$settingsRegistry = geoAddon::getRegistry('psMetaGenerator');
-
-    // get site defaults (keep in mind, these can be overwritten by globals at the end)
-    $meta = array( 'title' =>	$title = $settingsRegistry->get('title'),
-                   'description' => $description = $settingsRegistry->get('description'),
-                   'keywords' => $keywords = $settingsRegistry->get('keywords') );
-    $og = array( 'title' => $meta['title'],
-      'type' => 'company',
-      'description' => $meta['title'],
-      'url' => 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'],
-      'image' => 'http://horsezone.com.au/images/logo.png' );
-    $descLength = intval($settingsRegistry->get('descLength'));
-		$siteName = $settingsRegistry->get('siteName');
-		if ( $descLength < 1 ) {
-			$descLength = 150;
-    }
-    $templateVars = array();
-		$row = "";
-
-		// get currently rendered page or addon
-		$page = (isset($vars['this']->page_id)) ? $vars['this']->page_id : false ;
-    $addon = (isset($vars['this']->addon_name)) ? $vars['this']->addon_name : false ;
-    $pageID = intval( $page );
-    $addonID = $addon ? "$addon:$page" : '' ;
-
-		if ( $page || $addon ) {
-      $pageResult = $db->Execute( sprintf( "SELECT `title`, `descr`, `keywords`
+        $view = geoView::getInstance();
+    
+        $db = DataAccess::getInstance();
+        $settingsRegistry = geoAddon::getRegistry('psMetaGenerator');
+    
+        // get site defaults (keep in mind, these can be overwritten by globals at the end)
+        $meta = array( 'title' =>	$title = $settingsRegistry->get('title'),
+        'description' => $description = $settingsRegistry->get('description'),
+        'keywords' => $keywords = $settingsRegistry->get('keywords') );
+        $og = array( 'title' => $meta['title'],
+        'type' => 'company',
+        'description' => $meta['title'],
+        'url' => 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'],
+        'image' => 'http://horsezone.com.au/images/logo.png' );
+        $descLength = intval($settingsRegistry->get('descLength'));
+        $siteName = $settingsRegistry->get('siteName');
+        if ( $descLength < 1 ) {
+        $descLength = 150;
+        }
+        $templateVars = array();
+        $row = "";
+    
+        // get currently rendered page or addon
+        $page = (isset($vars['this']->page_id)) ? $vars['this']->page_id : false ;
+        $addon = (isset($vars['this']->addon_name)) ? $vars['this']->addon_name : false ;
+        $pageID = intval( $page );
+        $addonID = $addon ? "$addon:$page" : '' ;
+    
+        if ( $page || $addon ) {
+            $pageResult = $db->Execute( sprintf( "SELECT `title`, `descr`, `keywords`
             FROM `ps_metaGenerator_pages`
             WHERE `pid` = '%d'" . ( $addon ? "AND `addon` = '%s'" : '' ),
-        $pageID,
-        mysql_real_escape_string( $addonID )
-      ));
-      // if a match was found for specific pages
-			if( $pageResult && $pageResult->RecordCount() > 0 ) {
-        $row = $pageResult->FetchRow();
-        // load up the filters and parse template vars
-        require_once( dirname( __FILE__ ) . '/filters.php' );
-        $filters = new addon_psMetaGenerator_filters();
-        if ( method_exists( $filters, "pid_$pageID$addonID" ) ) {
-          $templateVars = array_merge( $templateVars, $filters->{"pid_$pageID$addonID"}() );
+            $pageID,
+            mysql_real_escape_string( $addonID )
+            ));
+            
+            
+            
+            
+            // if a match was found for specific pages
+            if( $pageResult && $pageResult->RecordCount() > 0 ) {
+                $row = $pageResult->FetchRow();
+                // load up the filters and parse template vars
+                require_once( dirname( __FILE__ ) . '/filters.php' );
+                $filters = new addon_psMetaGenerator_filters();
+                if ( method_exists( $filters, "pid_$pageID$addonID" ) ) {
+                    $templateVars = array_merge( $templateVars, $filters->{"pid_$pageID$addonID"}() );
+                }
+                if ( $row['title'] ) {
+                    $og['title'] = $row['title'];
+                }
+                if ( $row['descr'] ) {
+                    $og['description'] = $row['descr'];
+                }
+            }
         }
-        if ( $row['title'] ) {
-          $og['title'] = $row['title'];
+        $category_id = $_REQUEST['c'];
+        // get category
+        if( isset( $category_id)) {
+            // get the meta/extra data for the category
+           
+            $result = $db->Execute("SELECT * FROM `ps_metaGenerator_categories` WHERE `cid` = $category_id");
+            if($result && $result->RecordCount() > 0) {
+            $row = $result->FetchRow();
+            }
+        
+            // format title automagically
+            if( strlen( $row['title'] ) < 1 && $settingsRegistry->get('autoCategory') != "" && $settingsRegistry->get('autoCategory') !== false ) {
+                $categoryResult = $db->Execute("SELECT `c1`.`category_name` AS `child`, `c2`.`category_name` as `parent`
+                FROM `geodesic_categories` as `c1` LEFT JOIN `geodesic_categories` as `c2` ON `c1`.`parent_id` = `c2`.`category_id`
+                WHERE `c1`.`category_id` = $category_id");
+                if($categoryResult && $categoryResult->RecordCount() > 0 && $cat = $categoryResult->FetchRow() ) {
+                $category = $cat['child'];
+                $category = str_replace("&", "&amp;", $category);
+                $categoryPieces = explode( " ", $category);
+                $lastWord = &$categoryPieces[ count($categoryPieces) - 1 ];
+                $lastWord =   $this->pluralize( $lastWord );
+                $title = implode(" ", $categoryPieces);
+                if( $cat['parent'] != "" ) {
+                    $cat['parent'] = str_replace("&", "&amp;", $cat['parent']);
+                    $title .= ' - ' . $cat['parent'];
+                }
+                if( $siteName != "" ) {
+                    $title .= ' - ' . $siteName;
+                }
+                if( is_array($row) && isset( $row['title']) ) {
+                    $row['title'] = $title;
+                }else{
+                    $row = array('title' => $title );
+                }
+                $og['title'] = $row['title'];
+                $og['description'] = htmlentities( strip_tags( substr( $cat['extra'], 0, $descLength ) ) );
+                $og['description'] = $og['description'] ? $og['description'] : ( $row['descr'] ? $row['descr'] : $meta['description'] );
+                }
+            }
         }
-        if ( $row['descr'] ) {
-          $og['description'] = $row['descr'];
+    
+        //get listing
+        if( isset( geoView::getInstance()->classified_id)) {
+            $classified_id = geoView::getInstance()->classified_id;
+            $listingResult = $db->Execute("SELECT `ads`.`title`, `ads`.`description`, `ads`.`category`, `cats`.`category_name`, `i`.`thumb_url`
+            FROM `geodesic_classifieds` as `ads`
+            LEFT JOIN `geodesic_categories` as `cats` ON `ads`.`category` = `cats`.`category_id`
+            LEFT JOIN ( SELECT `thumb_url`, `classified_id` FROM `geodesic_classifieds_images_urls` WHERE `classified_id` = '$classified_id' ORDER BY `display_order` ) as `i` ON `ads`.`id` = `i`.`classified_id`
+            WHERE `ads`.`id` = '$classified_id' ORDER BY `i`.`classified_id` ");
+            if($listingResult && $listingResult->RecordCount() > 0 && $listing = $listingResult->FetchRow() ) {
+            $listing['keywords'] = "";
+            $categoryResult = $db->Execute("SELECT `keywords` FROM `ps_metaGenerator_categories` WHERE `cid` = '" . $listing['category'] . "'");
+            if( $categoryResult && $categoryResult->RecordCount() > 0 && $category = $categoryResult->FetchRow() ) {
+            $listing['keywords'] = $category['keywords'];
+            }
+            $row = array( 'title' => urldecode($listing['title']) . " - " . $listing['category_name'] . " - " . $siteName, 'descr' => htmlentities(strip_tags(substr(urldecode($listing['description']), 0, $descLength))), 'keywords' => $listing['keywords'] );
+            $og['title'] = $row['title'];
+            $og['description'] = $row['descr'];
+            $og['image'] = 'http://' . $_SERVER['SERVER_NAME'] . '/' . $listing['thumb_url'];
+            }
         }
-      }
-    }
-		// get category
-		if( isset( geoView::getInstance()->category_id)) {
-			// get the meta/extra data for the category
-			$result = $db->Execute("SELECT * FROM `ps_metaGenerator_categories` WHERE `cid` = '" . geoView::getInstance()->category_id . "'");
-			if($result && $result->RecordCount() > 0) {
-					$row = $result->FetchRow();
-			}
-
-			// format title automagically
-			if( strlen( $row['title'] ) < 1 && $settingsRegistry->get('autoCategory') != "" && $settingsRegistry->get('autoCategory') !== false ) {
-        $categoryResult = $db->Execute("SELECT `c1`.`category_name` AS `child`, `c2`.`category_name` as `parent`
-          FROM `geodesic_categories` as `c1` LEFT JOIN `geodesic_categories` as `c2` ON `c1`.`parent_id` = `c2`.`category_id`
-          WHERE `c1`.`category_id` = '" . geoView::getInstance()->category_id  . "'");
-				if($categoryResult && $categoryResult->RecordCount() > 0 && $cat = $categoryResult->FetchRow() ) {
-					$category = $cat['child'];
-					$category = str_replace("&", "&amp;", $category);
-					$categoryPieces = explode( " ", $category);
-					$lastWord = &$categoryPieces[ count($categoryPieces) - 1 ];
-					$lastWord =   $this->pluralize( $lastWord );
-					$title = implode(" ", $categoryPieces);
-					if( $cat['parent'] != "" ) {
-						$cat['parent'] = str_replace("&", "&amp;", $cat['parent']);
-						$title .= ' - ' . $cat['parent'];
-					}
-					if( $siteName != "" ) {
-						$title .= ' - ' . $siteName;
-					}
-					if( is_array($row) && isset( $row['title']) ) {
-						$row['title'] = $title;
-					}else{
-						$row = array('title' => $title );
-          }
-          $og['title'] = $row['title'];
-          $og['description'] = htmlentities( strip_tags( substr( $cat['extra'], 0, $descLength ) ) );
-          $og['description'] = $og['description'] ? $og['description'] : ( $row['descr'] ? $row['descr'] : $meta['description'] );
-				}
-      }
-		}
-
-		//get listing
-    if( isset( geoView::getInstance()->classified_id)) {
-      $classified_id = geoView::getInstance()->classified_id;
-      $listingResult = $db->Execute("SELECT `ads`.`title`, `ads`.`description`, `ads`.`category`, `cats`.`category_name`, `i`.`thumb_url`
-        FROM `geodesic_classifieds` as `ads`
-        LEFT JOIN `geodesic_categories` as `cats` ON `ads`.`category` = `cats`.`category_id`
-        LEFT JOIN ( SELECT `thumb_url`, `classified_id` FROM `geodesic_classifieds_images_urls` WHERE `classified_id` = '$classified_id' ORDER BY `display_order` ) as `i` ON `ads`.`id` = `i`.`classified_id`
-        WHERE `ads`.`id` = '$classified_id' ORDER BY `i`.`classified_id` ");
-			if($listingResult && $listingResult->RecordCount() > 0 && $listing = $listingResult->FetchRow() ) {
-				$listing['keywords'] = "";
-				$categoryResult = $db->Execute("SELECT `keywords` FROM `ps_metaGenerator_categories` WHERE `cid` = '" . $listing['category'] . "'");
-				if( $categoryResult && $categoryResult->RecordCount() > 0 && $category = $categoryResult->FetchRow() ) {
-					$listing['keywords'] = $category['keywords'];
-				}
-        $row = array( 'title' => urldecode($listing['title']) . " - " . $listing['category_name'] . " - " . $siteName, 'descr' => htmlentities(strip_tags(substr(urldecode($listing['description']), 0, $descLength))), 'keywords' => $listing['keywords'] );
-        $og['title'] = $row['title'];
-        $og['description'] = $row['descr'];
-        $og['image'] = 'http://' . $_SERVER['SERVER_NAME'] . '/' . $listing['thumb_url'];
-			}
-    }
-
-		if( $row ) {
-      if ( $row['title'] ) {
-        $meta['title'] = $row['title'];
-        if ( isset( $_GET['a'] ) && ( $_GET['a'] == 5 || $_GET['a'] == 19 ) && ( !empty( $_GET['page'] ) || !empty( $_GET['b']['page'] ) ) ) {
-          $pageNumber = 1;
-          if ( !empty( $_GET['page'] ) ) {
-            $pageNumber = $_GET['page'];
-          }
-          if ( $_GET['a'] == 19 && !empty( $_GET['b']['page'] ) ) {
-            $pageNumber = $_GET['b']['page'];
-          }
-          $meta['title'] .= " - Page $pageNumber";
+    
+        if( $row ) {
+            if ( $row['title'] ) {
+                $meta['title'] = $row['title'];
+                if ( isset( $_GET['a'] ) && ( $_GET['a'] == 5 || $_GET['a'] == 19 ) && ( !empty( $_GET['page'] ) || !empty( $_GET['b']['page'] ) ) ) {
+                $pageNumber = 1;
+                if ( !empty( $_GET['page'] ) ) {
+                $pageNumber = $_GET['page'];
+                }
+                if ( $_GET['a'] == 19 && !empty( $_GET['b']['page'] ) ) {
+                $pageNumber = $_GET['b']['page'];
+                }
+                $meta['title'] .= " - Page $pageNumber";
+                }
+            }
+            $meta['description'] = $row['descr'] ? $row['descr'] : $meta['description'];
+            $meta['keywords'] = $row['keywords'] ? $row['keywords'] : $meta['keywords'];
+            if($row['extra'] ) {
+            $this->categoryContent = $row['extra'];
+            }
         }
-			}
-			$meta['description'] = $row['descr'] ? $row['descr'] : $meta['description'];
-			$meta['keywords'] = $row['keywords'] ? $row['keywords'] : $meta['keywords'];
-			if($row['extra'] ) {
-				$this->categoryContent = $row['extra'];
-			}
+    
+        $globals = array( 'title', 'keywords', 'description' );
+        $globals_og = array( 'title', 'type', 'description', 'url', 'image' );
+        foreach ( $globals as $g ) {
+            global ${"psMetaGenerator_$g"};
+            if ( ${"psMetaGenerator_$g"} ) {
+                $meta[ $g ] = ${"psMetaGenerator_$g"};
+            }
+        }
+        foreach ( $globals_og as $g ) {
+            global ${"psMetaGenerator_og_$g"};
+            if ( ${"psMetaGenerator_og_$g"} ) {
+                $og[ $g ] = ${"psMetaGenerator_og_$g"};
+            }    
+        }
+        
+        $meta = $this->applyTemplateVars( $meta, $templateVars );
+        $meta['keywords'] = $this->cleanText( $meta['keywords'] );
+        $this->head = " <title>{$meta['title']}</title>
+        <meta name=\"description\" content=\"{$meta['description']}\" />
+        <meta name=\"keywords\" content=\"{$meta['keywords']}\" />";
+        foreach ( $og as $prop =>
+        $content ) {
+        $this->head .= "
+        <meta property=\"og:$prop\" content=\"$content\" />\n";
+        }
+        $this->
+        head .= '
+        <meta property="fb:admins" content="751771807" />
+        ';
+
     }
 
-    $globals = array( 'title', 'keywords', 'description' );
-    $globals_og = array( 'title', 'type', 'description', 'url', 'image' );
-    foreach ( $globals as $g ) {
-      global ${"psMetaGenerator_$g"};
-      if ( ${"psMetaGenerator_$g"} ) {
-        $meta[ $g ] = ${"psMetaGenerator_$g"};
-      }
+    public function cleanText( $txt ) {
+    return mb_convert_encoding( $txt,
+    'ISO-8859-1' );
     }
-    foreach ( $globals_og as $g ) {
-      global ${"psMetaGenerator_og_$g"};
-      if ( ${"psMetaGenerator_og_$g"} ) {
-        $og[ $g ] = ${"psMetaGenerator_og_$g"};
-      }
 
-    }
-    $meta = $this->applyTemplateVars( $meta, $templateVars );
-    $meta['keywords'] = $this->cleanText( $meta['keywords'] );
-    $this->head = "      <title>{$meta['title']}</title>
-    <meta name=\"description\" content=\"{$meta['description']}\" />
-    <meta name=\"keywords\" content=\"{$meta['keywords']}\" />";
-    foreach ( $og as $prop => $content ) {
-      $this->head .= "       <meta property=\"og:$prop\" content=\"$content\" />\n";
-    }
-    $this->head .= '       <meta property="fb:admins" content="751771807" />';
-	
-  }
-
-  public function cleanText( $txt ) {
-    return mb_convert_encoding( $txt, 'ISO-8859-1' );
-  }
-
-  public function applyTemplateVars( $templates, $vars ) {
+    public function applyTemplateVars( $templates, $vars ) {
     foreach ( $vars as $name => $value ) {
       // apply the replace on each piece of the meta data rows (title, desc, etc)
       $templates = str_ireplace( '{'.$name.'}', $value, $templates );
