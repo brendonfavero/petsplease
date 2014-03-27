@@ -1,2665 +1,2009 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!--
- created with Free Online Sitemap Generator www.xml-sitemaps.com 
--->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
 <url>
-<loc>http://petsplease.com.au/</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/?a=cart&action=new&main_type=classified
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/?a=cart&amp;action=new&amp;main_type=classified</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/?a=4</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/?a=4</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/?a=10</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/?a=10</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/competition</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/competition</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/petselector</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/petselector</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/favourites</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/favourites</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/?a=10&login_trackback=1</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/?a=10&amp;login_trackback=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/category/311/Birds.html</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/category/312/Fish.html</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/313/Reptiles.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/313/Reptiles.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/314/Other-Pets.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/314/Other-Pets.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/products</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/products</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/shops</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/shops</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/accommodation</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/accommodation</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/breeders</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/breeders</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/services</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/services</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/shelters</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/shelters</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/clubs</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/clubs</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/news</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/?a=28&b=138</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/?a=28&amp;b=138</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/353/Collars,-Leads-and-Harnesses/listings/350/Cat-Safety-Collar,-White-Cupcake.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/353/Collars,-Leads-and-Harnesses/listings/350/Cat-Safety-Collar,-White-Cupcake.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/424/Black-and-Grey-Comfort-Harness,-Extra-Large.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/424/Black-and-Grey-Comfort-Harness,-Extra-Large.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/465/Royal-Easter-show-winning-bloodlines-ragdoll-kitte.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/465/Royal-Easter-show-winning-bloodlines-ragdoll-kitte.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/288/Blue-Diamonte-Hearts-Collar-and-Lead,-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/288/Blue-Diamonte-Hearts-Collar-and-Lead,-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/531/Puggle-Puppies-For-Sale-Sydney.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/531/Puggle-Puppies-For-Sale-Sydney.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish/listings/482/Frontosa-top-quality-f1-fry-after-wild-caughts.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish/listings/482/Frontosa-top-quality-f1-fry-after-wild-caughts.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/283/Butterfly-Lavenda-Collar-and-Lead-Set,-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/283/Butterfly-Lavenda-Collar-and-Lead-Set,-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/587/Beautiful-Burmese-Kittens-For-Sale.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/587/Beautiful-Burmese-Kittens-For-Sale.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/535/PUREBRED-REGISTEREDPAPER-YELLOW-LABRADOR-PUPPIES.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/535/PUREBRED-REGISTEREDPAPER-YELLOW-LABRADOR-PUPPIES.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/416/Caramel-and-Light-Blue-trim-Harness-only,-Medium.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/416/Caramel-and-Light-Blue-trim-Harness-only,-Medium.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/499/Longhair-BurmillaTiffanie-Male-and-Female-kittens.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/499/Longhair-BurmillaTiffanie-Male-and-Female-kittens.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/683/Royal-Ricks,-Ragdoll-Kittens.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/683/Royal-Ricks,-Ragdoll-Kittens.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/385/SuperMan-Bandana,-Collar-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/385/SuperMan-Bandana,-Collar-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/349/Cat-Carriers-and-Cages/listings/625/Cat-Enclosures.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/349/Cat-Carriers-and-Cages/listings/625/Cat-Enclosures.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/462/Gouldian-Finche-Pairs-Normal-and-Mutation.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/462/Gouldian-Finche-Pairs-Normal-and-Mutation.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/461/Hand-Raised-Baby-Budgies.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/461/Hand-Raised-Baby-Budgies.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/458/Pomeranian-Puppies-For-Sale-Sydney.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/458/Pomeranian-Puppies-For-Sale-Sydney.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish/listings/481/Dragons-Blood-Peacocks-stunning-African-Cichlid.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish/listings/481/Dragons-Blood-Peacocks-stunning-African-Cichlid.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/248/Black-Bow-Tie-Collar-and-Lead-set-Medium.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/248/Black-Bow-Tie-Collar-and-Lead-set-Medium.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/463/Zebra-Finches-For-Sale-Sydney.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/463/Zebra-Finches-For-Sale-Sydney.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/321/Cat-Products.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/321/Cat-Products.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/322/Bird-and-Aviary-Products.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/322/Bird-and-Aviary-Products.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/323/Fish-and-Aquarium-Products.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/323/Fish-and-Aquarium-Products.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/324/Reptile-Products.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/324/Reptile-Products.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/326/Other-Pet-Products.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/326/Other-Pet-Products.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=dog
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=dog</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=cat
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=cat</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=bird
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=bird</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=fish
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=fish</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=reptile
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=reptile</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=other
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders.html?b[specpettype]=other</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/319/Pet-Clubs.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/319/Pet-Clubs.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news?category=news-and-advice-for-dogs-and-puppies
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news?category=news-and-advice-for-dogs-and-puppies</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news?category=news-and-advice-for-cats-and-kittens
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news?category=news-and-advice-for-cats-and-kittens</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news?category=news-and-advice-for-birds
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news?category=news-and-advice-for-birds</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news?category=news-and-advice-for-fish
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news?category=news-and-advice-for-fish</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news?category=news-and-advice-for-reptiles
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news?category=news-and-advice-for-reptiles</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news?category=news-and-advice-for-other-pets
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news?category=news-and-advice-for-other-pets</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[adoptable_only]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[adoptable_only]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[adoptable_only]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[adoptable_only]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/category/413/-.html</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/413/-.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Aquarium+Maintenance
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Aquarium+Maintenance</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Boarding+for+Cats
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Boarding+for+Cats</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Boarding+for+Other+Pets
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Boarding+for+Other+Pets</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Boarding+Kennels+Dog
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Boarding+Kennels+Dog</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Dog+and+Cat+Washing,+Clipping+and+Grooming
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Dog+and+Cat+Washing,+Clipping+and+Grooming</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Dog+Rehabilitation+and+Physical+Therapy
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Dog+Rehabilitation+and+Physical+Therapy</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Dog+training+and+Puppy+Socialising
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Dog+training+and+Puppy+Socialising</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Natural+Therapies
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Natural+Therapies</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Cemeteries+and+Crematoriums
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Cemeteries+and+Crematoriums</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Day+Care
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Day+Care</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Insurance
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Insurance</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Minding+in+the+Home
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Minding+in+the+Home</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Nutrition+Advise
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Nutrition+Advise</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Photography
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Photography</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Transport+Services
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Pet+Transport+Services</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Veterinary+Surgeries+and+Hospitals
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Veterinary+Surgeries+and+Hospitals</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Other
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services.html?b[service]=Other</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=NSW
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=NSW</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=QLD
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=QLD</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=VIC
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=VIC</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=SA
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=SA</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=WA
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=WA</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=TAS
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=TAS</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=NT
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=NT</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=ACT
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=ACT</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Sydney,+NSW+2000
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Sydney,+NSW+2000</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Brisbane,+QLD+4000
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Brisbane,+QLD+4000</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Melbourne,+VIC+3000
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Melbourne,+VIC+3000</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Adelaide,+SA+5000
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Adelaide,+SA+5000</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Perth,+WA+6000
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Perth,+WA+6000</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Hobart,+TAS+7000
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Hobart,+TAS+7000</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Darwin,+NT+800
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Darwin,+NT+800</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Canberra,+ACT+2600
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Canberra,+ACT+2600</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Orange,%20NSW%202800
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Orange,%20NSW%202800</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Townsville,%20QLD%204810
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Townsville,%20QLD%204810</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Rockingham
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Rockingham</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Newcastle,+NSW+2300
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Newcastle,+NSW+2300</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Dubbo,+NSW+2830
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Dubbo,+NSW+2830</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Cairns,+QLD+4870
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Cairns,+QLD+4870</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Mandurah,+WA+6210
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Mandurah,+WA+6210</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Lismore
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Lismore</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Toowoomba,+QLD+4350
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Toowoomba,+QLD+4350</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Bunbury,+SA+5266
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Bunbury,+SA+5266</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Wollongong,+NSW+2500
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Wollongong,+NSW+2500</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Bathurst,+NSW+2795
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Bathurst,+NSW+2795</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Rockhampton,+QLD+4700
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Rockhampton,+QLD+4700</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Kalgoorlie,+WA+6430
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Kalgoorlie,+WA+6430</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Albury,+NSW+2640
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Albury,+NSW+2640</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Coffs+Harbour,+NSW+2450
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Coffs+Harbour,+NSW+2450</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Mackay,+QLD+4740
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Mackay,+QLD+4740</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Geraldton,+WA+6530
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Geraldton,+WA+6530</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Maitland
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Maitland</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Richmond
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Richmond</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Bundaberg,+QLD+4670
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Bundaberg,+QLD+4670</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Albany,+WA+6330
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Albany,+WA+6330</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Wagga+Wagga,+NSW+2650
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Wagga+Wagga,+NSW+2650</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Nowra,+NSW+2541
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Nowra,+NSW+2541</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Hervey+Bay,+QLD+4655
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Hervey+Bay,+QLD+4655</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Launceston,+TAS+7250
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Launceston,+TAS+7250</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Port+Macquarie,+NSW+2444
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Port+Macquarie,+NSW+2444</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Gladstone
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Gladstone</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Alice+Springs,+NT+870
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Alice+Springs,+NT+870</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Tamworth,+NSW+2340
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Tamworth,+NSW+2340</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Mount+Gambier,+SA+5290
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/308/Pets-for-Sale.html?b[location]=Mount+Gambier,+SA+5290</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Australian+Cattle+dog
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Australian+Cattle+dog</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Australian+Shepherd+Dog
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Australian+Shepherd+Dog</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Border+Collie
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Border+Collie</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Cavalier+King+Charles+Spaniel
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Cavalier+King+Charles+Spaniel</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Cocker+Spaniel
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Cocker+Spaniel</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Dalmatian
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Dalmatian</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=German+Shepherd+Dog
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=German+Shepherd+Dog</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Golden+Retriever
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Golden+Retriever</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Great+Dane
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Great+Dane</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Jack+Russell+Terrier
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Jack+Russell+Terrier</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Labrador+Retriever
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Labrador+Retriever</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Poodle+(Toy)
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Poodle+(Toy)</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Rottweiler
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Rottweiler</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Staffordshire+Bull+Terrier
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies.html?b[breed]=Staffordshire+Bull+Terrier</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Australian+Mist
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Australian+Mist</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Bengal
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Bengal</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Burmese
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Burmese</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Maine+Coon
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Maine+Coon</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Manx
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Manx</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Persian
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Persian</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Ragdoll
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Ragdoll</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Scottish+Fold
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Scottish+Fold</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Siamese
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Siamese</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Sphynx
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Sphynx</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Tonkinese
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens.html?b[breed]=Tonkinese</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds.html?b[breed]=Cockatoos%2C+Cockatiels+and+Budgies
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds.html?b[breed]=Cockatoos%2C+Cockatiels+and+Budgies</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds.html?b[breed]=Finches+and+Canaries
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds.html?b[breed]=Finches+and+Canaries</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds.html?b[breed]=Exotic+Parrots
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds.html?b[breed]=Exotic+Parrots</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds.html?b[breed]=Lories+and+Lorikeets
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds.html?b[breed]=Lories+and+Lorikeets</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds.html?b[breed]=Native+Parrots
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds.html?b[breed]=Native+Parrots</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds.html?b[breed]=Pigeons%2C+Doves+and+Soft-bills
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds.html?b[breed]=Pigeons%2C+Doves+and+Soft-bills</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds.html?b[breed]=Pheasants+and+Quail
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds.html?b[breed]=Pheasants+and+Quail</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds.html?b[breed]=Poultry
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds.html?b[breed]=Poultry</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Goldfish+(Cold+Water)
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Goldfish+(Cold+Water)</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Riftlake+Cichlid+Fish
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Riftlake+Cichlid+Fish</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Tropical+Fish
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Tropical+Fish</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Angels
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Angels</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Catfish
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Catfish</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Danio
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Danio</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Discus
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Discus</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Fighter+(Beta)
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Fighter+(Beta)</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Guppies
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Guppies</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Marine+Fish+(Salt+Water)
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Marine+Fish+(Salt+Water)</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Australian+and+New+Guinea+Natives
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Australian+and+New+Guinea+Natives</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish.html?b[breed]=Yabby
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish.html?b[breed]=Yabby</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/313/Reptiles.html?b[breed]=Dragon
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/313/Reptiles.html?b[breed]=Dragon</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/313/Reptiles.html?b[breed]=Gecko
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/313/Reptiles.html?b[breed]=Gecko</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/313/Reptiles.html?b[breed]=Legless+Lizard
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/313/Reptiles.html?b[breed]=Legless+Lizard</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/313/Reptiles.html?b[breed]=Python
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/313/Reptiles.html?b[breed]=Python</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/313/Reptiles.html?b[breed]=Skink
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/313/Reptiles.html?b[breed]=Skink</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/314/Other-Pets.html?b[breed]=Guinea+Pig
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/314/Other-Pets.html?b[breed]=Guinea+Pig</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/314/Other-Pets.html?b[breed]=Leaf+Insect
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/314/Other-Pets.html?b[breed]=Leaf+Insect</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/314/Other-Pets.html?b[breed]=Rabbit
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/314/Other-Pets.html?b[breed]=Rabbit</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=cart&action=new&main_type=classified
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=cart&amp;action=new&amp;main_type=classified</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/?a=28&b=140</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/?a=28&amp;b=140</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/?a=28&b=144</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/?a=28&amp;b=144</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=18</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=18</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/register.php</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/register.php</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/competition?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/competition?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/competition?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/competition?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/petselector?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/petselector?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/petselector?a=ap&addon=ppPetSelector&page=detail&id=110
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/petselector?a=ap&amp;addon=ppPetSelector&amp;page=detail&amp;id=110</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/petselector?a=ap&addon=ppPetSelector&page=detail&id=27
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/petselector?a=ap&amp;addon=ppPetSelector&amp;page=detail&amp;id=27</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/petselector?a=ap&addon=ppPetSelector&page=detail&id=256
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/petselector?a=ap&amp;addon=ppPetSelector&amp;page=detail&amp;id=256</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/petselector?a=ap&addon=ppPetSelector&page=detail&id=265
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/petselector?a=ap&amp;addon=ppPetSelector&amp;page=detail&amp;id=265</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/petselector?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/petselector?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/favourites?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/favourites?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/favourites?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/favourites?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/495/Pedigree-Lilac-Point-Ragdoll-Kittens.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/495/Pedigree-Lilac-Point-Ragdoll-Kittens.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish/listings/484/Cobalt-Blues-(Metriaclima-Callainos).html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish/listings/484/Cobalt-Blues-(Metriaclima-Callainos).html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/314/Other-Pets/listings/477/Pure-Bred-Netherland-Dwarf-Rabbits-For-Sale-Sydney.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/314/Other-Pets/listings/477/Pure-Bred-Netherland-Dwarf-Rabbits-For-Sale-Sydney.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/677/Sun-Conure-babies-parrots.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/677/Sun-Conure-babies-parrots.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/464/Pied-Baby-Sun-Conures.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/464/Pied-Baby-Sun-Conures.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/476/BORDER-COLLIE-PUPS-BLACKWHITE-AND-MERLE.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/476/BORDER-COLLIE-PUPS-BLACKWHITE-AND-MERLE.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish/listings/483/Copadichromis-Azureus.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish/listings/483/Copadichromis-Azureus.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/655/Toy-poodle-x-Bichon-frise.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/655/Toy-poodle-x-Bichon-frise.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/534/PUREBRED-REGISTEREDPAPERS-BLACK-LABRADOR-PUPPIES.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/534/PUREBRED-REGISTEREDPAPERS-BLACK-LABRADOR-PUPPIES.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/466/Purebred-Ragdolls.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/466/Purebred-Ragdolls.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/493/Kitten-Adoptions-Sydney.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/493/Kitten-Adoptions-Sydney.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/492/Pure-Bred-Pug-Puppies-For-Sale-Sydney.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/492/Pure-Bred-Pug-Puppies-For-Sale-Sydney.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=308&b[subcategories_also]=1&action=search&page=2
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=308&amp;b[subcategories_also]=1&amp;action=search&amp;page=2</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=308&b[subcategories_also]=1&action=search&page=3
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=308&amp;b[subcategories_also]=1&amp;action=search&amp;page=3</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=308&b[subcategories_also]=1&action=search&page=4
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=308&amp;b[subcategories_also]=1&amp;action=search&amp;page=4</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=308&b[subcategories_also]=1&action=search&page=5
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=308&amp;b[subcategories_also]=1&amp;action=search&amp;page=5</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/665/Boxer-Puppies-for-sale.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/665/Boxer-Puppies-for-sale.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/678/Male-and-Female-Eclectus-Parrots-(-Babies).html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/678/Male-and-Female-Eclectus-Parrots-(-Babies).html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish/listings/676/Catfish-and-cichlids-for-sale.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish/listings/676/Catfish-and-cichlids-for-sale.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish/listings/675/Cichlids-and-Catfish-for-sale,-Fish-For-Sale.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish/listings/675/Cichlids-and-Catfish-for-sale,-Fish-For-Sale.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/657/Jack-Russell-Terrier-Puppies-Purebred.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/657/Jack-Russell-Terrier-Puppies-Purebred.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/624/Purebred-Fawn-Pug-Puppies.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/624/Purebred-Fawn-Pug-Puppies.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/585/Small-Breed-Pup-for-Sale.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/585/Small-Breed-Pup-for-Sale.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/537/Dobermann-puppies.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/537/Dobermann-puppies.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/501/Pure-Breed-Burmese-Kittens.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/501/Pure-Breed-Burmese-Kittens.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/478/Pet-Puppy-Adoptions-Sydney.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/478/Pet-Puppy-Adoptions-Sydney.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/456/Staffordshire-Bull-Terrier-Purebred-Puppies-Blue.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/456/Staffordshire-Bull-Terrier-Purebred-Puppies-Blue.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/446/Purebred-Toy-Poodle-Puppy.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/446/Purebred-Toy-Poodle-Puppy.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=309&b[subcategories_also]=1&action=search&page=2
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=309&amp;b[subcategories_also]=1&amp;action=search&amp;page=2</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=309&b[subcategories_also]=1&action=search&page=3
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=309&amp;b[subcategories_also]=1&amp;action=search&amp;page=3</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/705/Cavalier-King-Charles-Spaniel.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/705/Cavalier-King-Charles-Spaniel.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/695/Purebred-Labrador-puppies-gold.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/695/Purebred-Labrador-puppies-gold.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/691/8-month-old-female-doberman.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/691/8-month-old-female-doberman.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/690/Onyx-Shar-Pei-x-Kelpie-ADOPT-NOW.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/690/Onyx-Shar-Pei-x-Kelpie-ADOPT-NOW.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/687/Spoodle-Puppies-For-Sale-Sydney.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/309/Dogs-and-Puppies/listings/687/Spoodle-Puppies-For-Sale-Sydney.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/457/Ragdoll-kittens-Registered-Breeder.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/457/Ragdoll-kittens-Registered-Breeder.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/696/Ragdoll-Kitten.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/696/Ragdoll-Kitten.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/658/Ragdoll-Kittens-Purrfect-Companions.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/658/Ragdoll-Kittens-Purrfect-Companions.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/651/Kittens-ready-for-Adoption.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/651/Kittens-ready-for-Adoption.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/566/Ragdoll.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/566/Ragdoll.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/554/PUREBRED-REGISTERED-BRITISH-SHORTHAIR-KITTENS.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/554/PUREBRED-REGISTERED-BRITISH-SHORTHAIR-KITTENS.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/522/Rosie-Female-Cat-ADOPT-NOW.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/522/Rosie-Female-Cat-ADOPT-NOW.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/310/Cats-and-Kittens/listings/519/Mia-Female-Cat-ADOPT-NOW.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/310/Cats-and-Kittens/listings/519/Mia-Female-Cat-ADOPT-NOW.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/460/Hand-Raised-Eclectus-Parrot.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/460/Hand-Raised-Eclectus-Parrot.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/471/Indian-Ringnecks.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/471/Indian-Ringnecks.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/694/Handraised-Greencheek-and-Cinnamon-Conures.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/694/Handraised-Greencheek-and-Cinnamon-Conures.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/667/Aquarians-Cocktiels.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/667/Aquarians-Cocktiels.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/311/Birds/listings/593/Indian-ringnecks.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/311/Birds/listings/593/Indian-ringnecks.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish/listings/485/Melanochromis-Chipokae.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish/listings/485/Melanochromis-Chipokae.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/312/Fish/listings/469/African-Cichlids15-colourful-types.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/312/Fish/listings/469/African-Cichlids15-colourful-types.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/313/Reptiles/listings/538/4-year-old-Bredli-python.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/313/Reptiles/listings/538/4-year-old-Bredli-python.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/313/Reptiles/listings/532/South-Western-Carpet-Pythons.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/313/Reptiles/listings/532/South-Western-Carpet-Pythons.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/313/Reptiles/listings/516/Woma-Python-Hatchies.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/313/Reptiles/listings/516/Woma-Python-Hatchies.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/313/Reptiles/listings/509/Jungle-python-hatchlings-for-sale.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/313/Reptiles/listings/509/Jungle-python-hatchlings-for-sale.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/314/Other-Pets/listings/448/1-Purebred-Dwarf-Lopeared-Rabbit-Reduce-price-to.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/314/Other-Pets/listings/448/1-Purebred-Dwarf-Lopeared-Rabbit-Reduce-price-to.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/314/Other-Pets/listings/708/6-Piglets-Born-13114.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/314/Other-Pets/listings/708/6-Piglets-Born-13114.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/314/Other-Pets/listings/680/grey-rabbit-for-free.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/314/Other-Pets/listings/680/grey-rabbit-for-free.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/products?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/products?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/278/Blue-White-and-Navy-Stripe-Collarlead-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/278/Blue-White-and-Navy-Stripe-Collarlead-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/282/Butterfly-Pink-Collar-and-Lead-Set,-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/282/Butterfly-Pink-Collar-and-Lead-Set,-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/245/Baby-Blue-Bow-Tie-Collar-and-Lead-set-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/245/Baby-Blue-Bow-Tie-Collar-and-Lead-set-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/422/Batgirl-Bandana-Collar,-Medium.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/422/Batgirl-Bandana-Collar,-Medium.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/293/Silver-Diamonte-Harness-and-Lead-set,-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/293/Silver-Diamonte-Harness-and-Lead-set,-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/280/Butterfly-light-blue-collar-and-lead,-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/280/Butterfly-light-blue-collar-and-lead,-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/337/Grooming,-Shampoo-and-Conditioner/listings/629/Natural-Dog-Shampoo-(Sensitive-Skin)-Chamomile.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/337/Grooming,-Shampoo-and-Conditioner/listings/629/Natural-Dog-Shampoo-(Sensitive-Skin)-Chamomile.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/286/White-Diamonte-Hearts-Collar-and-Lead,-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/286/White-Diamonte-Hearts-Collar-and-Lead,-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/291/Blue-Angel-Wings-Harness-and-Lead-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/291/Blue-Angel-Wings-Harness-and-Lead-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/269/Pink-Sailor-Collar-and-Lead-Set,-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/269/Pink-Sailor-Collar-and-Lead-Set,-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/284/Candy-Stripe,-Silver-bones-and-Diamonte,-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/284/Candy-Stripe,-Silver-bones-and-Diamonte,-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/313/Pink-Plaid,-Pink-Skulls-and-Cross-Bones,-Medium.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/313/Pink-Plaid,-Pink-Skulls-and-Cross-Bones,-Medium.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/260/Red-Bow-Tie-Collar-and-Lead-set-SmallMedium.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/260/Red-Bow-Tie-Collar-and-Lead-set-SmallMedium.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/295/Green-Bubbles-Harness-and-Lead-Set,-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/295/Green-Bubbles-Harness-and-Lead-Set,-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/264/Blue-Sailor-Collar-and-lead-set,-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/264/Blue-Sailor-Collar-and-lead-set,-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=315&b[subcategories_also]=1&action=search&page=2
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=315&amp;b[subcategories_also]=1&amp;action=search&amp;page=2</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=315&b[subcategories_also]=1&action=search&page=3
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=315&amp;b[subcategories_also]=1&amp;action=search&amp;page=3</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=315&b[subcategories_also]=1&action=search&page=4
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=315&amp;b[subcategories_also]=1&amp;action=search&amp;page=4</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=315&b[subcategories_also]=1&action=search&page=10
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=315&amp;b[subcategories_also]=1&amp;action=search&amp;page=10</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=19&c=315&b[subcategories_also]=1&action=search&page=11
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=19&amp;c=315&amp;b[subcategories_also]=1&amp;action=search&amp;page=11</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/420/Batman-Bandana-Collar-,-Large.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/420/Batman-Bandana-Collar-,-Large.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/390/SuperGirl-Pink-Bandana-Collar,-Large.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/390/SuperGirl-Pink-Bandana-Collar,-Large.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/281/Butterfly-light-blue-collar-Extra-Small.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/331/Collars,-Leads,-Harnesses-and-Haltis/listings/281/Butterfly-light-blue-collar-Extra-Small.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/products?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/products?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/shops?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/shops?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/412/Pet-Shops/listings/494/Ace-Colony-Birds-EST-JUNE-1949.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/412/Pet-Shops/listings/494/Ace-Colony-Birds-EST-JUNE-1949.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/412/Pet-Shops/listings/239/Pets-Please-Pet-Shop.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/412/Pet-Shops/listings/239/Pets-Please-Pet-Shop.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/shops?a=2&b=239</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/shops?a=2&amp;b=239</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/412/Pet-Shops/listings/486/Off-With-The-Birds.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/412/Pet-Shops/listings/486/Off-With-The-Birds.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/shops?a=2&b=486</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/shops?a=2&amp;b=486</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/shops?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/shops?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/accommodation?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/accommodation?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/411/Pet-Friendly-Accommodation/listings/620/Winterkeep-Snowy-Mountains.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/411/Pet-Friendly-Accommodation/listings/620/Winterkeep-Snowy-Mountains.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/accommodation?a=2&b=620</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/accommodation?a=2&amp;b=620</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/411/Pet-Friendly-Accommodation/listings/656/BARKIES-OF-BURWOOD.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/411/Pet-Friendly-Accommodation/listings/656/BARKIES-OF-BURWOOD.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/accommodation?a=2&b=656</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/accommodation?a=2&amp;b=656</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/411/Pet-Friendly-Accommodation/listings/555/Batemans-Bay-Pet-Holidays.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/411/Pet-Friendly-Accommodation/listings/555/Batemans-Bay-Pet-Holidays.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/accommodation?a=2&b=555</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/accommodation?a=2&amp;b=555</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/accommodation?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/accommodation?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/breeders?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/breeders?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/459/Pugs-Boston-Terriers-French-Bulldogs-For-Sale.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/459/Pugs-Boston-Terriers-French-Bulldogs-For-Sale.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/536/Stonhonders.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/536/Stonhonders.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/551/Whippets-Central-NSW.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/551/Whippets-Central-NSW.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/533/Vrainord-Kennels.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/533/Vrainord-Kennels.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/528/South-Western-Carpet-Pythons.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/528/South-Western-Carpet-Pythons.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/breeders?a=2&b=528</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/breeders?a=2&amp;b=528</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/517/Off-With-The-Birds.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/517/Off-With-The-Birds.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/breeders?a=2&b=517</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/breeders?a=2&amp;b=517</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/508/Jungle-Python-Hatchlings-(Gold-CoastBrisbane).html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/508/Jungle-Python-Hatchlings-(Gold-CoastBrisbane).html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/502/Registered-Burmese-Breeder.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/502/Registered-Burmese-Breeder.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/500/Shantinga-Burmilla-Cattery.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/500/Shantinga-Burmilla-Cattery.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/468/FinTastic-Cichlids-Top-quality-African-Cichlids.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/468/FinTastic-Cichlids-Top-quality-African-Cichlids.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/breeders?a=2&b=468</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/breeders?a=2&amp;b=468</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/467/Kerrieannes-Ragdolls.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/467/Kerrieannes-Ragdolls.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/316/Pet-Breeders/listings/447/Mosawil-Toy-poodles.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/316/Pet-Breeders/listings/447/Mosawil-Toy-poodles.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/breeders?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/breeders?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/services?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/services?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services/listings/479/Cheap-Microchipping-Sydney.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services/listings/479/Cheap-Microchipping-Sydney.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services/listings/470/Advantageous-Animals-Pet-HolidayDay-Care.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services/listings/470/Advantageous-Animals-Pet-HolidayDay-Care.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/services?a=2&b=470</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/services?a=2&amp;b=470</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services/listings/621/Petcare-By-Tess.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services/listings/621/Petcare-By-Tess.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/318/Pet-Services/listings/472/Pads-N-Paws-Pet-Motel.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/318/Pet-Services/listings/472/Pads-N-Paws-Pet-Motel.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/services?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/services?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/shelters?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/shelters?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/420/Pet-Shelters/listings/475/Monikas-Doggie-Rescue.html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/420/Pet-Shelters/listings/475/Monikas-Doggie-Rescue.html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/shelters?a=2&b=475</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/shelters?a=2&amp;b=475</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/shelters?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/shelters?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/clubs?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/clubs?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/category/319/Pet-Clubs/listings/550/Cootamundra-All-Breeds-Kennel-Club-(CABKC).html
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/category/319/Pet-Clubs/listings/550/Cootamundra-All-Breeds-Kennel-Club-(CABKC).html</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/clubs?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/clubs?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news?a=19&c=308&b[subcategories_also]=1
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news?a=19&amp;c=308&amp;b[subcategories_also]=1</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&category=news-and-advice-for-dogs-and-puppies
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;category=news-and-advice-for-dogs-and-puppies</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&category=news-and-advice-for-cats-and-kittens
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;category=news-and-advice-for-cats-and-kittens</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&category=news-and-advice-for-birds
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;category=news-and-advice-for-birds</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&category=news-and-advice-for-fish
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;category=news-and-advice-for-fish</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&category=news-and-advice-for-reptiles
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;category=news-and-advice-for-reptiles</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&category=news-and-advice-for-other-pets
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;category=news-and-advice-for-other-pets</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/news-and-advice-for-cats-and-kittens
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/news-and-advice-for-cats-and-kittens</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/keeping-dogs-and-cats-together-34
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/keeping-dogs-and-cats-together-34</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&article=keeping-dogs-and-cats-together-34
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;article=keeping-dogs-and-cats-together-34</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/your-kittens-first-year-amazing-tips-for-feline-lovers-33
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/your-kittens-first-year-amazing-tips-for-feline-lovers-33</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&article=your-kittens-first-year-amazing-tips-for-feline-lovers-33
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;article=your-kittens-first-year-amazing-tips-for-feline-lovers-33</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/five-litter-box-mistakes-that-are-common-32
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/five-litter-box-mistakes-that-are-common-32</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&article=five-litter-box-mistakes-that-are-common-32
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;article=five-litter-box-mistakes-that-are-common-32</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/news-and-advice-for-dogs-and-puppies
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/news-and-advice-for-dogs-and-puppies</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/tips-on-exercising-your-dogs-inside-the-house-31
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/tips-on-exercising-your-dogs-inside-the-house-31</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&article=tips-on-exercising-your-dogs-inside-the-house-31
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;article=tips-on-exercising-your-dogs-inside-the-house-31</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/some-easy-steps-to-keep-your-dogs-teeth-clean-and-healthy-30
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/some-easy-steps-to-keep-your-dogs-teeth-clean-and-healthy-30</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&article=some-easy-steps-to-keep-your-dogs-teeth-clean-and-healthy-30
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;article=some-easy-steps-to-keep-your-dogs-teeth-clean-and-healthy-30</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/whos-smarter-dogs-or-cats-29
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/whos-smarter-dogs-or-cats-29</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&article=whos-smarter-dogs-or-cats-29
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;article=whos-smarter-dogs-or-cats-29</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/heroic-dog-stories-28
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/heroic-dog-stories-28</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&article=heroic-dog-stories-28
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;article=heroic-dog-stories-28</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/know-when-your-dog-is-sick-27
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/know-when-your-dog-is-sick-27</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&article=know-when-your-dog-is-sick-27
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;article=know-when-your-dog-is-sick-27</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/table-foods-that-should-not-be-fed-to-your-pet-26
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/table-foods-that-should-not-be-fed-to-your-pet-26</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&article=table-foods-that-should-not-be-fed-to-your-pet-26
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;article=table-foods-that-should-not-be-fed-to-your-pet-26</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/news-and-advice-for-other-pets
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/news-and-advice-for-other-pets</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/news/some-information-about-owning-a-ferret-24
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/some-information-about-owning-a-ferret-24</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=ppNews&page=news&article=some-information-about-owning-a-ferret-24
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=ppNews&amp;page=news&amp;article=some-information-about-owning-a-ferret-24</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/news/2</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/2</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/news/3</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news/3</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/news?a=28&b=136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/news?a=28&amp;b=136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=315</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=315</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=321</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=321</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=353</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=353</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=350</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=350</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=350</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=350</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=350</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=350</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=350
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=350</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=645</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=645</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=320</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=320</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=331</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=331</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=424</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=424</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=424</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=424</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=424</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=424</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=424
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=424</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=953</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=953</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=308</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=308</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=310</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=310</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=465</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=465</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=465</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=465</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=465</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=465</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=465
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=465</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1042</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1042</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1043</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1043</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1044</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1044</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1045</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1045</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1046</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1046</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1047</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1047</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1048</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1048</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1049</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1049</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1050</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1050</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1051</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1051</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=288</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=288</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=288</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=288</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=288</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=288</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=288
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=288</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=824</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=824</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=423</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=423</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=426</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=426</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=427</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=427</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=823</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=823</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=309</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=309</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=531</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=531</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=531</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=531</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=531</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=531</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=531
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=531</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1279</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1279</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1280</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1280</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1281</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1281</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1283</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1283</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=312</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=312</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=482</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=482</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=482</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=482</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=482</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=482</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=482
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=482</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1132</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1132</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1133</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1133</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1134</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1134</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1135</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1135</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1136</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1136</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=283</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=283</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=283</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=283</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=283</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=283</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=283
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=283</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=394</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=394</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=395</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=395</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=587</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=587</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=587</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=587</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=587</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=587</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=587
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=587</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1381</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1381</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1382</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1382</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1383</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1383</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=535</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=535</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=535</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=535</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=535</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=535</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=535
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=535</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1295</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1295</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=416</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=416</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=416</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=416</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=416</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=416</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=416
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=416</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=889</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=889</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=890</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=890</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=891</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=891</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=892</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=892</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=893</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=893</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=499</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=499</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=499</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=499</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=499</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=499</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=499
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=499</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1195</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1195</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1196</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1196</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1197</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1197</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1198</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1198</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1199</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1199</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1200</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1200</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1201</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1201</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1202</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1202</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1203</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1203</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1204</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1204</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=683</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=683</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=683</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=683</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=683</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=683</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=683
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=683</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1615</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1615</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1612</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1612</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1613</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1613</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1614</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1614</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1616</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1616</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1617</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1617</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=385</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=385</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=385</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=385</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=385</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=385</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=385
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=385</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=801</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=801</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=787</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=787</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=788</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=788</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=789</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=789</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=349</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=349</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=625</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=625</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=625</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=625</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=625</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=625</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=625
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=625</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1469</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1469</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1470</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1470</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1471</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1471</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1472</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1472</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1473</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1473</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1474</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1474</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=5&b=311</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=5&amp;b=311</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=13&b=462</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=13&amp;b=462</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=12&b=462</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=12&amp;b=462</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/index.php?a=20&b=462</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=20&amp;b=462</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>
-http://petsplease.com.au/index.php?a=ap&addon=contact_us&page=main&reportAbuse=462
-</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/index.php?a=ap&amp;addon=contact_us&amp;page=main&amp;reportAbuse=462</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1031</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1031</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1032</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1032</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
-<loc>http://petsplease.com.au/get_image.php?id=1033</loc>
-<changefreq>daily</changefreq>
+  <loc>http://petsplease.com.au/get_image.php?id=1033</loc>
+  <changefreq>daily</changefreq>
 </url>
 </urlset>
