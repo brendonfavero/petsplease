@@ -1,5 +1,7 @@
 {* 7.0.2-183-gfa134f3 *}
-
+<h1 class="title">
+		{$current_category_name}
+</h1>
 <h2 class="title">Featured Pets and Products</h2>
 <div class="content_box_1 gj_simple_carousel">
 	{module tag='module_featured_pic_1' gallery_columns=6 module_thumb_width=120}
@@ -18,9 +20,7 @@
 </div>
 
 <div class="col_right">
-	<h1 class="title">
-		{$current_category_name}
-	</h1>
+	
 	<br/><br/>
 	{if $pagination}
 		{$pagination}

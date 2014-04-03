@@ -383,15 +383,16 @@ class geoSite
 				
 			}
 		}
-		
+        
+        $view->addCssFile(geoView::CSS_LIB_JQUERY_UI);
+		$view->addCssFile(geoTemplate::getUrl('css/page',$this->page_id.'.css', true));
 		//Add these to the top
 		$view->addJScript($jsLibs, 'prepend');
 		
-		//css for jquery UI
-		$view->addCssFile(geoView::CSS_LIB_JQUERY_UI);
+		//css for jquery UI		
 		
 		//css for the overall page
-		$view->addCssFile(geoTemplate::getUrl('css/page',$this->page_id.'.css', true));
+		
 		
 		if ($view->useMessageBox) {
 			$view->addCssFile(geoTemplate::getUrl('css','system/other/message_box.css'));
