@@ -40,12 +40,17 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                             $row['email'], 
                             "Pets Please Featured Listing Expired", 
                             $message, 'natasha@petsplease.com.au');
+                            
+                        geoEmail::sendMail( 
+                            'brendon@ardex.com.au', 
+                            "Pets Please Featured Listing Expired", 
+                            $message, 'natasha@petsplease.com.au');
                     }
                 }
             }
         }
          
-        $result = $db->Execute("UPDATE `geodesic_classifieds` SET `featured_ad` = '0' WHERE ( `last_featured` + 1209600 ) < " . time() );
+        $result = $db->Execute("UPDATE `geodesic_classifieds` SET `featured_ad` = '0' WHERE ( `last_featured` + 2592000 ) < " . time() );
         if ( !$result )
             error_log( 'failure to un-feature listings' );
         
