@@ -20,8 +20,14 @@
 </div>
 
 <div class="col_right">
+	{if $current_category_name eq 'Cats & Kittens'}
+		<div class="ancats" style="margin-left:20%">
+			<img style="width:200px; margin-left:20%" src="/geo_templates/petsplease/external/images/ancats.jpg"/>
+			<br/>
+			Proud Silver Partner of Australia's only National Cat Registry ANCATS
+		</div>
+	{/if}
 	
-	<br/><br/>
 	{if $pagination}
 		{$pagination}
 	{/if}

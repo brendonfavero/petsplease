@@ -26,6 +26,9 @@
 	<h1 class="title">
 		{$messages.28} {$current_category_name}
 	</h1>
+	{if $current_category_name eq 'Cats & Kittens'}
+		<img src="../../external/images/ancats.jpg"/>
+	{/if}
 	{if $pagination}
 		{$messages.757} {$pagination}
 	{/if}

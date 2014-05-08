@@ -35,8 +35,14 @@
 		</div>
 		<!-- FEATURED CAROUSEL END -->
 
-		<div style="width:728px;margin:auto;">
+		<div style="width:728px;margin:auto;">		
 			{addon author='pp_addons' addon='ppAds' tag='adspot' aid=0}
+			<br/>
+			<div class="ancats" style="margin-left:20%">
+			<img style="width:200px; margin-left:20%" src="/geo_templates/petsplease/external/images/ancats.jpg"/>
+			<br/>
+			Proud Silver Partner of Australia's only National Cat Registry ANCATS
+		</div>
 		</div>
 	</div>
 </div>
