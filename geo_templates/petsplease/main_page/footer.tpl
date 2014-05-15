@@ -14,6 +14,9 @@
 				<li><a href="/?a=28&b=144">Advertise</a></li>
 			</ul>
 			<br/><br/>
+			<a href="/?a=28&b=139" style="background-color:#EC008C; color:white; padding:4px; font-weight:bold">Avoid Pet Scams: Please Read</a>
+<br/>
+<br/>
 			<a style="background-color:#1F757C; color:white; padding:4px; font-weight:bold" href="/?a=28&b=138">View More Information about Types of Listings Available</a>
 			<div class="clear"></div>
 		</div>

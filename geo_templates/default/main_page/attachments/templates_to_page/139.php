@@ -32,6 +32,6 @@ $return = array();
 
  
 $return [1] [0] = 'basic_page.tpl';
-$return ['extra_page_main_body'] [1] [0] = 'extra_pages/additional_page.tpl';
+$return ['extra_page_main_body'] [1] [0] = 'extra_pages/scam.tpl';
 
 return $return;
