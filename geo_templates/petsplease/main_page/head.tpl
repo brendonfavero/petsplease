@@ -4,7 +4,18 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
-	
+	<script>
+		var _prum = [['id', '538400a6abe53dbb68ac21e4'],
+		             ['mark', 'firstbyte', (new Date()).getTime()]];
+		(function() {
+		    var s = document.getElementsByTagName('script')[0]
+		      , p = document.createElement('script');
+		    p.async = 'async';
+		    p.src = '//rum-static.pingdom.net/prum.min.js';
+		    s.parentNode.insertBefore(p, s);
+		})();
+	</script>
+    
 	<meta name="google-site-verification" content="Z5pMM5JDfpcOkzKn-LCEM9f3KqjCdAcnZnMrF--r61w" />
 	<link href="{external file='css/theme_styles.css'}" rel="stylesheet" type="text/css" />
 
