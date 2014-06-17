@@ -211,8 +211,8 @@ class User_management_current_ads extends geoSite
 				
 				$upgrade_cutoff = ($listing['date'] + ($this->db->get_site_setting('days_can_upgrade') * 86400));
 				
-				if (($this->db->get_site_setting('days_can_upgrade') && (geoUtil::time() < $upgrade_cutoff)))
-				{	
+				// if (($this->db->get_site_setting('days_can_upgrade') && (geoUtil::time() < $upgrade_cutoff)))
+				// {	
 					// if (($this->db->get_site_setting('use_bolding_feature') && $listing['bolding'] == 0 && $pricePlan['use_bolding']) ||
 						// ($this->db->get_site_setting('use_better_placement_feature') && $listing['better_placement'] == 0 && $pricePlan['use_better_placement']) ||
 						// ($this->db->get_site_setting('use_featured_feature') && $listing['featured_ad'] == 0 && $pricePlan['use_featured_ads']) ||
@@ -228,7 +228,7 @@ class User_management_current_ads extends geoSite
 
 						$listings[$key]['show_upgrade_link'] = 1;//can upgrade for this listing.
 					}
-				}
+				// }
 			}
 			
 			//get the number of favourites for this listing
