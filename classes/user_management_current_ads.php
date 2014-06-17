@@ -213,17 +213,18 @@ class User_management_current_ads extends geoSite
 				
 				if (($this->db->get_site_setting('days_can_upgrade') && (geoUtil::time() < $upgrade_cutoff)))
 				{	
-					if (($this->db->get_site_setting('use_bolding_feature') && $listing['bolding'] == 0 && $pricePlan['use_bolding']) ||
-						($this->db->get_site_setting('use_better_placement_feature') && $listing['better_placement'] == 0 && $pricePlan['use_better_placement']) ||
-						($this->db->get_site_setting('use_featured_feature') && $listing['featured_ad'] == 0 && $pricePlan['use_featured_ads']) ||
-						($this->db->get_site_setting('use_featured_feature_2') && $listing['featured_ad_2'] == 0 && $pricePlan['use_featured_ads_level_2']) ||
-						($this->db->get_site_setting('use_featured_feature_3') && $listing['featured_ad_3'] == 0 && $pricePlan['use_featured_ads_level_3']) ||
-						($this->db->get_site_setting('use_featured_feature_4') && $listing['featured_ad_4'] == 0 && $pricePlan['use_featured_ads_level_4']) ||
-						($this->db->get_site_setting('use_featured_feature_5') && $listing['featured_ad_5'] == 0 && $pricePlan['use_featured_ads_level_5']) ||
-						($attention_getters && $this->db->get_site_setting('use_attention_getters') && $listing['attention_getter'] == 0 && $pricePlan['use_attention_getters']) ||
-						($chargingPerPicture && $canUpgradePhotos) ||
-						$canUpgradeVideos || $canUpgradeRegions)
-					{
+					// if (($this->db->get_site_setting('use_bolding_feature') && $listing['bolding'] == 0 && $pricePlan['use_bolding']) ||
+						// ($this->db->get_site_setting('use_better_placement_feature') && $listing['better_placement'] == 0 && $pricePlan['use_better_placement']) ||
+						// ($this->db->get_site_setting('use_featured_feature') && $listing['featured_ad'] == 0 && $pricePlan['use_featured_ads']) ||
+						// ($this->db->get_site_setting('use_featured_feature_2') && $listing['featured_ad_2'] == 0 && $pricePlan['use_featured_ads_level_2']) ||
+						// ($this->db->get_site_setting('use_featured_feature_3') && $listing['featured_ad_3'] == 0 && $pricePlan['use_featured_ads_level_3']) ||
+						// ($this->db->get_site_setting('use_featured_feature_4') && $listing['featured_ad_4'] == 0 && $pricePlan['use_featured_ads_level_4']) ||
+						// ($this->db->get_site_setting('use_featured_feature_5') && $listing['featured_ad_5'] == 0 && $pricePlan['use_featured_ads_level_5']) ||
+						// ($attention_getters && $this->db->get_site_setting('use_attention_getters') && $listing['attention_getter'] == 0 && $pricePlan['use_attention_getters']) ||
+						// ($chargingPerPicture && $canUpgradePhotos) ||
+						// $canUpgradeVideos || $canUpgradeRegions)
+                    if ($listing['featured_ad'] == 0)
+                    {
 
 						$listings[$key]['show_upgrade_link'] = 1;//can upgrade for this listing.
 					}
