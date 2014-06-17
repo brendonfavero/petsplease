@@ -35,10 +35,10 @@ class addon_ppSearch_util extends addon_ppSearch_info
 		// $query->where("(($classTable.`sold_displayed` = 0 and optional_field_2 = '') OR $classTable.`optional_field_2` > 0)");
 // 
 		// // Is Sold?
-		// $isSold = $searchClass->search_criteria["sold_displayed"];
-		// if ($isSold) {
-			// $query->where("$classTable.`sold_displayed` = $isSold", 'sold_displayed');	
-		// }	
+		$isSold = $searchClass->search_criteria["sold_displayed"];
+		if ($isSold) {
+			$query->where("$classTable.`sold_displayed` = $isSold", 'sold_displayed');	
+		}	
 
 		// Pets for Sale breeds? (except for fish)
 		$breed_criteria = $searchClass->search_criteria["breed"];
