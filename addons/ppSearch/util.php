@@ -32,13 +32,13 @@ class addon_ppSearch_util extends addon_ppSearch_info
         $topCategory = geoCategory::getParent($parentCategory);
 		// Hide from results sellable products that have run out of stock
 		
-		$query->where("(($classTable.`sold_displayed` = 0 and optional_field_2 = '') OR $classTable.`optional_field_2` > 0)");
-
-		// Is Sold?
-		$isSold = $searchClass->search_criteria["sold_displayed"];
-		if ($isSold) {
-			$query->where("$classTable.`sold_displayed` = $isSold", 'sold_displayed');	
-		}	
+		// $query->where("(($classTable.`sold_displayed` = 0 and optional_field_2 = '') OR $classTable.`optional_field_2` > 0)");
+// 
+		// // Is Sold?
+		// $isSold = $searchClass->search_criteria["sold_displayed"];
+		// if ($isSold) {
+			// $query->where("$classTable.`sold_displayed` = $isSold", 'sold_displayed');	
+		// }	
 
 		// Pets for Sale breeds? (except for fish)
 		$breed_criteria = $searchClass->search_criteria["breed"];
