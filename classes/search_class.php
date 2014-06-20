@@ -1144,7 +1144,7 @@ class Search_classifieds extends geoBrowse
         switch ($value)
         {
             case 0: //nothing
-                $order_by = " case featured_ad when 0 then 0 else last_featured end desc, better_placement desc,date desc ";
+                $order_by = " case featured_ad when 0 then 0 else last_featured end desc, sold_displayed asc better_placement desc,date desc ";
                 break;
             case 1: //price desc
                 $order_by = " price asc, current_bid desc, better_placement desc ";
@@ -1162,7 +1162,7 @@ class Search_classifieds extends geoBrowse
                 $order_by = " title asc, better_placement desc ";
                 break;
             default:
-                $order_by = " case featured_ad when 0 then 0 else last_featured end desc, better_placement desc, date desc ";
+                $order_by = " case featured_ad when 0 then 0 else last_featured end desc, sold_displayed asc better_placement desc,date desc ";
                 break;
         }
         return $order_by;
