@@ -88,7 +88,7 @@ class addon_ppNews_util extends addon_ppNews_info
 	{
 		//Easiest is to return an array like below, with an index for "label" and "value":
 		error_log (' making checkbox (i hope) ');
-		return array ('label' => 'Subscribe to HorseZone newsletter', 'value' => '<input type="checkbox" name="c[optional_field_10]" value="1" />');
+		return array ('label' => 'Subscribe to Pets Please newsletter', 'value' => '<input type="checkbox" name="c[optional_field_10]" value="1" />');
 		
 		//or return false to skip over
 	}

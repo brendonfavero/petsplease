@@ -40,7 +40,7 @@ class addon_psMetaGenerator_util
         'type' => 'company',
         'description' => $meta['title'],
         'url' => 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'],
-        'image' => 'http://horsezone.com.au/images/logo.png' );
+        'image' => 'http://petsplease.com.au/images/logo.png' );
         $descLength = intval($settingsRegistry->get('descLength'));
         $siteName = $settingsRegistry->get('siteName');
         if ( $descLength < 1 ) {

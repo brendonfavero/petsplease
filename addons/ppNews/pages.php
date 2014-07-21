@@ -31,7 +31,7 @@ class addon_ppNews_pages extends addon_ppNews_info
 		$v['userId'] = geoSession::getInstance()->getUserId();
 		$v['userName'] = geoSession::getInstance()->getUserName();
 		if( $v['userId'] == 1 ) {
-			$v['userName'] = 'HorseZONE';	
+			$v['userName'] = 'Pets Please';	
 		}
 		if( isset( $_REQUEST['adPreview'] )) {
 			$v['adPreview'] = true;	
@@ -68,7 +68,7 @@ class addon_ppNews_pages extends addon_ppNews_info
         $filterReg = '/[^-a-zA-Z0-9_ !()+\=.,:;\/]/';
 				global $psMetaGenerator_title, $psMetaGenerator_description, $psMetaGenerator_og_title, $psMetaGenerator_og_description, $psMetaGenerator_og_image;
         $psMetaGenerator_title = $psMetaGenerator_og_title = preg_replace( '/[^-a-zA-Z0-9_ !()+\=.,:;\/]/', '', $v['data']['heading'] );
-        $psMetaGenerator_og_title = "Horsezone News: $psMetaGenerator_og_title";
+        $psMetaGenerator_og_title = "Pets Please News: $psMetaGenerator_og_title";
         $psMetaGenerator_description = $psMetaGenerator_og_description = preg_replace( $filterReg, '', $v['data']['preview'] );
         $psMetaGenerator_og_image = "http://" . $_SERVER['SERVER_NAME'].$v['data']['thumb'];
 
