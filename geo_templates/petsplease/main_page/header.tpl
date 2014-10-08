@@ -16,7 +16,13 @@
 			<li><a href="/?a=17" class="right-divider">Logout</a></li>
 		{/if}
 		<li><a href="http://facebook.com/Petsplease" target="_blank" class="icon-link right-divider"><div class="icon-facebook" title="Facebook"></div></a></li>
-		<li class="last"><a href="http://instagram.com/petspleaseau" target="_blank" class="icon-link"><div class="icon-instagram" title="Instagram"></div></a></li>
+		<li><a href="http://instagram.com/petspleaseau" target="_blank" class="icon-link right-divider"><div class="icon-instagram" title="Instagram"></div></a></li>
+		
+		<li><a href="https://plus.google.com/105165938008909986946/posts" target="_blank" class="icon-link right-divider"><div class="icon-google" title="Google"></div></a></li>
+	    <li style="margin-top:7px; margin-left:5px"><a target="_blank" class="icon-link right-divider" href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.petsplease.com.au&media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-config="above">
+			<img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
+<!-- Please call pinit.js only once per page -->
+<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script></li>
 	</ul>
 
 	<div id="header-bytext">

@@ -145,7 +145,7 @@ class addon_google_maps_util extends addon_google_maps_info
 			return;
 		}
 		
-		$loc = $listing->mapping_location;
+		$loc = $listing->location_city . $listing->location_zip;
 		
 		$loc = $this->_quoteFilter($loc);
 		$this->location = $loc;

@@ -11,7 +11,7 @@ class addon_ppPetSelector_pages extends addon_ppPetSelector_info
 		$breedID = $_REQUEST['id'];
 
 		// Get nav info
-		$pettypes = array("1" => "Dog", "2" => "Cat");
+		$pettypes = array("1" => "Dog", "2" => "Cat", "3" => "Bird");
 		$view->setBodyVar("pettypes", $pettypes);
 
 		$sql = "SELECT id, pettype_id, breed FROM petsplease_petselector_breed ORDER BY pettype_id, breed";

@@ -105,7 +105,7 @@ that it will corrupt the smarty tags!
 		{/if}
 
 		{if $listing.topcategory eq 318}
-			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$listing.optional_field_1 assign='services'}
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$listing.optional_field_18 assign='services'}
 			{if $services}
 				<span class="services">
 					{$services}

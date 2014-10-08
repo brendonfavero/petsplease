@@ -89,6 +89,11 @@
 			<input type="password" id="password_confirm" name="c[password_confirm]" size="15" maxlength="{if $password.maxlen}{$password.maxlen}{else}100{/if}" class="field" />
 		</div>
 		
+		<div style="margin-bottom:10px">
+			<label for="newsletter">Subscribe to Pets Please newsletter</label>
+			<input type="checkbox" id="newsletter" name="c[newsletter]" checked="checked" class="field" />
+		</div>
+		
 		{if is_array($eula)}
 			{* user agreement field *}
 			

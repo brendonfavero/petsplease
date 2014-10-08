@@ -30,21 +30,20 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                     }
                     else {
                         $emailMessage = new geoTemplate('addon','ppTasks');
-                        $emailMessage->data = array(
-                            'firstname' => $row['firstname'], 
-                            'listingurl' => 'http://petsplease.com.au/index.php?a=2&b=' . $row['id'],
-                            'listingtitle' => urldecode($row['title']));
+                        $emailMessage->assign('firstname', $row['firstname']);
+                        $emailMessage->assign('listingurl', 'http://petsplease.com.au/index.php?a=2&b=' . $row['id']);
+                        $emailMessage->assign('listingtitle', urldecode($row['title']));
                         $message =  $emailMessage->fetch('emailBody_featureExpire.tpl');
 
                         geoEmail::sendMail( 
                             $row['email'], 
                             "Pets Please Featured Listing Expired", 
-                            $message, 'natasha@petsplease.com.au');
+                            $message, 'natasha@petsplease.com.au', 'natasha@petsplease.com.au', 0, 'text/html');
                             
                         geoEmail::sendMail( 
                             'brendon@ardex.com.au', 
                             "Pets Please Featured Listing Expired", 
-                            $message, 'natasha@petsplease.com.au');
+                            $message, 'natasha@petsplease.com.au', 'natasha@petsplease.com.au', 0, 'text/html');
                     }
                 }
             }

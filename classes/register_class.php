@@ -64,6 +64,37 @@ class Register extends geoSite {
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+    public function registerUser( $email, $fname, $lname ) { // adds supplied user to hz list
+        
+        $apikey = '88a14caa2b349b957aa36fee53e600e5-us9';
+        
+        // A List Id to run examples against. use lists() to view all
+        // Also, login to MC account, go to List, then List Tools, and look for the List ID entry
+        $listId = '43c7a10cde'; // horsezone newsletter
+
+        require_once dirname(__FILE__) . '/lib/mailchimp/MCAPI.class.php';
+        
+        $api = new MCAPI($apikey);
+        
+        $mergeVars = array('FNAME'=> $fname, 
+                           'LNAME'=> $lname, 
+                          );
+        // By default this sends a confirmation email - you will not see new members
+        // until the link contained in it is clicked!
+        $listResult = $api->listSubscribe( $listId, $email, $mergeVars );
+        
+        if ($api->errorCode){
+            return array(
+             "\tCode=".$api->errorCode."\n",
+             "\tMsg=".$api->errorMessage."\n",
+             );
+        } else {
+            return true;
+        }
+        
+        return true;
+    }
+
 	public function setup_registration_session()
 	{
 		if ($this->session_id) {
@@ -107,6 +138,7 @@ class Register extends geoSite {
 				$this->registered_variables["fax"] = stripslashes(urldecode($show->FAX));
 				$this->registered_variables["url"] = stripslashes(urldecode($show->URL));
 				$this->registered_variables["registration_code"] = $show->REGISTRATION_CODE;
+                $this->registered_variables["newsletter"] = $show->NEWSLETTER;
 
 				$this->registered_variables["optional_field_1"] = stripslashes(urldecode($show->OPTIONAL_FIELD_1));
 				$this->registered_variables["optional_field_2"] = stripslashes(urldecode($show->OPTIONAL_FIELD_2));
@@ -529,6 +561,7 @@ class Register extends geoSite {
 		if (isset($info['password'])) $password = $info['password'];
 		if (isset($info['password_confirm'])) $password_confirm = $info['password_confirm'];
 		if (isset($info['agreement'])) $agreement = $info['agreement'];
+        if (isset($info['newsletter'])) $newsletter = $info['newsletter'];
 		
 		//username and password are always decoded
 		$username = geoString::specialCharsDecode($username);
@@ -604,6 +637,7 @@ class Register extends geoSite {
    		$this->registered_variables["country"] = stripslashes($country);
    		$this->registered_variables["username"] = trim($username);
    		$this->registered_variables["password"] = $password;
+        $this->registered_variables["newsletter"] = $newsletter;
    		$this->registered_variables["password_confirm"] = $password_confirm;
    		$this->registered_variables["agreement"] = $agreement;
    		//optional fields already set above.
@@ -1287,7 +1321,6 @@ class Register extends geoSite {
 			$terminal_region_id = is_array($_REQUEST['locations']) ? intval($_REQUEST['locations'][count($_REQUEST['locations'])]) : 0;
 			
 			//need to finish all inserts
-			$newsletter = isset($newsletter)? $newsletter : '';
 			$this->registered_variables['registration_code'] = isset($this->registered_variables['registration_code']) ? $this->registered_variables['registration_code'] : '';
 			$sql="INSERT INTO ".$this->confirm_table."
 				(mdhash, id, username, password,date,firstname, lastname,
@@ -1325,7 +1358,7 @@ class Register extends geoSite {
 				$this->registered_variables['optional_field_8'].'',
 				$this->registered_variables['optional_field_9'].'',
 				$this->registered_variables['optional_field_10'].'',
-				$newsletter,
+				$this->registered_variables['newsletter'].'',
 				$this->registration_group,
 				(int)$this->registration_filter_id,
 				$this->registered_variables['registration_code'].'',
@@ -1849,7 +1882,14 @@ class Register extends geoSite {
 			  	} else {
 			  		$this->user_id = $this->db->Insert_ID();
 			  		//insert login data into the login table
-
+                    
+                    if ($show->NEWSLETTER == 'on') {
+                        $newsletter = 1;
+                    }
+                    else {
+                        $newsletter = 0;
+                    }
+                    
 					$default_communication_setting = $this->db->get_site_setting('default_communication_setting');
 
 					if ((strlen(trim($default_communication_setting)) == 0) || ($default_communication_setting == 0))
@@ -1862,7 +1902,7 @@ class Register extends geoSite {
 						optional_field_5,optional_field_6,optional_field_7,optional_field_8,optional_field_9,optional_field_10,filter_id, new_listing_alert_last_sent) values
 						(".$this->user_id.",\"".$show->USERNAME."\",\"".$show->EMAIL."\",
 						\"".$show->EMAIL2."\",
-						\"0\", 0,\"".addslashes($show->COMPANY_NAME)."\",
+						$newsletter, 0,\"".addslashes($show->COMPANY_NAME)."\",
 						\"".$show->BUSINESS_TYPE."\",\"".addslashes($show->FIRSTNAME)."\",
 						\"".addslashes($show->LASTNAME)."\",
 						\"".addslashes($show->ADDRESS)."\",\"".addslashes($show->ADDRESS_2)."\",
@@ -1884,6 +1924,29 @@ class Register extends geoSite {
 						$this->error['confirm'] = "error";
 						return false;
 				  	} else {
+				  	    if ($newsletter == 1) {
+				  	        
+				  	        $email = $show->EMAIL;
+                            $name = $show->FIRSTNAME;
+                            error_log('newsletter for: ' . $email);
+                            $result = $this -> registerUser($email, $name);
+                            if ($result) {
+                                if (is_array($result)) {
+                                    error_log('api error with this email address: ' . $email);
+                                    foreach ($result as $entry) {
+                                        error_log($entry);
+                                    }
+                                } else if ($result === 214) {
+                                    error_log('got user with this email address: ' . $email);
+                                    $this -> subscribe_status = 'alreadyexists';
+                                } else {
+                                    $this -> subscribe_status = 'OK';
+                                }
+                            } else {
+                                error_log('internal error with this email address: ' . $email);
+                                $this -> subscribe_status = 'fatalerror';
+                            }
+                        }
 				  		//insert regions
 				  		$terminalRegion = $show->TERMINAL_REGION_ID;
 				  		if($terminalRegion) {

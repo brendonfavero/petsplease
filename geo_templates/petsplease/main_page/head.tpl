@@ -17,6 +17,7 @@
 	</script>
     
 	<meta name="google-site-verification" content="Z5pMM5JDfpcOkzKn-LCEM9f3KqjCdAcnZnMrF--r61w" />
+	<meta name="p:domain_verify" content="fc4785c76019939a13dc4b1fbb4e1e73"/>
 	<link href="{external file='css/theme_styles.css'}" rel="stylesheet" type="text/css" />
 
 	<link href='http://fonts.googleapis.com/css?family=BenchNine:400,700' rel='stylesheet' type='text/css'>
@@ -45,15 +46,18 @@
 		<script type="text/javascript" src="js/html5shiv.js"></script>
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<![endif]-->
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f1430b0973a658"></script>
+
 </head>
 <body>
-	<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-53124304-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+	<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+// --></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-53124304-1");
+pageTracker._trackPageview();
+} catch(err) {}
+// --></script>

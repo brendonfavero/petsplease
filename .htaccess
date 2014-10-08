@@ -146,5 +146,11 @@ RewriteRule ^/?cart/?$ index.php?a=ap&addon=ppStoreSeller&page=merchantCart [L,N
 
 RewriteRule ^/?competition/?$ index.php?a=ap&addon=ppCompetition&page=competition [L,NC,QSA] #home
 
+RewriteRule ^/?termsandconditions/?$ index.php?a=28&b=140 [L,NC,QSA] #home
+RewriteRule ^/?testimonials/?$ index.php?a=28&b=146 [L,NC,QSA] #home
+RewriteRule ^/?testimonialform/?$ index.php?a=28&b=147 [L,NC,QSA] #home
+RewriteRule ^/?help/?$ index.php?a=28&b=148 [L,NC,QSA] #home
+
+
 
 

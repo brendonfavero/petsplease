@@ -12,7 +12,7 @@
 {/foreach}
 {$line}<br />
 <br />
-{$orderTotalLabel} {$orderTotal}<br />
+{$orderTotalLabel} {$orderTotal} (price is GST inclusive)<br />
 {$fullPaymentReceived}
 {if $invoiceLink}
 	<br />

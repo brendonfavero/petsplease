@@ -76,14 +76,15 @@
 					<span class="field_value">{$detail.lifespan}</span>
 				</div>
 			{/if}
-
-			<div class="field_set">
-				<span class="field_name">Hypoallergenic</span>
-				<span class="field_value">
-				{if $detail.hypoallergenic eq 1}Yes{else}No{/if}
-				</span>
-			</div>
-
+			
+			{if $detail.hypoallergenic neq ""}
+				<div class="field_set">
+					<span class="field_name">Hypoallergenic</span>
+					<span class="field_value">
+					{if $detail.hypoallergenic eq 1}Yes{else}No{/if}
+					</span>
+				</div>
+			{/if}
 			{if $detail.colours neq ""}
 				<div class="field_set">
 					<span class="field_name">Colours</span>
@@ -157,6 +158,83 @@
 							<div class="starrating" style="padding-right:{$detail.shedding * 20}%"></div>
 						</div>
 					</span>
+				</div>
+			{/if}
+			
+			{if $detail.origin neq ""}
+				<div class="field_set">
+					<span class="field_name">Place of Origin</span>
+					<span class="field_value">{$detail.origin}</span>
+				</div>
+			{/if}
+
+			{if $detail.owner_experience neq ""}
+				<div class="field_set">
+					<span class="field_name">Owner Experience</span>
+					<span class="field_value">{$detail.owner_experience}</span>
+				</div>
+			{/if}
+
+			{if $detail.loudness neq ""}
+				<div class="field_set">
+					<span class="field_name">Loudness</span>
+					<span class="field_value">{$detail.loudness}</span>
+				</div>
+			{/if}
+
+			{if $detail.companion neq ""}
+				<div class="field_set">
+					<span class="field_name">Companion required?</span>
+					<span class="field_value">{$detail.companion}</span>
+				</div>
+			{/if}
+
+			{if $detail.sexing neq ""}
+				<div class="field_set">
+					<span class="field_name">Sexing</span>
+					<span class="field_value">{$detail.sexing}</span>
+				</div>
+			{/if}
+			
+			{if $detail.cage neq ""}
+				<div class="field_set">
+					<span class="field_name">Cage size</span>
+					<span class="field_value">{$detail.cage}</span>
+				</div>
+			{/if}
+
+			{if $detail.stimulation neq ""}
+				<div class="field_set">
+					<span class="field_name">Stimulation needs</span>
+					<span class="field_value">{$detail.stimulation}</span>
+				</div>
+			{/if}
+
+			{if $detail.time_outside neq ""}
+				<div class="field_set">
+					<span class="field_name">Time Outside Needed</span>
+					<span class="field_value">{$detail.time_outside} Hours</span> 
+				</div>
+			{/if}
+
+			{if $detail.talks neq ""}
+				<div class="field_set">
+					<span class="field_name">Talks?</span>
+					<span class="field_value">{$detail.talks}</span>
+				</div>
+			{/if}
+			
+			{if $detail.bird_friendlyness neq ""}
+				<div class="field_set">
+					<span class="field_name">Friendlyness</span>
+					<span class="field_value">{$detail.bird_friendlyness}</span>
+				</div>
+			{/if}
+
+			{if $detail.bird_trainability neq ""}
+				<div class="field_set">
+					<span class="field_name">Trainability</span>
+					<span class="field_value">{$detail.bird_trainability}</span>
 				</div>
 			{/if}
 

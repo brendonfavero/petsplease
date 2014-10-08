@@ -33,7 +33,7 @@ class addon_ppStoreSeller_util extends addon_ppStoreSeller_info
 		}
 
 		// Check if the listing merchant product field is 1 (optional_field_1)
-		if ($listing->optional_field_1 != '1' && !$include_classifieds) { 
+		if ($listing->optional_field_2 < 1 && !$include_classifieds) { 
 			return false;
 		}
 

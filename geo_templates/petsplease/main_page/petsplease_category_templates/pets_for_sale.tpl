@@ -282,7 +282,7 @@
 		{/if}
 		
 	</div>
-	{if $topcategory eq 315 and $optional_field_1 eq "1"}
+	{if $topcategory eq 315}
 	<div class="stockimage">
 		{if $optional_field_2 > 0} {* If stock is available *}
 			<form action="index.php">
@@ -312,7 +312,7 @@
 	
 
 	{* Start buyable product stuff *}
-	{if $topcategory eq 315 and $optional_field_1 eq "1"}
+	{if $topcategory eq 315}
 		<div class="content_box_1">
 			{if $optional_field_2 > 0} {* If stock is available *}
 				<p>
@@ -434,7 +434,7 @@
 			<div class="field_set">
 				<span class="field_name">Services:</span>
 				<span class="field_value clearfix">
-					{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_1}
+					{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$optional_field_18}
 				</span>
 			</div>
 		{/if}

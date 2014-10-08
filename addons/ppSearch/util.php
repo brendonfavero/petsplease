@@ -179,7 +179,7 @@ class addon_ppSearch_util extends addon_ppSearch_info
 			$service_criteria = mysql_real_escape_string($service_criteria);
 			$urlencodedService = urlencode($service_criteria);
 
-			$query->where("$classTable.`optional_field_1` LIKE \"%$urlencodedService%\"", "services_service");
+			$query->where("$classTable.`optional_field_18` LIKE \"%$urlencodedService%\"", "services_service");
 		}
         
         $store_criteria = $searchClass->search_criteria["store"];

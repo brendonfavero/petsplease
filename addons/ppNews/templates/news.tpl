@@ -198,45 +198,11 @@
                   {/foreach}
                 </div>
                 <br clear="all" />
-                {/if}
+                {/if}               
 
-                
-
-                <div class="comments">
-
-                    {if $data.comments && is_array($data.comments) && count($data.comments) > 0 }
-                   		 <h2>Comments</h2>
-                        {foreach from=$data.comments item=comment}
-                            <div class="comment {if $comment.user_id == $userId} own{/if}{if $comment.user_id == 1} admin{/if}">
-                            	<h6 >{$comment.user_name} wrote:</h6>
-                           		<div class="timestamp">{$comment.created|date_format:"%A, %B %e, %Y"}</div>
-                                <div class="wrote">{$comment.comment}</div>
-                                {if $userId == 1}<a class="delete" onclick="return confirm('You sure? This is NOT reversable.') ;" href="{$url}?delComment={$comment.id}">DELETE COMMENT</a>{/if}
-                            </div>
-
-                        {/foreach}
-                    {else}
-                        <div class="commentsNote">Be the first to comment on this article</div>
-                    {/if}
-
-                    {if $userId > 0}
-                        {if $data.comments > 0 || $userID == 1 }
-
-                            <div class="compose">
-                                Write a comment: <br />
-                                <form method="post">
-                                    <textarea name="comment"></textarea>
-                                    <input type="submit" name="submit" value="Comment" />
-                                </form>
-                                <br clear="both" />
-                            </div>
-                        {else}
-                            <div class="commentsNote">Commenting not available on this article</div>
-                        {/if}
-                    {else}
-                        <div class="commentsNote">You must be <a href="/login">logged in</a> to place comments</div>
-                    {/if}
-                </div>
+                   <!-- Go to www.addthis.com/dashboard to customize your tools -->
+				   <div class="addthis_sharing_toolbox"></div>
+               
                 {literal}
                 <script>
 					(function($) {

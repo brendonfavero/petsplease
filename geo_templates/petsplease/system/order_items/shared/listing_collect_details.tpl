@@ -641,15 +641,15 @@
 	{if $category_tree[0]['category_id'] eq 318}
 		<h2 class="title">Services Offered</h2>
 		<div class="content_box clearfix">
-			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=40 value=$opt_field_info[1].value listingfield='optional_field_1'}
-			<input type="hidden" name="b[optional_field_1]" value="{$opt_field_info[1].value}" />
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=40 value=$opt_field_info[1].value listingfield='optional_field_18'}
+			<input type="hidden" name="b[optional_field_18]" value="{$opt_field_info[1].value}" />
 
 			<script>
 				jQuery(function() {
-					jQuery("input[name='optional_field_1_check']").on('click', function() {
-						var combined = jQuery("input[name='optional_field_1_check']:checked")
+					jQuery("input[name='optional_field_18_check']").on('click', function() {
+						var combined = jQuery("input[name='optional_field_18_check']:checked")
 							.map(function() { return jQuery(this).val()}).toArray().join(";")
-						jQuery("input[name='b[optional_field_1]']").val(combined)
+						jQuery("input[name='b[optional_field_18]']").val(combined)
 					})
 				})
 			</script>
@@ -831,15 +831,15 @@
 	{if $category_tree[0]['category_id'] eq 411}
 		<h2 class="title">Pet Types</h2>
 		<div class="content_box clearfix" style="width: 100%">
-			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=48 value=$opt_field_info[1].value listingfield='optional_field_1'}
-			<input type="hidden" name="b[optional_field_1]" value="{$opt_field_info[1].value}" />
+			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxSelect' typeid=48 value=$opt_field_info[1].value listingfield='optional_field_18'}
+			<input type="hidden" name="b[optional_field_18]" value="{$opt_field_info[1].value}" />
 
 			<script>
 				jQuery(function() {
-					jQuery("input[name='optional_field_1_check']").on('click', function() {
-						var combined = jQuery("input[name='optional_field_1_check']:checked")
+					jQuery("input[name='optional_field_18_check']").on('click', function() {
+						var combined = jQuery("input[name='optional_field_18_check']:checked")
 							.map(function() { return jQuery(this).val()}).toArray().join(";")
-						jQuery("input[name='b[optional_field_1]']").val(combined)
+						jQuery("input[name='b[optional_field_18]']").val(combined)
 					})
 				})
 			</script>

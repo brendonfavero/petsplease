@@ -10,7 +10,7 @@
 				<!-- <li><a href="#">Register</a></li>
 				<li><a href="#">Login</a></li> -->
 				<li><a href="/?a=1">Create Your Listing</a></li>
-				<li><a href="/?a=28&b=140">Terms of Use</a></li>	
+				<li><a href="/termsandconditions">Terms of Use</a></li>	
 				<li><a href="/?a=28&b=144">Advertise</a></li>
 			</ul>
 			<br/><br/>

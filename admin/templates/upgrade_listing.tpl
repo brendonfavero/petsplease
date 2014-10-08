@@ -169,6 +169,13 @@
 				<div class="clearColumn"></div>
 			</div>
 			<div class="{cycle values="row_color1,row_color2"}">
+				<div class="leftColumn">Sold</div>
+				<div class="rightColumn">
+					<input type='checkbox' {if $listing.sold_displayed}checked="checked"{/if} name='c[sold_displayed]' value='1' />
+				</div>
+				<div class="clearColumn"></div>
+			</div>
+			<div class="{cycle values="row_color1,row_color2"}">
 				<div class="leftColumn">Featured Listing</div>
 				<div class="rightColumn">
 					<input type='checkbox' {if $listing.featured_ad}checked="checked"{/if} name='c[featured_ad]' value='1' />

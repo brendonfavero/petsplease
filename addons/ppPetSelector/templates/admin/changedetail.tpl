@@ -81,7 +81,7 @@
 
 	<div> 
 		<label for="breed_hypoallergenic">Hypoallergenic</label>
-		<input type="checkbox" name="d[hypoallergenic]" id="breed_hypoallergenic"{if $detail.hypoallergenic eq 1} checked="checked"{/if} />
+		<input type="checkbox" name="d[hypoallergenic]" value="1" id="breed_hypoallergenic"{if $detail.hypoallergenic eq 1} checked="checked"{/if} />
 	</div>
 
 	<div>

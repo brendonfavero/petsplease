@@ -3654,11 +3654,17 @@ class Admin_user_management extends Admin_site
 			'featured_ad_4',
 			'featured_ad_5',
 			'bolding',
-			'better_placement'
+			'better_placement',
+			'sold_displayed'
 		);
 		foreach ($possible_extras as $extra) {
 			$session_variables[$extra] = (isset($choices[$extra]) && $choices[$extra])? 1: 0;
 		}
+        
+        if ($choices['featured_ad']) {
+            $session_variables['last_featured'] = time();
+        }
+        
 		//now handle special-case extras
 		if ($choices['attention_getter'] && $choices["attention_getter_choice"]) {
 			//get url of chosen attention getter
