@@ -39,6 +39,6 @@
 	questions and the seller can either reply by email or log in to their account and reply through our onsite
 	messaging system. The seller can choose to keep their email address anonymous.</p>
 	
-	<p style="text-align: center;" class="highlight_links">Still can't find the answer to your question?<br>  <a href="index.php?a=28&b=136" style="font-weight:bold;">Contact Us</a></p> 
+	<p style="text-align: center;" class="highlight_links">Still can't find the answer to your question?<br>  <a href="/contactus" style="font-weight:bold;">Contact Us</a></p> 
 	
 </div>

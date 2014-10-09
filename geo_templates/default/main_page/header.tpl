@@ -30,9 +30,9 @@
 	<!-- START NAVIGATION -->
 	<nav class="page">
 		<ul id="extra_links">
-			<li><a href="index.php?a=28&amp;b=142">About Us</a></li>
+			<li><a href="/aboutus">About Us</a></li>
 			<li>|</li>
-			<li><a href="index.php?a=28&amp;b=136">Contact Us</a></li>
+			<li><a href="/contactus">Contact Us</a></li>
 		</ul>
 		<ul id="nav_bar">
 			<li><a href="index.php">Home</a></li>

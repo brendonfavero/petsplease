@@ -4,8 +4,8 @@
 		<div class="footer_inner">
 			<div class="blurb">
 				<h3>Contact Us</h3>
-				<p>Need assistance? Have a question that isn't answered in our <a href="index.php?a=28&amp;b=141">help</a> sections? 
-				You can contact support by visiting our <a href="index.php?a=28&amp;b=136">contact us</a> page.</p>
+				<p>Need assistance? Have a question that isn't answered in our <a href="/help">help</a> sections? 
+				You can contact support by visiting our <a href="/contactus">contact us</a> page.</p>
 			</div>
 			
 			<ul>
@@ -15,7 +15,7 @@
 				
 				<li><a href="index.php?a=28&amp;b=135">Features</a></li>
 				<li><a href="index.php?a=28&amp;b=143">Pricing</a></li>
-				<li><a href="index.php?a=28&amp;b=141">Help</a></li>
+				<li><a href="/help">Help</a></li>
 				
 				<li><a href="index.php?a=28&amp;b=137">How It Works</a></li>
 				<li><a href="index.php?a=28&amp;b=144">Advertise With Us</a></li>

@@ -14,9 +14,9 @@
 			</ul>
 
 			<ul id="homewelcome-buttons" class="buttonset clearfix">
-				<li><a style="width:112px" href="/?a=10">Register</a></li>
-				<li><a style="width:112px" href="/?a=10">Login</a></li>
-				<li class="last"><a style="width:113px" href="/?a=10">Create Your Listing</a></li>
+				<li><a style="width:112px" href="/register">Register</a></li>
+				<li><a style="width:112px" href="/login">Login</a></li>
+				<li class="last"><a style="width:113px" href="/createyourlisting">Create Your Listing</a></li>
 			</ul>
 		</div>
 

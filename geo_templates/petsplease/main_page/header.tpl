@@ -7,11 +7,11 @@
 	
 	<ul id="header-buttons" class="buttonset">
 		<li class="first"><span class="right-divider">Welcome to Pets Please</span></li>
-		<li><a href="/?a=cart&action=new&main_type=classified" class="right-divider">Create Your Listing</a></li>
-		<li><a href="/?a=4" class="right-divider">My PetsPlease</a></li>
+		<li><a href="/createyourlisting" class="right-divider">Create Your Listing</a></li>
+		<li><a href="/mypetsplease" class="right-divider">My PetsPlease</a></li>
 		{if not $logged_in}
-			<li><a href="/?a=10" class="right-divider">Register</a></li>
-			<li><a href="/?a=10" class="right-divider">Login</a></li>
+			<li><a href="/register" class="right-divider">Register</a></li>
+			<li><a href="/login" class="right-divider">Login</a></li>
 		{else}
 			<li><a href="/?a=17" class="right-divider">Logout</a></li>
 		{/if}
@@ -55,7 +55,7 @@
 		</div>
 
 		<div>
-			<a href="?a=19&c=308&b[subcategories_also]=1" class="curveright">Pets for Sale</a>
+			<a href="petsforsale" class="curveright">Pets for Sale</a>
 		</div>
 
 	</div>
@@ -71,27 +71,27 @@
 
 	<ul id="header-petnav" class="buttonset clearfix">
 		<li class="nav-dog"> 
-			<a href="/index.php?a=19&c=309&b[subcategories_also]=1"><span>Dogs &amp;<br>Puppies</span></a>
+			<a href="/dogs"><span>Dogs &amp;<br>Puppies</span></a>
 		</li>
 
 		<li class="nav-cat">
-			<a href="/index.php?a=19&c=310&b[subcategories_also]=1"><span>Cats &amp;<br>Kittens</span></a>
+			<a href="/cats"><span>Cats &amp;<br>Kittens</span></a>
 		</li>
 
 		<li class="nav-bird">
-			<a href="/index.php?a=19&c=311&b[subcategories_also]=1"><span>Birds</span></a>
+			<a href="/birds"><span>Birds</span></a>
 		</li>
 
 		<li class="nav-fish">
-			<a href="/index.php?a=19&c=312&b[subcategories_also]=1"><span>Fish</span></a>
+			<a href="/fish"><span>Fish</span></a>
 		</li>
 
 		<li class="nav-reptile">
-			<a href="/index.php?a=19&c=313&b[subcategories_also]=1"><span>Reptiles</span></a>
+			<a href="/reptiles"><span>Reptiles</span></a>
 		</li>
 
 		<li class="nav-other last">
-			<a href="/index.php?a=19&c=314&b[subcategories_also]=1"><span>Other Pets</span></a>
+			<a href="/otherpets"><span>Other Pets</span></a>
 		</li>
 	</ul>
 

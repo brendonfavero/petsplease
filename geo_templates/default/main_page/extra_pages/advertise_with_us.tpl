@@ -1,7 +1,7 @@
 <div class="content_box">
 	<h1 class="title">Advertise With Us</h1>
 	    <p>You can change the text for this page by accessing the following menu in the admin panel:<br>  Design &gt; Templates &gt; main_page &gt; extra_pages</p> 
-	    <p>We invite you to advertise on one of the fastest growing websites on the Internet. Please <a href="index.php?a=28&b=136" title="Contact Us" style="text-decoration:underline; font-weight: bold;">Click Here</a> for details on how to advertise on our website.</p> 
+	    <p>We invite you to advertise on one of the fastest growing websites on the Internet. Please <a href="/contactus" title="Contact Us" style="text-decoration:underline; font-weight: bold;">Click Here</a> for details on how to advertise on our website.</p> 
 
 		<div style="margin-bottom: 10px; text-align: center;">
 			<br />

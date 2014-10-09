@@ -9,7 +9,7 @@
 		to beat. We offer our customers two great pricing options. The &quot;Pay per Listing&quot; option allows you to pay for 
 		Classified or Auction each time you place one on our site. Or, dealers can take advantage of the &quot;Subscription Based&quot; 
 		option which allows you to sign up for a subscription to our site and place as many listings as you want during your 
-		subscription period (<a href="index.php?a=28&amp;b=136">contact us</a> for details). Please review the pricing schedule 
+		subscription period (<a href="/contactuus">contact us</a> for details). Please review the pricing schedule 
 		below before <a href="register.php">registering</a> to use our site.
 	</p>
 </div>
