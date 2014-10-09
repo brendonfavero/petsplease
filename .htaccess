@@ -151,6 +151,26 @@ RewriteRule ^/?testimonials/?$ index.php?a=28&b=146 [L,NC,QSA] #home
 RewriteRule ^/?testimonialform/?$ index.php?a=28&b=147 [L,NC,QSA] #home
 RewriteRule ^/?help/?$ index.php?a=28&b=148 [L,NC,QSA] #home
 
+RewriteRule ^/?scammers/?$ index.php?a=28&b=139 [L,NC,QSA] #home
+RewriteRule ^/?contactus/?$ index.php?a=28&b=136 [L,NC,QSA] #home
+RewriteRule ^/?aboutus/?$ index.php?a=28&b=136 [L,NC,QSA] #home
+
+RewriteRule ^/?login/?$ index.php?a=10 [L,NC,QSA] #home
+RewriteRule ^/?register/?$ register.php [L,NC,QSA] #home
+
+RewriteRule ^/?advertise/?$ index.php?a=28&b=144 [L,NC,QSA] #home
+
+RewriteRule ^/?createyourlisting/?$ index.php?a=cart&action=new&main_type=classified [L,NC,QSA] #home
+
+RewriteRule ^/?petsforsale/?$ index.php?a=19&c=308&b[subcategories_also]=1 [QSA,L] ##category
+RewriteRule ^/?dogs/?$ index.php?a=19&c=309&b[subcategories_also]=1 [QSA,L] ##category
+RewriteRule ^/?cats/?$  index.php?a=19&c=310&b[subcategories_also]=1 [QSA,L] ##category
+RewriteRule ^/?birds/?$  index.php?a=19&c=311&b[subcategories_also]=1 [QSA,L] ##category
+RewriteRule ^/?fish/?$  index.php?a=19&c=312&b[subcategories_also]=1 [QSA,L] ##category
+RewriteRule ^/?reptiles/?$  index.php?a=19&c=313&b[subcategories_also]=1 [QSA,L] ##category
+RewriteRule ^/?otherpets/?$  index.php?a=19&c=314&b[subcategories_also]=1 [QSA,L] ##category
+
+
 
 
 
