@@ -6,8 +6,10 @@
 	</a>
 	
 	<ul id="header-buttons" class="buttonset">
-		<li class="first"><span class="right-divider">Welcome to Pets Please</span></li>
-		<li><a href="/createyourlisting" class="right-divider">Create Your Listing</a></li>
+		<li class="first"><a href="/" class="right-divider">Home</a></li>
+		<li><a href="/createyourlisting" class="right-divider">Create a Listing</a></li>
+		<li><a href="/help" class="right-divider">Help</a></li>
+		<li><a href="/testimonials" class="right-divider">Testimonials</a></li>
 		<li><a href="/mypetsplease" class="right-divider">My PetsPlease</a></li>
 		{if not $logged_in}
 			<li><a href="/register" class="right-divider">Register</a></li>

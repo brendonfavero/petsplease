@@ -159,6 +159,7 @@ RewriteRule ^/?login/?$ index.php?a=10 [L,NC,QSA] #home
 RewriteRule ^/?register/?$ register.php [L,NC,QSA] #home
 
 RewriteRule ^/?advertise/?$ index.php?a=28&b=144 [L,NC,QSA] #home
+RewriteRule ^/?mypetsplease/?$ index.php?a=4 [L,NC,QSA] #home
 
 RewriteRule ^/?createyourlisting/?$ index.php?a=cart&action=new&main_type=classified [L,NC,QSA] #home
 

@@ -36,7 +36,7 @@
 		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"><a href="#edit">Edit your listing</a></span>
 	</p>
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
-		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"><a href="#pay">Pay for your listing<</a>/span>
+		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"><a href="#pay">Pay for your listing</a></span>
 	</p>
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
 		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"><a href="#find">Find your listing</a></span>
@@ -75,8 +75,8 @@
 		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"><a href="#sellerstips">Tips for sellers</a></span>
 	</p>
 	<br/>
-	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
-		<span style="font-size: 15px; font-family: Verdana; color:white; background-color: #2E3191; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;"><a name="create"></a>CREATING A LISTING OR PROFILE</span>
+	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;background-color: #2E3191;">
+		<span style="font-size: 15px; font-family: Verdana; color:white;  font-weight: bold; vertical-align: baseline; white-space: pre-wrap;"><a name="create"></a>CREATING A LISTING OR PROFILE</span>
 	</p>
 	<br/>
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
@@ -365,13 +365,10 @@
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
 		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"> </span>
 	</p>
-	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
-		<span style="font-size: 15px; font-family: Verdana; color:white; background-color: #2E3191; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;"><a name="buy"></a>BUYING A PET OR PET PRODUCT</span>
+	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;background-color: #2E3191;">
+		<span style="font-size: 15px; font-family: Verdana; color:white;  font-weight: bold; vertical-align: baseline; white-space: pre-wrap;"><a name="buy"></a>BUYING A PET OR PET PRODUCT</span>
 	</p>
-	<br/>
-	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
-		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); font-weight: bold; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap;"> </span>
-	</p>
+	<br/>	
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
 		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); font-weight: bold; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap;"><a name="favourites"></a>My favourites</span>
 	</p>
@@ -387,7 +384,6 @@
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;text-align: center;">
 		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"></span>
 	</p>
-	<hr>
 	<p></p>
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
 		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"> </span>
@@ -404,8 +400,8 @@
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
 		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"> </span>
 	</p>
-	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
-		<span style="font-size: 15px; font-family: Verdana; color:white; background-color: #2E3191; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;"><a name="scam"></a>Scam Defence</span>
+	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;background-color: #2E3191;">
+		<span style="font-size: 15px; font-family: Verdana; color:white;  font-weight: bold; vertical-align: baseline; white-space: pre-wrap;"><a name="scam"></a>SCAM DEFENCE</span>
 	</p>
 	<br/>
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
@@ -445,7 +441,7 @@
 		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"> </span>
 	</p>
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
-		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;">If you notice a suspicious listing please contact us at <a href="mailto:admin@petsplease.com.au">admin@horsezone.com.au</a></span>
+		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;">If you notice a suspicious listing please contact us at <a href="mailto:admin@petsplease.com.au">admin@petsplease.com.au</a></span>
 	</p>
 	<p dir="ltr" style="line-height:1.15;margin-top:0pt;margin-bottom:0pt;">
 		<span style="font-size: 12px; font-family: Verdana; color: rgb(44, 41, 41); vertical-align: baseline; white-space: pre-wrap;"> </span>
