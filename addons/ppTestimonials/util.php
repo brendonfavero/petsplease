@@ -15,3 +15,4 @@ class addon_ppTestimonials_util extends addon_ppTestimonials_info
 		}
 	}
 }
+

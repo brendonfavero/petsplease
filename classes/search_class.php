@@ -1489,6 +1489,7 @@ class Search_classifieds extends geoBrowse
 				//use the common geoBrowse class to do all the common heavy lifting
 				$listings[$id] = $this->commonBrowseData($row, $text);
 				
+                $listings[$id]['start_date'] = gmdate("d-m-Y", $row['date']);
 				//css is different enough to not include in the common file
 				$listings[$id]['css'] = 'browsing_result_table_body_' . (($count++ % 2 == 0) ? 'even' : 'odd') . (($row['bolding']) ? '_bold' : '');
 				

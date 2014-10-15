@@ -148,6 +148,12 @@ that it will corrupt the smarty tags!
 				{$listing.state_data}
 			{/capture}
 		{/if}
+		
+		{if $listing.date}
+			{capture append="details" nocache}
+				Date Listed: {$listing.start_date}
+			{/capture}
+		{/if}
 
 		{if $ex_males or $ex_females}
 			{capture append="details"}

@@ -28,10 +28,14 @@
 		</span>
 	</div>
 
-
 	<div>
-		<label for="breed_description">Description</label>
+		<label for="breed_description">Testimonial</label>
 		<textarea name="d[description]" id="description" style="width: 550px; height: 200px;">{$detail.description|utf8_decode}</textarea>
+	</div>
+	
+	<div>
+		<label for="from">From</label>
+		<input type="text" name="d[from]" id="from" value="{$detail.from}" />
 	</div>
 
 	<input type="submit" name="auto_save" value="Save" />
