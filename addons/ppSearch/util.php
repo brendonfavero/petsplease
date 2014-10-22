@@ -19,6 +19,8 @@ class addon_ppSearch_util extends addon_ppSearch_info
 	const BREEDER_REPTILE_BREEDS_COL = "optional_field_12";
 	const BREEDER_OTHER_BREEDS_COL = "optional_field_13";
 
+    
+    
 	public function core_Search_classifieds_generate_query ($vars)
 	{
 		$searchClass = $vars['this'];

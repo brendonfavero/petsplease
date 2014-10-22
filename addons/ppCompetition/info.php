@@ -10,7 +10,8 @@ class addon_ppCompetition_info
 	public $auth_tag = 'pp_addons';
 
 	public $pages = array(
-		'competition'
+		'competition',
+		'terms'
 	);
 
 }

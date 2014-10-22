@@ -50,7 +50,8 @@
 
 	<div class="header-navpre">
 		<div style="float: right">
-			<a href="/competition" class="curveleft pink">Pet Competition</a>
+			<a href="/mypetsplease" class="curveleft pink">My Account</a>
+			<a href="/competition">Pet Competition</a>
 			<a href="/petselector">Pet Selector</a>
 			<a href="/favourites">My Favourites</a>
 			<a href="/cart">Shopping Cart</a>

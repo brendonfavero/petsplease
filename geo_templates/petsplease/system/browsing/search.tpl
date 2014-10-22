@@ -20,6 +20,7 @@
 </div>
 
 <div class="col_right">
+	
 	{if $current_category_name eq 'Cats & Kittens'}
 		<div class="ancats" style="margin-left:20%">
 			<img style="width:200px; margin-left:20%" src="/geo_templates/petsplease/external/images/ancats.jpg"/>
@@ -28,6 +29,9 @@
 		</div>
 	{/if}
 	
+	{if $current_category_text}
+		<div claa="category_text" style="margin-bottom:10px">{$current_category_text}</div>
+	{/if}	
 	{if $pagination}
 		{$pagination}
 	{/if}

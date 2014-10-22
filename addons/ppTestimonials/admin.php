@@ -37,17 +37,43 @@ class addon_ppTestimonials_admin extends addon_ppTestimonials_info {
         $db = true;
         include (GEO_BASE_DIR . 'get_common_vars.php');
         $vars = $_REQUEST['d'];
+        if ($vars['id']) {
+            if ($_REQUEST['dodelete'] == true) {
+                $sql = "DELETE FROM petsplease_testimonials WHERE id = ?";
+                $db->Execute($sql, array($vars['id']));
 
+                if (!$db->ErrorMsg()) {
+                    geoAdmin::getInstance()->message("Testimonial (id:".$vars['id'].") successfully deleted");
+                }
+                else {
+                    geoAdmin::getInstance()->message("Testimonial (id:".$vars['id'].") could not be deleted<br><br>The error returned was:<br>" . $db->ErrorMsg());
+                }
+            }
+            else {
+
+                $sql = "UPDATE petsplease_testimonials  SET description = " . $_REQUEST['d']['description'] . ", from_name = " . $_REQUEST['d']['from'] . ", title = " . $_REQUEST['d']['title'] . " WHERE id = " . $vars['id'];
+                $db->Execute($sql);
+
+                if (!$db->ErrorMsg()) {
+                    geoAdmin::getInstance()->message("Testimonial (id:".$vars['id'].") successfully updated");
+                }
+                else {
+                    geoAdmin::getInstance()->message("Testimonial (id:".$vars['id'].") could not be updated<br><br>The error returned was:<br>" . $db->ErrorMsg());
+                }
+            }
+        }
+        else {
             // Insert new row
-            $sql = "INSERT INTO petsplease_testimonials (description, from) VALUES ('" .$_REQUEST['d']['description'] . "', '". $_REQUEST['d']['from']."')";
-
+            $sql = "INSERT INTO petsplease_testimonials (description, from_name, title) VALUES ('" .$_REQUEST['d']['description'] . "', '". $_REQUEST['d']['from']."', '".$_REQUEST['d']['title']."')";
+            echo $sql;
             $db -> Execute($sql);
 
             if (!$db -> ErrorMsg()) {
                 geoAdmin::getInstance() -> message("New Testimonial was successfully inserted");
             } else {
-                geoAdmin::getInstance() -> message("New Testimonial could not be inserted<br><br>The error returned was:<br>" . $db -> ErrorMsg());
+                geoAdmin::getInstance() -> message("New Testimonial could not be inserted<br><br>The error returned was:<br>" . $sql);
             }
+        }
 
     }
 

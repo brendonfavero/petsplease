@@ -24,6 +24,16 @@ class addon_ppCompetition_pages extends addon_ppCompetition_info
 
 		$view->setBodyTpl('competition.tpl', $this->name);
 	}
+    
+    public function terms() {
+        $db = true;
+        include (GEO_BASE_DIR.'get_common_vars.php');
+        $db->Execute("set names 'utf8'"); 
+
+        $view = geoView::getInstance();
+
+        $view->setBodyTpl('terms.tpl', $this->name);
+    }
 
    
 }

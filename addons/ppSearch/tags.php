@@ -184,6 +184,20 @@ class addon_ppSearch_tags extends addon_ppSearch_info
 		return geoTemplate::loadInternalTemplate($params, $smarty, 'searchSidebar.tpl',
 				geoTemplate::ADDON, $this->name, $tpl_vars);		
 	}
+	
+	public function getCategoryText($params) {
+        $db = true;
+        require (GEO_BASE_DIR."get_common_vars.php");
+
+        $sql = "SELECT category_text FROM petsplease_category_text WHERE category_id = 319";
+        
+        $result = $db->GetRow($sql);       
+
+        if (!$result || empty($result))
+            return null;
+
+        return $result;
+    }
 
 	private function buildCategoryChildren($parent_id, $all_categories) {
         $categories = array();

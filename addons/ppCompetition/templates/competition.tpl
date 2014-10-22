@@ -17,10 +17,11 @@
 
 <h1 class="title">Pet of the Week competition.</h1>
 
-<p>Each week a pet photo will be chosen from those submitted to become Pet Of The Week, they will be posted on this website, Facebook, Google + and Instagram. Please take a look at some that have already appeared on Facebook.
+<p>Each week a pet photo will be selected from those submitted to become Pet Of The Week. The photo will be posted on this website, Facebook, Google+ and Instagram. 
 <br/><br/>
-If you would like your pet to be Pet Of The Week and appear on  Pets Please website and  Social media please send your photo’s to <a href="mailto:natasha@petsplease.com.au">natasha@petsplease.com.au</a> All Pet of the week winners will receive a prize.</p>
-
+If you would like your pet to go in the running to be our next Pet Of The Week and appear on our website and social media pages please send your photos to <a href="mailto:natasha@petsplease.com.au">natasha@petsplease.com.au</a> 
+<br/><br/>
+All Pet Of The Week winners will receive a prize. For terms and conditions click <a href="/competition/terms"></a></p>
 <h1 class="title">Current Pet of the Week</h1>
 {foreach $current as $c}
 	<div class="content_box_1" style="margin:auto; text-align:center;" id="petoftheweek">

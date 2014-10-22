@@ -339,7 +339,7 @@
 				{if $optional_field_20 eq '$91,234.56 AUD'}<br/>
 					Pick-Up Only				
 				{else}
-					Shipping and handling: {if $flat_rate > 0}${$flat_rate} AUD (store flat shipping rate){else}{$optional_field_20}{/if} (Shipping within Australia, contact seller for international shipping)<br>
+					Shipping and handling: {if $flat_rate > 0}${$flat_rate} AUD (store flat shipping rate){else}${if $optional_field_20}{$optional_field_20}{else}0.00{/if}{/if} (Shipping within Australia, contact seller for international shipping)<br>
 				{/if}
 				{if $optional_field_2 > 0}
 					Quantity available: {$optional_field_2}

@@ -127,12 +127,7 @@ p.MsoFooter, li.MsoFooter, div.MsoFooter
 	text-align:justify;
 	font-size:10.0pt;
 	font-family:"Arial","sans-serif";}
-a:link, span.MsoHyperlink
-	{color:blue;
-	text-decoration:underline;}
-a:visited, span.MsoHyperlinkFollowed
-	{color:purple;
-	text-decoration:underline;}
+
 p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
 	{margin-top:6.0pt;
 	margin-right:0cm;
@@ -585,12 +580,15 @@ copyright laws and other intellectual property laws.  </p>
 to access, use and display the Site and to download or print Site Content for personal,
 non-advertising purposes.  </p>
 
-<p class=Indent1>When You provide Site Content which is displayed on the Site,
-You grant Us, and represent that You have the right to grant Us, a non-exclusive,
-non-transferable, royalty-free, limited right to access, use and display that Site
-Content for advertising purposes, including on affiliated media platforms of
-Ours, including but not limited to our Facebook, Instagram, Twitter and Google+
-sites.</p>
+<p class=Indent1>1.3          Site Content
+
+Our Site and its contents (with the exception of any advertisements), including without limitation its text, images, photographs, graphics, trademarks, software, audio and video clips and other materials (Site Content) are owned by or licensed to Us and are protected by Australian copyright laws and other intellectual property laws. 
+
+We grant You a non-exclusive, non-transferable, limited right to access, use and display the Site and to download or print Site Content for personal, non-advertising purposes. 
+
+When You provide Site Content which is displayed on the Site, You grant Us, and represent that You have the right to grant Us, a non-exclusive, non-transferable, royalty-free, limited right to access, use and display that Site Content for advertising and promotional purposes, including on affiliated media platforms of Ours, including but not limited to our Facebook, Instagram, Pinterest, Twitter and Google sites.
+
+We are not responsible or liable for any misuse or non-authorised use by third parties of any Site Content provided by You.</p>
 
 <p class=Indent1>We are not responsible or liable for any misuse or
 non-authorised use by third parties of any Site Content provided by You.</p>

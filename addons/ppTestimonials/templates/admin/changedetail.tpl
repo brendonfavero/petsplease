@@ -27,6 +27,11 @@
 		{/if}
 		</span>
 	</div>
+	
+	<div>
+		<label for="from">Title</label>
+		<input type="text" name="d[title]" id="from" value="{$detail.title}" />
+	</div>
 
 	<div>
 		<label for="breed_description">Testimonial</label>

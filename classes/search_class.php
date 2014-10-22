@@ -1126,6 +1126,12 @@ class Search_classifieds extends geoBrowse
                 $parent_id = $this->site_category;
             }
             
+            $sql = "SELECT category_text FROM petsplease_category_text WHERE category_id = ?";
+        
+            $result = $this->db->GetRow($sql, array($this->site_category));       
+            
+            $tpl_vars['current_category_text'] = $result['category_text'];
+            
             $tpl_vars['current_category_name'] = $current_category_name->CATEGORY_NAME;
 			
 			$view->setBodyTpl('search.tpl', '', 'browsing')
