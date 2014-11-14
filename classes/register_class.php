@@ -2104,13 +2104,13 @@ class Register extends geoSite {
 							
 							$tpl = new geoTemplate('system','emails');
 							$tpl->assign('introduction', $this->messages[676]);
-							$tpl->assign('salutation', $this->get_salutation($show));
+							$tpl->assign('salutation', $show->FIRSTNAME);
 							$tpl->assign('messageBody', $this->messages[677]);
 							$message = $tpl->fetch('registration/registration_complete.tpl');
 
 							$from = $this->db->get_site_setting('registration_admin_email');
 
-							geoEmail::sendMail($mailto, $subject, $message, $from, $from, 0, 'text/html');
+							geoEmail::sendMail($mailto, 'Welcome to Pets Please', $message, $from, $from, 0, 'text/html');
 				  		}
 
 				  		if ($this->db->get_site_setting('send_register_complete_email_admin') && !$admin) {

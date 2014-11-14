@@ -148,9 +148,11 @@ RewriteRule ^/?competition/?$ index.php?a=ap&addon=ppCompetition&page=competitio
 RewriteRule ^/?competition/terms/?$ index.php?a=ap&addon=ppCompetition&page=terms [L,NC,QSA] #home
 
 RewriteRule ^/?termsandconditions/?$ index.php?a=28&b=140 [L,NC,QSA] #home
-RewriteRule ^/?testimonials/?$ index.php?a=28&b=146 [L,NC,QSA] #home
-RewriteRule ^/?testimonialform/?$ index.php?a=28&b=147 [L,NC,QSA] #home
-RewriteRule ^/?help/?$ index.php?a=28&b=148 [L,NC,QSA] #home
+RewriteRule ^/?testimonials/?$ index.php?a=ap&addon=ppTestimonials&page=testimonials [L,NC,QSA] #home
+RewriteRule ^/?testimonialform/?$ index.php?a=ap&addon=ppTestimonials&page=testimonialsform [L,NC,QSA] #home
+RewriteRule ^/?help/?$ index.php?a=ap&addon=ppExtraPages&page=advertisingPets [L,NC,QSA] #home
+RewriteRule ^/?businesses/?$ index.php?a=ap&addon=ppExtraPages&page=advertisingBusinesses [L,NC,QSA] #home
+RewriteRule ^/?petsandproducts/?$ index.php?a=ap&addon=ppExtraPages&page=petsAndProducts [L,NC,QSA] #home
 
 RewriteRule ^/?scammers/?$ index.php?a=28&b=139 [L,NC,QSA] #home
 RewriteRule ^/?contactus/?$ index.php?a=28&b=136 [L,NC,QSA] #home

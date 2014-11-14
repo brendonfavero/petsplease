@@ -19,9 +19,9 @@
 
 <p>Each week a pet photo will be selected from those submitted to become Pet Of The Week. The photo will be posted on this website, Facebook, Google+ and Instagram. 
 <br/><br/>
-If you would like your pet to go in the running to be our next Pet Of The Week and appear on our website and social media pages please send your photos to <a href="mailto:natasha@petsplease.com.au">natasha@petsplease.com.au</a> 
+If you would like your pet to go in the running to be our next Pet Of The Week and appear on our website and social media pages please send your photos to <a href="mailto:natasha@petsplease.com.au">admin@petsplease.com.au</a> 
 <br/><br/>
-All Pet Of The Week winners will receive a prize. For terms and conditions click <a href="/competition/terms"></a></p>
+All Pet Of The Week winners will receive a prize. For terms and conditions click <a href="/competition/terms">here</a></p>
 <h1 class="title">Current Pet of the Week</h1>
 {foreach $current as $c}
 	<div class="content_box_1" style="margin:auto; text-align:center;" id="petoftheweek">

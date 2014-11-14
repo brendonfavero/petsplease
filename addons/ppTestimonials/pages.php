@@ -94,4 +94,29 @@ class addon_ppTestimonials_pages extends addon_ppTestimonials_info
         $view = geoView::getInstance();
         $view->setRendered(true);
       }
+
+    public function testimonials() {
+        $db = true;
+        include (GEO_BASE_DIR.'get_common_vars.php');
+        $db->Execute("set names 'utf8'"); 
+
+        $view = geoView::getInstance();
+        
+        $sql = "SELECT * FROM petsplease_testimonials";
+        $result = $db -> GetAll($sql);
+
+        $view -> setBodyVar('testimonials', $result);
+
+        $view->setBodyTpl('testimonials.tpl', $this->name);
+    }
+    
+    public function testimonialsform() {
+        $db = true;
+        include (GEO_BASE_DIR.'get_common_vars.php');
+        $db->Execute("set names 'utf8'"); 
+
+        $view = geoView::getInstance();
+
+        $view->setBodyTpl('testimonialsform.tpl', $this->name);
+    }
 }

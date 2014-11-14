@@ -29,12 +29,12 @@ header.page {
 	color: $navyblue;
 	margin-top: 7px;
 }
-#header-buttons {
+.header-buttons {
 	font-size: 1.3em;
 	float:right;
 
 	a, span {
-		padding: ($st_seperator / 4) 15px;
+		padding: ($st_seperator / 4) 10px;
 	}
 	li.first {
 		margin: 0;
@@ -46,6 +46,47 @@ header.page {
 	a:hover, a:active {
 		text-decoration: underline;
 	}
+	
+  li.has-sub:hover > a {
+    padding-bottom: 14px;
+    z-index: 999;
+  }
+  li.has-sub:hover > ul,
+  li.has-sub:hover > div {
+    display: block;
+  }
+  li.has-sub > a:hover,
+  li.has-sub:hover > a {
+  }
+  
+  li > ul,
+  li > div {
+    display: none;
+    width: auto;
+    position: absolute;
+    top: 38px;
+    border-radius: 0 0 5px 5px;
+    z-index: 999;
+  }
+  
+  
+ ul ul {
+  position: absolute;
+}
+ ul li:hover > ul {
+  left: 100%;
+  top: -10px;
+  border-radius: 5px;
+}
+ li > ul li {
+  display: block;
+  list-style: inside none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+
 
 	a.icon-link {
 		padding: 4px 10px;
