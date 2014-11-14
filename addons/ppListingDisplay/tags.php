@@ -509,6 +509,7 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
 		$sql = "SELECT SQL_CALC_FOUND_ROWS *
 			      FROM geodesic_classifieds c
 			     WHERE c.seller = ? AND c.live = 1 AND c.category ".$in_statement."
+			     ORDER BY c.sold_displayed ASC
 			     LIMIT ?, ?";
 
 		$result = $db->GetAll($sql, array($seller, $record_start, $page_size));
