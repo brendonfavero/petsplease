@@ -299,6 +299,16 @@ class User_management_current_ads extends geoSite
 			$i++;
 		}
 		$view->pending = $pending;
+        
+        $listingid = $_REQUEST["c"];
+        if (isset($listingid)) {
+            $listing = geoListing::getListing($listingid);
+            if ($listing->sold_displayed == 1) {
+                $view->fancybox = true;
+            }
+        }
+        
+        
 		
 		geoAddon::triggerUpdate('current_listings_end');
 

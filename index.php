@@ -516,7 +516,7 @@ switch ($_REQUEST["a"]) {
 				else
 				{
 					//display current ads
-					if (!$user_management->list_current_ads($db))
+					if (!$user_management->list_current_ads())
 						$user_management->site_error();
 				}
 				break;

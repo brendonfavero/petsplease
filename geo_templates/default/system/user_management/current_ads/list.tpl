@@ -1,5 +1,11 @@
 {* 7.2beta3-92-gf36243c *}
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="/js/fancybox/jquery.fancybox.js"></script>
+<script type="text/javascript" src="/js/fancybox/jquery.fancybox.pack.js"></script>
+
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+
 <div class="content_box">
 	<h1 class="title my_account">{$messages.634}</h1>
 	<h1 class="subtitle">{$messages.504}</h1>
@@ -105,16 +111,23 @@
 				{if $sold_image and $is_e}
 					<td class="center">
 						{if $listing.item_type eq 1}
-							<a href="{$file_name}?a=4&amp;b=11&amp;c={$listing.id}" class="mini_button">
-								{if $listing.sold_displayed}{$messages.717}{else}{$messages.716}{/if}
-							</a>
+							{if $listing.sold_displayed}
+								<a href="{$file_name}?a=4&amp;b=11&amp;c={$listing.id}" class="mini_button">{$messages.717}</a>
+							{else}
+								<a href="{$file_name}?a=4&amp;b=11&amp;c={$listing.id}" class="mini_button">{$messages.716}</a>
+							{/if}
+							
 						{else if $listing.sold_displayed}
 							{$messages.717}
 						{else}
 							&nbsp;-&nbsp;
 						{/if}
+						
+						
 					</td>
 				{/if}
+				
+				
 				
 				<td class="nowrap">
 					{$messages.783}: {$listing.forwarded}<br />
@@ -138,7 +151,9 @@
 		{/foreach}
 	</table>
 </div>
-
+{if $fancybox}
+							<a href="https://docs.google.com/forms/d/1_Qp4AdNBt1OQ7KExinRzykDQMMO4-2B3x4LNX01Nfg4/viewform?embedded=true" data-fancybox-type="iframe" class="fancybox"></a>
+						{/if}	
 <script type="text/javascript">
 {literal}
 	showing = false;
@@ -165,7 +180,22 @@
 			}
 			return false;
 		});
+		
+		$('.fancybox').fancybox({
+		   maxWidth	: 800,
+		maxHeight	: 1000,
+		fitToView	: false,
+		width		: '70%',
+		height		: '80%',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none',
+		});
+		
+		$(".fancybox").eq(0).trigger('click');
 	});
+	    
 	
 {/literal}
 </script>
