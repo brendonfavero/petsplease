@@ -1,6 +1,5 @@
 !html!
 <basefont face="Verdana, Geneva, sans-serif" />
-<style>a{font-family:Verdana, Geneva, sans-serif;}</style>
   
 <font face="Verdana, Geneva, sans-serif" color="#333333">
   
