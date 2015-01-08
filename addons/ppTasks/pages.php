@@ -132,7 +132,7 @@ class addon_ppTasks_pages extends addon_ppTasks_info
         if ($res && $res->RecordCount() > 0) {
             while ($row = $res->FetchRow()) {
                 $emailMessage = new geoTemplate('addon','ppTasks');
-                $emailMessage->data = array('firstname' => $row['firstname']);
+                $emailMessage->assign('firstname', $row['firstname']);
                 $message =  $emailMessage->fetch('emailBody_50daynotify.tpl');
 
                 geoEmail::sendMail( 
