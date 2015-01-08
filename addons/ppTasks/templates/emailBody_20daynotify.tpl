@@ -19,7 +19,7 @@
     <br/><br/>
     You can also upgrade your listing to a featured listing for only $10; it will take your advertisement to the top of its category as well as highlighted blue in search results for the next month.
 	<br/><br/>
-	To give yourself the best change of a sale and to be seen by more buyers, click <a href="http://www.petsplease.com.au/login">here</a> to upgrade your listing
+	To give yourself the best chance of a sale and to be seen by more buyers, click <a href="http://www.petsplease.com.au/login">here</a> to upgrade your listing
 	<br/><br/>
 	Click <a href="http://petsplease.com.au/help">here</a> to read the help section of Pets Please for more tips on getting the most out of your advertisement and selling your listing faster.
 	<br/><br/>
