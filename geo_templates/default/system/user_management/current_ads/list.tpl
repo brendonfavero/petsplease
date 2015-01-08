@@ -1,6 +1,5 @@
 {* 7.2beta3-92-gf36243c *}
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="/js/fancybox/jquery.fancybox.js"></script>
 <script type="text/javascript" src="/js/fancybox/jquery.fancybox.pack.js"></script>
 
@@ -173,6 +172,9 @@
 	};
 	
 	jQuery(document).ready(function () {
+		
+		
+	    
 		jQuery('.showAllBidsButton').click(function () {
 			var contents = jQuery(this).next('.showAllBids');
 			if (contents.length) {
@@ -181,19 +183,22 @@
 			return false;
 		});
 		
-		$('.fancybox').fancybox({
-		   maxWidth	: 800,
-		maxHeight	: 1000,
-		fitToView	: false,
-		width		: '70%',
-		height		: '80%',
-		autoSize	: false,
-		closeClick	: false,
-		openEffect	: 'none',
-		closeEffect	: 'none',
-		});
+		if (jQuery('.fancybox').length){
+	        jQuery('.fancybox').fancybox({
+			   	maxWidth	: 800,
+				maxHeight	: 1000,
+				fitToView	: false,
+				width		: '70%',
+				height		: '80%',
+				autoSize	: false,
+				closeClick	: false,
+				openEffect	: 'none',
+				closeEffect	: 'none',
+				});
+				
+				jQuery(".fancybox").eq(0).trigger('click');
+	    }
 		
-		$(".fancybox").eq(0).trigger('click');
 	});
 	    
 	

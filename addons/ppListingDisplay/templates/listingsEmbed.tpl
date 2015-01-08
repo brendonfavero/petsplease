@@ -7,6 +7,9 @@
 			<div class="description">
 				<div class="title"><a href="index.php?a=2&b={$listing.id}">{$listing.title|urldecode}</a></div>
 				<div class="price">{$listing.price}</div>
+				{if $listing.sold_displayed == 1}
+					<img src="/geo_templates/default/external/images/sold.png" alt="">
+				{/if}
 			</div>
 		</div>
 	{/foreach}

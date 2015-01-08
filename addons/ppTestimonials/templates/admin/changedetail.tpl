@@ -40,7 +40,7 @@
 	
 	<div>
 		<label for="from">From</label>
-		<input type="text" name="d[from]" id="from" value="{$detail.from}" />
+		<input type="text" name="d[from]" id="from" value="{$detail.from_name}" />
 	</div>
 
 	<input type="submit" name="auto_save" value="Save" />

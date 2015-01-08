@@ -753,6 +753,24 @@ class geoImage
 		
 		if ($imgCreateFunc && function_exists($imgCreateFunc)) {
 			$srcImage = $imgCreateFunc($filename);
+            
+            if (!(preg_match('/\.(png)$/i', $filename) && preg_match('/\.(PNG)$/i', $filename)))  {
+                $exif = exif_read_data($filename);
+                if(!empty($exif['Orientation'])) {
+                    switch($exif['Orientation']) {
+                        case 8:
+                            $srcImage = imagerotate($srcImage,90,0);
+                            break;
+                        case 3:
+                            $srcImage = imagerotate($srcImage,180,0);
+                            break;
+                        case 6:
+                            $srcImage = imagerotate($srcImage,-90,0);
+                            break;
+                    }
+                }  
+            }
+            
 			if (!$srcImage) {
 				//TODO: problem
 				return false;

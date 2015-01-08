@@ -1,28 +1,38 @@
 {* 7.0.2-68-gf8d0efd *}
 {$introduction} {$salutation},<br />
 <br />
-You have received a new enquiry regarding your listing <a href="{$listingURL}">{$listingURL}</a><br />
-<br />
-To respond to this enquiry navigate to <a href="http://petsplease.com.au/index.php?a=4&b=8">http://petsplease.com.au/index.php?a=4&b=8</a> or respond via email
-<br/><br/>
-{if $senderName}
-{$senderNameLabel} {$senderName}<br />
-{/if}
-{if $senderPhone}
-{$senderPhoneLabel} {$senderPhone}<br />
-{/if}
-{if $senderEmail}
-contact email: {$senderEmail}<br/>
-{/if}
+A Pets Please user wishes to enquire about the following listing: 
+<br/>
+<a href="{$listingURL}">{$listingURL}</a><br />
 <br />
 {if $senderComments}
 {$senderCommentsLabel}<br />
 {$senderComments}<br />
 {/if}
-<br />
-{if $replyLink}
-{$replyLinkInstructions}<br />
-<br />
-<a href="{$replyLink}">{$replyLink}</a><br />
+<br/><br/>
+Enquiry sent from: <br/>
+{if $senderName}
+<strong>Contact Name:</strong> {$senderName}<br />
+{/if}
+{if $senderPhone}
+<strong>Contact Number:</strong> {$senderPhone}<br />
+{/if}
+{if $senderEmail}
+<strong>Contact Email:</strong> {$senderEmail}<br/>
 {/if}
 <br />
+
+<br />
+To see all the enquiries made on your listings, login to your MyPetsPlease account and click my mymessages. 
+<br />
+
+<br />
+Kind regards, 
+<br />
+
+<br />
+The Pets Please Team
+<br />
+
+<br />
+<a href="http://petsplease.com.au/scammers">Click here for tips to protect yourself when buying and selling online</a>

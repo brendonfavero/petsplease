@@ -64,7 +64,7 @@ class addon_ppTestimonials_admin extends addon_ppTestimonials_info {
         }
         else {
             // Insert new row
-            $sql = "INSERT INTO petsplease_testimonials (description, from_name, title) VALUES ('" .$_REQUEST['d']['description'] . "', '". $_REQUEST['d']['from']."', '".$_REQUEST['d']['title']."')";
+            $sql = "INSERT INTO petsplease_testimonials (description, from_name, title) VALUES ('" . mysql_real_escape_string($_REQUEST['d']['description']) . "', '". $_REQUEST['d']['from']."', '".$_REQUEST['d']['title']."')";
             echo $sql;
             $db -> Execute($sql);
 
