@@ -1,4 +1,3 @@
-!html!
 <basefont face="Verdana, Geneva, sans-serif" />
   
 <font face="Verdana, Geneva, sans-serif" color="#333333">
