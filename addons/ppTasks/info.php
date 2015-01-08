@@ -10,7 +10,8 @@ class addon_ppTasks_info
 	public $auth_tag = 'pp_addons';
 
 	public $pages = array(
-		'featured_update'
+		'featured_update',
+		'dailyUpdates'
 	);
 
 	public $tags = array (
