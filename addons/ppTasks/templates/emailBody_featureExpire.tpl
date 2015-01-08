@@ -8,7 +8,7 @@
 
     <p>To reactivate the featured upgrade or to update your listing, please <a href="http://petsplease.com.au/login/">click here</a>.</p>
 
-    <p>For help or advice, please contact our team on <a href="mailto:natasha@petsplease.com.au">natasha@petsplease.com.au</a>
+    <p>For help or advice, please contact our team on <a href="mailto:admin@petsplease.com.au">admin@petsplease.com.au</a>
     
     <p>Kind regards,</p>
 
