@@ -95,7 +95,7 @@ class addon_ppTasks_pages extends addon_ppTasks_info
         if ($res && $res->RecordCount() > 0) {
             while ($row = $res->FetchRow()) {
                 $emailMessage = new geoTemplate('addon','ppTasks');
-                $emailMessage->data = array('firstname' => $row['firstname']);
+                $emailMessage->assign('firstname', $row['firstname']);
                 $message =  $emailMessage->fetch('emailBody_20daynotify.tpl');
 
                 geoEmail::sendMail( 
@@ -172,14 +172,12 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                 $emailMessage = new geoTemplate('addon','ppTasks');
 
                 $hash = md5(sha1($row['listing_id'] . ':' . $row['seller_id'] . ':' . $row['email']));
-
-                $emailMessage->data = array(
-                    'firstname' => $row['firstname'],
-                    'listingurl' => 'http://petsplease.com.au/index.php?a=2&b=' . $row['listing_id'],
-                    'listingtitle' => urldecode($row['title']),
-                    'extendurl' => 'http://petsplease.com.au'
-                );
-
+                
+                $emailMessage->assign('firstname', $row['firstname']);
+                $emailMessage->assign('listingurl', 'http://petsplease.com.au/index.php?a=2&b=' . $row['listing_id']);
+                $emailMessage->assign('listingtitle', urldecode($row['title']));
+                $emailMessage->assign('extendurl', 'http://petsplease.com.au');
+                
                 $message =  $emailMessage->fetch('emailBody_119daynotify.tpl');
 
                 geoEmail::sendMail( 
@@ -219,12 +217,10 @@ class addon_ppTasks_pages extends addon_ppTasks_info
 
                 $hash = md5(sha1($row['listing_id'] . ':' . $row['seller_id'] . ':' . $row['email']));
 
-                $emailMessage->data = array(
-                    'firstname' => $row['firstname'],
-                    'listingurl' => 'http://petsplease.com.au/index.php?a=2&b=' . $row['listing_id'],
-                    'listingtitle' => urldecode($row['title']),
-                    'extendurl' => 'http://petsplease.com.au/index.php'
-                );
+                $emailMessage->assign('firstname', $row['firstname']);
+                $emailMessage->assign('listingurl', 'http://petsplease.com.au/index.php?a=2&b=' . $row['listing_id']);
+                $emailMessage->assign('listingtitle', urldecode($row['title']));
+                $emailMessage->assign('extendurl', 'http://petsplease.com.au');
 
                 $message =  $emailMessage->fetch('emailBody_111daynotify.tpl');
 
