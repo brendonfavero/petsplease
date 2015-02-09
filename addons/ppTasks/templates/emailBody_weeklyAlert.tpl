@@ -4,7 +4,7 @@
   <font face="Verdana, Geneva, sans-serif" color="#333333">
   
 	
-    <p><strong>Dear {$data.firstname},</strong></p>
+    <p><strong>Dear {$firstname},</strong></p>
 
     <p>Below is your weekly update on the activity on each of your listings.</p>
 
@@ -21,7 +21,7 @@
 
    <h5><center>Your Weekly Ad Stats for <br />{$data.date|date_format:"%A, %B %e, %Y"} through {$data.dateEnd|date_format:"%A, %B %e, %Y"}</center></h5> 
     
-    {foreach from=$data.classifieds item=classified}
+    {foreach from=$classifieds item=classified}
     <table cellpadding="3" border="1" bordercolor="#E6E6C8"><tr>
             <td valign="top" align="left" bgcolor="#F5F5E6" width="156">{if strlen( $classified.thumb_url) > 1}<img src="http://petsplease.com.au/{$classified.thumb_url}" width="150" />{else}No Image Set<br />{/if}<br /><br />
             <font size="2" face="Verdana, Geneva, sans-serif">

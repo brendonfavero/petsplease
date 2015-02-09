@@ -70,6 +70,19 @@ foreach ($rows as $row) {
 		$this->log(__line__.'DB Error, sql: '.$sql.' Error: '.$this->db->ErrorMsg()."<br/>\n",__line__);
 		return false;
 	}
+    
+    $emailMessage = new geoTemplate('addon','ppTasks');
+    
+    $emailMessage->assign('firstname', $usr['firstname']);
+    $emailMessage->assign('listingtitle', urldecode($listing->title));
+
+    $message = "";
+    
+    $message =  $emailMessage->fetch('emailBody_120daynotify.tpl');
+    geoEmail::sendMail( 
+        $usr['email'], 
+        "Your listing has expired", 
+        $message, 'admin@petsplease.com.au', 'admin@petsplease.com.au', 0, 'text/html');
 }
 
 foreach ($cats_update as $cat_id) {

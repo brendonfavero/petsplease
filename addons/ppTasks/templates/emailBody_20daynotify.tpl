@@ -1,7 +1,7 @@
     <p><strong>Hello {$firstname},</strong></p>
 
     <p>Have you sold your listing yet? If you have, <a href="http://petsplease.com.au/login/">click here</a> to log in and mark your listings as sold.</p>
-    <p>If your listing is still for sale, here are some tips for selling your horse faster</p>
+    <p>If your listing is still for sale, here are some tips for selling your pet faster</p>
 
     <ul>
     	<li>The quality of the heading is the key to catching a buyers attention</li>

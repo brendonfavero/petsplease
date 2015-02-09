@@ -38,12 +38,12 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                         geoEmail::sendMail( 
                             $row['email'], 
                             "Your Featured Upgrade Has Expired", 
-                            $message, 'natasha@petsplease.com.au', 'natasha@petsplease.com.au', 0, 'text/html');
+                            $message, 'admin@petsplease.com.au', 'admin@petsplease.com.au', 0, 'text/html');
                             
                         geoEmail::sendMail( 
                             'brendon@ardex.com.au', 
                             "Your Featured Upgrade Has Expired", 
-                            $message, 'natasha@petsplease.com.au', 'natasha@petsplease.com.au', 0, 'text/html');
+                            $message, 'admin@petsplease.com.au', 'admin@petsplease.com.au', 0, 'text/html');
                     }
                 }
             }
@@ -66,7 +66,8 @@ class addon_ppTasks_pages extends addon_ppTasks_info
         $this->day111Notify();
 
         $this->day119Notify();
-
+        
+        $this->incompleteListingNotify();
     }
     
     private function day20Notify() {
@@ -99,9 +100,9 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                 $message =  $emailMessage->fetch('emailBody_20daynotify.tpl');
 
                 geoEmail::sendMail( 
-                    'brendon@ardex.com.au', 
+                    $row['email'], 
                     "Pets Please Listing - " . urldecode($row['title']), 
-                    $message);
+                    $message, 'admin@petsplease.com.au', 'admin@petsplease.com.au', 0, 'text/html');
 
                 $this->insertEmailAudit($row['email'], '20day', $row['seller_id'], $row['listing_id']);
             }
@@ -136,9 +137,9 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                 $message =  $emailMessage->fetch('emailBody_50daynotify.tpl');
 
                 geoEmail::sendMail( 
-                    'brendon@ardex.com.au', 
+                    $row['email'], 
                     "Have you sold your " . $row['category_name'] . " on petsplease.com.au yet?", 
-                    $message);
+                    $message, 'admin@petsplease.com.au', 'admin@petsplease.com.au', 0, 'text/html');
 
                 $this->insertEmailAudit($row['email'], '50day', $row['seller_id'], $row['listing_id']);
             }
@@ -176,14 +177,14 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                 $emailMessage->assign('firstname', $row['firstname']);
                 $emailMessage->assign('listingurl', 'http://petsplease.com.au/index.php?a=2&b=' . $row['listing_id']);
                 $emailMessage->assign('listingtitle', urldecode($row['title']));
-                $emailMessage->assign('extendurl', 'http://petsplease.com.au');
+                $emailMessage->assign('extendurl', 'http://petsplease.com.au/mypetsplease');
                 
                 $message =  $emailMessage->fetch('emailBody_119daynotify.tpl');
 
                 geoEmail::sendMail( 
-                    'brendon@ardex.com.au', 
+                    $row['email'], 
                     "Your listing is due to expire tomorrow", 
-                    $message);
+                    $message, 'admin@petsplease.com.au', 'admin@petsplease.com.au', 0, 'text/html');
 
                 $this->insertEmailAudit($row['email'], '119day', $row['seller_id'], $row['listing_id']);
             }
@@ -198,7 +199,7 @@ class addon_ppTasks_pages extends addon_ppTasks_info
         */
         echo "Running day 111 check on " . date('r') . '<br />';
 
-        $sql = "SELECT c.id listing_id, u.id seller_id, u.firstname, u.email, c.title, 
+        $sql = "SELECT c.id, c.seller, u.firstname, u.email, c.title, 
                        (SELECT thumb_url FROM geodesic_classifieds_images_urls i WHERE c.id = i.classified_id LIMIT 1) as thumb_url
                 FROM geodesic_classifieds c
                 JOIN geodesic_categories cat ON c.category = cat.category_id
@@ -218,18 +219,58 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                 $hash = md5(sha1($row['listing_id'] . ':' . $row['seller_id'] . ':' . $row['email']));
 
                 $emailMessage->assign('firstname', $row['firstname']);
-                $emailMessage->assign('listingurl', 'http://petsplease.com.au/index.php?a=2&b=' . $row['listing_id']);
+                $emailMessage->assign('listingurl', 'http://petsplease.com.au/index.php?a=2&b=' . $row['id']);
                 $emailMessage->assign('listingtitle', urldecode($row['title']));
-                $emailMessage->assign('extendurl', 'http://petsplease.com.au');
+                $emailMessage->assign('extendurl', 'http://petsplease.com.au/mypetsplease');
 
                 $message =  $emailMessage->fetch('emailBody_111daynotify.tpl');
 
                 geoEmail::sendMail( 
-                    'brendon@ardex.com.au', 
+                    $row['email'], 
                     "Your listing is due to expire in 7 days", 
-                    $message);
+                    $message, 'admin@petsplease.com.au', 'admin@petsplease.com.au', 0, 'text/html');
 
-                $this->insertEmailAudit($row['email'], '111day', $row['seller_id'], $row['listing_id']);
+                $this->insertEmailAudit($row['email'], '111day', $row['seller'], $row['id']);
+            }
+        }
+    }
+
+    private function incompleteListingNotify() {
+        $db = DataAccess::getInstance();
+        
+        echo "Running incomplete listing check on " . date('r') . '<br />';
+                
+        $yesterday = time() - 25640;
+        
+        $twoDaysAgo = time() - 52200;       
+        
+        $sql = "SELECT u.firstname, u.id as seller, u.email, c.last_time, c.order_item from geodesic_userdata u 
+        join geodesic_cart c on u.id = c.user_id
+        join geodesic_order_item oi on c.order_item = oi.id
+        WHERE c.last_time between unix_timestamp() - 172800 and unix_timestamp() - 86400 and oi.type = 'classified'";
+        
+        $results = $db->Execute($sql);
+        
+        echo $results->RecordCount() . " records found<br />";
+        
+        if ($results && $results->RecordCount() > 0) {
+            while ($row = $results->FetchRow()) {
+                $orderitem = geoOrderItem::getOrderItem($row['order_item']);
+                $classified_variables = $orderitem->get('session_variables');
+                $title = $classified_variables['classified_title'];
+                $emailMessage = new geoTemplate('addon','ppTasks');
+                
+                $emailMessage->assign('firstname', $row['firstname']);
+                $emailMessage->assign('title', $title);
+                
+                $message =  $emailMessage->fetch('emailBody_Incompletenotify.tpl');
+                
+                geoEmail::sendMail( 
+                    $row['email'], 
+                    "Incomplete Listing", 
+                    $message, 'admin@petsplease.com.au', 'admin@petsplease.com.au', 0, 'text/html');     
+                    
+                $this->insertEmailAudit($row['email'], 'Incomplete', $row['seller'], 0);        
             }
         }
     }
@@ -460,11 +501,11 @@ class addon_ppTasks_pages extends addon_ppTasks_info
 
         if ($testSend) {
             echo '!!debug only<br />';
-            $email = geoEmail::sendMail("brendon@ardex.com.au", "Pets Please Weekly Listing Performance Update", $message);
+            $email = geoEmail::sendMail("brendon@ardex.com.au", "Pets Please Weekly Listing Performance Update", $message, 'admin@petsplease.com.au', 'admin@petsplease.com.au', 0, 'text/html');
             
         }
         else {
-            $email = geoEmail::sendMail( $user['email'] , "Pets Please Weekly Listing Performance Update", $message);
+            $email = geoEmail::sendMail( $user['email'] , "Pets Please Weekly Listing Performance Update", $message, 'admin@petsplease.com.au', 'admin@petsplease.com.au', 0, 'text/html');
             // geoEmail::sendMail("brendon@ardex.com.au", "Horsezone Weekly Listing Performance Update", $message);
             error_log("sent email to uid:" . $user['uid'] . " - Email:" . $user['email'] . "\n");
         }

@@ -13,9 +13,8 @@
 
     <p>As you have been on the site for more than 50 days, your listing is getting harder for buyers to find.</p>
     <p>Once you have checked that you have provided all the best information and that you have the listing priced correctly, we suggest you upgrade to a feature listing.</p>
-    <p>For just $10 you will be taken to the top of your category and be highlighted in blue in the search results for the next 14 days. To give yourself the best chance of achieving a sale and to be seen by more buyers <a href="http://petsplease.com.au/login/">click here</a>.</p>
-	<p>If you want your item sold quickly, mark it as urgent. This places it in the urgent sale category and makes it easy for buyers to know you are keen to move your item on.  You can do this for $25 for 10 days by <a href="http://petsplease.com.au/login/">click here</a>.</p>
-    <p>For help and advice, please contact our team on <a href="mailto:admin@horsezone.com.au">admin@petsplease.com.au</a>
+    <p>For just $10 you will be taken to the top of your category and be highlighted in blue in the search results for the next month. To give yourself the best chance of achieving a sale and to be seen by more buyers <a href="http://petsplease.com.au/mypetsplease/">click here</a>.</p>
+    <p>For help and advice, please contact our team on <a href="mailto:admin@petsplease.com.au">admin@petsplease.com.au</a>
 
     <p>Kind regards,</p>
     <p>The Pets Please Team</p>
