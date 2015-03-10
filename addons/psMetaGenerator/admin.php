@@ -19,6 +19,7 @@ class addon_psMetaGenerator_admin
 	private static $default_addon_text = array
 	();
 
+    
 	
 	public function display_addon_psMetaGenerator_page ()
 	{	
@@ -171,19 +172,53 @@ class addon_psMetaGenerator_admin
 			$vars['edit'] = true;	 //default to emtpy form data
 		}
 		if( $_POST['save']) {
+		    $page = $db->Execute("SELECT * FROM `ps_metaGenerator_categories` as `m`
+                               WHERE `m`.`cid` = '".$_POST['category_id']."'");
+            if($page) {
+                if($page->RecordCount() > 0) {
+                    $sql = sprintf("REPLACE INTO `ps_metaGenerator_categories` SET `cid` = '%d', `title` = '%s', `descr` = '%s', `keywords` = '%s', modified = '%s', status = '%s'",
+                        mysql_real_escape_string($_POST['category_id']),
+                        mysql_real_escape_string($_POST['title']),
+                        mysql_real_escape_string($_POST['descr']),
+                        mysql_real_escape_string($_POST['keywords']),
+                        0,
+                        0
+                    );
+                }
+                else {
+                    $sql = sprintf("INSERT INTO `ps_metaGenerator_categories`  VALUES('%d', '%s', '%s', '%s', '%s','%s')",
+                        mysql_real_escape_string($_POST['category_id']),
+                        mysql_real_escape_string($_POST['title']),
+                        mysql_real_escape_string($_POST['descr']),
+                        mysql_real_escape_string($_POST['keywords']),
+                        0,
+                        0
+                    );
+                }
+               
+            }
+            else {
+                    $sql = sprintf("INSERT INTO `ps_metaGenerator_categories`  VALUES('%d', '%s', '%s', '%s', '%s','%s')",
+                        mysql_real_escape_string($_POST['category_id']),
+                        mysql_real_escape_string($_POST['title']),
+                        mysql_real_escape_string($_POST['descr']),
+                        mysql_real_escape_string($_POST['keywords']),
+                        0,
+                        0
+                    );
+                }
+                
+                echo $sql;   
+             
 			
-			$sql = sprintf("REPLACE INTO `ps_metaGenerator_categories` SET `cid` = '%d', `title` = '%s', `descr` = '%s', `keywords` = '%s', `extra` = '%s'",
-				mysql_real_escape_string($_POST['category_id']),
-				mysql_real_escape_string($_POST['title']),
-				mysql_real_escape_string($_POST['descr']),
-				mysql_real_escape_string($_POST['keywords']),
-				mysql_real_escape_string($_POST['extra'])
-				);
 			
 			$insert = $db->Execute($sql);
 			if($insert) {
 				$vars['status'] .= "Your changes have been saved.";	
 			}
+            else {
+                $vars['status'] .= $sql;
+            }
 		}
 		
 		
@@ -202,7 +237,6 @@ class addon_psMetaGenerator_admin
 		$vars ['setting2'] = 'Second Setting.';
 		
 		$vars ['product_version'] = Singleton::getInstance('addon_psMetaGenerator_info')->version;
-		
 		geoView::getInstance()->setBodyVar($vars);
 
 	}

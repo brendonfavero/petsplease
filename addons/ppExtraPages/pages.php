@@ -31,4 +31,14 @@ class addon_ppExtraPages_pages extends addon_ppExtraPages_info
 
         $view->setBodyTpl('petsandproducts.tpl', $this->name);
     }
+    
+    public function dogClicker() {
+        $db = true;
+        include (GEO_BASE_DIR.'get_common_vars.php');
+        $db->Execute("set names 'utf8'"); 
+
+        $view = geoView::getInstance();
+
+        $view->setBodyTpl('dogclicker.tpl', $this->name);
+    }
 }

@@ -44,7 +44,7 @@ that it will corrupt the smarty tags!
 
 <article class="list {$listing.css} clearfix{if $listing.featured_ad eq '1'} featured{/if}">
 	<div class="list-listing-heading" style="position:relative">
-
+		
 		{if $cfg.cols.edit or $cfg.cols.delete}
 			<div style="float:right; padding-left: 10px;">
 				{if $cfg.cols.edit}
@@ -104,14 +104,12 @@ that it will corrupt the smarty tags!
 			</span>
 		{/if}
 
-		{if $listing.topcategory eq 318}
 			{addon author='pp_addons' addon='ppListingDisplay' tag='extraMultiCheckboxDisplay' joined=$listing.optional_field_18 assign='services'}
 			{if $services}
 				<span class="services">
 					{$services}
 				</span>
 			{/if}
-		{/if}
 	</div>
 	
 	<div class="image-col">

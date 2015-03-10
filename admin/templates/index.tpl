@@ -10,6 +10,14 @@
 		
 		{header_html}
 		
+		<
+<script type="text/javascript" src="/geo_templates/default/external/js/gjmain.js" ></script>
+
+<script type="text/javascript" src="/geo_templates/default/external/js/main.js" ></script>
+<script type="text/javascript" src="/geo_templates/default/external/js/plugins/utility.js" ></script>
+script type="text/javascript" src="/geo_templates/default/external/js/plugins/lightbox.js" ></script>
+<script type="text/javascript" src="/geo_templates/default/external/js/plugins/simpleCarousel.js" ></script>
+
 		<script type="text/javascript">
 			jQuery(document).ready(function () {
 				gjUtil.inAdmin = true;

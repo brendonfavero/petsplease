@@ -143,7 +143,7 @@
 	</div>
 	<!-- SELLER INFO END -->	
 	
-	{if $payment_options or $optional_field_14 or $optional_field_15}
+	{if $payment_options or $optional_field_14 or $optional_field_15 or $optional_field_18}
 		{* Only show section if there is payment_options, or if either optional
 			field 14 or 15 is turned on *}
 		<!-- SELLER NOTES BEGIN -->
@@ -167,6 +167,11 @@
 				<p class="content_section">
 					<strong>{$optional_field_15_label}</strong><br />
 					{$optional_field_15}
+				</p>
+			{/if}
+			{if $optional_field_18}
+				<p class="content_section">
+					<strong>Pets Accepted</strong>: {$optional_field_18}
 				</p>
 			{/if}
 		</div>

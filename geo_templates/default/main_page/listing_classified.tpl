@@ -168,6 +168,12 @@
 					{$optional_field_15}
 				</p>
 			{/if}
+			{if $optional_field_18}
+				<p class="content_section">
+					<strong>{$optional_field_18_label}</strong><br />
+					{$optional_field_18}
+				</p>
+			{/if}
 		</div>
 		<!-- SELLER NOTES END -->
 	{/if}

@@ -307,6 +307,8 @@ class geoSite
 		//and AFTER jquery...  Note that these 2 will eventually be replaced by jQuery
 		$jsLibs[]=geoView::JS_LIB_PROTOTYPE;
 		$jsLibs[]=geoView::JS_LIB_SCRIPTACULOUS;
+        
+        $jsLibs[] = '/geo_templates/default/external/js/plugins/lightbox.js';
 		
 		if ($view->editor && ($view->forceEditor || $this->db->get_site_setting('use_rte'))) {
 			$tpl = new geoTemplate('system','tinymce');

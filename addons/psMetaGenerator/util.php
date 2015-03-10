@@ -54,14 +54,15 @@ class addon_psMetaGenerator_util
         $addon = (isset($vars['this']->addon_name)) ? $vars['this']->addon_name : false ;
         $pageID = intval( $page );
         $addonID = $addon ? "$addon:$page" : '' ;
-    
         if ( $page || $addon ) {
-            $pageResult = $db->Execute( sprintf( "SELECT `title`, `descr`, `keywords`
+            
+            $sql = sprintf( "SELECT `title`, `descr`, `keywords`
             FROM `ps_metaGenerator_pages`
             WHERE `pid` = '%d'" . ( $addon ? "AND `addon` = '%s'" : '' ),
             $pageID,
-            mysql_real_escape_string( $addonID )
-            ));
+            mysql_real_escape_string( $addonID ));
+            
+            $pageResult = $db->Execute($sql);
             
             
             

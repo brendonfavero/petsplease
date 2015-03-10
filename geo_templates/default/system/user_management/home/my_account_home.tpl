@@ -31,3 +31,5 @@
 	<br />
 	{counter print=false assign=box_count}
 {/foreach}
+
+<a style="display:block; text-align:center" href="javascript:void( window.open('/index.php?a=ap&addon=ppExtraPages&page=dogClicker', 'blank','scrollbars=yes,toolbar=no,width=700,height=1200'))"><img src="/geo_templates/default/external/images/registration-button.gif" alt=""></a>

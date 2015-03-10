@@ -12,7 +12,8 @@ class addon_ppExtraPages_info
 	public $pages = array(
 		'advertisingPets',
 		'advertisingBusinesses',
-		'petsAndProducts'
+		'petsAndProducts',
+		'dogClicker'
 	);
 
 	public $tags = array (

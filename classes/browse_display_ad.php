@@ -480,6 +480,8 @@ class Display_ad extends geoBrowse {
 		
 		$view->description_label = ($printFriendly)? $this->messages[1081]: $this->messages[7];
 		$view->description = geoString::fromDB($show["description"]);
+        
+        $view->optional_field_18 = geoString::fromDB($show["optional_field_18"]);
 
 		if ($this->debug_ad_display_time) echo $this->get_end_time()." after most fields placed<br/>\n";
 

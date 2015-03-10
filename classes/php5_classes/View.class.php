@@ -1144,6 +1144,7 @@ class geoView implements Iterator
 				$cleaned[] = ''.$url;
 			}
 		}
+        
 		$script_urls = $cleaned;
 		if (!is_array($this->_script_files)) {
 			$this->_script_files = array();
