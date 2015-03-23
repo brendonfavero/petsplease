@@ -567,7 +567,10 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         $listingid = $_REQUEST['a'] == 2 ? $_REQUEST['b'] : false; 
         if ($listingid) {
             $listing = geoListing::getListing($listingid);
-            $listingdata = $listing->toArray();
+            if ($listing) {
+                $listingdata = $listing->toArray();
+            }
+            
         }
         
         $articleId = $_REQUEST['article'];
@@ -685,7 +688,9 @@ class addon_ppListingDisplay_tags extends addon_ppListingDisplay_info
         $listingid = $_REQUEST['a'] == 2 ? $_REQUEST['b'] : false; 
         if ($listingid) {
             $listing = geoListing::getListing($listingid);
-            $listingdata = $listing->toArray();
+            if ($listing) {
+                $listingdata = $listing->toArray();
+            }
         }
         
         $articleId = $_REQUEST['article'];

@@ -18,21 +18,23 @@
 <h1 class="title">Dog Clicker Program</h1>
 
 <p>{$content}</p>
-
-<h1 class="title">Links</h1>
+<br/>
+<div style="text-align:center">
 {foreach $links as $link}
-		<a href="{$link.url}">Week {$link.week}</a><br/>
+	{if $link.link != ''}
+		<a href="{$link.link}">Week {$link.week}</a><br/>
+	{/if}
 {/foreach}
-
-<h1 class="title">Dogs</h1>
+</div>
+<br/>
 {foreach $dogs as $dog}
-	<div class="content_box_1" style="margin:auto; text-align:center;" id="petoftheweek">
+	<div class="dogclickerbox">
 		
 		<img src="{$dog.full_url}">
 		<br/>
 		<p style="font-weight:bold; font-size:15px">{$dog.dogname} {$dog.age}</p>
 		<p style="font-weight:bold; font-size:15px">Trainer: {$dog.trainer}</p>
-		<p style="font-weight:bold; font-size:15px">Comments: {$dog.comments}</p>
+		<p style="font-weight:bold; font-size:15px">{$dog.comments}</p>
 	</div>
 {/foreach}
 

@@ -244,6 +244,7 @@ class addon_ppNews_pages extends addon_ppNews_info
 			$v['categories'] = $categoriesResult->GetArray();	
 		}
 		
+        $v['currenturl'] = $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		
 		
 		// $v gets set as it's keys, so $v['mode'] will be $mode in the tpl

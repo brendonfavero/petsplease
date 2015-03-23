@@ -17,6 +17,12 @@ see license attached to distribution
 if (!defined('GEO_CRON_RUN')){
 	die('NO ACCESS');
 }
+
+// omg stop archiving listings
+return true;
+exit;
+
+
 $current_time = $this->time();
 $util = archive_listings_util::getInstance();
 

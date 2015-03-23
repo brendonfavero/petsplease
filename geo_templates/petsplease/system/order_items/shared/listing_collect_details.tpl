@@ -1049,8 +1049,9 @@
 			{if $showPreviewButton}
 				<br /><br />
 				<input type="submit" name="forcePreview" value="{$preview_button_txt}" class="button" />
-			{/if}
-			{if $forcePreviewButtonOnly}
+				<br /><br />
+				<input type="submit" name="submit" value="Submit Listing" class="button mainSubmit" />
+			{elseif $forcePreviewButtonOnly}
 				{* Use hidden main submit, that way can only be "clicked" using JS *} 
 				<input type="submit" name="submit" value="1" style="display: none;" class="mainSubmit" />
 			{else}

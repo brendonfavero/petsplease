@@ -54,9 +54,11 @@ class addon_ppDogClicker_admin extends addon_ppDogClicker_info
         $cols = array("breed", "description", "height", "weight", "size", "lifespan", "hypoallergenic", 
             "colours", "coatlength", "housing", "familyfriendly", "trainability", "energy", "grooming", "shedding");
         
+        $id = $_REQUEST['id'];
         $name = $_REQUEST['dogname'];
         $trainer = $_REQUEST['trainer'];
         $age = $_REQUEST['age'];
+        $months = $_REQUEST['months'];
         $comments = $_REQUEST['comments'];
         
         if (@is_uploaded_file($_FILES['imagefile']['tmp_name'])) {
@@ -103,29 +105,32 @@ class addon_ppDogClicker_admin extends addon_ppDogClicker_info
             }                    
         }              
 
-		if ($vars['id']) {
+		if ($id) {
 			if ($_REQUEST['dodelete'] == true) {
 				$sql = "DELETE FROM petsplease_dogclicker_images WHERE id = ?";
-				$db->Execute($sql, array($vars['id']));
+				$db->Execute($sql, array($id));
 
 				if (!$db->ErrorMsg()) {
-					geoAdmin::getInstance()->message("Competition (id:".$vars['id'].") successfully deleted");
+					geoAdmin::getInstance()->message("Competition (id:".$id.") successfully deleted");
 				}
 				else {
-					geoAdmin::getInstance()->message("Competition (id:".$vars['id'].") could not be deleted<br><br>The error returned was:<br>" . $db->ErrorMsg());
+					geoAdmin::getInstance()->message("Competition (id:".$id.") could not be deleted<br><br>The error returned was:<br>" . $db->ErrorMsg());
 				}
 			}
 			else {
 
-				$sql = "UPDATE petsplease_dogclicker_images SET age = '$age', dogname = '$name', thumb_url = '$thumb_url',";
-				$sql .= " full_url = '$full_url', trainer = '$trainer' WHERE id = " . $vars['id'];
+				$sql = "UPDATE petsplease_dogclicker_images SET age = '$age', dogname = '$name',";
+				if ($thumb_url) {
+				    $sql .= "thumb_url = '$thumb_url', full_url = '$full_url',";
+                }
+                $sql .= "trainer = '$trainer', comments = '$comments', months = '$months' WHERE id = " . $id;
 				$db->Execute($sql);
 
 				if (!$db->ErrorMsg()) {
-					geoAdmin::getInstance()->message("Competition (id:".$vars['id'].") successfully updated");
+					geoAdmin::getInstance()->message("Competition (id:".$id.") successfully updated");
 				}
 				else {
-					geoAdmin::getInstance()->message("Competition (id:".$vars['id'].") could not be updated<br><br>The error returned was:<br>" . $db->ErrorMsg());
+					geoAdmin::getInstance()->message("Competition (id:".$id.") could not be updated<br><br>The error returned was:<br>" . $db->ErrorMsg());
 				}
 			}
 		}
@@ -134,9 +139,9 @@ class addon_ppDogClicker_admin extends addon_ppDogClicker_info
             //upload image
             
             // Insert new row
-            $sql = "INSERT INTO petsplease_dogclicker_images (thumb_url, full_url, dogname, trainer, age) VALUES ";
+            $sql = "INSERT INTO petsplease_dogclicker_images (thumb_url, full_url, dogname, trainer, age, month, comments) VALUES ";
 
-			$sql .= "('$thumb_url', '$full_url', '$name', '$trainer', $age)"; 
+			$sql .= "('$thumb_url', '$full_url', '$name', '$trainer', $age, $month, '$comments')"; 
 
 			$db->Execute($sql);
 

@@ -74,7 +74,8 @@
 
 	<div class="header-navpre">
 		<div style="float: right">
-			<a href="/mypetsplease" class="curveleft pink">My Account</a>
+			<a href="/dogclickertraining" class="curveleft pink">Dog Clicker Training</a>
+			<a href="/mypetsplease">My Account</a>
 			<a href="/competition">Pet Competition</a>
 			<a href="/petselector">Pet Selector</a>
 			<a href="/favourites">My Favourites</a>

@@ -29,16 +29,17 @@
 			<input type="hidden" id="listing_types_allowed" name="listing_types_allowed" value="{$listing_types_allowed}" />
 		{/if}
 		{if $showPreviewButton}
-			<br /><br />
-			<input type="submit" name="forcePreview" value="{$preview_button_txt}" class="button" />
-		{/if}
-		{if $forcePreviewButtonOnly}
-			{* Use hidden main submit, that way can only be "clicked" using JS *} 
-			<input type="submit" name="combined_submit" value="1" style="display: none;" class="mainSubmit" />
-		{else}
-			<br /><br />
-			<input type="submit" name="combined_submit" value="{$submit_button_txt}" class="button mainSubmit" />
-		{/if}
+				<br /><br />
+				<input type="submit" name="forcePreview" value="{$preview_button_txt}" class="button" />
+				<br /><br />
+				<input type="submit" name="submit" value="Submit Listing" class="button mainSubmit" />
+			{elseif $forcePreviewButtonOnly}
+				{* Use hidden main submit, that way can only be "clicked" using JS *} 
+				<input type="submit" name="submit" value="1" style="display: none;" class="mainSubmit" />
+			{else}
+				<br /><br />
+				<input type="submit" name="submit" value="{$submit_button_txt}" class="button mainSubmit" />
+			{/if}
 		<br /><br />
 		<a href="{$cart_url}&amp;action=cancel" class="cancel">{$cancel_txt}</a>
 	</div>

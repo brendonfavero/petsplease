@@ -3,18 +3,16 @@
 
 /**************************************************************************
 Addon Created by Geodesic Solutions, LLC
-Copyright (c) 2001-2009 Geodesic Solutions, LLC
+Copyright (c) 2001-2013 Geodesic Solutions, LLC
 All rights reserved
-http://www.geodesicsolutions.com
+http://geodesicsolutions.com
 see license attached to distribution
 **************************************************************************/
-##########SVN Build Data##########
-##                              ##
-## This File's Revision:        ##
-##  $Rev:: 13459              $ ##
-## File last change date:       ##
-##  $Date:: 2008-07-17 16:38:#$ ##
-##                              ##
+##########GIT Build Data##########
+## 
+## File Changed In GIT Commit:
+## ##    7.2beta3-86-g885094e
+## 
 ##################################
 
 # google_maps Addon
@@ -22,204 +20,195 @@ require_once ADDON_DIR . 'google_maps/info.php';
 
 class addon_google_maps_util extends addon_google_maps_info
 {
-    public $coordinates, $location, $locationLong;
-    
-    public function core_notify_display_page ()
-    {
-        //insert stuff into head
-        $this->initHead();
-    }
-    
-    public function initHead ()
-    {
-        $reg = geoAddon::getRegistry($this->name);
-        if (!$reg->apikey || (!defined('IN_ADMIN') && $reg->off)) {
-            return;
-        }
-        $view = geoView::getInstance();
-        if (!defined('IN_ADMIN') && !$view->classified_id) {
-            //id NOT set
-            return;
-        }
-        
-        $pre = (defined('IN_ADMIN'))? '../':'';
-        $urls[] = '//maps.googleapis.com/maps/api/js?&key=AIzaSyAW1k0SWtfAGbhqIlcy8Gy7XSbCN9Nszbg&sensor=false';
-        $urls[] = $pre.'addons/google_maps/maps.js';
-        
-        $view->addJScript($urls);
-        //must have utf8 charset, I think...  Remove this if it's not needed.
-        if (!defined('IN_ADMIN')) $view->addTop('<meta http-equiv="content-type" content="text/html; charset=utf-8" />');
-    }
-    
-    private function _getCoodinates()
-    {
-        $listingId = (int)geoView::getInstance()->classified_id;
-
-        if (isset($this->coordinates)) {
-            return $this->coordinates;
-        }
-        $location = $this->_getLocation();
-        
-        if (!$location) {
-            return;
-        }
-
-        //Get cached result if it exists otherwise continue
-        $db = 1;
-        require GEO_BASE_DIR.'get_common_vars.php';
-
-        $sql = "SELECT * FROM ardex_listingmaps_cache WHERE listing_id = ?";
-        $row = $db->GetRow($sql, array((int)$listingId));
-
-        if ($row) {
-            //result was found
-            if ($row['location'] == urlencode($location)) {
-                if ($row['coordinates'] != "") {
-                    $this->coordinates = $row['coordinates'];
-                }
-                return;
-            }
-            //if locations don't match need to get it for the new location
-        }
-
-        if (!function_exists('curl_init')) {
-            //not able to do anything w/o curl_init
-            return;
-        }
-
-        $location = urlencode($location);
-        $url = "http://maps.googleapis.com/maps/api/geocode/xml?address=$location&sensor=false&region=au";
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //hack to get google to return utf-8 encoded string
-        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
-        curl_setopt($ch, CURLOPT_URL, $url);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        
-        $info = simplexml_load_string($response);
-        $code = $info->status;
-
-        if ($code == "ZERO_RESULTS") {
-            //couldn't get the coords
-            //if not a service issue then log as incorrect
-            $sql = "INSERT INTO ardex_listingmaps_cache (listing_id, location) VALUES (?, ?)
-                    ON DUPLICATE KEY UPDATE location = ?, coordinates = null";
-            $db->Execute($sql, array((int)$listingId, $location, $location));
-            return;
-        }
-        elseif ($code == "OK") {
-            $points = $info->result->geometry->location;
-            $this->coordinates = $points->lat . ',' . $points->lng;
-
-            //Coordinate successfully retrieved, cache it CACHE IT NOW!
-            $sql = "INSERT INTO ardex_listingmaps_cache (listing_id, location, coordinates) VALUES (?, ?, ?) 
-                    ON DUPLICATE KEY UPDATE location = ?, coordinates = ?";
-            $res = $db->Execute($sql, array((int)$listingId, $location, $this->coordinates, $location, $this->coordinates));
-
-            return $this->coordinates;
-        }
-    }
-    
-    private function _getLocation()
-    {
-        if (defined('IN_ADMIN')) {
-            $this->location = '3333 California St San Francisco CA 94118';
-            $this->locationLong = "<strong>Admin Map Preview Listing Title</strong><br />
-            3333 California St<br />
-            San Francisco CA 94118<br />
-            United States of America";
-        }
-        if (isset($this->location)) {
-            //already got it
-            return $this->location;
-        }
-        
-        $reg = geoAddon::getRegistry($this->name);
-        if(!$reg->apikey) {
-            return;
-        }
-        $listingId = (int)geoView::getInstance()->classified_id;
-        if (!$listingId){
-            return;
-        }
-        
-        $listing  = geoListing::getListing($listingId);
-        if(!$listing) {
-            return;
-        }
-        
-        $zip = (trim($listing->mapping_zip))? ', '.$listing->mapping_zip : '';
-        $state = ($listing->mapping_state != 'none')? $listing->mapping_state: '';
-        $country = ($listing->mapping_country != 'none')? $listing->mapping_country: '';
-
-        if ($country == "New+Zealand")
-        {
-            if ($state == "NI") $state = "North+Island";
-            else if ($state == "SI") $state = "South+Island";
-        }
-
-        $loc = "{$listing->mapping_address} {$listing->mapping_city} {$state}$zip {$country}";
-        $loc = geoString::fromDB($loc);
-        $this->location = $loc;
-        
-        $this->locationLong = "<strong>".geoString::fromDB($listing->title)."</strong><br />
-            ".geoString::fromDB($listing->mapping_address)."<br />".geoString::fromDB($listing->mapping_city)
-            ." ".geoString::fromDB($listing->mapping_state)." ".geoString::fromDB($listing->mapping_zip)
-            ."<br />".geoString::fromDB($listing->mapping_country);
-        
-        return $loc; 
-        
-    }
-    
-    /**
-     * Gets the HTML necessary for displaying google map for a listing.
-     * 
-     * @return string
-     */
-    public function getMap()
-    {
-        $reg = geoAddon::getRegistry($this->name);
-        if(!defined('IN_ADMIN') && $reg->off) {
-            return false;
-        }
-        $this->_getCoodinates();
-        if (!$this->coordinates) {
-            //something went wrong when getting coords
-            return '';
-        }
-        
-        $tpl = new geoTemplate('addon',$this->name);
-        $tpl->msgs = geoAddon::getText('geo_addons','google_maps');
-        $tpl->location = ($this->locationLong)? $this->locationLong : $this->location;
-        $tpl->coords = $this->coordinates;
-        $tpl->width = (int)$reg->get('width',600);
-        $tpl->height = (int)$reg->get('height',400);
-        
-        return $tpl->fetch('map.tpl');
-    }
-    
-    public function getMapMini()
-    {
-        $reg = geoAddon::getRegistry($this->name);
-        if(!defined('IN_ADMIN') && $reg->off) {
-            return false;
-        }
-        $this->_getCoodinates();
-        if (!$this->coordinates) {
-            //something went wrong when getting coords
-            return '';
-        }
-        
-        $tpl = new geoTemplate('addon',$this->name);
-        $tpl->msgs = geoAddon::getText('geo_addons','google_maps');
-        $tpl->location = ($this->locationLong)? $this->locationLong : $this->location;
-        $tpl->coords = $this->coordinates;
-        $tpl->width = 213;
-        $tpl->height = 142;
-        
-        return $tpl->fetch('map.tpl');
-    }
+	public $coordinates , $location, $locationLong, $listingId, $adminPreview;
+	
+	public function initHead ($adminPreview = false)
+	{
+		if ($adminPreview) {
+			$this->adminPreview = true;
+		}
+		$reg = geoAddon::getRegistry($this->name);
+		$db = DataAccess::getInstance();
+		if (!$db->get_site_setting('googleApiKey') || (!defined('IN_ADMIN') && $reg->off)) {
+			return;
+		}
+		$view = geoView::getInstance();
+		
+		$pre = (defined('IN_ADMIN'))? '../':'';
+		$urls[] = 'https://maps.googleapis.com/maps/api/js?key='.urlencode($db->get_site_setting('googleApiKey')).'&amp;sensor=false';
+		$urls[] = $pre.'addons/google_maps/maps.js';
+		
+		$view->addJScript($urls);
+	}
+	
+	private function _getCoodinates($params)
+	{
+		if (isset($this->coordinates)) {
+			return $this->coordinates;
+		}
+		if (defined('IN_ADMIN') && $this->adminPreview) {
+			//keep from re-running geocode
+			//TODO: FOR NOW make it continue to re-look-up the coords so this can be
+			//a test to make sure geocoding works on the server, in future need to
+			//change it so that it only tests geocode lookup when that test is
+			//specifically requested.  Should probably be done at the time that listings
+			//save the lat/long, as without that feature, keeping it from doing a geocode lookup
+			//for the rare times it is in the admin is rather mute
+			//$this->coordinates = '37.786921,-122.448505';
+		}
+		
+		$location = $this->_getLocation($params);
+		
+		if (!$location) {
+			return;
+		}
+		if (!geoString::isUtf8($location)) {
+			//attempt to convert location to UTF-8 or it won't work with google maps
+			$location = utf8_encode($location);
+		}
+		
+		$reg = geoAddon::getRegistry($this->name);
+		$db = DataAccess::getInstance();
+		
+		$googleApiKey = $db->get_site_setting('googleApiKey');
+		if (!$googleApiKey || ($reg->off && !defined('IN_ADMIN'))) {
+			//api key not set and not in admin, or turned off
+			return;
+		}
+		if (!function_exists('curl_init')) {
+			//not able to do anything w/o curl_init
+			trigger_error('DEBUG MAP: curl_init does not exist!  Could not get map info.');
+			return;
+		}
+		
+		$location = urlencode($location);
+		$url = "https://maps.googleapis.com/maps/api/geocode/json?address=$location&sensor=false";
+		
+		$response = geoPC::urlGetContents($url);
+		if (!$response) {
+			trigger_error('DEBUG MAP: No response when getting location info.  URL used: '.$url);
+			return;
+		}
+		$info = json_decode($response);
+		//die ('info: <pre>'.print_r($info,1));
+		if (!$info || $info->status !== 'OK') {
+			return;
+		}
+		
+		if (!isset($info->results[0]->geometry->location)) {
+			//couldn't get the coords
+			return;
+		}
+		
+		$points = $info->results[0]->geometry->location;
+		
+		if (!$points ) {
+			return;
+		}
+		//there's an extra number from the coords so get rid of it
+		
+		$longitude = $points->lng;
+		$latitude = $points->lat;
+		$this->coordinates = $latitude.','.$longitude;
+		
+		return $this->coordinates;
+	}
+	
+	private function _getLocation($params)
+	{
+		if (defined('IN_ADMIN') && $this->adminPreview) {
+			$this->location = '3333 California St San Francisco CA 94118';
+			$this->locationLong = "<strong>Admin Map Preview Listing Title</strong><br />
+			3333 California St<br />
+			San Francisco CA 94118<br />
+			United States of America";
+		}
+		if (isset($this->location)) {
+			//already got it
+			return $this->location;
+		}
+		
+		$reg = geoAddon::getRegistry($this->name);
+		$db = DataAccess::getInstance();
+		
+		if (!$db->get_site_setting('googleApiKey')) {
+			return;
+		}
+		
+		$listingId = $this->listingId = (int)((isset($params['listing_id']))? $params['listing_id'] : geoView::getInstance()->classified_id);
+		if (!$listingId){
+			return;
+		}
+		
+		$listing  = geoListing::getListing($listingId);
+		if(!$listing) {
+			return;
+		}
+		
+		$loc = $listing->location_city . $listing->location_zip;
+		
+		$loc = $this->_quoteFilter($loc);
+		$this->location = $loc;
+		
+		$this->locationLong = "<strong>".$this->_quoteFilter($listing->title)."</strong><br />
+			".$this->_quoteFilter($listing->mapping_location);
+		
+		return $loc; 	
+	}
+	
+	/**
+	 * allows use of quotes in a string without opening the whole thing up to HTML injection
+	 * @param unknown_type $str
+	 * @return unknown_type
+	 */
+	private function _quoteFilter($str)
+	{
+		$str = geoString::fromDB($str);
+		$str = geoString::specialCharsDecode($str); //undo filtering of quotes
+		$str = str_replace('<','&lt;',$str); //but re-do filtering for < to prevent HTML-injection (addresses shouldn't have <, anyway)
+		return $str;
+	}
+	
+	/**
+	 * Gets the HTML necessary for displaying google map for a listing.
+	 * 
+	 * @return string
+	 */
+	public function getMap ($params = array(), $smarty=null)
+	{
+		$reg = geoAddon::getRegistry($this->name);
+		if(!defined('IN_ADMIN') && $reg->off) {
+			return false;
+		}
+		$this->_getCoodinates($params);
+		if (!$this->coordinates) {
+			//something went wrong when getting coords
+			$this->location = $this->locationLong = $this->coordinates = $this->listingId = null;
+			return '';
+		}
+		
+		$tpl_vars = array();
+		
+		$tpl_vars['msgs'] = geoAddon::getText('geo_addons','google_maps');
+		$tpl_vars['location'] = ($this->locationLong)? $this->locationLong : $this->location;
+		$tpl_vars['listing_id'] = $this->listingId;
+		$tpl_vars['coords'] = $this->coordinates;
+		$tpl_vars['width'] = (int)$reg->get('width',600);
+		$tpl_vars['height'] = (int)$reg->get('height',400);
+		$tpl_vars['width_type'] = $reg->get('width_type','px');
+		$tpl_vars['height_type'] = $reg->get('height_type','px');
+		
+		$this->location = $this->locationLong = $this->coordinates = null;
+		
+		if ($smarty) {
+			return geoTemplate::loadInternalTemplate($params, $smarty, 'map.tpl',
+					geoTemplate::ADDON, $this->name, $tpl_vars);
+		} else {
+			//do it the old way...
+			$tpl = new geoTemplate('addon',$this->name);
+			$tpl->assign($tpl_vars);
+			
+			return $tpl->fetch('map.tpl');
+		}
+	}
 }

@@ -18,6 +18,8 @@
     
 	<meta name="google-site-verification" content="Z5pMM5JDfpcOkzKn-LCEM9f3KqjCdAcnZnMrF--r61w" />
 	<meta name="p:domain_verify" content="fc4785c76019939a13dc4b1fbb4e1e73"/>
+
+	
 	<link href="{external file='css/theme_styles.css'}" rel="stylesheet" type="text/css" />
 
 	<link href='http://fonts.googleapis.com/css?family=BenchNine:400,700' rel='stylesheet' type='text/css'>
@@ -35,6 +37,9 @@
 	
 	
 	<script type="text/javascript" src="{external file='js/petsplease-extensions.js'}"></script>
+	
+	<!-- Install Restive.JS -->
+	
 
 	{* Load the theme_styles.css files last, so it can over-write any page/module 
 		specific CSS files if desired. *}	
@@ -51,6 +56,14 @@
 
 </head>
 <body>
+	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=337929123037383&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 	<script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

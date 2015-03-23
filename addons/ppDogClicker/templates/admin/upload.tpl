@@ -16,7 +16,7 @@
 <script type="text/javascript" src="/js/jquery.datepick.ext.js"></script>
 
 <form method="post" enctype="multipart/form-data" action="?page=addon_photos_settings&mc=addon_cat_ppDogClicker" id="change_detail_form">
-	<input type="hidden" name="d[id]" value="{$detail.id}" />
+	<input type="hidden" name="id" value="{$detail.id}" />
 	<div>
 		<label>ID</label>
 		<span>
@@ -41,6 +41,11 @@
 	<div>
 		<label for="pet_name">Age</label>
 		<input type="number" name="age" min="1" max="20" value="{$detail.age}" >
+	</div>
+	
+	<div>
+		<label for="pet_months">Months</label>
+		<input type="number" name="months" min="1" max="12" value="{$detail.months}" >
 	</div>
 	
 	<div>

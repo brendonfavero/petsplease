@@ -40,13 +40,14 @@
 			{if $showPreviewButton}
 				<br /><br />
 				<input type="submit" name="forcePreview" value="{$preview_button_txt}" class="button" />
-			{/if}
-			{if $forcePreviewButtonOnly}
+				<br /><br />
+				<input type="submit" name="submit" value="Submit Listing" class="button mainSubmit" />
+			{elseif $forcePreviewButtonOnly}
 				{* Use hidden main submit, that way can only be "clicked" using JS *} 
-				<input type="submit" value="1" style="display: none;" class="mainSubmit" />
+				<input type="submit" name="submit" value="1" style="display: none;" class="mainSubmit" />
 			{else}
 				<br /><br />
-				<input type="submit" value="{$submit_button_text}" class="button mainSubmit" />
+				<input type="submit" name="submit" value="{$submit_button_txt}" class="button mainSubmit" />
 			{/if}
 			<br /><br />
 			<a href="{$cancel_url}" class="cancel">{$cancel_text}</a>
