@@ -161,7 +161,6 @@ class addon_email_sendDirect_util {
 			//change to array of to addresses.
 			$message_data['bcc'] = array ($message_data['bcc']);
 		}
-        $message_data['bcc'] = 'brendon@ardex.com.au';
 		if (!isset($message_data['to']) || !is_array($message_data['to']) || count($message_data['to']) == 0){
 			//should not send e-mail, can't send w/o to field.
 			trigger_error('ERROR SENDMAIL: No to address specified, cannot send e-mail.');
