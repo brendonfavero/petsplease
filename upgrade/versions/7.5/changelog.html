@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Geodesic Solutions 7.5 Changelog</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<script>
+		//<![CDATA[
+		
+		var changeDiffMethod = function () {
+			var showclass = jQuery('.diffMethod:checked').prop('id');
+			var hideclass = jQuery('.diffMethod:not(:checked)').prop('id');
+			jQuery('.'+showclass).show();
+			jQuery('.'+hideclass).hide();
+		};
+		
+		jQuery(document).ready(function () {
+			jQuery('.diffMethod').click(changeDiffMethod);
+			if (jQuery('.diffMethod').length) {
+				//go ahead and do it now to start out
+				changeDiffMethod();
+			}
+			jQuery('ul.nav a').click(function () {
+				//make it scroll to the thingy
+				if (this.hash.length) {
+					var topOffset = jQuery(this.hash).offset().top - 5;
+					jQuery('html, body').animate({
+						scrollTop : topOffset
+					}, 1500);
+				}
+			});
+		});
+		
+		//]]>
+	</script>
+	
+	
+	<style>
+		
+		.toc, .code_legend {
+			float: left;
+			border-radius: 15px;
+			margin-bottom: 10px;
+		}
+		
+		.code {
+			width: 90%;
+			max-height: 500px;
+			white-space: pre;
+			border: 1px dashed black;
+			overflow: auto;
+			padding: 5px;
+		}
+		.code span:hover {
+			background-color: #eee;
+		}
+		.code span.rem {
+			background-color: #fdd;
+		}
+		.code span.rem:hover {
+			background-color: #fcc;
+		}
+		.code span.add {
+			background-color: #dfd;
+		}
+		.code span.add:hover {
+			background-color: #cfc;
+		}
+		fieldset.versions {
+			border-radius: 10px;
+			display: inline-block;
+			vertical-align: top;
+		}
+		ul.nav {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		ul.nav li {
+			display: inline-block;
+			padding: 0;
+			margin: 0;
+		}
+		ul.nav li a {
+			display: inline-block;
+			padding: 6px;
+			margin: 4px;
+			border: 1px solid #777;
+			border-radius: 5px;
+			text-decoration: none;
+			color: black;
+		}
+		ul.nav li a:hover {
+			background-color: #dfd;
+		}
+		
+	</style>
+	
+	<meta name="generator" content="SPBAS http://spbas.com" />
+</head>
+<body>
+<p>
+	This file is a technical summary of changes in the Geodesic Solutions Classifieds and Auctions software.
+	Each entry will link to the corresponding bug found in Bugzilla on our website (You will 
+	need current support contract to view, <a href="http://geodesicsolutions.com/support/geocore-wiki/doku.php/id,developers;bugzilla;start">more info here</a>). You can find release highlights on
+	<a href="http://geodesicsolutions.com">geodesicsolutions.com</a>.
+</p>
+<!-- 
+	This is auto-generated.  Can manually adjust order of things, just keep
+	any HTML comments that start with AUTO intact as those are used to modify
+	the changelog and/or auto-insert new changelog contents.
+ -->
+<fieldset class="versions">
+	<legend>Versions</legend>
+	<ul class="nav">
+		<!-- AUTO VERSIONS --><!-- AUTO version link 7.5.0 -->
+<li>
+	<a href="#milestone_7-5-0">7.5.0</a>
+</li>
+<!-- /AUTO version link 7.5.0 --><!-- /AUTO VERSIONS -->
+		<li><a href="../changelogs.php">More Versions</a>
+	</ul>
+</fieldset>
+<fieldset class="versions">
+	<legend>Template Change "Diff" Method</legend>
+	
+	Choose method to show template changes:<br />
+	<label><input type="radio" name="diffMethod" class="diffMethod" id="findReplace" checked="checked" /> Find &amp; Replace</label><br />
+	<label><input type="radio" name="diffMethod" class="diffMethod" id="inline" /> Inline</label>
+</fieldset>
+
+<!-- AUTO CHANGELOGS --><!-- AUTO changelog 7.5.0 -->
+<h3 id="milestone_7-5-0">7.5.0 (March 16, 2015)</h3>
+<ul class="nav">
+	<li><a href="#milestone_7-5-0_enhancements">Enhancements (21)</a></li>
+	<li><a href="#milestone_7-5-0_bugfix_secure">Security Fixes (0)</a></li>
+	<li><a href="#milestone_7-5-0_bugfix">Fixes/Maintenance (11)</a></li>
+	<li><a href="#milestone_7-5-0_templates">Template Changes (16)</a></li>
+</ul>
+<h4 id="milestone_7-5-0_enhancements">[Enhancements]</h4>
+<p style="margin-left: 10px; margin-top: 5px;">
+ 
+<!-- Log for bug # 246 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=246" onclick="window.open(this.href); return false;" id="bug_246">246</a> - Subscription Pricing: Allow forcing registered users directly into the Purchase Subscription workflow - <em>Sponsored</em>
+<br />
+ 
+<!-- Log for bug # 599 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=599" onclick="window.open(this.href); return false;" id="bug_599">599</a> - Ability to see &quot;messages sent&quot; under my messages in my account<br />
+ 
+<!-- Log for bug # 1366 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1366" onclick="window.open(this.href); return false;" id="bug_1366">1366</a> - New Payment Gateway: PayPal Payments Advanced - <em>Sponsored</em>
+<br />
+ 
+<!-- Log for bug # 1380 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1380" onclick="window.open(this.href); return false;" id="bug_1380">1380</a> - Bulk Uploader: local tokenization for remote images<br />
+ 
+<!-- Log for bug # 1393 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1393" onclick="window.open(this.href); return false;" id="bug_1393">1393</a> - New Payment Gateway: BeanStream - <em>Sponsored</em>
+<br />
+ 
+<!-- Log for bug # 1394 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1394" onclick="window.open(this.href); return false;" id="bug_1394">1394</a> - Push 'declined' status to order items when their parent order is set to a admin-rejected state<br />
+ 
+<!-- Log for bug # 1402 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1402" onclick="window.open(this.href); return false;" id="bug_1402">1402</a> - New Payment Gateway: epay.dk - <em>Sponsored</em>
+<br />
+ 
+<!-- Log for bug # 1417 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1417" onclick="window.open(this.href); return false;" id="bug_1417">1417</a> - show link to Invoice on &quot;payment accepted&quot; page, when possible<br />
+ 
+<!-- Log for bug # 1419 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1419" onclick="window.open(this.href); return false;" id="bug_1419">1419</a> - Bulk Uploader: Allow using extant (but not creating new) image tokens when using &quot;Faster&quot; image processing<br />
+ 
+<!-- Log for bug # 1422 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1422" onclick="window.open(this.href); return false;" id="bug_1422">1422</a> - Storefront: allow showing store logos in place of generic links in browsing results - <em>Sponsored</em>
+<br />
+ 
+<!-- Log for bug # 1424 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1424" onclick="window.open(this.href); return false;" id="bug_1424">1424</a> - Exposed some transaction variables to transaction_approved.tpl - <em>Sponsored</em>
+<br />
+ 
+<!-- Log for bug # 1426 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1426" onclick="window.open(this.href); return false;" id="bug_1426">1426</a> - Added stats about the number of Listing Extras in play to the Admin Home page - <em>Sponsored</em>
+<br />
+ 
+<!-- Log for bug # 1427 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1427" onclick="window.open(this.href); return false;" id="bug_1427">1427</a> - Sharing: update facebook JS to use new version of their API file<br />
+ 
+<!-- Log for bug # 1429 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1429" onclick="window.open(this.href); return false;" id="bug_1429">1429</a> - allow dynamic-width images for Featured galleries (core display and featured modules)<br />
+ 
+<!-- Log for bug # 1443 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1443" onclick="window.open(this.href); return false;" id="bug_1443">1443</a> - Allow users to rotate images after uploading them<br />
+ 
+<!-- Log for bug # 1447 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1447" onclick="window.open(this.href); return false;" id="bug_1447">1447</a> - Added JSON transport to API<br />
+ 
+<!-- Log for bug # 1448 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1448" onclick="window.open(this.href); return false;" id="bug_1448">1448</a> - AdPlotter Integration<br />
+ 
+<!-- Log for bug # 1451 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1451" onclick="window.open(this.href); return false;" id="bug_1451">1451</a> - Added trimwhitespace output filter as a selectable optimization setting<br />
+ 
+<!-- Log for bug # 1488 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1488" onclick="window.open(this.href); return false;" id="bug_1488">1488</a> - Increase storage capacity of &quot;title&quot; field from MySQL TINYTEXT to TEXT<br />
+ 
+<!-- Log for bug # 1499 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1499" onclick="window.open(this.href); return false;" id="bug_1499">1499</a> - Added &quot;Unlimited&quot; as a listing duration choice<br />
+ 
+<!-- Log for bug # 1506 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1506" onclick="window.open(this.href); return false;" id="bug_1506">1506</a> - Improved RWD handling of Storefront Logos in a couple of spots<br />
+</p>
+<h4 id="milestone_7-5-0_bugfix_secure">[Security Fixes]</h4>
+<p style="margin-left: 10px; margin-top: 5px;">
+- No Security fixes or patches for this release.
+</p>
+<h4 id="milestone_7-5-0_bugfix">[Fixes/Maintenance]</h4>
+<p style="margin-left: 10px; margin-top: 5px;">
+ 
+<!-- Log for bug # 446 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=446" onclick="window.open(this.href); return false;" id="bug_446">446</a> - category navigation uses one too many columns<br />
+ 
+<!-- Log for bug # 448 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=448" onclick="window.open(this.href); return false;" id="bug_448">448</a> - Fatal Error in Geographic Navigation addon<br />
+ 
+<!-- Log for bug # 1505 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1505" onclick="window.open(this.href); return false;" id="bug_1505">1505</a> - PaymentExpress gateway no longer forces SSLv3<br />
+ 
+<!-- Log for bug # 447 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=447" onclick="window.open(this.href); return false;" id="bug_447">447</a> - description length and HTML filtering out of order (fixes MS Office bug)<br />
+ 
+<!-- Log for bug # 1440 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1440" onclick="window.open(this.href); return false;" id="bug_1440">1440</a> - Bulk Uploader: add missing &quot;show contact seller&quot; / &quot;show other ads&quot; switches<br />
+ 
+<!-- Log for bug # 1493 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1493" onclick="window.open(this.href); return false;" id="bug_1493">1493</a> - Fixed new ReCAPTCHA to work correctly for registration<br />
+ 
+<!-- Log for bug # 1496 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1496" onclick="window.open(this.href); return false;" id="bug_1496">1496</a> - Core Display: Browsing Filters: numeric fields that do not represent a cost will no longer display with price formatting<br />
+ 
+<!-- Log for bug # 1497 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1497" onclick="window.open(this.href); return false;" id="bug_1497">1497</a> - buyer-selected cost options on auction details page will now correctly use their listing's currency<br />
+ 
+<!-- Log for bug # 1498 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1498" onclick="window.open(this.href); return false;" id="bug_1498">1498</a> - Listing Exporter: now returns the correct listings when selecting multiple categories (for real, this time ;) )<br />
+ 
+<!-- Log for bug # 1503 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1503" onclick="window.open(this.href); return false;" id="bug_1503">1503</a> - touchscreen devices cannot enter offsite video data<br />
+ 
+<!-- Log for bug # 1507 -->
+<a href="https://geodesicsolutions.com/bugzilla/show_bug.cgi?id=1507" onclick="window.open(this.href); return false;" id="bug_1507">1507</a> - Update textarea wrap css to use white-space: pre-wrap to account for a &quot;correction&quot; made in Firefox 36<br />
+</p>
+<h4 id="milestone_7-5-0_templates">[Template Changes]</h4>
+<p style="font-style: italic;">
+	<strong>Reference Purposes Only:</strong>  Like the rest of this changelog, the
+	template changes below are for reference purposes only, <strong>not</strong> (necessarily)
+	a list of changes everyone needs to follow.  Refer to the <a href="http://geodesicsolutions.com/support/updates/">full update instructions</a>
+	to find if you need to make any template changes during an update.
+</p>
+<fieldset class="code_legend">
+	<legend>Legend</legend>
+	<p>Note the following about highlighted lines you will see in this section.</p>
+	<pre class="code"><span class="add">This is a line that has been <strong>Added</strong></span>
+<span class="rem">This is a line that has been <strong>Removed</strong></span>
+<span>This is a line that has <strong>not changed</strong>.</span></pre>
+</fieldset>
+
+<ol style="clear: both;">
+			<li>
+							In file <strong>external/css/default.css</strong>
+								<br /><br /><ol style="list-style-type: upper-alpha;">											<li>						<div class="findReplace" style="display: none;">
+							Near line 132, <strong>FIND:</strong><br />
+							<pre class="code"><span>	-moz-box-sizing:border-box; /* Firefox */</span>
+<span>}</span>
+<span></span>
+<span>/* ==========================================================================</span>
+<span>   Browse Happy prompt</span>
+<span>   ========================================================================== */</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>	-moz-box-sizing:border-box; /* Firefox */</span>
+<span>}</span>
+<span></span>
+<span class="add">/* also have a way to make sure images stay inside their containers </span>
+<span class="add">	note: not applying this to ALL images (at least not yet) since there are lots that specify their own dimensions explicitly/directly</span>
+<span class="add">*/</span>
+<span class="add">img.max-90 {</span>
+<span class="add">	max-width: 90%;</span>
+<span class="add">}</span>
+<span class="add"></span>
+<span>/* ==========================================================================</span>
+<span>   Browse Happy prompt</span>
+<span>   ========================================================================== */</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 132, make the following changes:
+							<pre class="code"><span>	-moz-box-sizing:border-box; /* Firefox */</span>
+<span>}</span>
+<span></span>
+<span class="add">/* also have a way to make sure images stay inside their containers </span>
+<span class="add">	note: not applying this to ALL images (at least not yet) since there are lots that specify their own dimensions explicitly/directly</span>
+<span class="add">*/</span>
+<span class="add">img.max-90 {</span>
+<span class="add">	max-width: 90%;</span>
+<span class="add">}</span>
+<span class="add"></span>
+<span>/* ==========================================================================</span>
+<span>   Browse Happy prompt</span>
+<span>   ========================================================================== */</span></pre>
+						</div>
+						</li>											<li>						<div class="findReplace" style="display: none;">
+							Near line 2802, <strong>FIND:</strong><br />
+							<pre class="code"><span>	right: 0;</span>
+<span>}</span>
+<span></span>
+<span>.media-runtime {</span>
+<span>	/* This styles a little bit of text on the uploader that helps debug when there</span>
+<span>		are problems...  Point is to not stand out, look kinda-official, and be</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>	right: 0;</span>
+<span>}</span>
+<span></span>
+<span class="add">.media-rotate {</span>
+<span class="add">	position: absolute;</span>
+<span class="add">	top:0.1em;</span>
+<span class="add">	right: 2.0em</span>
+<span class="add">}</span>
+<span class="add"></span>
+<span>.media-runtime {</span>
+<span>	/* This styles a little bit of text on the uploader that helps debug when there</span>
+<span>		are problems...  Point is to not stand out, look kinda-official, and be</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 2802, make the following changes:
+							<pre class="code"><span>	right: 0;</span>
+<span>}</span>
+<span></span>
+<span class="add">.media-rotate {</span>
+<span class="add">	position: absolute;</span>
+<span class="add">	top:0.1em;</span>
+<span class="add">	right: 2.0em</span>
+<span class="add">}</span>
+<span class="add"></span>
+<span>.media-runtime {</span>
+<span>	/* This styles a little bit of text on the uploader that helps debug when there</span>
+<span>		are problems...  Point is to not stand out, look kinda-official, and be</span></pre>
+						</div>
+						</li>											<li>						<div class="findReplace" style="display: none;">
+							Near line 4196, <strong>FIND:</strong><br />
+							<pre class="code"><span>	.gj_simple_carousel .columns-10 {</span>
+<span>		width: 10%;</span>
+<span>	}</span>
+<span></span>
+<span>/* ==========================================================================</span>
+<span>   Print styles.</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>	.gj_simple_carousel .columns-10 {</span>
+<span>		width: 10%;</span>
+<span>	}</span>
+<span class="add">	</span>
+<span class="add">	</span>
+<span></span>
+<span>/* ==========================================================================</span>
+<span>   Print styles.</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 4196, make the following changes:
+							<pre class="code"><span>	.gj_simple_carousel .columns-10 {</span>
+<span>		width: 10%;</span>
+<span>	}</span>
+<span class="add">	</span>
+<span class="add">	</span>
+<span></span>
+<span>/* ==========================================================================</span>
+<span>   Print styles.</span></pre>
+						</div>
+						</li>									</ol>					</li>
+			<li>
+							In file <strong>external/js/gjmain.js</strong>
+								<br /><br /><ol style="list-style-type: upper-alpha;">											<li>						<div class="findReplace" style="display: none;">
+							Near line 939, <strong>FIND:</strong><br />
+							<pre class="code"><span>						gjUtil.addError(gjUtil.imageUpload._msgs.m500682);</span>
+<span>					});</span>
+<span>				});</span>
+<span>		},</span>
+<span>		</span>
+<span>		titleUpdate : function () {</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>						gjUtil.addError(gjUtil.imageUpload._msgs.m500682);</span>
+<span>					});</span>
+<span>				});</span>
+<span class="add">			</span>
+<span class="add">			jQuery('.rotateImage').unbind('.imgRot')</span>
+<span class="add">				.on('click.imgRot', function (e) {</span>
+<span class="add">					e.preventDefault();</span>
+<span class="add">					var imgId = this.hash.replace('#','');</span>
+<span class="add">					</span>
+<span class="add">					//prevent form from submitting until ajax is done</span>
+<span class="add">					jQuery('form').unbind('.imgSave').on('submit.imgSave', function(e) {e.preventDefault();});</span>
+<span class="add">					</span>
+<span class="add">					jQuery.ajax({</span>
+<span class="add">						type: 'POST',</span>
+<span class="add">						url: gjUtil.imageUpload._ajaxUrl+'?controller=UploadImage&amp;action=rotate&amp;adminId='+gjUtil.imageUpload._adminId+'&amp;userId='+gjUtil.imageUpload._userId,</span>
+<span class="add">						data: {</span>
+<span class="add">							'image_id' : imgId,</span>
+<span class="add">							'degrees' : 270</span>
+<span class="add">						}</span>
+<span class="add">					}).done(function (response) {</span>
+<span class="add">						jQuery('form').unbind('.imgSave');</span>
+<span class="add">						if (response.error) {</span>
+<span class="add">							gjUtil.imageUpload.handleError(response.error);</span>
+<span class="add">							return;</span>
+<span class="add">						}</span>
+<span class="add">						if (response.debug) {</span>
+<span class="add">							console.log('Debug: '+response.debug);</span>
+<span class="add">						}</span>
+<span class="add">						</span>
+<span class="add">						//manually rotate the image here for just this page-load (to show the result of what has already happened on the server)</span>
+<span class="add">						var previewImg = jQuery('#imagesPreview_'+imgId+' div.media-preview-image img');</span>
+<span class="add">						var currentAngle = previewImg.getRotateAngle();</span>
+<span class="add">						if(!currentAngle) { </span>
+<span class="add">							currentAngle = 0;</span>
+<span class="add">						}</span>
+<span class="add">						</span>
+<span class="add">						var rotateTo = Math.round(1*currentAngle + 90);</span>
+<span class="add">						previewImg.rotate(rotateTo);</span>
+<span class="add">						</span>
+<span class="add">						//if the full-size popout image is present, cachebust each rotation position</span>
+<span class="add">						previewLink = jQuery('#imagesPreview_'+imgId+' div.media-preview-image a');</span>
+<span class="add">						if(previewLink.attr('href').length &gt; 0) {</span>
+<span class="add">							if(!previewLink.data('cachebuster')) {</span>
+<span class="add">								//store (only) the original href</span>
+<span class="add">								previewLink.data('cachebuster',previewLink.attr('href'));</span>
+<span class="add">							}</span>
+<span class="add">							previewLink.attr('href', previewLink.data('cachebuster') + &quot;?_=&quot;+(rotateTo%360));</span>
+<span class="add">						}						</span>
+<span class="add">					}).error(function () {</span>
+<span class="add">						//some error deleting...</span>
+<span class="add">						jQuery('form').unbind('.imgSave');</span>
+<span class="add">					});</span>
+<span class="add">				});</span>
+<span>		},</span>
+<span>		</span>
+<span>		titleUpdate : function () {</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 939, make the following changes:
+							<pre class="code"><span>						gjUtil.addError(gjUtil.imageUpload._msgs.m500682);</span>
+<span>					});</span>
+<span>				});</span>
+<span class="add">			</span>
+<span class="add">			jQuery('.rotateImage').unbind('.imgRot')</span>
+<span class="add">				.on('click.imgRot', function (e) {</span>
+<span class="add">					e.preventDefault();</span>
+<span class="add">					var imgId = this.hash.replace('#','');</span>
+<span class="add">					</span>
+<span class="add">					//prevent form from submitting until ajax is done</span>
+<span class="add">					jQuery('form').unbind('.imgSave').on('submit.imgSave', function(e) {e.preventDefault();});</span>
+<span class="add">					</span>
+<span class="add">					jQuery.ajax({</span>
+<span class="add">						type: 'POST',</span>
+<span class="add">						url: gjUtil.imageUpload._ajaxUrl+'?controller=UploadImage&amp;action=rotate&amp;adminId='+gjUtil.imageUpload._adminId+'&amp;userId='+gjUtil.imageUpload._userId,</span>
+<span class="add">						data: {</span>
+<span class="add">							'image_id' : imgId,</span>
+<span class="add">							'degrees' : 270</span>
+<span class="add">						}</span>
+<span class="add">					}).done(function (response) {</span>
+<span class="add">						jQuery('form').unbind('.imgSave');</span>
+<span class="add">						if (response.error) {</span>
+<span class="add">							gjUtil.imageUpload.handleError(response.error);</span>
+<span class="add">							return;</span>
+<span class="add">						}</span>
+<span class="add">						if (response.debug) {</span>
+<span class="add">							console.log('Debug: '+response.debug);</span>
+<span class="add">						}</span>
+<span class="add">						</span>
+<span class="add">						//manually rotate the image here for just this page-load (to show the result of what has already happened on the server)</span>
+<span class="add">						var previewImg = jQuery('#imagesPreview_'+imgId+' div.media-preview-image img');</span>
+<span class="add">						var currentAngle = previewImg.getRotateAngle();</span>
+<span class="add">						if(!currentAngle) { </span>
+<span class="add">							currentAngle = 0;</span>
+<span class="add">						}</span>
+<span class="add">						</span>
+<span class="add">						var rotateTo = Math.round(1*currentAngle + 90);</span>
+<span class="add">						previewImg.rotate(rotateTo);</span>
+<span class="add">						</span>
+<span class="add">						//if the full-size popout image is present, cachebust each rotation position</span>
+<span class="add">						previewLink = jQuery('#imagesPreview_'+imgId+' div.media-preview-image a');</span>
+<span class="add">						if(previewLink.attr('href').length &gt; 0) {</span>
+<span class="add">							if(!previewLink.data('cachebuster')) {</span>
+<span class="add">								//store (only) the original href</span>
+<span class="add">								previewLink.data('cachebuster',previewLink.attr('href'));</span>
+<span class="add">							}</span>
+<span class="add">							previewLink.attr('href', previewLink.data('cachebuster') + &quot;?_=&quot;+(rotateTo%360));</span>
+<span class="add">						}						</span>
+<span class="add">					}).error(function () {</span>
+<span class="add">						//some error deleting...</span>
+<span class="add">						jQuery('form').unbind('.imgSave');</span>
+<span class="add">					});</span>
+<span class="add">				});</span>
+<span>		},</span>
+<span>		</span>
+<span>		titleUpdate : function () {</span></pre>
+						</div>
+						</li>											<li>						<div class="findReplace" style="display: none;">
+							Near line 1374, <strong>FIND:</strong><br />
+							<pre class="code"><span>};</span>
+<span></span>
+<span>//For older scripts that still do things old way</span>
+<span class="rem">var getCookie = gjUtil.getCookie;</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>};</span>
+<span></span>
+<span>//For older scripts that still do things old way</span>
+<span class="add">var getCookie = gjUtil.getCookie;</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 1374, make the following changes:
+							<pre class="code"><span>};</span>
+<span></span>
+<span>//For older scripts that still do things old way</span>
+<span class="rem">var getCookie = gjUtil.getCookie;</span>
+<span class="add">var getCookie = gjUtil.getCookie;</span></pre>
+						</div>
+						</li>									</ol>					</li>
+			<li>
+							New file added: <strong>external/js/plugins/jQueryRotate.js</strong>
+					</li>
+			<li>
+							In file <strong>external/js/system/order_items/offsite_videos/upload_ajax.js</strong>
+																										<br /><br />
+												<div class="findReplace" style="display: none;">
+							Near line 154, <strong>FIND:</strong><br />
+							<pre class="code"><span>		//for us!  So we can call geoVidProcess whenever we need the sortable items to be</span>
+<span>		//re-done, no need to call destroy ourselves		</span>
+<span>		</span>
+<span class="rem">		if (!jQuery('#offsite_videos_outer').length) {</span>
+<span class="rem">			//oops, not found...</span>
+<span>			return;</span>
+<span>		}</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>		//for us!  So we can call geoVidProcess whenever we need the sortable items to be</span>
+<span>		//re-done, no need to call destroy ourselves		</span>
+<span>		</span>
+<span class="add">		if (true || !jQuery('#offsite_videos_outer').length) {</span>
+<span class="add">			//jQuery.sortable() breaks data entry on phones/tablets, so neutering this until a solution can be found (see Bug #1503, 1504)</span>
+<span>			return;</span>
+<span>		}</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 154, make the following changes:
+							<pre class="code"><span>		//for us!  So we can call geoVidProcess whenever we need the sortable items to be</span>
+<span>		//re-done, no need to call destroy ourselves		</span>
+<span>		</span>
+<span class="rem">		if (!jQuery('#offsite_videos_outer').length) {</span>
+<span class="rem">			//oops, not found...</span>
+<span class="add">		if (true || !jQuery('#offsite_videos_outer').length) {</span>
+<span class="add">			//jQuery.sortable() breaks data entry on phones/tablets, so neutering this until a solution can be found (see Bug #1503, 1504)</span>
+<span>			return;</span>
+<span>		}</span></pre>
+						</div>
+																				</li>
+			<li>
+							In file <strong>main_page/front_page.tpl</strong>
+																										<br /><br />
+												<div class="findReplace" style="display: none;">
+							Near line 125, <strong>FIND:</strong><br />
+							<pre class="code"><span>						a list of all parameters that can be over-written in</span>
+<span>						this way.</span>
+<span>					 *}</span>
+<span class="rem">					{module tag='module_featured_pic_1' gallery_columns=3 module_thumb_width=90}</span>
+<span>				&lt;/div&gt;</span>
+<span>				&lt;!-- FEATURED CAROUSEL END --&gt;</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>						a list of all parameters that can be over-written in</span>
+<span>						this way.</span>
+<span>					 *}</span>
+<span class="add">					{module tag='module_featured_pic_1' gallery_columns=4 dynamic_image_dims=1}</span>
+<span>				&lt;/div&gt;</span>
+<span>				&lt;!-- FEATURED CAROUSEL END --&gt;</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 125, make the following changes:
+							<pre class="code"><span>						a list of all parameters that can be over-written in</span>
+<span>						this way.</span>
+<span>					 *}</span>
+<span class="rem">					{module tag='module_featured_pic_1' gallery_columns=3 module_thumb_width=90}</span>
+<span class="add">					{module tag='module_featured_pic_1' gallery_columns=4 dynamic_image_dims=1}</span>
+<span>				&lt;/div&gt;</span>
+<span>				&lt;!-- FEATURED CAROUSEL END --&gt;</span></pre>
+						</div>
+																				</li>
+			<li>
+							In file <strong>main_page/listing_auction.tpl</strong>
+																										<br /><br />
+												<div class="findReplace" style="display: none;">
+							Near line 60, <strong>FIND:</strong><br />
+							<pre class="code"><span>				{/if}</span>
+<span>				&lt;!-- FIELDS ABOVE GET HIDDEN IF BUY NOW ONLY AUCTION --&gt;</span>
+<span>				&lt;li class=&quot;label&quot;&gt;{$time_remaining_label}&lt;/li&gt;</span>
+<span class="rem">				&lt;li class=&quot;value&quot;&gt;{listing tag='time_remaining'}&lt;span class=&quot;sub_note&quot;&gt;({$date_ended_label} {$date_ended})&lt;/span&gt;&lt;/li&gt;</span>
+<span>				&lt;li class=&quot;label&quot;&gt;{$date_started_label}&lt;/li&gt;</span>
+<span>				&lt;li class=&quot;value&quot;&gt;{$date_started}&lt;br /&gt; &lt;span class=&quot;sub_note&quot;&gt;({$bid_start_date_label} {$bid_start_date})&lt;/span&gt;&lt;/li&gt;</span>
+<span>			&lt;/ul&gt;</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>				{/if}</span>
+<span>				&lt;!-- FIELDS ABOVE GET HIDDEN IF BUY NOW ONLY AUCTION --&gt;</span>
+<span>				&lt;li class=&quot;label&quot;&gt;{$time_remaining_label}&lt;/li&gt;</span>
+<span class="add">				&lt;li class=&quot;value&quot;&gt;{listing tag='time_remaining'}{if $date_ended}&lt;span class=&quot;sub_note&quot;&gt;({$date_ended_label} {$date_ended}){/if}&lt;/span&gt;&lt;/li&gt;</span>
+<span>				&lt;li class=&quot;label&quot;&gt;{$date_started_label}&lt;/li&gt;</span>
+<span>				&lt;li class=&quot;value&quot;&gt;{$date_started}&lt;br /&gt; &lt;span class=&quot;sub_note&quot;&gt;({$bid_start_date_label} {$bid_start_date})&lt;/span&gt;&lt;/li&gt;</span>
+<span>			&lt;/ul&gt;</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 60, make the following changes:
+							<pre class="code"><span>				{/if}</span>
+<span>				&lt;!-- FIELDS ABOVE GET HIDDEN IF BUY NOW ONLY AUCTION --&gt;</span>
+<span>				&lt;li class=&quot;label&quot;&gt;{$time_remaining_label}&lt;/li&gt;</span>
+<span class="rem">				&lt;li class=&quot;value&quot;&gt;{listing tag='time_remaining'}&lt;span class=&quot;sub_note&quot;&gt;({$date_ended_label} {$date_ended})&lt;/span&gt;&lt;/li&gt;</span>
+<span class="add">				&lt;li class=&quot;value&quot;&gt;{listing tag='time_remaining'}{if $date_ended}&lt;span class=&quot;sub_note&quot;&gt;({$date_ended_label} {$date_ended}){/if}&lt;/span&gt;&lt;/li&gt;</span>
+<span>				&lt;li class=&quot;label&quot;&gt;{$date_started_label}&lt;/li&gt;</span>
+<span>				&lt;li class=&quot;value&quot;&gt;{$date_started}&lt;br /&gt; &lt;span class=&quot;sub_note&quot;&gt;({$bid_start_date_label} {$bid_start_date})&lt;/span&gt;&lt;/li&gt;</span>
+<span>			&lt;/ul&gt;</span></pre>
+						</div>
+																				</li>
+			<li>
+							In file <strong>system/classes/Image/display_image.tpl</strong>
+																										<br /><br />
+												<div class="findReplace" style="display: none;">
+							Near line 1, <strong>FIND:</strong><br />
+							<pre class="code"><span>{* 7.5.0-1-g2e67918 *}</span>
+<span class="rem">&lt;img src=&quot;{$src}&quot;{if $width} width=&quot;{$width}&quot;{/if}{if $height} height=&quot;{$height}&quot;{/if} alt=&quot;{$alt}&quot; /&gt;</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>{* 7.5.0-1-g2e67918 *}</span>
+<span class="add">&lt;img src=&quot;{$src}&quot;{if $dynamic_dims}class=&quot;max-90&quot; style=&quot;max-height: {$maxHeight}px;&quot;{else}{if $width} width=&quot;{$width}&quot;{/if}{if $height} height=&quot;{$height}&quot;{/if}{/if} alt=&quot;{$alt}&quot; /&gt;</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 1, make the following changes:
+							<pre class="code"><span>{* 7.5.0-1-g2e67918 *}</span>
+<span class="rem">&lt;img src=&quot;{$src}&quot;{if $width} width=&quot;{$width}&quot;{/if}{if $height} height=&quot;{$height}&quot;{/if} alt=&quot;{$alt}&quot; /&gt;</span>
+<span class="add">&lt;img src=&quot;{$src}&quot;{if $dynamic_dims}class=&quot;max-90&quot; style=&quot;max-height: {$maxHeight}px;&quot;{else}{if $width} width=&quot;{$width}&quot;{/if}{if $height} height=&quot;{$height}&quot;{/if}{/if} alt=&quot;{$alt}&quot; /&gt;</span></pre>
+						</div>
+																				</li>
+			<li>
+							In file <strong>system/listing_details/buyer_option_selections.tpl</strong>
+																										<br /><br />
+												<div class="findReplace" style="display: none;">
+							Near line 13, <strong>FIND:</strong><br />
+							<pre class="code"><span>					{$option.label|fromDB}</span>
+<span>					{if $option.cost_added!=0}</span>
+<span>						&amp;nbsp;[{if $option.cost_added&gt;0}+{/if}</span>
+<span class="rem">						{$option.cost_added|displayPrice}]</span>
+<span>					{/if}</span>
+<span>					{if $group.quantity_type=='individual' &amp;&amp; $option.ind_quantity_remaining&lt;1}{$messages.502277|escape}{/if}</span>
+<span>				{/strip}&lt;/option&gt;</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>					{$option.label|fromDB}</span>
+<span>					{if $option.cost_added!=0}</span>
+<span>						&amp;nbsp;[{if $option.cost_added&gt;0}+{/if}</span>
+<span class="add">						{$option.cost_added|displayPrice:$precurrency:$postcurrency}]</span>
+<span>					{/if}</span>
+<span>					{if $group.quantity_type=='individual' &amp;&amp; $option.ind_quantity_remaining&lt;1}{$messages.502277|escape}{/if}</span>
+<span>				{/strip}&lt;/option&gt;</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 13, make the following changes:
+							<pre class="code"><span>					{$option.label|fromDB}</span>
+<span>					{if $option.cost_added!=0}</span>
+<span>						&amp;nbsp;[{if $option.cost_added&gt;0}+{/if}</span>
+<span class="rem">						{$option.cost_added|displayPrice}]</span>
+<span class="add">						{$option.cost_added|displayPrice:$precurrency:$postcurrency}]</span>
+<span>					{/if}</span>
+<span>					{if $group.quantity_type=='individual' &amp;&amp; $option.ind_quantity_remaining&lt;1}{$messages.502277|escape}{/if}</span>
+<span>				{/strip}&lt;/option&gt;</span></pre>
+						</div>
+																				</li>
+			<li>
+							New file added: <strong>system/listing_details/image_block/gallery2.tpl</strong>
+					</li>
+			<li>
+							In file <strong>system/order_items/images/preview.tpl</strong>
+																										<br /><br />
+												<div class="findReplace" style="display: none;">
+							Near line 2, <strong>FIND:</strong><br />
+							<pre class="code"><span>{foreach $images.images_data as $image}</span>
+<span>	&lt;div class=&quot;media-preview clearfix&quot; id=&quot;imagesPreview_{$image.image_id}&quot;&gt;</span>
+<span>		&lt;div class=&quot;media-editable-saved&quot;&gt;&lt;img src=&quot;{if $in_admin}../{/if}{external file='images/saved-check.png'}&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;</span>
+<span>		{if !$skipDelete}</span>
+<span>			&lt;a href=&quot;#{$image.image_id}&quot; class=&quot;deleteImage media-delete&quot;&gt;</span>
+<span>				{if $in_admin}</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>{foreach $images.images_data as $image}</span>
+<span>	&lt;div class=&quot;media-preview clearfix&quot; id=&quot;imagesPreview_{$image.image_id}&quot;&gt;</span>
+<span>		&lt;div class=&quot;media-editable-saved&quot;&gt;&lt;img src=&quot;{if $in_admin}../{/if}{external file='images/saved-check.png'}&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;</span>
+<span class="add">		{if $messages.502295 || $in_admin}</span>
+<span class="add">			&lt;a href=&quot;#{$image.image_id}&quot; class=&quot;rotateImage media-rotate&quot;&gt;</span>
+<span class="add">				{if $in_admin}</span>
+<span class="add">					&lt;img src=&quot;../{external file='images/buttons/rotate-cw.png'}&quot; alt=&quot;Rotate Image&quot; /&gt;</span>
+<span class="add">				{else}</span>
+<span class="add">					{$messages.502295}</span>
+<span class="add">				{/if}</span>
+<span class="add">			&lt;/a&gt;</span>
+<span class="add">		{/if}</span>
+<span>		{if !$skipDelete}</span>
+<span>			&lt;a href=&quot;#{$image.image_id}&quot; class=&quot;deleteImage media-delete&quot;&gt;</span>
+<span>				{if $in_admin}</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 2, make the following changes:
+							<pre class="code"><span>{foreach $images.images_data as $image}</span>
+<span>	&lt;div class=&quot;media-preview clearfix&quot; id=&quot;imagesPreview_{$image.image_id}&quot;&gt;</span>
+<span>		&lt;div class=&quot;media-editable-saved&quot;&gt;&lt;img src=&quot;{if $in_admin}../{/if}{external file='images/saved-check.png'}&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;</span>
+<span class="add">		{if $messages.502295 || $in_admin}</span>
+<span class="add">			&lt;a href=&quot;#{$image.image_id}&quot; class=&quot;rotateImage media-rotate&quot;&gt;</span>
+<span class="add">				{if $in_admin}</span>
+<span class="add">					&lt;img src=&quot;../{external file='images/buttons/rotate-cw.png'}&quot; alt=&quot;Rotate Image&quot; /&gt;</span>
+<span class="add">				{else}</span>
+<span class="add">					{$messages.502295}</span>
+<span class="add">				{/if}</span>
+<span class="add">			&lt;/a&gt;</span>
+<span class="add">		{/if}</span>
+<span>		{if !$skipDelete}</span>
+<span>			&lt;a href=&quot;#{$image.image_id}&quot; class=&quot;deleteImage media-delete&quot;&gt;</span>
+<span>				{if $in_admin}</span></pre>
+						</div>
+																				</li>
+			<li>
+							In file <strong>system/order_items/shared/details_description_box.tpl</strong>
+																										<br /><br />
+												<div class="findReplace" style="display: none;">
+							Near line 19, <strong>FIND:</strong><br />
+							<pre class="code"><span>			&lt;a href=&quot;#&quot; onclick=&quot;gjWysiwyg.toggleTinyEditors(); return false;&quot;&gt;{$messages.500235}&lt;/a&gt;</span>
+<span>			&lt;br /&gt;</span>
+<span>		{/if}</span>
+<span class="rem">		&lt;textarea id=&quot;main_description&quot; name=&quot;b[description]&quot;{if $field_config.textarea_wrap} style=&quot;white-space: pre;&quot;{/if} class=&quot;editor field&quot;&gt;{$desc_clean}&lt;/textarea&gt;</span>
+<span>	&lt;/div&gt;</span>
+<span>{/if}</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>			&lt;a href=&quot;#&quot; onclick=&quot;gjWysiwyg.toggleTinyEditors(); return false;&quot;&gt;{$messages.500235}&lt;/a&gt;</span>
+<span>			&lt;br /&gt;</span>
+<span>		{/if}</span>
+<span class="add">		&lt;textarea id=&quot;main_description&quot; name=&quot;b[description]&quot;{if $field_config.textarea_wrap} style=&quot;white-space: pre-wrap;&quot;{/if} class=&quot;editor field&quot;&gt;{$desc_clean}&lt;/textarea&gt;</span>
+<span>	&lt;/div&gt;</span>
+<span>{/if}</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 19, make the following changes:
+							<pre class="code"><span>			&lt;a href=&quot;#&quot; onclick=&quot;gjWysiwyg.toggleTinyEditors(); return false;&quot;&gt;{$messages.500235}&lt;/a&gt;</span>
+<span>			&lt;br /&gt;</span>
+<span>		{/if}</span>
+<span class="rem">		&lt;textarea id=&quot;main_description&quot; name=&quot;b[description]&quot;{if $field_config.textarea_wrap} style=&quot;white-space: pre;&quot;{/if} class=&quot;editor field&quot;&gt;{$desc_clean}&lt;/textarea&gt;</span>
+<span class="add">		&lt;textarea id=&quot;main_description&quot; name=&quot;b[description]&quot;{if $field_config.textarea_wrap} style=&quot;white-space: pre-wrap;&quot;{/if} class=&quot;editor field&quot;&gt;{$desc_clean}&lt;/textarea&gt;</span>
+<span>	&lt;/div&gt;</span>
+<span>{/if}</span></pre>
+						</div>
+																				</li>
+			<li>
+							In file <strong>system/order_items/shared/questions.tpl</strong>
+																										<br /><br />
+												<div class="findReplace" style="display: none;">
+							Near line 32, <strong>FIND:</strong><br />
+							<pre class="code"><span>				{elseif $question.type == 'textarea'}</span>
+<span>					{* Question value will be from user input, which is already html escaped *}</span>
+<span>					&lt;textarea name=&quot;b[question_value][{$key}]&quot; id=&quot;b[question_value][{$key}]&quot; cols=&quot;60&quot; rows=&quot;15&quot; class=&quot;field&quot;</span>
+<span class="rem">						{if $field_config.textarea_wrap}style=&quot;white-space: pre;&quot;{/if}&gt;{$session_variables.question_value.$key}&lt;/textarea&gt;</span>
+<span>				{elseif $question.type == &quot;check&quot;}</span>
+<span>					{* Question value will be from DB value, which is NOT already html escaped,</span>
+<span>						DO NOT remove the HTML escape for this specific type of question! *}</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>				{elseif $question.type == 'textarea'}</span>
+<span>					{* Question value will be from user input, which is already html escaped *}</span>
+<span>					&lt;textarea name=&quot;b[question_value][{$key}]&quot; id=&quot;b[question_value][{$key}]&quot; cols=&quot;60&quot; rows=&quot;15&quot; class=&quot;field&quot;</span>
+<span class="add">						{if $field_config.textarea_wrap}style=&quot;white-space: pre-wrap;&quot;{/if}&gt;{$session_variables.question_value.$key}&lt;/textarea&gt;</span>
+<span>				{elseif $question.type == &quot;check&quot;}</span>
+<span>					{* Question value will be from DB value, which is NOT already html escaped,</span>
+<span>						DO NOT remove the HTML escape for this specific type of question! *}</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 32, make the following changes:
+							<pre class="code"><span>				{elseif $question.type == 'textarea'}</span>
+<span>					{* Question value will be from user input, which is already html escaped *}</span>
+<span>					&lt;textarea name=&quot;b[question_value][{$key}]&quot; id=&quot;b[question_value][{$key}]&quot; cols=&quot;60&quot; rows=&quot;15&quot; class=&quot;field&quot;</span>
+<span class="rem">						{if $field_config.textarea_wrap}style=&quot;white-space: pre;&quot;{/if}&gt;{$session_variables.question_value.$key}&lt;/textarea&gt;</span>
+<span class="add">						{if $field_config.textarea_wrap}style=&quot;white-space: pre-wrap;&quot;{/if}&gt;{$session_variables.question_value.$key}&lt;/textarea&gt;</span>
+<span>				{elseif $question.type == &quot;check&quot;}</span>
+<span>					{* Question value will be from DB value, which is NOT already html escaped,</span>
+<span>						DO NOT remove the HTML escape for this specific type of question! *}</span></pre>
+						</div>
+																				</li>
+			<li>
+							New file added: <strong>system/payment_gateways/paypal_advanced/iframe.tpl</strong>
+					</li>
+			<li>
+							In file <strong>system/user_management/communications/list_communications.tpl</strong>
+																										<br /><br />
+												<div class="findReplace" style="display: none;">
+							Near line 6, <strong>FIND:</strong><br />
+							<pre class="code"><span>	&lt;p class=&quot;page_instructions&quot;&gt;{$messages.388}&lt;/p&gt;</span>
+<span>	</span>
+<span>	{if $showCommunications}</span>
+<span class="rem">		&lt;table style=&quot;width: 100%;&quot;&gt;</span>
+<span class="rem">			&lt;tr class=&quot;column_header&quot;&gt;</span>
+<span class="rem">				&lt;td class=&quot;nowrap&quot;&gt;{$messages.391}&lt;/td&gt;</span>
+<span class="rem">				&lt;td class=&quot;title&quot;&gt;{$messages.392}&lt;/td&gt;</span>
+<span class="rem">				&lt;td class=&quot;nowrap&quot;&gt;{$messages.393}&lt;/td&gt;</span>
+<span class="rem">				&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span class="rem">				&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span class="rem">			&lt;/tr&gt;</span>
+<span class="rem">			{foreach from=$communications item=comm}</span>
+<span class="rem">				&lt;tr class=&quot;{cycle values='row_odd,row_even'}{if !$comm.read}_highlight{/if}&quot;&gt;</span>
+<span class="rem">					&lt;td&gt;</span>
+<span class="rem">						{if $comm.sender_id}&lt;a href=&quot;{$classifieds_file_name}?a=6&amp;amp;b={$comm.sender_id}&quot;&gt;{/if}</span>
+<span class="rem">						{$comm.sender}</span>
+<span class="rem">						{if $comm.sender_id}&lt;/a&gt;{/if}</span>
+<span class="rem">					&lt;/td&gt;</span>
+<span class="rem">					&lt;td&gt;{$comm.listingTitle}&lt;/td&gt;</span>
+<span class="rem">					&lt;td&gt;{$comm.dateSent}&lt;/td&gt;</span>
+<span class="rem">					&lt;td&gt;&lt;a href=&quot;{$comm.viewLink}&quot; class=&quot;mini_button&quot;&gt;{$messages.394}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="rem">					&lt;td&gt;&lt;a href=&quot;{$comm.deleteLink}&quot; class=&quot;delete&quot;&gt;{$messages.395}&lt;/a&gt;&lt;/td&gt;</span>
+<span>				&lt;/tr&gt;</span>
+<span class="rem">			{/foreach}</span>
+<span class="rem">		&lt;/table&gt;</span>
+<span>	{else}</span>
+<span>		{* no communications for this user *}</span>
+<span>		&lt;div class=&quot;field_error_box&quot;&gt;{$messages.390}&lt;/div&gt;</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>	&lt;p class=&quot;page_instructions&quot;&gt;{$messages.388}&lt;/p&gt;</span>
+<span>	</span>
+<span>	{if $showCommunications}</span>
+<span class="add">		{if $communications.received|count &gt; 0}</span>
+<span class="add">			&lt;table style=&quot;width: 100%;&quot;&gt;</span>
+<span class="add">				&lt;tr class=&quot;column_header&quot;&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;{$messages.391}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;title&quot;&gt;{$messages.392}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;{$messages.393}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span>				&lt;/tr&gt;</span>
+<span class="add">				{foreach from=$communications.received item=comm}</span>
+<span class="add">					&lt;tr class=&quot;{cycle values='row_odd,row_even'}{if !$comm.read}_highlight{/if}&quot;&gt;</span>
+<span class="add">						&lt;td&gt;</span>
+<span class="add">							{if $comm.sender_id}&lt;a href=&quot;{$classifieds_file_name}?a=6&amp;amp;b={$comm.sender_id}&quot;&gt;{/if}</span>
+<span class="add">							{$comm.sender}</span>
+<span class="add">							{if $comm.sender_id}&lt;/a&gt;{/if}</span>
+<span class="add">						&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;{$comm.listingTitle}&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;{$comm.dateSent}&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;&lt;a href=&quot;{$comm.viewLink}&quot; class=&quot;mini_button&quot;&gt;{$messages.394}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;&lt;a href=&quot;{$comm.deleteLink}&quot; class=&quot;delete&quot;&gt;{$messages.395}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="add">					&lt;/tr&gt;</span>
+<span class="add">				{/foreach}</span>
+<span class="add">			&lt;/table&gt;</span>
+<span class="add">		{/if}</span>
+<span class="add">		</span>
+<span class="add">		&lt;br /&gt;</span>
+<span class="add">		</span>
+<span class="add">		{if $communications.sent|count &gt; 0}</span>
+<span class="add">			&lt;table style=&quot;width: 100%;&quot;&gt;</span>
+<span class="add">				&lt;tr class=&quot;column_header&quot;&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;{$messages.502298}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;title&quot;&gt;{$messages.392}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;{$messages.502299}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span class="add">				&lt;/tr&gt;</span>
+<span class="add">				{foreach from=$communications.sent item=comm}</span>
+<span class="add">					&lt;tr class=&quot;{cycle values='row_odd,row_even'}&quot;&gt;</span>
+<span class="add">						&lt;td&gt;</span>
+<span class="add">							{if $comm.receiver_id}&lt;a href=&quot;{$classifieds_file_name}?a=6&amp;amp;b={$comm.receiver_id}&quot;&gt;{/if}</span>
+<span class="add">							{$comm.receiver}</span>
+<span class="add">							{if $comm.receiver_id}&lt;/a&gt;{/if}</span>
+<span class="add">						&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;{$comm.listingTitle}&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;{$comm.dateSent}&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;&lt;a href=&quot;{$comm.viewLink}&quot; class=&quot;mini_button&quot;&gt;{$messages.394}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;&lt;a href=&quot;{$comm.deleteLink}&quot; class=&quot;delete&quot;&gt;{$messages.395}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="add">					&lt;/tr&gt;</span>
+<span class="add">				{/foreach}</span>
+<span class="add">			&lt;/table&gt;</span>
+<span class="add">		{/if}</span>
+<span>	{else}</span>
+<span>		{* no communications for this user *}</span>
+<span>		&lt;div class=&quot;field_error_box&quot;&gt;{$messages.390}&lt;/div&gt;</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 6, make the following changes:
+							<pre class="code"><span>	&lt;p class=&quot;page_instructions&quot;&gt;{$messages.388}&lt;/p&gt;</span>
+<span>	</span>
+<span>	{if $showCommunications}</span>
+<span class="rem">		&lt;table style=&quot;width: 100%;&quot;&gt;</span>
+<span class="rem">			&lt;tr class=&quot;column_header&quot;&gt;</span>
+<span class="rem">				&lt;td class=&quot;nowrap&quot;&gt;{$messages.391}&lt;/td&gt;</span>
+<span class="rem">				&lt;td class=&quot;title&quot;&gt;{$messages.392}&lt;/td&gt;</span>
+<span class="rem">				&lt;td class=&quot;nowrap&quot;&gt;{$messages.393}&lt;/td&gt;</span>
+<span class="rem">				&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span class="rem">				&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span class="rem">			&lt;/tr&gt;</span>
+<span class="rem">			{foreach from=$communications item=comm}</span>
+<span class="rem">				&lt;tr class=&quot;{cycle values='row_odd,row_even'}{if !$comm.read}_highlight{/if}&quot;&gt;</span>
+<span class="rem">					&lt;td&gt;</span>
+<span class="rem">						{if $comm.sender_id}&lt;a href=&quot;{$classifieds_file_name}?a=6&amp;amp;b={$comm.sender_id}&quot;&gt;{/if}</span>
+<span class="rem">						{$comm.sender}</span>
+<span class="rem">						{if $comm.sender_id}&lt;/a&gt;{/if}</span>
+<span class="rem">					&lt;/td&gt;</span>
+<span class="rem">					&lt;td&gt;{$comm.listingTitle}&lt;/td&gt;</span>
+<span class="rem">					&lt;td&gt;{$comm.dateSent}&lt;/td&gt;</span>
+<span class="rem">					&lt;td&gt;&lt;a href=&quot;{$comm.viewLink}&quot; class=&quot;mini_button&quot;&gt;{$messages.394}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="rem">					&lt;td&gt;&lt;a href=&quot;{$comm.deleteLink}&quot; class=&quot;delete&quot;&gt;{$messages.395}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="add">		{if $communications.received|count &gt; 0}</span>
+<span class="add">			&lt;table style=&quot;width: 100%;&quot;&gt;</span>
+<span class="add">				&lt;tr class=&quot;column_header&quot;&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;{$messages.391}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;title&quot;&gt;{$messages.392}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;{$messages.393}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span>				&lt;/tr&gt;</span>
+<span class="rem">			{/foreach}</span>
+<span class="rem">		&lt;/table&gt;</span>
+<span class="add">				{foreach from=$communications.received item=comm}</span>
+<span class="add">					&lt;tr class=&quot;{cycle values='row_odd,row_even'}{if !$comm.read}_highlight{/if}&quot;&gt;</span>
+<span class="add">						&lt;td&gt;</span>
+<span class="add">							{if $comm.sender_id}&lt;a href=&quot;{$classifieds_file_name}?a=6&amp;amp;b={$comm.sender_id}&quot;&gt;{/if}</span>
+<span class="add">							{$comm.sender}</span>
+<span class="add">							{if $comm.sender_id}&lt;/a&gt;{/if}</span>
+<span class="add">						&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;{$comm.listingTitle}&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;{$comm.dateSent}&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;&lt;a href=&quot;{$comm.viewLink}&quot; class=&quot;mini_button&quot;&gt;{$messages.394}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;&lt;a href=&quot;{$comm.deleteLink}&quot; class=&quot;delete&quot;&gt;{$messages.395}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="add">					&lt;/tr&gt;</span>
+<span class="add">				{/foreach}</span>
+<span class="add">			&lt;/table&gt;</span>
+<span class="add">		{/if}</span>
+<span class="add">		</span>
+<span class="add">		&lt;br /&gt;</span>
+<span class="add">		</span>
+<span class="add">		{if $communications.sent|count &gt; 0}</span>
+<span class="add">			&lt;table style=&quot;width: 100%;&quot;&gt;</span>
+<span class="add">				&lt;tr class=&quot;column_header&quot;&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;{$messages.502298}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;title&quot;&gt;{$messages.392}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;{$messages.502299}&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span class="add">					&lt;td class=&quot;nowrap&quot;&gt;&lt;/td&gt;</span>
+<span class="add">				&lt;/tr&gt;</span>
+<span class="add">				{foreach from=$communications.sent item=comm}</span>
+<span class="add">					&lt;tr class=&quot;{cycle values='row_odd,row_even'}&quot;&gt;</span>
+<span class="add">						&lt;td&gt;</span>
+<span class="add">							{if $comm.receiver_id}&lt;a href=&quot;{$classifieds_file_name}?a=6&amp;amp;b={$comm.receiver_id}&quot;&gt;{/if}</span>
+<span class="add">							{$comm.receiver}</span>
+<span class="add">							{if $comm.receiver_id}&lt;/a&gt;{/if}</span>
+<span class="add">						&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;{$comm.listingTitle}&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;{$comm.dateSent}&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;&lt;a href=&quot;{$comm.viewLink}&quot; class=&quot;mini_button&quot;&gt;{$messages.394}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="add">						&lt;td&gt;&lt;a href=&quot;{$comm.deleteLink}&quot; class=&quot;delete&quot;&gt;{$messages.395}&lt;/a&gt;&lt;/td&gt;</span>
+<span class="add">					&lt;/tr&gt;</span>
+<span class="add">				{/foreach}</span>
+<span class="add">			&lt;/table&gt;</span>
+<span class="add">		{/if}</span>
+<span>	{else}</span>
+<span>		{* no communications for this user *}</span>
+<span>		&lt;div class=&quot;field_error_box&quot;&gt;{$messages.390}&lt;/div&gt;</span></pre>
+						</div>
+																				</li>
+			<li>
+							In file <strong>system/user_management/communications/view_communication.tpl</strong>
+								<br /><br /><ol style="list-style-type: upper-alpha;">											<li>						<div class="findReplace" style="display: none;">
+							Near line 1, <strong>FIND:</strong><br />
+							<pre class="code"><span>{* 7.5.0-1-g2e67918 *}</span>
+<span class="rem">{if $sender != '--'}&lt;form action=&quot;{$formTarget}&quot; method=&quot;post&quot;&gt;{/if}</span>
+<span>	&lt;div class=&quot;content_box&quot;&gt;</span>
+<span>		&lt;h1 class=&quot;title my_account&quot;&gt;{$messages.625}&lt;/h1&gt;</span>
+<span>		&lt;h1 class=&quot;subtitle&quot;&gt;{$messages.410}&lt;/h1&gt;</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>{* 7.5.0-1-g2e67918 *}</span>
+<span class="add">{if $canReply}&lt;form action=&quot;{$formTarget}&quot; method=&quot;post&quot;&gt;{/if}</span>
+<span>	&lt;div class=&quot;content_box&quot;&gt;</span>
+<span>		&lt;h1 class=&quot;title my_account&quot;&gt;{$messages.625}&lt;/h1&gt;</span>
+<span>		&lt;h1 class=&quot;subtitle&quot;&gt;{$messages.410}&lt;/h1&gt;</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 1, make the following changes:
+							<pre class="code"><span>{* 7.5.0-1-g2e67918 *}</span>
+<span class="rem">{if $sender != '--'}&lt;form action=&quot;{$formTarget}&quot; method=&quot;post&quot;&gt;{/if}</span>
+<span class="add">{if $canReply}&lt;form action=&quot;{$formTarget}&quot; method=&quot;post&quot;&gt;{/if}</span>
+<span>	&lt;div class=&quot;content_box&quot;&gt;</span>
+<span>		&lt;h1 class=&quot;title my_account&quot;&gt;{$messages.625}&lt;/h1&gt;</span>
+<span>		&lt;h1 class=&quot;subtitle&quot;&gt;{$messages.410}&lt;/h1&gt;</span></pre>
+						</div>
+						</li>											<li>						<div class="findReplace" style="display: none;">
+							Near line 32, <strong>FIND:</strong><br />
+							<pre class="code"><span>			{$message}</span>
+<span>		&lt;/div&gt;</span>
+<span>	&lt;/div&gt;</span>
+<span class="rem">	{if $sender != '--'}</span>
+<span>		&lt;br /&gt;</span>
+<span>		&lt;div class=&quot;content_box&quot;&gt;</span>
+<span>			&lt;h1 class=&quot;title&quot;&gt;{$messages.415}&lt;/h1&gt;</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>			{$message}</span>
+<span>		&lt;/div&gt;</span>
+<span>	&lt;/div&gt;</span>
+<span class="add">	{if $canReply}</span>
+<span>		&lt;br /&gt;</span>
+<span>		&lt;div class=&quot;content_box&quot;&gt;</span>
+<span>			&lt;h1 class=&quot;title&quot;&gt;{$messages.415}&lt;/h1&gt;</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 32, make the following changes:
+							<pre class="code"><span>			{$message}</span>
+<span>		&lt;/div&gt;</span>
+<span>	&lt;/div&gt;</span>
+<span class="rem">	{if $sender != '--'}</span>
+<span class="add">	{if $canReply}</span>
+<span>		&lt;br /&gt;</span>
+<span>		&lt;div class=&quot;content_box&quot;&gt;</span>
+<span>			&lt;h1 class=&quot;title&quot;&gt;{$messages.415}&lt;/h1&gt;</span></pre>
+						</div>
+						</li>											<li>						<div class="findReplace" style="display: none;">
+							Near line 58, <strong>FIND:</strong><br />
+							<pre class="code"><span>		&lt;a href=&quot;{$userManagementHomeLink}&quot; class=&quot;button&quot;&gt;{$messages.416}&lt;/a&gt;</span>
+<span>	&lt;/div&gt;</span>
+<span>	</span>
+<span class="rem">{if $sender != '--'}&lt;/form&gt;{/if}</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>		&lt;a href=&quot;{$userManagementHomeLink}&quot; class=&quot;button&quot;&gt;{$messages.416}&lt;/a&gt;</span>
+<span>	&lt;/div&gt;</span>
+<span>	</span>
+<span class="add">{if $canReply}&lt;/form&gt;{/if}</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 58, make the following changes:
+							<pre class="code"><span>		&lt;a href=&quot;{$userManagementHomeLink}&quot; class=&quot;button&quot;&gt;{$messages.416}&lt;/a&gt;</span>
+<span>	&lt;/div&gt;</span>
+<span>	</span>
+<span class="rem">{if $sender != '--'}&lt;/form&gt;{/if}</span>
+<span class="add">{if $canReply}&lt;/form&gt;{/if}</span></pre>
+						</div>
+						</li>									</ol>					</li>
+			<li>
+							In file <strong>system/user_management/current_ads/list.tpl</strong>
+																										<br /><br />
+												<div class="findReplace" style="display: none;">
+							Near line 59, <strong>FIND:</strong><br />
+							<pre class="code"><span>							{$listing.date|format_date:$date_format}</span>
+<span>						{/if}</span>
+<span>						</span>
+<span class="rem">						&lt;br /&gt;</span>
+<span>						</span>
+<span class="rem">						{$messages.508}: </span>
+<span class="rem">						{if $listing.item_type eq 2 &amp;&amp; $listing.delayed_start eq 1}</span>
+<span class="rem">							{$messages.500228}</span>
+<span class="rem">						{else}</span>
+<span class="rem">							{$listing.ends|format_date:$date_format}</span>
+<span>						{/if}</span>
+<span>						{if $listing.item_type==2 &amp;&amp; $listing.price_applies=='item'}</span>
+<span>							&lt;br /&gt;</span>
+<span>							{$messages.502122} {$listing.quantity}&lt;br /&gt;</span>
+<span>							{$messages.502123} {$listing.quantity_remaining}</span>
+<span>						{/if}</span>
+<span>					&lt;/div&gt;</span>
+<span>					</span>
+<span>					&lt;br /&gt;</span></pre>
+							<br />
+							<strong>Replace With:</strong>
+							<pre class="code"><span>							{$listing.date|format_date:$date_format}</span>
+<span>						{/if}</span>
+<span>						</span>
+<span>						</span>
+<span class="add">						{if $listing.ends}</span>
+<span class="add">							&lt;br /&gt;</span>
+<span class="add">							{$messages.508}: </span>
+<span class="add">							{if $listing.item_type eq 2 &amp;&amp; $listing.delayed_start eq 1}</span>
+<span class="add">								{$messages.500228}</span>
+<span class="add">							{else}</span>
+<span class="add">								{$listing.ends|format_date:$date_format}</span>
+<span class="add">							{/if}</span>
+<span>						{/if}</span>
+<span class="add">						</span>
+<span>						{if $listing.item_type==2 &amp;&amp; $listing.price_applies=='item'}</span>
+<span>							&lt;br /&gt;</span>
+<span>							{$messages.502122} {$listing.quantity}&lt;br /&gt;</span>
+<span>							{$messages.502123} {$listing.quantity_remaining}</span>
+<span>						{/if}</span>
+<span class="add">						</span>
+<span>					&lt;/div&gt;</span>
+<span>					</span>
+<span>					&lt;br /&gt;</span></pre>
+						</div>
+						<div class="inline" style="display: none;">
+							Near line 59, make the following changes:
+							<pre class="code"><span>							{$listing.date|format_date:$date_format}</span>
+<span>						{/if}</span>
+<span>						</span>
+<span class="rem">						&lt;br /&gt;</span>
+<span>						</span>
+<span class="rem">						{$messages.508}: </span>
+<span class="rem">						{if $listing.item_type eq 2 &amp;&amp; $listing.delayed_start eq 1}</span>
+<span class="rem">							{$messages.500228}</span>
+<span class="rem">						{else}</span>
+<span class="rem">							{$listing.ends|format_date:$date_format}</span>
+<span class="add">						{if $listing.ends}</span>
+<span class="add">							&lt;br /&gt;</span>
+<span class="add">							{$messages.508}: </span>
+<span class="add">							{if $listing.item_type eq 2 &amp;&amp; $listing.delayed_start eq 1}</span>
+<span class="add">								{$messages.500228}</span>
+<span class="add">							{else}</span>
+<span class="add">								{$listing.ends|format_date:$date_format}</span>
+<span class="add">							{/if}</span>
+<span>						{/if}</span>
+<span class="add">						</span>
+<span>						{if $listing.item_type==2 &amp;&amp; $listing.price_applies=='item'}</span>
+<span>							&lt;br /&gt;</span>
+<span>							{$messages.502122} {$listing.quantity}&lt;br /&gt;</span>
+<span>							{$messages.502123} {$listing.quantity_remaining}</span>
+<span>						{/if}</span>
+<span class="add">						</span>
+<span>					&lt;/div&gt;</span>
+<span>					</span>
+<span>					&lt;br /&gt;</span></pre>
+						</div>
+																				</li>
+	</ol>
+<!-- /AUTO changelog 7.5.0 --><!-- /AUTO CHANGELOGS -->
+
+<a href="../changelogs.php">Other Changelogs</a>
+</body>
+</html> 
