@@ -141,7 +141,7 @@ class addon_ppDogClicker_admin extends addon_ppDogClicker_info
             // Insert new row
             $sql = "INSERT INTO petsplease_dogclicker_images (thumb_url, full_url, dogname, trainer, age, months, comments) VALUES ";
 
-			$sql .= "('$thumb_url', '$full_url', '$name', '$trainer', $age, $months, '$comments')"; 
+			$sql .= "('$thumb_url', '$full_url', '$name', '$trainer', '$age', '$months', '$comments')"; 
 
 			$db->Execute($sql);
 
