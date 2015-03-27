@@ -49,7 +49,7 @@
 		{* This is the new image/edit image box that will be put into place by JS,
 			or hidden if no empty slots *}
 		<div class="imageBox" id="newImageBox" style="display: none;">
-			<div class="imageBoxTitleNew" id="imageUploadTitle">{$messages.500711}</div>
+			<div class="imageBoxTitleNew" id="imageUploadTitle">New Image Upload</div>
 			<div class="imagePreview emptyPreview" id="imagePreview">{$messages.500712}</div>
 			<div class="progressContainer">
 				<div id="uploadBar" style="width: 1%;"><img id="barAnimation" src="{if $in_admin}../{/if}{external file='images/animation_bar.gif'}" alt="Processing Image" style="display: none;" /></div>

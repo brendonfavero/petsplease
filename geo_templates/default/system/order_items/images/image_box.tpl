@@ -20,12 +20,12 @@
 				{if $in_admin}
 					<img src="../{external file='images/buttons/edit.png'}" alt="Edit Image Info" />
 				{else}
-					{$messages.500714}
+					<img src="../{external file='images/buttons/edit.png'}" alt="Edit Image Info" />
 				{/if}
 			</span>
 		</div>
 		<div class="imageBoxTitleHandle">
-			{$messages.500696}
+			Change Order :: Click & Drag
 		</div>
 	{/if}
 </div>
@@ -57,10 +57,10 @@
 		{/if}
 	</div>
 </div>
-<span class="fileSlotLabel">{$messages.500698}</span> <span class="fileSlotValue">{if $position == 1}{$messages.500699}{else}{$position}{/if}</span>
+<span class="fileSlotLabel">{$messages.500698}</span> <span class="fileSlotValue">{if $position == 1}Lead Image{else}{$position}{/if}</span>
 <br />
 <div class="fileTitleBox">
-	<span class="fileTitleLabel">{$messages.500700}</span> <span class="fileTitleValue">{if !$slotData.image.image_text}{$messages.500701}{else}{$slotData.image.image_text}{/if}</span>
+	<span class="fileTitleLabel">Title</span> <span class="fileTitleValue">{if !$slotData.image.image_text}{$messages.500701}{else}{$slotData.image.image_text}{/if}</span>
 </div>
 <input type="hidden" id="imageTitle_{$position}" value="{$slotData.image.image_text}" />
 <br />
