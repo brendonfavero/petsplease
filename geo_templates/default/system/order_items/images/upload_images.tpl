@@ -70,7 +70,7 @@
 
 			<div class="uploadButtonsContainer">
 				<input type="button" value="{$messages.500713}" style="display: none;" id="cancelUploadButton" class="mini_cancel" />
-				<input type="button" value="{$messages.500676}" disabled="disabled" id="uploadButton" class="mini_button" />
+				<input type="button" value="Upload Image" disabled="disabled" id="uploadButton" class="mini_button" />
 			</div>
 		</div>
 		<div style="clear:both;"></div>
