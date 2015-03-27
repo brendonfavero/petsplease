@@ -759,7 +759,7 @@
 				<input type="submit" name="submit" value="1" style="display: none;" class="mainSubmit" />
 			{else}
 				<br /><br />
-				<input type="submit" name="submit" value="{$submit_button_txt}" class="button mainSubmit" />
+				<input type="submit" name="submit" value="Continue >>" class="button mainSubmit" />
 			{/if}
 			<br /><br />
 			<a href="{$cart_url}&amp;action=cancel" class="cancel">{$cancel_txt}</a>
