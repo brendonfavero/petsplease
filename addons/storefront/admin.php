@@ -19,7 +19,7 @@ see license attached to distribution
 class addon_storefront_admin extends addon_storefront_info {
 	var $db;
 	var $site_configuration_table = "geodesic_classifieds_configuration";
-	var $classified_categories_languages_table = "geodesic_classifieds_categories_languages";
+	var $classified_categories_languages_table = "geodesic_categories_languages";
 	var $categories_table = "geodesic_categories";
 	var $classified_categories_table = "geodesic_categories";
 	var $color;

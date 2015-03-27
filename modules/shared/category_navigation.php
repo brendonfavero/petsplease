@@ -47,12 +47,12 @@ if ($show_module['module_display_sub_category_nav_links']) {
 	$sql = "SELECT child_cat.parent_id,
 			child_cat.category_id,
 			child_lang.category_name
-			FROM geodesic_classifieds_categories_languages AS parent_lang
+			FROM geodesic_categories_languages AS parent_lang
 			INNER JOIN geodesic_categories AS parent_cat 
 			ON parent_lang.category_id = parent_cat.category_id
 			LEFT JOIN geodesic_categories AS child_cat 
 			ON child_cat.parent_id = parent_cat.category_id
-			INNER JOIN geodesic_classifieds_categories_languages AS child_lang 
+			INNER JOIN geodesic_categories_languages AS child_lang 
 			ON child_lang.category_id = child_cat.category_id
 			WHERE parent_cat.parent_id $parentIn AND child_cat.category_id IS NOT NULL
 			AND parent_lang.language_id = ".$page->language_id."

@@ -1489,7 +1489,7 @@ class Admin_categories extends Admin_site{
 						$update_str[] = "{$field} = ?";
 						$updates[] = $info[$language_id]["templates"][$field];
 					}
-					$sql = "update geodesic_classifieds_categories_languages set ".implode(", ", $update_str)." where category_id in ('".implode("', '", $targets)."') and language_id = ".$language_id;
+					$sql = "update geodesic_categories_languages set ".implode(", ", $update_str)." where category_id in ('".implode("', '", $targets)."') and language_id = ".$language_id;
 					//echo $sql."<bR>\n";
 					if(false === $this->db->Execute($sql, $updates)) {
 						//echo $this->db->ErrorMsg()." is the error<br>\n";
@@ -1512,7 +1512,7 @@ class Admin_categories extends Admin_site{
 				//echo '<br>';var_dump($update_str);echo '<br>';
 				//in ('".implode("', '", $targets)."')");
 				
-				$sql = "update geodesic_classifieds_categories_languages set ".implode(", ", $update_str)." where category_id = ? and language_id = ".$language_id;
+				$sql = "update geodesic_categories_languages set ".implode(", ", $update_str)." where category_id = ? and language_id = ".$language_id;
 				//echo $sql."<bR>\n";
 				if(false === $this->db->Execute($sql, $updates)){
 					Admin_site::error($this->db->ErrorMsg(), __LINE__, __FILE__, false);
@@ -1556,7 +1556,7 @@ class Admin_categories extends Admin_site{
 		} else {
 			$this->db =& DataAccess::getInstance();
 		}
-		$name = $this->db->GetOne("select category_name from geodesic_classifieds_categories_languages where category_id = ? order by language_id asc", $categoryId);
+		$name = $this->db->GetOne("select category_name from geodesic_categories_languages where category_id = ? order by language_id asc", $categoryId);
 		if(false === $name) {
 			Admin_site::error($this->db->ErrorMsg(), __LINE__, __FILE__);
 		}

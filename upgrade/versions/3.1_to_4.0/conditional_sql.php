@@ -73,10 +73,10 @@ if ( $languages_rs && $template_rs )
 	$templates = $template_rs->FetchRow();
 	while ( $language = $languages_rs->FetchRow() )
 	{
-		$check_rs = $this->_db->Execute( "SELECT * FROM `geodesic_classifieds_categories_languages` WHERE `category_id` = 0 AND `language_id` = ".$language['language_id'] );
+		$check_rs = $this->_db->Execute( "SELECT * FROM `geodesic_categories_languages` WHERE `category_id` = 0 AND `language_id` = ".$language['language_id'] );
 		if ( !$check_rs || $check_rs->RecordCount() == 0 )
 		{
-			$sql_not_strict [] = "INSERT IGNORE INTO `geodesic_classifieds_categories_languages` (`category_id`, `template_id`, `ad_detail_print_friendly_template`, `auction_detail_print_friendly_template`, `language_id` ) 	VALUES  ('0', '0', '".$templates['ad_detail_print_friendly_template']."', '".$templates['auction_detail_print_friendly_template']."', '".$language['language_id']."')";
+			$sql_not_strict [] = "INSERT IGNORE INTO `geodesic_categories_languages` (`category_id`, `template_id`, `ad_detail_print_friendly_template`, `auction_detail_print_friendly_template`, `language_id` ) 	VALUES  ('0', '0', '".$templates['ad_detail_print_friendly_template']."', '".$templates['auction_detail_print_friendly_template']."', '".$language['language_id']."')";
 		}
 	}
 }

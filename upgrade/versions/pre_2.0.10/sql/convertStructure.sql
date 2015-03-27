@@ -19,7 +19,7 @@ ALTER TABLE `geodesic_auctions_subscription_choices` RENAME TO `geodesic_classif
 ALTER TABLE `geodesic_auctions_user_credits` RENAME TO `geodesic_classifieds_user_credits`;
 ALTER TABLE `geodesic_auctions_user_subscriptions` RENAME TO `geodesic_classifieds_user_subscriptions`;
 ALTER TABLE `geodesic_auctions_user_subscriptions_holds` RENAME TO `geodesic_classifieds_user_subscriptions_holds`;
-ALTER TABLE `geodesic_categories_languages` RENAME TO `geodesic_classifieds_categories_languages`;
+ALTER TABLE `geodesic_categories_languages` RENAME TO `geodesic_categories_languages`;
 ALTER TABLE `geodesic_discount_codes` RENAME TO `geodesic_classifieds_discount_codes`;
 ALTER TABLE `geodesic_images` RENAME TO `geodesic_classifieds_images`;
 ALTER TABLE `geodesic_images_urls` RENAME TO `geodesic_classifieds_images_urls`;
@@ -32,7 +32,7 @@ ALTER TABLE `geodesic_categories` CHANGE COLUMN `url_link_1` `use_url_link_1` IN
 	CHANGE COLUMN `url_link_3` `use_url_link_3` INTEGER NOT NULL DEFAULT 0;
 ALTER TABLE `geodesic_classifieds_ads_extra` CHANGE COLUMN `auction_id` `classified_id` INTEGER NOT NULL DEFAULT 0;  /* DOESN'T EXIST? */
 ALTER TABLE `geodesic_classifieds_ad_configuration` CHANGE COLUMN `user_auction_template` `user_ad_template` INTEGER NOT NULL DEFAULT 0; /* DANGEROUS */
-ALTER TABLE `geodesic_classifieds_categories_languages` CHANGE COLUMN `auction_template_id` `template_id` INTEGER NOT NULL DEFAULT 0,  /* DANGEROUS */
+ALTER TABLE `geodesic_categories_languages` CHANGE COLUMN `auction_template_id` `template_id` INTEGER NOT NULL DEFAULT 0,  /* DANGEROUS */
 	CHANGE COLUMN `auction_secondary_template_id` `secondary_template_id` INTEGER NOT NULL DEFAULT 0,
 	CHANGE COLUMN `auction_display_template_id` `ad_display_template_id` INTEGER NOT NULL DEFAULT 0,
 	CHANGE COLUMN `auction_detail_full_image_display_template_id` `ad_detail_full_image_display_template_id` INTEGER NOT NULL DEFAULT 0;
@@ -536,7 +536,7 @@ ALTER TABLE `geodesic_classifieds_ad_configuration` ADD `auctions_user_ad_templa
 	ADD `require_buy_now` TINYINT(11) NOT NULL DEFAULT '0',
 	ADD `clientside_image_uploader_view` TINYINT(4) NOT NULL DEFAULT '0',
 	ADD `image_uploader_default` TINYINT(4) NOT NULL DEFAULT '0';
-ALTER TABLE `geodesic_classifieds_categories_languages` ADD `ad_detail_display_template_id` INT(11) NOT NULL DEFAULT '0',
+ALTER TABLE `geodesic_categories_languages` ADD `ad_detail_display_template_id` INT(11) NOT NULL DEFAULT '0',
 	ADD `ad_detail_extra_display_template_id` INT(11) NOT NULL DEFAULT '0',
 	ADD `ad_detail_checkbox_display_template_id` INT(11) NOT NULL DEFAULT '0',
 	ADD `ad_detail_print_friendly_template` INT(11) NOT NULL DEFAULT '0';

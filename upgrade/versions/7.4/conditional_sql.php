@@ -55,7 +55,7 @@ $sql_not_strict[] = "UPDATE `geodesic_categories` SET `level`=0 WHERE `level`=1 
 
 
 //rename geodesic_categories_languages to geodesic_categories_languages
-$sql_not_strict[] = "RENAME TABLE `geodesic_classifieds_categories_languages` TO `geodesic_categories_languages`";
+$sql_not_strict[] = "RENAME TABLE `geodesic_categories_languages` TO `geodesic_categories_languages`";
 
 
 //add new classified fields

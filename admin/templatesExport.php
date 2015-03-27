@@ -363,7 +363,7 @@ $tpl_code
 		     . "ad_display_template_id, ad_detail_display_template_id,"
 		     . "auction_detail_display_template_id, ad_detail_full_image_display_template_id,"
 		     . "ad_detail_print_friendly_template, auction_detail_print_friendly_template,"
-		     . "search_template_id, language_id FROM `geodesic_classifieds_categories_languages`";
+		     . "search_template_id, language_id FROM `geodesic_categories_languages`";
 		     //. "ORDER BY category_id, language_id LIMIT $start, $at_once";//pagination start
 		
 		//Do NOT use GetAll - it causes problems on sites with a TON of cat-specific

@@ -569,7 +569,7 @@ if($templateIdResult = $this->_db->Execute("SELECT user_ad_template, user_extra_
 }
 
 //move extra question/check box tmplates for categories
-if($templateIdResults = $this->_db->Execute("SELECT ad_detail_display_template_id, ad_detail_extra_display_template_id, ad_detail_checkbox_display_template_id, auction_detail_display_template_id, auction_detail_extra_display_template_id, auction_detail_checkbox_display_template_id, ad_detail_print_friendly_template, auction_detail_print_friendly_template FROM `geodesic_classifieds_categories_languages`")) {
+if($templateIdResults = $this->_db->Execute("SELECT ad_detail_display_template_id, ad_detail_extra_display_template_id, ad_detail_checkbox_display_template_id, auction_detail_display_template_id, auction_detail_extra_display_template_id, auction_detail_checkbox_display_template_id, ad_detail_print_friendly_template, auction_detail_print_friendly_template FROM `geodesic_categories_languages`")) {
 	while($templateIdResult = $templateIdResults->FetchRow()) {
 		if($templateIdResult["ad_detail_display_template_id"]!=0){
 			//classifieds

@@ -44,7 +44,7 @@ class Admin_site {
 	var $classified_extra_table = "geodesic_classifieds_ads_extra";
 	var $classified_categories_table = "geodesic_categories";
 	var $classified_filters_table = "geodesic_classifieds_filters";
-	var $classified_categories_languages_table = "geodesic_classifieds_categories_languages";
+	var $classified_categories_languages_table = "geodesic_categories_languages";
 	var $classified_filters_languages_table = "geodesic_classifieds_filters_languages";
 	var $logins_table = "geodesic_logins";
 	var $classified_sell_choices_table = "geodesic_classifieds_sell_question_choices";

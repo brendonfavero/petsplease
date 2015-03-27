@@ -236,11 +236,11 @@ INSERT INTO `geodesic_pages` (`page_id`, `section_id`, `name`, `description`, `s
 
 ALTER TABLE `geodesic_userdata` ADD `feedback_score` INT( 11 ) DEFAULT '0' NOT NULL , ADD `feedback_count` INT( 11 ) DEFAULT '0' NOT NULL , ADD `feedback_positive_count` INT( 11 ) DEFAULT '0' NOT NULL ;
 
-ALTER TABLE `geodesic_classifieds_categories_languages` ADD `auction_detail_display_template_id` INT( 11 ) NOT NULL ,
+ALTER TABLE `geodesic_categories_languages` ADD `auction_detail_display_template_id` INT( 11 ) NOT NULL ,
 	ADD `auction_detail_extra_display_template_id` INT( 11 ) NOT NULL ,
 	ADD `auction_detail_checkbox_display_template_id` INT( 11 ) NOT NULL ;
 ALTER TABLE `geodesic_classifieds_ad_configuration` ADD `auction_detail_print_friendly_template` INT( 11 ) DEFAULT '0' NOT NULL ;
-ALTER TABLE `geodesic_classifieds_categories_languages` ADD `auction_detail_print_friendly_template` INT( 11 ) DEFAULT '0' NOT NULL ;
+ALTER TABLE `geodesic_categories_languages` ADD `auction_detail_print_friendly_template` INT( 11 ) DEFAULT '0' NOT NULL ;
 
 ALTER TABLE `geodesic_pages_templates_affiliates` ADD `auctions_display_template_id` INT( 11 ) NOT NULL ,
 	ADD `auctions_extra_question_template_id` INT( 11 ) NOT NULL ,
@@ -710,7 +710,7 @@ CREATE TABLE IF NOT EXISTS `geodesic_site_settings_long` (
 	PRIMARY KEY ( `setting` )
 );
 
-ALTER TABLE `geodesic_classifieds_categories_languages` ADD `search_template_id` INT NOT NULL DEFAULT '0';
+ALTER TABLE `geodesic_categories_languages` ADD `search_template_id` INT NOT NULL DEFAULT '0';
 
 
 

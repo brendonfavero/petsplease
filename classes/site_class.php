@@ -30,7 +30,7 @@ class geoSite
 	var $classified_extra_table = "geodesic_classifieds_ads_extra";
 	var $categories_table = "geodesic_categories";
 	var $filters_table = "geodesic_classifieds_filters";
-	var $categories_languages_table = "geodesic_classifieds_categories_languages";
+	var $categories_languages_table = "geodesic_categories_languages";
 	var $filters_languages_table = "geodesic_classifieds_filters_languages";
 	var $logins_table = "geodesic_logins";
 	var $configuration_table = "geodesic_configuration";

@@ -44,7 +44,7 @@ $sql_not_strict[] = "ALTER TABLE `geodesic_userdata` ADD `verified` ENUM( 'no', 
 //header_html in categories
 $sql_not_strict[] = "ALTER TABLE `geodesic_categories` ADD `which_header_html` ENUM( 'parent', 'cat', 'default', 'cat+default' ) NOT NULL DEFAULT 'parent'";
 $sql_not_strict[] = "ALTER TABLE `geodesic_categories` ADD INDEX `which_header_html` ( `which_header_html` )";
-$sql_not_strict[] = "ALTER TABLE `geodesic_classifieds_categories_languages` ADD `header_html` TEXT NOT NULL AFTER `description` ";
+$sql_not_strict[] = "ALTER TABLE `geodesic_categories_languages` ADD `header_html` TEXT NOT NULL AFTER `description` ";
 
 //little bit of optimization
 $sql_not_strict[] = "ALTER TABLE `geodesic_classifieds` ADD INDEX `viewed` (`viewed`)";

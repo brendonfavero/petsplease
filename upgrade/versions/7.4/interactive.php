@@ -154,7 +154,7 @@ if (!$this->fieldExists('geodesic_categories','level')) {
 }
 if (!$this->tableExists('geodesic_categories_languages')) {
 	//rename table
-	$this->_db->Execute("RENAME TABLE `geodesic_classifieds_categories_languages` TO `geodesic_categories_languages`");
+	$this->_db->Execute("RENAME TABLE `geodesic_categories_languages` TO `geodesic_categories_languages`");
 }
 if (!$this->fieldExists('geodesic_categories_languages', 'category_image')) {
 	//add category_image to the languages table

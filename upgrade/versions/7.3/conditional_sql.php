@@ -39,7 +39,7 @@ $sql_not_strict = array (
 
 //Using head_html instead of header_html now days
 $sql_not_strict[] = "ALTER TABLE `geodesic_categories` CHANGE `which_header_html` `which_head_html` ENUM( 'parent', 'cat', 'default', 'cat+default' ) NOT NULL DEFAULT 'parent'";
-$sql_not_strict[] = "ALTER TABLE `geodesic_classifieds_categories_languages` CHANGE `header_html` `head_html` TEXT NOT NULL";
+$sql_not_strict[] = "ALTER TABLE `geodesic_categories_languages` CHANGE `header_html` `head_html` TEXT NOT NULL";
 $sql_not_strict[] = "UPDATE `geodesic_pages_messages` SET `name`='Default+head_html+text', `description`='Text+automatically+added+to+end+of+%7Bhead_html%7D' WHERE `message_id`=500961";
 
 //add cron job - send final fees due reminder every 30 days
