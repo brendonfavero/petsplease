@@ -87,6 +87,7 @@ class addon_ppTasks_pages extends addon_ppTasks_info
              LEFT JOIN ardex_emails_audit aud ON c.id = aud.listing_id AND aud.type = '20day'
                  WHERE aud.id IS NULL AND c.live = 1 AND c.last_featured IS NOT NULL 
                    AND sold_displayed = 0 
+                   AND cat.parent_id = 308
                    AND c.date + 1728000 < " . time() . " AND c.date + 1900800 > " . time();
 
         $res = $db->Execute($sql);
@@ -123,7 +124,7 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                 JOIN geodesic_userdata u ON c.seller = u.id 
                 JOIN geodesic_categories cat ON c.category = cat.category_id
                 LEFT JOIN ardex_emails_audit aud ON c.id = aud.listing_id AND aud.type = '50day'
-                WHERE aud.id IS NULL AND c.live = 1 AND sold_displayed = 0 
+                WHERE aud.id IS NULL AND c.live = 1 AND sold_displayed = 0 AND cat.parent_id = 308
                    AND c.date + 4320000 < " . time() . " AND c.date + 4492800 > " . time();
 
         $res = $db->Execute($sql);
@@ -161,7 +162,7 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                 JOIN geodesic_categories cat ON c.category = cat.category_id
                 JOIN geodesic_userdata u ON c.seller = u.id 
                 LEFT JOIN ardex_emails_audit aud ON c.id = aud.listing_id AND aud.type in ('119day', 'bulkexpirenotify')
-                WHERE aud.id IS NULL AND c.live = 1 AND sold_displayed = 0 
+                WHERE aud.id IS NULL AND c.live = 1 AND sold_displayed = 0 AND cat.parent_id = 308
                   AND c.ends - 129600 < " . time();
 
         $res = $db->Execute($sql);
@@ -205,7 +206,7 @@ class addon_ppTasks_pages extends addon_ppTasks_info
                 JOIN geodesic_categories cat ON c.category = cat.category_id
                 JOIN geodesic_userdata u ON c.seller = u.id 
                 LEFT JOIN ardex_emails_audit aud ON c.id = aud.listing_id AND aud.type in ('111day', 'bulkexpirenotify')
-                WHERE aud.id IS NULL AND c.live = 1 AND sold_displayed = 0 
+                WHERE aud.id IS NULL AND c.live = 1 AND sold_displayed = 0 AND cat.parent_id = 308
                   AND c.ends - 777600 < " . time() . " AND c.ends - 604800 > " . time();
 
         $res = $db->Execute($sql);
