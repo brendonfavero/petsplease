@@ -301,7 +301,7 @@
         <br clear="all" />
     </div>
     
-    
+    <div class="fb-comments" data-href="{$currenturl}" data-numposts="5" data-colorscheme="light"></div>
     <!-- end content box -->
     <div style="text-align:center;font-style:italic; margin-top:25px">
 		<strong style="font-weight:bold">Disclaimer:</strong> Every effort has been made to make the Site as accurate as possible. 
